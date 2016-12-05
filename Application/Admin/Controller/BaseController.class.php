@@ -7,6 +7,7 @@ class BaseController extends Controller {
         $sid = session('adminId');
         //判断用户是否登陆
         if(!isset($sid ) ) {
+        	echo "Login/index";
             redirect(U('Login/index'));
         }
 
