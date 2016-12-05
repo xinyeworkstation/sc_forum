@@ -3,9 +3,39 @@
 <div id="page-wrapper">
 
     <div class="row">
+    <if condition="$model[0]['cate1_id'] eq 1">
         <div class="col-md-6">
-            <a href="{:U('comment/index')}" class="btn btn-success">评论列表</a>
+            <a href="{:U('comment/index')}" class="btn btn-success">动态模板</a>
         </div>
+        <elseif condition="$model[0]['cate1_id'] eq 2"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">静态模板</a>
+        </div>
+        <elseif condition="$model[0]['cate1_id'] eq 3"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">登录器皮肤</a>
+        </div>
+        <elseif condition="$model[0]['cate1_id'] eq 4"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">游戏网站</a>
+        </div>
+        <elseif condition="$model[0]['cate1_id'] eq 5"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">网站原画</a>
+        </div>
+        <elseif condition="$model[0]['cate1_id'] eq 6"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">LOGO素材</a>
+        </div>
+        <elseif condition="$model[0]['cate1_id'] eq 7"/>
+        <div class="col-md-6">
+            <a href="{:U('comment/index')}" class="btn btn-success">其他素材</a>
+        </div>
+        <else />
+        <div class="col-md-6">
+            <a href="#" class="btn btn-success">该版区暂时没有评论</a>
+        </div>
+    </if>
 
         <div class="col-md-6">
             <form action="{:U('comment/index')}" method="post">
@@ -24,7 +54,6 @@
             <th>编号</th>
             <th>用户名</th>
             <th>评论内容</th>
-            <th>所属版区</th>
             <th>所属作品</th>
             <th>评论时间</th>
             <th>操作</th>
@@ -36,13 +65,12 @@
                 <td>{$vo.id}</td>
                 <td>{$vo.username}</td>
                 <td>{$vo.content}</td>
-                <td>{$vo.banqu}</td>
-                <td>{$vo.work}</td>
+                <td>{$vo.workname}</td>
                 <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
-                <if condition="($vo.flag eq 0)">
-                	<td style="color:red;">禁用中 | <a href="{:U('comment/show?id=')}{$vo.id}" style="color:#50AD1E;">显示</a></td>
+                <if condition="($vo.status eq 0)">
+                	<td style="color:red;">禁用中 | <a href="{:U('comment/show?id=')}{$vo.id}" style="color:#50AD1E;">显示</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" >删除</a></td>
                 <else />
-                	<td style="color:#50AD1E;">使用中 | <a href="{:U('comment/forbid?id=')}{$vo.id}" style="color:red;">禁用</a></td>
+                	<td style="color:#50AD1E;">使用中 | <a href="{:U('comment/forbid?id=')}{$vo.id}" style="color:red;">禁用</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" >删除</a></td>
                 </if>
             </tr>
         </foreach>
