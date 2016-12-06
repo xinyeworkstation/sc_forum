@@ -2,7 +2,74 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	text-decoration: none;
 }
 body{
-	background-color: red;
+	background-color:#fff;
+
+}
+/* footer */
+#footer{
+	/* max-width: 1300px; */
+	width:100%;
+	height: 395px;
+}
+/* footer_top */
+#footer .footer_top{
+	height: 250px;
+	width: 80%;
+	max-width: 1300px;
+	margin: 0 auto;
+
+}
+/* safety */
+#footer .safety{
+	float: left;
+	width: 205px;
+	height: 205px;
+	border-right: 1px solid #aaa;
+}
+/* 专注正版设计作品交易平台 */
+#footer .zlIntroduce{
+	float: left;
+	width: 510px;
+	height: 205px;
+	border-right: 1px solid #aaa;
+}
+/* 客户指南 */
+#footer .guide{
+	width: 240px;
+	height: 205px;
+	float: left;
+	border-right: 1px solid #aaa;
+}
+#footer .guide li{
+	float: left;
+	width: 50%;
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
+}
+/* footerLogo */
+#foote .footerLogo{
+	width: 170px;
+	height: 205px;
+	float: left;
+
+	border: 1px solid #aaa;
+}
+
+
+
+/* footer_bottom */
+.footer_bottom{
+	width: 100%;
+	height: 142px;
+	padding-top: 20px;
+	text-align: center;
+	clear: both;
+	background: #565656;
+}
+.footer_bottom p{
+	margin-top: 15px;
 }
