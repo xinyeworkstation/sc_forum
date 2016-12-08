@@ -3,13 +3,79 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="__STATIC__/css/">
+	<link rel="stylesheet" href="../Public/static/css/index-header.css">
+	<script>
+		// 实现头部选项框的下拉列表菜单
+		window.onload = function (){
+			var oInput = document.getElementById('optionSelect');
+			var aOps = document.getElementById('searchOps').getElementsByTagName('li');
+			// 点击显示隐藏的下拉列表
+			oInput.onclick = function (){
+				document.getElementById('searchOps').parentNode.style.display = 'block';
+				// for (var i = 1; i <= aOps.length; i++) {
+					aOps.onclick = function (ev){
+						var event = ev || document.event;
+						for ( var i = 0; i <= aOps.length; i++ ) {
+							aOps[i].className = '';
+						}
+						ev.className = 'choose';
+					};
+				// }
+			};
+			oInput.value = document.getElementsByClassName('choose')[0].innerHTML;
+		};
+	</script>
 </head>
 <body>
 	<header class="header">
-		<figure>
-			<img src="__PUBLIC__/images/" alt="">
-		</figure>
+		<!-- 头部LOGO这一栏开始 -->
+		<div class="headerTop">
+			<figure class="headerLogo">
+				<img src="../../../../Public/images/logo.jpg" alt="logo">
+				<figcaption>专注正版设计作品交易</figcaption>
+			</figure>
+			<!-- 表单搜索开始 -->
+			<form class="headerSearch">
+				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly>
+				<div class="headerSearchOptions">
+					<ul id="searchOps">
+						<li class="choose">全部</li>
+						<li>压缩包</li>
+						<li>flash</li>
+					</ul>
+				</div>
+				<input class="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
+				<input class="inputBtn" type="button" value="搜索">
+			</form>
+			<!-- 表单搜索结束 -->
+			<!-- 充值至发布作品开始 -->
+			<div class="headerPersonalDetails">
+				<ul>
+					<li><span class="icon">充</span><a href="#">充值</a><span class="rechageNumber">1</span></li>
+					<li><img src="../../../../Public/images/staricon.jpg"><a href="#">收藏</a></li>
+					<li><span class="icon">发</span><a href="#">发布作品</a></li>
+				</ul>
+			</div>
+			<!-- 充值至发布作品结束 -->
+			<div class="headerPersonal">
+				<a href="#"><img src="../../../../Public/images/personalvip.jpg" alt="头像"></a>
+				<span>而生</span>
+				<span>(ID:24867843)</span>
+			</div>
+		</div>
+		<!-- 头部LOGO这一栏结束 -->
 	</header>
+	<!-- 头部导航栏开始 -->
+	<nav class="headerNav">
+		<ul>
+			<li><a href="#">平台首页</a></li>
+			<li><a href="#">知了官网</a></li>
+			<li><a href="#">发布素材</a></li>
+			<li><a href="#">知了服务</a></li>
+			<li><a href="#">个人中心</a></li>
+			<li><a href="#">充值中心</a></li>
+		</ul>
+	</nav>
+	<!-- 头部导航栏结束 -->
 </body>
 </html>
