@@ -9,20 +9,13 @@
 		window.onload = function (){
 			var oInput = document.getElementById('optionSelect');
 			var aOps = document.getElementById('searchOps').getElementsByTagName('li');
+			var oSeach = document.getElementById('searchOps')
 			// 点击显示隐藏的下拉列表
 			oInput.onclick = function (){
-				document.getElementById('searchOps').parentNode.style.display = 'block';
-				// for (var i = 1; i <= aOps.length; i++) {
-					aOps.onclick = function (ev){
-						var event = ev || document.event;
-						for ( var i = 0; i <= aOps.length; i++ ) {
-							aOps[i].className = '';
-						}
-						ev.className = 'choose';
-					};
-				// }
+				if (oSeach.style.display = 'none') {
+					oSeach.style.display = 'block';
+				}
 			};
-			oInput.value = document.getElementsByClassName('choose')[0].innerHTML;
 		};
 	</script>
 </head>
@@ -36,10 +29,10 @@
 			</figure>
 			<!-- 表单搜索开始 -->
 			<form class="headerSearch">
-				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly>
-				<div class="headerSearchOptions">
-					<ul id="searchOps">
-						<li class="choose">全部</li>
+				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly value="全部">
+				<div class="headerSearchOptions" id="searchOps">
+					<ul>
+						<li>全部</li>
 						<li>压缩包</li>
 						<li>flash</li>
 					</ul>
@@ -48,19 +41,21 @@
 				<input class="inputBtn" type="button" value="搜索">
 			</form>
 			<!-- 表单搜索结束 -->
+			<div class="personal">
 			<!-- 充值至发布作品开始 -->
-			<div class="headerPersonalDetails">
-				<ul>
-					<li><span class="icon">充</span><a href="#">充值</a><span class="rechageNumber">1</span></li>
-					<li><img src="../../../../Public/images/staricon.jpg"><a href="#">收藏</a></li>
-					<li><span class="icon">发</span><a href="#">发布作品</a></li>
-				</ul>
-			</div>
-			<!-- 充值至发布作品结束 -->
-			<div class="headerPersonal">
-				<a href="#"><img src="../../../../Public/images/personalvip.jpg" alt="头像"></a>
-				<span>而生</span>
-				<span>(ID:24867843)</span>
+				<div class="headerPersonalDetails">
+					<ul>
+						<li><span class="icon">充</span><a href="#">充值</a><span class="rechageNumber">1</span></li>
+						<li><img src="../../../../Public/images/staricon.jpg"><a href="#">收藏</a></li>
+						<li><span class="icon">发</span><a href="#">发布作品</a></li>
+					</ul>
+				</div>
+				<!-- 充值至发布作品结束 -->
+				<div class="headerPersonal">
+					<a href="#"><img src="../../../../Public/images/personalvip.jpg" alt="头像"></a>
+					<span>而生</span>
+					<span>(ID:24867843)</span>
+				</div>
 			</div>
 		</div>
 		<!-- 头部LOGO这一栏结束 -->
