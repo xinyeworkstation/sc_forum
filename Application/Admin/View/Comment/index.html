@@ -40,7 +40,8 @@
         <div class="col-md-6">
             <form action="{:U('comment/index')}" method="post">
                 <div class="form-group input-group">
-                    <input type="text" class="form-control" name="key" placeholder="输入评论内容关键词搜索">
+                    <input type="hidden" name="cate_id" value="{$model[0]['cate1_id']}"/>
+                    <input type="text" class="form-control" name="key"  placeholder="输入评论内容关键词搜索">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                     </span>
