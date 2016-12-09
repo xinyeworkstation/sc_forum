@@ -6,14 +6,14 @@ class CommentController extends Controller{
 
     public function index($key="")
     {
-        $cate_id = $_GET['cate_id'];
-        if($key == ""){
-        }else{
+        $cate_id = I('get.cate_id');//从sidebar传过来的，将相应的版区评论放在相应的版区
+        if(!($key == "")){
+            $cate_id=I('post.cate_id');//从相应的版区传过来的，模糊查询是，将相应的版区评论放在本版区
             $where['content'] = array('like',"%$key%");
         }
         $where['cate1_id']=$cate_id;
         $model = M('Comment');
-        $count  = count($model->select());// 查询满足要求的总记录数
+        $count = $model->where($where)->count();
         $Page = new \Extend\Page($count,15);// 实例化分页类传入总记录数和每页显示的记录数(15)
         $show = $Page->show();// 分页显示输出
         $model = $model->limit($Page->firstRow.','.$Page->listRows)
@@ -24,15 +24,12 @@ class CommentController extends Controller{
             ->join('user b on a.user_id=b.id')
             ->join('work c on a.work_id=c.id')
             ->select();
-        $count=count($model);
-
         for($i = 0; $i < $count; $i++ ){
             //var_dump($model[$i]['content']);
             if(strlen($model[$i]['content']) > 60){
                 $model[$i]['content']=substr($model[$i]['content'],0,60);
                 $model[$i]['content'].="...";
             }
-            //var_dump($model[$i]['content']);
         }
         $this->assign('model',$model);
         $this->assign('page',$show);
@@ -85,7 +82,6 @@ class CommentController extends Controller{
         $model = M('Comment');
         $model = $model->where($where)->find();
         $this->assign('model',$model['content']);
-       // var_dump($model);
         $this->display();
 
     }
