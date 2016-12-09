@@ -1,0 +1,52 @@
+<include file="Public/header" title="用户管理" />
+<include file="User/css/user"/>
+
+    <load href='__STATIC__/js/delete.js' />
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{:U('user/add',array('level'=>$level))}" class="btn btn-success">添加用户</a>
+        </div>
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <td>编号</td>
+                    <td>用户名</td>
+                    <td>邮箱</td>
+                    <td>用户余额</td>
+                    <td>状态</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+        <tbody>
+    <foreach name="user" item="vo">
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.email}</td>
+            <td>{$vo.money}</td>
+            <if condition="$vo.status eq 0">
+                    <td><span style="color:red">禁用</span></td>
+                <elseif condition="$vo.status neq 0"/>
+                    <td>正常</td>
+            </if>
+            <if condition="$vo.status eq 0">  
+                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/disable',array('id'=>$vo['id'],'act'=>'start'))}" style="color:#50AD1E;">启用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
+                <else/>
+                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/disable',array('id'=>$vo['id'],'act'=>'ban'))}" style="color:red;" onclick="javascript:return del('禁用后该用户不能再登录!\n\n请确认!!!');">禁用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
+            </if>
+        </tr>
+    </foreach>
+    <tr>
+        <td colspan='5' align='center'>
+            {$page}
+        </td>
+    </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<include file="Public/footer" />
