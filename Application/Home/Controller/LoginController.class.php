@@ -94,4 +94,8 @@ class LoginController extends Controller{
         $this->success("已成功退出登陆");
 
     }
+
+    public function ww(){
+        $this->display();
+    }
 }
