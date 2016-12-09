@@ -79,5 +79,15 @@ class CommentController extends Controller{
         }
 
     }
+    public function more(){
+        $id = $_GET['id'];
+        $where['id'] = $id;
+        $model = M('Comment');
+        $model = $model->where($where)->find();
+        $this->assign('model',$model['content']);
+       // var_dump($model);
+        $this->display();
+
+    }
 
 }
