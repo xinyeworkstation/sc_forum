@@ -4,6 +4,17 @@
 	<meta charset="UTF-8">
 	<title>论坛商城首页</title>
 	<link rel="stylesheet" type="text/css" href="../Public/static/css/index_center.css">
+	<!--
+	<script type="text/javascript" src="jquery-1.4.2.min.js">
+		$(function(){
+			$(window).scroll(function(){
+				var top = $(window).scrollTop() + 120;
+				var left = $(window).scrollLeft() + 1278;
+
+				$('div').fitter('.sidebar').css({top: top + 'px',left: left + 'px'});
+			});
+		});
+	</script>-->
 </head>
 <body>
 	<div id="main">
@@ -44,52 +55,52 @@
 		<div class="ranking">
 			<p>知了自由交易平台十大作者自动排名榜</p>
 			<div class="autors">
-				<dl>
+				<dl class="numFirst">
 					<span class="numberFirst"><img src="../../../../Public/Images/numOne.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numFirst">
 					<span class="numberFirst"><img src="../../../../Public/Images/numTwo.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numFirst">
 					<span class="numberFirst"><img src="../../../../Public/Images/numThree.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther"> 
 					<span class="numbers"><img src="../../../../Public/Images/numFour.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther">
 					<span class="numbers"><img src="../../../../Public/Images/numFive.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther">
 					<span class="numbers"><img src="../../../../Public/Images/numSix.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther">
 					<span class="numbers"><img src="../../../../Public/Images/numSeven.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther">
 					<span class="numbers"><img src="../../../../Public/Images/numEight.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numOther">
 					<span class="numbers"><img src="../../../../Public/Images/numNine.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
 				</dl>
-				<dl>
+				<dl class="numLast">
 					<span class="numberLast"><img src="../../../../Public/Images/numTen.jpg"/></span>
 					<dt><a href="#"><img src="../../../../Public/Images/headpic.jpg"/></a></dt>
 					<dd>作者：XXX</dd>
@@ -100,42 +111,35 @@
 		<div class="sample">
 		<!-- 此处为具体模板展示区，共六排-->
 			<div class="singleSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
+				<div class="tempic"><img src="../../../../Public/Images/tempic.jpg"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
 				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
 				<span class="support"><a href="#"><img src="../../../../Public/Images/support.jpg"></a>1</span>
 			</div>
 			<div class="singleSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
+				<div class="tempic"><img src="../../../../Public/Images/tempic.jpg"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
 				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
 				<span class="support"><a href="#"><img src="../../../../Public/Images/support.jpg"></a>1</span>
 			</div>
 			<div class="singleSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
+				<div class="tempic"><img src="../../../../Public/Images/tempic.jpg"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
 				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
 				<span class="support"><a href="#"><img src="../../../../Public/Images/support.jpg"></a>1</span>
 			</div>
 			<div class="singleSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
-				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
-				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
-				<span class="support"><a href="#"><img src="../../../../Public/Images/support.jpg"></a>1</span>
-			</div>
-			<div class="singleSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
+				<div class="tempic"><img src="../../../../Public/Images/tempic.jpg"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
 				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
 				<span class="support"><a href="#"><img src="../../../../Public/Images/support.jpg"></a>1</span>
 			</div>
 			<div class="lastSample">
-				<img class="tempic" src="../../../../Public/Images/tempic.jpg"/>
+				<div class="tempic"><img src="../../../../Public/Images/tempic.jpg"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><img src="../../../../Public/Images/manpic.jpg">XXX</span>
 				<span class="loadpic"><a href="#"><img src="../../../../Public/Images/loadpic.jpg"></a>4</span>
