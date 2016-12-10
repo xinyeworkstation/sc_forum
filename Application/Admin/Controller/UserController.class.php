@@ -13,6 +13,15 @@ class UserController extends Controller
 	 * @param  int $level 用户等级
 	 */
 	public function index ($key='',$level=1) {
+		if ($key != '') {
+			if ($key == '正常') {
+				$where['status'] = 1;
+			} elseif ($key == '禁用'){
+				$where['status'] = 0;
+			} else {
+				$where['username'] = array("like","%$key%");
+			}
+		}
 		$model = M('user');
 		$where['level'] = $level;
 		$count = $model->where($where)->count();
