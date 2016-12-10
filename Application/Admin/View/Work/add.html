@@ -1,4 +1,4 @@
-<include file="Public/header" title="添加分类" />
+<include file="Public/header" title="添加作品" />
 <div id="page-wrapper">
     <form method="post" action="{:U('work/add')}" enctype="multipart/form-data">
         <div class="form-group">
@@ -26,7 +26,11 @@
         </div>
         <div class="form-group">
             <label for="dd">作品简介</label>
-            <textarea name="description" id="dd" cols="30" rows="10" class="form-control" placeholder="请输入作品简介信息（必填）"></textarea>
+            <textarea name="intro" id="dd" cols="30" rows="10" class="form-control" placeholder="请输入作品简介信息（必填）"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="aa">金币</label>
+            <input type="text" name="price" class="form-control" id="aa" placeholder="输入购买该作品所需的金币（整数，必填）">
         </div>
         <button type="submit" class="btn btn-default">添加</button>
     </form>
