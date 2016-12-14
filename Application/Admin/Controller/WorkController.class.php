@@ -36,12 +36,15 @@
 				$model = M('category');
 				$cate = $model->select();	//查出所有的版区分类
 				$this->assign('cate',$cate);
+				$this->display();
 			}
 			if(IS_POST){
 				//var_dump($_FILES);
+				if(empty($_FILES['picname']) || empty($_FILES['compress'])){
+					$this->error('请选择要上传的作品!');
+				}
 				$files = array();
 				$files = $_FILES;
-
 				//将$_FILES数组的格式进行改变，变成单个作品的属性在同一数组下，在进行upload调用时，将文件单个进行上传
 				$_FILES = array();
 				//$n = count($files['picname']['name']);	
@@ -60,7 +63,10 @@
 				}
 				//var_dump($_FILES);
 				//exit;
-				$n = I('post.pid');	//上传的文件子目录
+				$dir = I('post.pid');	//上传的文件子目录
+				if(!$n){
+					$this->error('请选择作品所属版区');
+				}
 				//计算上传了几张图片
 				$inum = count($_FILES['picname']);
 				//计算上传几个压缩包
@@ -69,7 +75,7 @@
 				for($i=0;$i<$inum;$i++){
 					$config = array(
 					'maxSize' => 3145728,
-					'savePath' => 'Uploads/work/img/'.$n.'/',
+					'savePath' => 'Uploads/work/img/'.$dir.'/',
 					'rootPath' => './Public/',
 					'saveName' => md5(uniqid(microtime(true),true)),
 					'exts' => array('jpg','jpeg','png','gif'),
@@ -87,7 +93,7 @@
 				for($i=0;$i<$cnum;$i++){
 					$config = array(
 					'maxSize' => 10*1024*1024,
-					'savePath' => 'Uploads/work/compress/'.$n.'/',
+					'savePath' => 'Uploads/work/compress/'.$dir.'/',
 					'rootPath' => './Public/',
 					'saveName' => md5(uniqid(microtime(true),true)),
 					'exts' => array('rar','zip'),
@@ -123,12 +129,20 @@
 				$model = M('work');
 				$num = $model->add($data);
 				if($num){
-					$this->success('添加作品成功!',"index");
+					$this->success('添加作品成功!',U('work/index?flag=1'));
 				}else{
+					//如果添加失败则删除上传的文件
+					$work = get_url($works);
+					$compress = get_url($compress);
+					$url = array_merge($work,$compress);
+					$n = count($url);
+					for($i=0;$i<$n;$i++){
+						unlink($url[$i]);
+					}
 					$this->error('添加作品失败！');
 				}
 			}
-			$this->display();
+			
 		}
 
 		function verify($id){
@@ -143,13 +157,10 @@
 							  ->where('w.id='.$id)
 							  ->find();
 				$url = get_url($work['works']);
-				//$work['cate_id'] = (int)$work['cate_id'];
-				//$compress = uncompress($work['compress']);
-				//$this->assign('compress',$compress);
 				$this->assign('url',$url);
 				$this->assign('cate',$cate);
 				$this->assign('work',$work);
-
+				$this->display();
 			}
 			if(IS_POST){
 				$id = $_POST['id'];
@@ -168,12 +179,11 @@
 				}
 				$num = $model->where('id='.$id)->save($data);
 				if($num){
-					$this->success('操作成功!');
+					$this->success('操作成功!',U('work/index?flag=2'));
 				}else{
 					$this->error('操作失败!');
 				}
 			}
-			$this->display();
 		}
 
 		function edit($id){
