@@ -17,31 +17,65 @@ body{
 /* footer_top */
 #footer .footer_top{
 	height: 250px;
-	width: 80%;
-	max-width: 1300px;
+	width: 1200px;
 	margin: 0 auto;
-
 }
 /* safety */
 #footer .safety{
 	float: left;
 	width: 205px;
-	height: 205px;
-	border-right: 1px solid #aaa;
+	height: 160px;
 }
 /* 专注正版设计作品交易平台 */
 #footer .zlIntroduce{
 	float: left;
-	width: 510px;
-	height: 205px;
+	width: 440px;
+	height: 160px;
+	margin-left:  26px;
+	padding-right: 26px;
 	border-right: 1px solid #aaa;
+	margin-top: 38px;
+}
+#footer .zlIntroduce h3{
+	color: #7f7f7f;
+	font-size: 28px;
+	font-family: "微软雅黑";
+	margin-bottom: 16px;
+}
+#footer .zlIntroduce p{
+	color: #8f8e8c;
+	font-size: 18px;
+	line-height: 26px;
+	font-family: "微软雅黑";
+}
+.zlIntroduce-service{
+	color: #7f7f7f;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	margin-top: 12px;
+}
+.zlIntroduce-service span{
+	float: left;
+	margin-top: 16px;
+}
+.zlIntroduce-service img{
+	float: left;
+	margin:0 6px; 
 }
 /* 客户指南 */
 #footer .guide{
 	width: 240px;
-	height: 205px;
+	height: 160px;
+	margin-left: 40px;
 	float: left;
 	border-right: 1px solid #aaa;
+	margin-top: 38px;
+}
+#footer .guide h3{
+	color: #7f7f7f;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	margin-bottom: 20px;
 }
 #footer .guide li{
 	float: left;
@@ -50,12 +84,26 @@ body{
 	line-height: 28px;
 	text-align: left;
 }
-/* footerLogo */
-#foote .footerLogo{
-	width: 170px;
-	height: 205px;
-	float: left;
+#footer .guide li a{
+	color: #7f7f7f;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
+#footer .guide li a:hover{
+	color: #1aba78;
+	font-size: 12px;
+	font-family: "微软雅黑";
+}
 
+/* footerLogo */
+#footer .footerLogo{
+	width: 200px;
+	height: 160px;
+	float: left;
+	margin-top: 38px;
+}
+#footer .footerLogo img{
+	margin-left: 20px;
 	border: 1px solid #aaa;
 }
 
@@ -64,12 +112,20 @@ body{
 /* footer_bottom */
 .footer_bottom{
 	width: 100%;
-	height: 142px;
-	padding-top: 20px;
+	height: 130px;
 	text-align: center;
 	clear: both;
 	background: #565656;
 }
+.footer_bottom_container{
+	width: 1200px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 12px;
+}
 .footer_bottom p{
-	margin-top: 15px;
+	margin-top: 13px;
+	color: #a9a9a9;
+	font-size: 12px;
+	font-family: "微软雅黑";
 }

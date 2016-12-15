@@ -1,0 +1,32 @@
+.head-pic{
+    width:40px;
+    height:40px;    
+}
+
+.cm{
+    position:relative;
+    top:0px;
+    left:40px;
+    top:-40px;
+    width:600px;
+}
+
+.cm-header{
+    padding-left:5px;
+}
+
+.cm-content{
+    padding-left:5px;
+}
+
+.cm-footer{
+    padding-bottom:15px;
+    text-align:right;
+    border-bottom: 1px dotted #CCC;
+}
+
+.comment-reply{
+    text-decoration:none;
+    color:gray;
+    font-size: 14px;
+}
