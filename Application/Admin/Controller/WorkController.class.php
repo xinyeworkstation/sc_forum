@@ -36,6 +36,7 @@
 				$model = M('category');
 				$cate = $model->select();	//查出所有的版区分类
 				$this->assign('cate',$cate);
+				$this->display();
 			}
 			if(IS_POST){
 				//var_dump($_FILES);
@@ -123,12 +124,12 @@
 				$model = M('work');
 				$num = $model->add($data);
 				if($num){
-					$this->success('添加作品成功!',"index");
+					$this->success('添加作品成功!',U('work/index?flag=1'));
 				}else{
 					$this->error('添加作品失败！');
 				}
 			}
-			$this->display();
+			//$this->display();
 		}
 
 		function verify($id){
@@ -207,4 +208,20 @@
 				$this->error('删除失败!');
 			}
 		}
+
+		public function water(){
+			$id=I('get.id');
+			$model = M('work');
+			$where['id']=$id;
+			$work = $model->where($where)
+							->field('works')
+							->find();
+			$url = array();
+			$url = get_url($work['works']);
+			$count=count($url);
+			$image = new \Think\Image();
+			for($i=0;$i<$count;$i++){
+				$image->open($url[$i])->water('./Public/Images/logo.jpg',\Think\Image::IMAGE_WATER_NORTHEAST)->save($url[$i]);
+			}
+		} 
 	}

@@ -153,13 +153,13 @@ class UserController extends Controller
 	 */
 	public function disable ($id,$act) {
 		$model = M('user');
-    	$data['id'] = $id;
-    	if ($act == 'start') {
+    	$where['id'] = $id;
+    	if ($act == 'start'){
     		$data['status'] = 1;
     	} else {
     		$data['status'] = 0;
     	}
-    	$num = $model->save($data);
+    	$num = $model->where($where)->save($data);
     	if ($num) {
     		$this->success('操作成功');
     	} else {

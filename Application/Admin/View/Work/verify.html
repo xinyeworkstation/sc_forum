@@ -26,6 +26,11 @@
                 <img src={$v} width="300" height="150" style="display:block">
             </foreach> 
         </div>
+
+        <div class="form-group">
+            <label for="bb"><a href="{:U('work/water?id=')}{$work.id}">添加水印</a></label>
+        </div>
+
         <div class="form-group">
             <label for="dd">作品简介</label>
             <textarea name="intro" id="dd" cols="30" rows="10" class="form-control">{$work.intro}</textarea>
