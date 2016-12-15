@@ -156,7 +156,7 @@
 							  ->field('w.id,workname,works,cate_id,price,intro,u.username')
 							  ->where('w.id='.$id)
 							  ->find();
-				$url = get_url($work['works']);
+				$url = get_url($work['works']);//得到图片的路径
 				$this->assign('url',$url);
 				$this->assign('cate',$cate);
 				$this->assign('work',$work);
@@ -196,6 +196,8 @@
 							  ->field('w.id,workname,works,cate_id,price,intro,u.username')
 							  ->where('w.id='.$id)
 							  ->find();
+				$url = get_url($work['works']);
+				$this->assign('url',$url);
 				$this->assign('cate',$cate);
 				$this->assign('work',$work);
 			}
