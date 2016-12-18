@@ -5,7 +5,7 @@ use Think\Controller;
 /**
  * 用户管理
  */
-class UserController extends Controller
+class UserController extends BaseController
 {
 	/**
 	 * 显示用户
