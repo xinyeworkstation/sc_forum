@@ -220,7 +220,7 @@
 			}
 		}
 
-		public function water(){
+		/*public function water(){
 			$id=I('get.id');
 			$model = M('work');
 			$where['id']=$id;
@@ -236,5 +236,5 @@
 			}
 			//redirect();
 			redirect(U('work/verify') ,2 ,'正在跳转，请稍候......' );
-		} 
+		} */
 	}
