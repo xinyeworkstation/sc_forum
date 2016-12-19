@@ -185,6 +185,9 @@ a {
 	height: 46px;
 	background-color: #eaeaea;
 }
+.headerNav ul {
+	overflow: hidden;
+}
 .headerNav ul li {
 	float: left;
 	width: 200px;
