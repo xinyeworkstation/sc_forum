@@ -40,7 +40,7 @@ img{
 /*导航条部分*/
 .nav{
 	width: 1200px;
-	height: 90px;
+	height: 120px;
 }
 .nav li{
 	float: left;
@@ -51,39 +51,55 @@ img{
 	line-height: 44px;
 	border-bottom: 1px solid #e2e2e2;
 	font-size: 15px;
-	padding-left: 40px;
+	padding-left: 35px;
 	overflow: hidden;
 }
 .mainNav li{
 	display: inline-block;
-	margin-right: 28px;
+	margin-right: 15px;
 }
-.mainNav li a,.leftNav li a{
+.mainNav li a{
 	color: #7c7c7c;
 	display: block;
 	height: 42px;
 }
-.mainNav li a:hover{
+.mainNav li a:hover,.leftNavtop li a:hover,.leftNavbottom li a:hover{
 	color: #59c48e;
 	border-bottom: 2px solid #59c48e;
 }
 .leftNav{
-	height: 45px;
+	height: 60px;
 	width: 518px;
-	padding-left: 40px;
+	padding-left: 35px;
 	font-size: 12px;
 	float: left;
 }
-.leftNav li{
-	margin-right: 30px;
-	line-height: 45px;
+.leftNavtop{
+	width: 300px;
+	height: 20px;
+	font-size: 15px;
+	padding-top: 10px;
+	float: left;
 }
-.leftNav li a:hover{
-	color: #59c48e;
+.leftNavtop li{
+	margin-right: 30px;
+}
+.leftNavtop a,.leftNavbottom a{
+	color: #7c7c7c;
+	display: block;
+	height: 20px;
+}
+.leftNavbottom{
+	height: 20px;
+	float: left;
+	padding-top: 10px;
+}
+.leftNavbottom li{
+	margin-right: 30px;
 }
 .rightNav{
 	float: right;
-	margin: 8px 20px 0 0;
+	margin: 23px 20px 0 0;
 	height: 37px;
 }
 .rightNav li{
@@ -206,7 +222,7 @@ img{
 	font-size: 13px;
 	overflow: hidden;
 }
-.singleSample,.lastSample{
+.singleSample{
 	width: 227px;
 	height: 380px;
 	border: 1px solid #d9d9d9;
@@ -214,13 +230,7 @@ img{
     -webkit-box-shadow:2px 2px 5px #d9d9d9;
     box-shadow:2px 2px 5px #d9d9d9;
     float: left;
-    margin-bottom: 45px;
-}
-.singleSample{
-	margin-right: 12px;
-}
-.lastSample{
-	margin-right: 0px;
+    margin: 0 10px 45px 0;
 }
 .tempic{
 	height: 304px;
@@ -231,14 +241,14 @@ img{
 	width: 100%;
 	height: 100%;
 }
-.singleSample p,.lastSample p{
+.singleSample p{
 	text-align: center;
 	margin-bottom: 10px;
 }
-.singleSample a,.lastSample a{
+.singleSample a{
 	color: #7f7f7f;
 }
-.singleSample span,.lastSample span{
+.singleSample span{
 	display: block;
 	height: 28px;
 	line-height: 28px;

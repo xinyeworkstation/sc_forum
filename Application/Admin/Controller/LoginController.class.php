@@ -12,19 +12,20 @@ class LoginController extends Controller {
         $member = M('user');
         $username =I('username');
         //$password =I('password','','md5');
-        $password =I('password');
+        $password =I('password','','md5');
         $code = I('verify','','strtolower');
         //验证验证码是否正确
         if(!($this->check_verify($code))){
             $this->error('验证码错误');
         }
-        //验证账号密码是否正确
+        //根据账号密码找到这个人
         $user = $member->where(array('username'=>$username,'password'=>$password))->find();
+        //找到了，信息是否正确
         if(!$user) {
             $this->error('账号或密码错误 :(') ;
         }else{
-            //如果用户信息正确，验证账户是否为站长，是站长，可以登录后台
-            if(!($user['level'] == 0)){
+            //验证是否为站长，是，可以登录后台。
+            if(!($user['level'] == 1)){
                 $this->error('此账号账号不能登录后台管理 :(') ;
             }
         }
