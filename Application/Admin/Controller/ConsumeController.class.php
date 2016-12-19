@@ -2,7 +2,7 @@
 	namespace Admin\Controller;
 	use Think\Controller;
 
-	class ConsumeController extends Controller{
+	class ConsumeController extends BaseController{
 		function index($key=""){
 			$model = M('Consume');
 			if(!$key==""){

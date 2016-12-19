@@ -2,7 +2,7 @@
 	namespace Admin\Controller;
 	use Think\Controller;
 
-	class WorkController extends Controller{
+	class WorkController extends BaseController{
 		function index($key=""){
 			if(!$key==""){
 				$where['workname'] = array("like","%$key%");
@@ -142,7 +142,7 @@
 					$this->error('添加作品失败！');
 				}
 			}
-			
+
 		}
 
 		function verify($id){
@@ -219,4 +219,22 @@
 				$this->error('删除失败!');
 			}
 		}
+
+		/*public function water(){
+			$id=I('get.id');
+			$model = M('work');
+			$where['id']=$id;
+			$work = $model->where($where)
+							->field('works')
+							->find();
+			$url = array();
+			$url = get_url($work['works']);
+			$count=count($url);
+			$image = new \Think\Image();
+			for($i=0;$i<$count;$i++){
+				$image->open($url[$i])->water('./Public/Images/logo.jpg',\Think\Image::IMAGE_WATER_NORTHEAST)->save($url[$i]);
+			}
+			//redirect();
+			redirect(U('work/verify') ,2 ,'正在跳转，请稍候......' );
+		} */
 	}
