@@ -18,7 +18,13 @@
                 </foreach>
             </select>
         </div>
-        
+        <if condition="$work.flash neq null">
+        <div class="form-group">
+            <label for="dd">展示flash</label><br>
+            <!--<input type="text" name="keywords" class="form-control" id="dd" placeholder="请输入SEO关键词(选填)">-->
+            <embed src="{$work.flash}" width="500" height="250"></embed>
+        </div>
+        </if>
         <div class="form-group">
             <label for="dd">展示图片</label>
             <!--<input type="text" name="keywords" class="form-control" id="dd" placeholder="请输入SEO关键词(选填)">-->
