@@ -1,0 +1,324 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: "微软雅黑";
+}
+a,a:hover{
+  	text-decoration:none;
+}
+img{
+  	border:none;
+}
+/*内容部分*/
+.main{
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: #fafafa;
+	position: relative;
+}
+/*账户头像信息部分*/
+.topBody{
+	height: 200px;
+	width: 1200px;
+	border-bottom: 1px solid #eaeaea;
+}
+.topBody .headPic{
+	width: 238px;
+	height: 200px;
+	float: left;
+}
+.topBody .headPic div{
+	width: 146px;
+	height: 146px;
+	border-radius: 146px;
+	margin: 25px auto 0;
+}
+.topBody .headPic img{
+	border-radius: 146px;
+}
+.topBody .headPic img,.rightBody .payStyle img{
+	width: 100%;
+	height: 100%;
+}
+.topBody .imformations{
+	width: 900px;
+	height: 30px; 
+	float: left;
+	margin: 50px 0 40px 0;
+}
+.topBody .imformations li{
+	float: left;
+	display: inline-block;
+	line-height: 30px;
+	font-size: 17px;
+	margin-right: 47px;
+}
+.topBody .personal{
+	display: block;
+	float: left;
+	width: 100px;
+	height: 30px;
+	border: 1px solid #0ea116;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+	color: #68b12f;
+	font-size: 22px;
+	margin-right: 75px;
+	text-align: center;
+}
+.topBody .states{
+	float: right;
+	height: 30px;
+	margin-right: 40px;
+}
+.topBody .states li{
+	float: left;
+	display: inline-block;
+	color: #646464;
+	line-height: 30px;
+	font-size: 17px;
+	margin-right: 10px;
+}
+.bottomBody{
+	width: 1200px;
+	overflow: hidden;
+}
+/*左边栏目部分*/
+.sideBars{
+	width: 237px;
+	height: 655px;
+	float: left;
+	border-right: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
+}
+.sideBars a{
+	display: block;
+	width: 232px;
+	height: 35px;
+	line-height: 35px;
+	color: #646464;
+	font-size: 22px;
+	text-indent: 75px;
+	margin-top: 20px;
+}
+.sideBars a:hover{
+	color: #009900;
+	border-right: 5px solid #009900;
+}
+/*充值金币部分css*/
+/*#goldCoin{
+	display: none;
+}*/
+.rightBody{
+	float: left;
+	height: 655px;
+	width: 962px;
+	border-bottom: 1px solid #eaeaea; 
+}
+.rightBody .titleOne,.rightBody .titleTwo{
+	margin: 25px 0 25px 45px;
+	font-size: 20px;
+}
+.rightBody .titleOne span,.advice{
+	color: #989393;
+	font-size: 15px;
+	padding-left: 5px;
+} 
+.rightBody .voucher,.rightBody .openVIP,.rightBody .cash{
+	overflow: hidden;
+	margin: 0 0 20px 45px;
+}
+.rightBody .voucher a,.rightBody .openVIP a,.rightBody .cash a{
+	display: block;
+	width: 348px;
+	height: 39px;
+	line-height: 40px;
+	background: #d8d7d7;
+	border: 2px solid #a5a4a4;
+	float: left;
+	padding-left: 8px;
+	color: #000000;
+}
+.rightBody .voucher a{
+	margin: 0 95px 30px 0;
+}
+.rightBody .voucher a:hover,.rightBody .openVIP a:hover,.rightBody .cash a:hover{
+	border: 2px solid #009900;
+	cursor: pointer;
+}
+.voucher .redWords,.openVIP .redWords,.cash .redWords{
+	color: #b41010;
+	font-size: 17px;
+	padding: 0 5px 0 2px;
+}
+.voucher .blueWords,.cash .blueWords{
+	color: #3338e2;
+	font-size: 17px;
+	padding: 0 2px 0 2px;
+}
+.voucher .reward{
+	font-size: 14px;
+	padding-left: 5px;
+}
+.rightBody .payStyle{
+	margin-left: 45px;
+	overflow: hidden;
+}
+.rightBody .payStyle a{
+	display: block;
+	float: left;
+	width: 268px;
+	height: 97px;
+	border: 1px solid #555555;
+	margin-right: 120px;
+}
+.rightBody .payStyle a:hover{
+	border: 1px solid #31ad31;
+}
+.rightBody .introduction{
+	margin: 35px 0 0 45px;
+}
+.rightBody .introduction p{
+	font-size: 20px;
+}
+.rightBody .introduction ul{
+	margin: 10px 0 0 10px;
+	font-size: 15px;
+}
+.rightBody .introduction li{
+	margin-bottom: 5px;
+}
+
+/*开通VIP部分css*/
+#openVip{
+	display: none;
+}
+.openVIP .discount{
+	border: 1px solid #ee0a0a;
+	font-size: 12px;
+	color: #ee0a0a;
+	padding: 1px 4px;
+	margin-left: 5px;
+}
+.rightBody .openVIP a{
+	margin: 0 95px 10px 0;
+}
+.rightBody .openVIP p{
+	float: left;
+	height: 35px;
+	width: 700px;
+	color: #989393;
+	font-size: 15px;
+}
+/*出售提现部分css*/
+#drawMoney{
+	display: none;
+}
+.rightBody .titleOne strong{
+	color: #f91212;
+} 
+.rightBody .titleTwo span{
+	font-size: 15px;
+	padding-left: 5px;
+}
+.rightBody .withdrawNumber{
+	padding-left: 60px;
+}
+.accountNumber ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.accountNumber li{
+    padding:12px; 
+    position:relative;
+}
+.accountNumber label{
+	width:90px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.accountNumber select{
+	width: 90px;
+	height: 32px;
+	padding:5px 8px;
+}
+.accountNumber input{
+	width: 450px;
+	height:20px; 
+	padding:5px 8px;
+}
+.accountNumber textarea{
+	padding:8px; 
+	width:300px;
+}
+.accountNumber input,.accountNumber textarea,.accountNumber select{
+	border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.accountNumber input:focus,.accountNumber textarea:focus,.accountNumber select:focus{
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+}
+/* Button Style */
+button.submit{
+	width: 170px;
+	height: 50px;
+	margin: 30px 0 0 50px;
+    background-color: #009900;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#009900));
+    background: -webkit-linear-gradient(top, #68b12f, #009900);
+    background: -moz-linear-gradient(top, #68b12f, #009900);
+    background: -ms-linear-gradient(top, #68b12f, #009900);
+    background: -o-linear-gradient(top, #68b12f, #009900);
+    background: linear-gradient(top, #68b12f, #009900);
+    border: 1px solid #005e15;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover{
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active{
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+}
+/*兼容placeholder处的文字样式*/
+:-moz-placeholder{
+    color: #c3c3c3;
+}
+:-webkit-input-placeholder{
+    color: #c3c3c3;
+}
+/*去掉:focus样式*/
+*:focus{
+	outline: none;
+}

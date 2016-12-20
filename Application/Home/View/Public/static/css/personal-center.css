@@ -1,0 +1,708 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+.container {
+	width: 1200px;
+	overflow: hidden;
+	background-color: #fafafa;
+	margin: 16px auto;
+}
+/*左边侧栏导航开始*/
+.sidebar {
+	width: 260px;
+	background-color: #eaeaea;
+	font-size: 18px;
+	color: #0e0e0e;
+	float: left;
+}
+.sidebar dl a {
+	color: #0e0e0e;
+	text-decoration: none;
+	overflow: hidden;
+	float: left;
+	width: 164px;
+	padding-left: 96px;
+}
+.sidebar dl a:hover {
+	background-color: #ffffff;
+	color: #009900;
+}
+.sidebar dt {
+	padding: 0 0 10px 70px;
+}
+.sidebar dd {
+	height: 32px;
+	line-height: 32px;
+}
+.sidebarColumnOne{
+	height: 160px;
+	width: 100%;
+	border-bottom: 2px solid #d6d6d6;
+	padding: 20px 0 0 0;
+}
+.sidebarColumnTwo{
+	height: 170px;
+	width: 100%;
+	border-bottom: 2px solid #d6d6d6;
+	padding: 34px 0 0 0;
+}
+.sidebarColumnThree{
+	height: 440px;
+	width: 100%;
+	padding: 34px 0 0 0;
+}
+.sidebarColumnOneFirstA {
+	background: url(../../../../../../Public/images/personal-oneicon.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnOneSecA {
+	background: url(../../../../../../Public/images/personal-twoicon.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnOneThirdA {
+	background: url(../../../../../../Public/images/personal-threeicon.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnTwoFirstA {
+	background: url(../../../../../../Public/images/personal-fouricon.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnTwoSecA {
+	background: url(../../../../../../Public/images/personal-fiveicon.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnTwoThirdA {
+	background: url(../../../../../../Public/images/personal-sixicon.jpg) no-repeat 70px 6px;
+}
+.sidebarColumnThreeFirstA {
+	background: url(../../../../../../Public/images/personal-eighticon.jpg) no-repeat 64px 6px;
+}
+.sidebarColumnThreeSecA {
+	background: url(../../../../../../Public/images/personal-sevenicon.jpg) no-repeat 64px 5px;
+}
+.sidebarColumnThreeThirdA {
+	background: url(../../../../../../Public/images/personal-nineicon.jpg) no-repeat 64px 8px;
+}
+.sidebarColumnThreeFourthA {
+	background: url(../../../../../../Public/images/personal-tenicon.jpg) no-repeat 64px 6px;
+}
+
+.sidebarColumnOneFirstA:hover {
+	background: url(../../../../../../Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnOneSecA:hover {
+	background: url(../../../../../../Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnOneThirdA:hover {
+	background: url(../../../../../../Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnTwoFirstA:hover {
+	background: url(../../../../../../Public/images/personal-fourcharge.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnTwoSecA:hover {
+	background: url(../../../../../../Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnTwoThirdA:hover {
+	background: url(../../../../../../Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+}
+.sidebarColumnThreeFirstA:hover {
+	background: url(../../../../../../Public/images/personal-eightcharge.jpg) no-repeat 64px 6px;
+}
+.sidebarColumnThreeSecA:hover {
+	background: url(../../../../../../Public/images/personal-sevencharge.jpg) no-repeat 64px 5px;
+}
+.sidebarColumnThreeThirdA:hover {
+	background: url(../../../../../../Public/images/personal-ninecharge.jpg) no-repeat 64px 8px;
+}
+.sidebarColumnThreeFourthA:hover {
+	background: url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+}
+/*左边边侧栏导航结束*/
+/*右边内容区-作品管理开始*/	
+#mainProduction {
+	float: left;
+	width: 940px;
+	display: block;
+}
+.cutManage {
+	margin: 36px auto;	
+	width: 690px;
+	height: 70px;
+	font-size: 25px;
+} 
+.cutManage li {
+	float: left;
+	width: 170px;
+	height: 70px;
+	line-height: 70px;
+	margin-right: 50px;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #eaeaea;
+}
+.cutManage li a {
+	color: #000000;
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.cutManage li a span {
+	margin-left: 10px;
+}
+.cutManage li a:hover {
+	color: #ff6633;
+}
+.productionNumber {
+	width: 654px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	padding-left: 36px;
+	margin: 70px auto 40px;
+	background-color: #eeeeee;
+}
+.productionNumber li {
+	float: left;
+	margin-right: 26px;
+}
+.productionNumber li:first-child {
+	color: #20a420;
+}
+.productionNumber li span {
+	margin-left: 6px;
+}
+/*作品管理下-已通过小区域页面开始*/
+.productions {
+	width: 690px;
+	overflow: hidden;
+	margin: 0 auto;
+	font-size: 12px;
+	color: #a9a9a9;
+	display: block;
+}	
+.proItro {
+	float: left;
+	width: 188px;
+	margin-right: 60px;
+	border: 1px solid #c5c5c5;
+	/*-webkit-box-shadow: 0px 10px 5px 0px #c5c5c5;
+	-moz-box-shadow: 0px 10px 5px 0px #c5c5c5;*/
+}
+.productions li:last-child {
+	margin-right: 0px;
+}	
+.proImg {
+	width: 100%;
+	overflow: hidden;
+}
+.proImg a {
+	float: left;
+}
+.proImg img {
+	margin: 2px 2px 6px 2px;
+	width: 98%;
+}
+.proImg figcaption {
+	text-align: center;
+}
+.proImg figcaption span {
+	font-weight: bold;
+}
+.preII {
+	width: 160px;
+	overflow: hidden;
+	margin: 12px auto;
+}
+.preIcon {
+	float: left;
+}
+.preIcon a {
+	float: left;
+}
+.preIcon img {
+	float: left;
+}
+.preIcon span {
+	line-height: 30px;
+	margin-left: 6px;
+}
+.preInfor {
+	float: left;
+	margin: 8px 0 0 50px;
+}
+.preInfor a {
+	float: left;
+}
+.preInfor span,.preInfor img,.preNum span,.preNum img {
+	float: left;
+}
+.preInfor span,.preNum span {
+	margin: -1px 0 0 4px;
+}
+.preNum {
+	float: right;
+	margin-top: 8px;
+}
+.preNum a {
+	float: left;
+}
+/*作品管理下-已通过小区域页面结束*/
+/*作品管理下-未通过小区域页面开始*/ 
+.proFContent {
+	display: none;
+}
+.previse {
+	width: 820px;
+	margin: -16px auto 0px;
+	border-bottom: 1px solid #a8a8a8;
+	height: 28px;
+	font-size: 15px;
+}
+.previse li {
+	float: left;
+	width: 260px;
+}
+.previse li:first-child {
+	margin: 0 0 0 104px;
+}
+.previse li:last-child {
+	width: 100px;
+}
+.productionFail {
+	width: 820px;
+	margin: 0 auto;
+	border-bottom: 1px solid #a8a8a8;
+	font-size: 15px;
+	overflow: hidden;
+}
+.productionFail img {
+	margin: 40px 434px 20px 66px;
+	float: left;
+}
+.productionFail a {
+	color: #565656;
+	text-decoration: none;
+	float: left;
+	margin-top: 176px;
+}
+.productionFail a:hover {
+	color: #ff6633;
+}
+/*作品管理下-未通过小区域页面开始*/
+/*右边内容区-作品管理结束*/
+
+/*右边内容区-我的收藏开始*/	
+#mainCollection {
+	width: 940px;
+	height: auto;
+	float: left;
+	display: none;
+}
+.collectionNumber {
+	width: 760px;
+	margin: 30px auto;
+}
+.collections {
+	width: 790px;
+}
+.colleItro {
+	margin-right: 16px;
+	margin-bottom: 30px;
+	width: 183px;
+}
+.colleItroRightmost {
+	margin-right: 0px;
+}
+/*右边内容区-我的收藏结束*/	
+
+/*右边内容区-交易记录开始*/	
+#mainTransationRecord {
+	width: 940px;
+	height: auto;
+	float: left;
+	display: none;
+}
+.headerBlance {
+	width: 770px;
+	height: 60px;
+	border: 1px solid #6b6b6b;
+	border-radius: 6px;
+	margin: 40px auto 60px;
+	color: #6b6b6b;
+}
+.headerBlance h2 {
+	width: 330px;
+	float: left;
+	font-weight: normal;
+	line-height: 60px;
+	font-size: 27px;
+	padding-left: 20px;
+}
+.headerBlance h2 span {
+	font-size: 33px;
+	color: #009900;
+}
+.rechargeWithdraw {
+	float: right;
+	padding: 12px 60px 0 0;
+}
+.rechargeWithdraw a {
+	width: 100px;
+	height: 40px;
+	float: left;
+	border-radius: 30px;
+	background-color: #9e9e9e;
+	color: #ffffff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 24px;
+}
+.rechargeWithdraw a:hover {
+	color: #009900;
+}
+.rechargeWithdraw a:first-child {
+	margin-right: 30px;
+}
+.transationRecords {
+	width: 580px;
+	height: 30px;
+	margin: 84px auto 6px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.transationRecords li {
+	float: left;
+	width: 240px;
+}
+.transationRecords li:last-child {
+	width: 100px;
+}
+.records {
+	width: 770px;
+	height: 640px;
+	border-top: 1px solid #a8a8a8;
+	border-right: 1px solid #a8a8a8;
+	margin: 0 auto;
+	overflow: auto;
+}
+.recordsBranch {
+	overflow: hidden;
+}
+.recordsBranch:hover {
+	background-color: #eaeaea;
+}
+.recordsBranch li {
+	float: left;
+	font-size: 18px;
+	width: 236px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+}
+.recordsBranch li:nth-child(2) {
+	width: 290px;
+}
+.recordsBranch li:nth-child(3) {
+	width: 180px;
+}
+/*右边内容区-交易记录结束*/	
+
+/*右边内容区-个人信息开始*/
+#mainPersonMessage {
+	width: 864px;
+	padding: 30px 0 0 76px;
+	height: auto;
+	float: left;
+	display: none;
+}
+.personMessageLeft {
+	width: 210px;
+	float: left;
+	height: auto;
+}
+.headPortrait img {
+	width: 84%;
+}
+.headPortrait figcaption {
+	width: 160px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 6px;
+	border: 1px solid #9e9e9e;
+	margin: 20px 0 0 8px;
+	font-size: 18px;
+}
+.headPortrait figcaption a {
+	color: #858585;
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.headPortrait figcaption a:hover {
+	color: #6198d8;
+}
+.personMessageRight {
+	float: left;
+	margin-left: 
+}
+.messageForm {
+	overflow: hidden;
+	color: #8d8d8d;
+	margin-bottom: 20px;
+}
+.messageForm span {
+	width: 130px;
+	float: left;
+	font-size: 20px;
+	line-height: 20px;
+	margin: 10px 36px 0 0;
+	text-align: right;
+}
+.messageForm input {
+	width: 300px;
+	height: 38px;
+	float: left;
+	font-size: 16px;
+	color: #212121;
+	border: 1px solid #9e9e9e;
+	border-radius: 6px;
+	outline: none;
+}
+.messageForm input:focus {
+	border: 1px solid #6198d8;
+}
+.messageFormSex {
+	width: 18px!important;
+	height: 18px!important;
+	margin: 10px 0 0 0;
+}
+.messageForm label {
+	float: left;
+	margin: 10px 40px 0 10px;
+}
+.messageForm div {
+	width: 70px;
+	height: 40px;
+	margin-right: 10px;
+	float: left;
+	border: 1px solid #9e9e9e;
+	border-radius: 6px;
+}
+.messageFormBirth {
+	outline: none;
+	border: none!important;
+	width: 50px!important;
+}
+.messageFormData {
+	margin: 10px 2px 0 2px!important;
+	font-size: 16px;
+}
+.messageFormOneself {
+	width: 430px;
+	height: 160px;
+	padding-top: 10px;
+	line-height: 24px;
+	float: left;
+	font-size: 16px;
+	color: #212121;
+	border: 1px solid #9e9e9e;
+	border-radius: 6px;
+	outline: none;
+}
+.messageFormRevise {
+	width: 130px;
+	height: 46px;
+	margin: 20px 0 0 166px;
+	cursor: pointer;
+	background-color: #ff6633;
+	color: #ffffff;
+	font-size: 20px;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+}
+.messageFormRevise:hover {
+	color: #6198d8;
+}
+/*右边内容区-个人信息结束*/
+
+/*右边内容区-基本资料开始*/
+#mainBasicData {
+	width: 940px;
+	height: auto;
+	float: left;
+	display: none;
+}
+.basicDataTop {
+	margin: 36px 0 0 30px;
+	padding: 0 0 90px 0;
+	overflow: hidden;
+	border-bottom: 1px solid #565656;
+}
+.headSculpture {
+	float: left;
+	width: 180px;
+	height: 160px;
+	margin: 0 0 0 40px;
+	position: relative;
+}
+.headSculpture img {
+	width: 89%;
+	float: left;
+}
+.headSculpture a {
+	width: 160px;
+	float: left;
+	height: 24px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 14px;
+	color: #ffffff;
+	background-color: black;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0.4;
+}
+.basicDataMore{
+	margin: 0 0 0 18px;
+	float: left;
+	color: #000100;
+	font-size: 18px;
+}
+.basicDataMore li {
+	line-height: 27px;
+}
+.basicDataMore li a {
+	color: #009900;
+}
+.basicDataMore li a:hover {
+	text-decoration: underline;
+}
+.basicDataBottom {
+	padding: 90px;
+}
+.basicDataBottom a {
+	float: left;
+	background-color: #009900;
+	border-radius: 6px;
+	width: 190px;
+	padding: 0 0 0 60px;
+	height: 56px;
+	color: #ffffff;
+	font-size: 20px;
+	line-height: 56px;
+	margin: 0 0 40px 260px;
+}
+.basicDataBottom img {
+	width: 10%;
+	margin-left: 20px;
+}
+.cutBasicData {
+	margin: 24px 0 0 222px;	
+	width: 560px;
+	height: 56px;
+	font-size: 20px;
+} 
+.cutBasicData li {
+	float: left;
+	width: 140px;
+	height: 56px;
+	line-height: 56px;
+	margin-right: 44px;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #eaeaea;
+}
+.cutBasicData li a {
+	color: #000000;
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.cutBasicData li a span {
+	margin-left: 10px;
+}
+.cutBasicData li a:hover {
+	color: #ff6633;
+	border: 1px solid #565656;
+	border-radius: 6px;
+	width: 138px;
+	height: 54px;
+	line-height: 54px;
+}
+/*右边内容区-基本资料结束*/
+
+/*右边内容区-修改密码开始*/ 
+#mainChangePassword {
+	width: 940px;
+	height: auto;
+	float: left;
+	padding: 60PX 0 0 0;
+	display: none;
+}
+.passwordForm {
+	overflow: hidden;
+	color: #8d8d8d;
+	margin: 0 0 20px 140px;
+}
+.passwordForm span {
+	width: 130px;
+	float: left;
+	font-size: 20px;
+	line-height: 20px;
+	margin: 10px 16px 0 0;
+	text-align: right;
+}
+.passwordForm input {
+	width: 300px;
+	height: 32px;
+	float: left;
+	font-size: 16px;
+	color: #212121;
+	border: 1px solid #9e9e9e;
+	border-radius: 6px;
+	outline: none;
+}
+.passwordForm input:focus {
+	border: 1px solid #6198d8;
+}
+.testForm input{
+	width: 150px;
+}
+.testForm a {
+	width: 120px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	background: #eaeaea;
+	margin-left: 28px;
+	color: #009900;
+	font-size: 18px;
+	float: left;
+	border-radius: 2px;
+}
+.passwordFormRevise {
+	width: 100px;
+	height: 36px;
+	margin: 16px 0 0 288px;
+	cursor: pointer;
+	background-color: #ff6633;
+	color: #ffffff;
+	font-size: 18px;
+	text-align: center;
+	line-height: 36px;
+	border-radius: 2px;
+	border: none;
+	outline: none;
+}
+.passwordFormRevise:hover {
+	color: #6198d8;
+}
+/*右边内容区-修改密码结束*/

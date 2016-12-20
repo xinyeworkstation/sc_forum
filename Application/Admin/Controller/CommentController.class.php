@@ -2,7 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class CommentController extends Controller{
+class CommentController extends BaseController{
 
     public function index($key="")
     {

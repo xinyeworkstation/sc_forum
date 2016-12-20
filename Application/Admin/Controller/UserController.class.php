@@ -160,7 +160,8 @@ class UserController extends BaseController
 	public function disable ($id,$act) {
 		$model = M('user');
     	$where['id'] = $id;
-    	if ($act == 'start') {
+    	
+    	if ($act == 'start'){
     		$data['status'] = 1;
     	} else {
     		$data['status'] = 0;

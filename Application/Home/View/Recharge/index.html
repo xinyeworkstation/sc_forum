@@ -1,0 +1,137 @@
+<include file="Public/header" title="知了首页" />
+	<div class="main"> 
+		<!--账户头像信息部分-->
+		<div class="topBody">
+			<div class="headPic"><div><img src="{$user.headimg}"/></div></div>
+			<ul class="imformations">
+				<li>当前账户：{$user.username}</li>
+				<if condition="$user.level eq 0">
+					<li>身份等级：站长</li>
+				<elseif condition="$user.level eq 1" />
+					<li>身份等级：管理员</li>
+				<elseif condition="$user.level eq 2" />
+					<li>身份等级：Vip用户</li>
+				<else />
+					<li>身份等级：普通用户</li>
+				</if>
+				
+				<li>邮箱：{$user.email}</li>
+			</ul>
+			<a class="personal" href="#">个人信息</a>
+			<a class="personal" href="#">在线充值</a>
+			<ul class="states">
+				<li><a href="#">余额：{$user.money}金币</a> |</li>
+				<li><a href="#">作品：{$workc}</a> |</li>
+				<li><a href="#">收藏：{$lovec}</a></li>
+			</ul>
+		</div>
+		<!--主体内容部分-->
+		<div class="bottomBody">
+			<!--左边栏目部分-->
+			<div class="sideBars">
+				<ol>
+					<li><a href="#">开通VIP</a></li>
+					<li><a href="#">充值金币</a></li>
+					<li><a href="#">出售提现</a></li>
+				</ol>
+			</div>
+			<!--充值金币部分-->
+			<div class="rightBody" id="goldCoin">
+				<p class="titleOne">自助充值<span>（请选择金额）</span></p>
+				<div class="voucher">
+					<a>充值 <span class="redWords">10元</span> 得<span class="blueWords">1000</span>金币</a>
+					<a>充值 <span  class="redWords">30元</span> 得<span class="blueWords">4000</span>金币<span class="reward">(奖励1000金币)</span></a>
+					<a>充值 <span  class="redWords">50元</span> 得<span class="blueWords">8000</span>金币<span class="reward">(奖励3000金币)</span></a>
+					<a>充值 <span  class="redWords">100元</span> 得<span class="blueWords">20000</span>金币<span class="reward">(奖励10000金币)</span></a>
+				</div>
+				<p class="titleTwo">选择支付方式：</p>
+				<div class="payStyle">
+					<a href="#"><img src="__PUBLIC__/Images/payOne.jpg"/></a>
+					<a href="#"><img src="__PUBLIC__/Images/payTwo.jpg"/></a>
+				</div>
+				<ul>
+					<li>
+						<button class="submit" type="submit">确认支付</button>
+					</li>
+				</ul>
+				<div class="introduction">
+					<p >充值说明：</p>
+					<ul>
+						<li>1.支付宝、微信支付：充值后即时到账，无需等待。</li>
+						<li>2.支付成功后即可给充值的账户加上相应的金币。</li>
+					</ul>
+				</div>
+			</div> 
+
+
+
+			<!--开通VIP部分-->
+			<div class="rightBody" id="openVip">
+				<p class="titleOne">开通VIP<span>（送下载素材8折优惠）</span></p>
+				<div class="openVIP">
+					<a href="#">购买VIP <span class="redWords">100元</span> 送10000金币<span class="discount">8折</span></a>
+					<p>（期限30天）</p>
+				</div>
+				<p class="titleTwo">选择支付方式：</p>
+				<div class="payStyle">
+					<a href="#"><img src="__PUBLIC__/Images/payOne.jpg"/></a>
+					<a href="#"><img src="__PUBLIC__/Images/payTwo.jpg"/></a>
+				</div>
+				<ul>
+					<li>
+						<button class="submit" type="submit">确认提现</button>
+					</li>
+				</ul>
+				<div class="introduction">
+					<p >VIP特权说明：</p>
+					<ul>
+						<li>1.所有素材下载一律8折优惠。</li>
+						<li>2.可以自由发布作品及标价出售，经管理员审核后即可展示。</li>
+					</ul>
+				</div>
+			</div>  
+
+			
+
+			<!--出售提现部分-->
+			<div class="rightBody" id="drawMoney">
+				<p class="titleOne">账户可提现金币余额：<strong>0</strong><span>（每次只能提现100元，可多次提现）</span></p>
+				<div class="cash">
+					<a href="#">使用 <span class="blueWords">30000 </span>金币兑换 <span class="redWords">100 RMB</span></a>
+				</div>
+				<p class="titleTwo">提现账号<span>（不支持信用卡账号）</span></p>
+				<div class="withdrawNumber">
+					<form class="accountNumber" action="" name="accountNumber">
+								<label for="类型">类型：</label>
+								<select name="style">
+									<option value="支付宝">支付宝</option>
+								</select>
+								<span class="advice">（建议您使用支付宝免费提现）</span>
+							</li>
+						<ul>
+							<li>
+							<li>
+								<label for="账号">账号：</label>
+								<input type="text" value="" required/>
+							</li>
+							<li>
+								<button class="su								<label for="收款人">收款人holder="必须和支付宝账号的账户名/姓名一致" required
+							<li>
+/>：</label>
+								<input type="text" place
+							</li>bmit" type="submit">确认提现</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+				<div class="introduction">
+					<p >温馨提示：</p>
+					<ul>
+						<li>1.本交易平台提现功能只支持支付宝提现，请认真填写信息哦。</li>
+						<li>2.确认提现后请稍等，我们确认后，管理员手动给您处理，几分钟即可生效。</li>
+					</ul>
+				</div>
+			</div>  
+		</div>
+	</div>
+<include file="Public/footer" />

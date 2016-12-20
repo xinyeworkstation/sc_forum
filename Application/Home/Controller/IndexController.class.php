@@ -1,15 +1,13 @@
 <?php
-
 namespace Home\Controller;
-
 use Think\Controller;
-
-class IndexController extends Controller{
+class IndexController extends Controller {
 
     public function index(){
-
-      $this->display();
+    	
+        $this->display();
     }
+<<<<<<< HEAD
 
     /**
      * webuploader 上传文件
@@ -32,3 +30,8 @@ class IndexController extends Controller{
         }
     }
 }
+=======
+    
+
+}
+>>>>>>> 3dbdfca903cfcadaae3fcd6b2bbd38c6d80f4bce

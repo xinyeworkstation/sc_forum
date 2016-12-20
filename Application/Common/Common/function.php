@@ -59,25 +59,24 @@ function getSettingValueFieldByKey($key,$field)
  * @param  [type] $path  [description]
  * @return [type]        [description]
  */
-function upload($config){
+function upload($config,$file){
 	$upload = new \Think\Upload($config);	//实例化上传类
 	//$upload->maxSize = $size;	//设置文件上传大小
 	//$upload->exts = $array;		//设置文件上传类型
 	//$upload->savePath = $path;	//设置文件上传目录
-	$info = $upload->upload();
-	//$move = move_uploaded_file($info[1]['savename'], __PUBLIC__.'/Uploads/compress/');
-	echo dirname(__FILE__);
-	if(!file_exists('./Public/Uploads/compress')){
-		mkdir('./Public/Uploads/compress');
-	}
-	$move = move_uploaded_file("./Public".$info[1]['savepath'].$info[1]['name'],"./Public/Uploads/compress/".$info[1]['savename']);
+	$info = $upload->upload($file);
 	if(!$info){
 		$error = $upload->getError();
 		return $error;		//返回错误信息
 	}else{
-		return $info;
-		//return true
+		return $info;		//return true
 	}
+}
+
+
+function get_url($str){
+	$url = explode('@and',$str);
+	return $url;
 }
 
 
