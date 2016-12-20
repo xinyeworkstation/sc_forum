@@ -12,7 +12,7 @@ class UserController extends Controller
 	 * @param  string  $key   查询关键字
 	 * @param  int $level 用户等级
 	 */
-	public function index ($key='',$level=1) {
+	public function index ($key='',$level=0) {
 		if ($key != '') {
 			if ($key == '正常') {
 				$where['status'] = 1;
@@ -123,6 +123,12 @@ class UserController extends Controller
 			if(!$user->create()){
 				$this->error($user->getError());
 			}
+			if (I('level') == 0) {
+				$num = $user->where('level=0')->count();
+				if ($num == 5) {
+					$this->error('站长数量不能超过5个！！！');
+				}
+			}
 			$lastid = $user->add();
 			if ($lastid) {
 				$this->success('创建用户成功！！！！',U('index',array('level'=>$level)));
@@ -153,13 +159,13 @@ class UserController extends Controller
 	 */
 	public function disable ($id,$act) {
 		$model = M('user');
-    	$data['id'] = $id;
+    	$where['id'] = $id;
     	if ($act == 'start') {
     		$data['status'] = 1;
     	} else {
     		$data['status'] = 0;
     	}
-    	$num = $model->save($data);
+    	$num = $model->where($where)->save($data);
     	if ($num) {
     		$this->success('操作成功');
     	} else {

@@ -12,5 +12,6 @@ return array(
     'TOKEN_RESET'   =>    true,  //令牌验证出错后是否重置令牌 默认为true
     //是否开启模板布局 根据个人习惯设置
     'LAYOUT_ON'=>false,
+    'URL_MODEL'             =>2,
 
 );

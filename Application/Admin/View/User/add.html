@@ -23,6 +23,9 @@
         <div class="form-group">
             <label>用户类型</label>
             <label class="radio-inline">
+                <input type="radio" name="level" id="type" value="0" <if condition="$level eq 0">checked="checked"</if>>站长
+            </label>
+            <label class="radio-inline">
                 <input type="radio" name="level" id="type" value="1" <if condition="$level eq 1">checked="checked"</if>>管理员
             </label>
             <label class="radio-inline">
