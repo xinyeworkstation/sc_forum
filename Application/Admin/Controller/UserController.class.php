@@ -51,6 +51,7 @@ class UserController extends BaseController
 			$data['username'] = I('username');
 			$password = I('password');
 			$data['email'] = I('email');
+			$data['qq'] = I('qq');
 			$data['money'] = I('money');
 			$data['level'] = I('level');
 			//除密码框外其余不能为空
@@ -61,8 +62,10 @@ class UserController extends BaseController
 			}
 			//检验邮箱格式
 			$pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
-			if (!preg_match($pattern,$data['email'])) {
-				$this->error('邮箱格式填写错误！！！');
+			//检验qq格式
+			$preg = "/[1-9][0-9]{5,9}/";
+			if (!preg_match($preg,$data['qq'])) {
+				$this->error('QQ格式填写错误！！！');
 			}
 			//检验账户余额是否为数字
 			if (!is_numeric($data['money'])) {
