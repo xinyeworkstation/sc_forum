@@ -32,7 +32,11 @@ img{
 .topBody .headPic div{
 	width: 146px;
 	height: 146px;
+	border-radius: 146px;
 	margin: 25px auto 0;
+}
+.topBody .headPic img{
+	border-radius: 146px;
 }
 .topBody .headPic img,.rightBody .payStyle img{
 	width: 100%;

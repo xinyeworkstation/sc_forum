@@ -160,44 +160,63 @@ img{
 	margin: 0 auto;
 	height: 77px;
 }
-/*排行榜的数字图片处理*/
-.ranking .numbers,.ranking .numberFirst,.ranking .numberLast{
+/*排行榜的数字处理*/
+.ranking span{
 	float: left;
-	display: inline-block;
-}
-.ranking .numberFirst{
-	margin:20px 0 0 0;
 	display: block;
+	color: #7c7c7c;
+	font-style: italic;/*字体倾斜*/
+}
+.ranking .numFirst span{
+	margin:18px 0 0 0;
 	width: 28px;
-	height: 41px;
+	height: 45px;
+	font-size: 43px;
 }
-.ranking .numbers{
-	margin:30px 5px 0 0;
+.ranking .numOther span{
+	margin:32px 0 0 0;
+	width: 22px;
+	font-size: 30px;
 }
-.ranking .numberLast{
-	margin:28px 0 0 0;
+.ranking .numLast span{
+	margin:32px 0 0 0;
 	width: 39px;
+	font-size: 30px;
 }
+/*不同dl块的处理*/
 .ranking .numFirst{
-	width: 97px;
+	width: 98px;
 	height: 77px;
 	float: left;
 }
 .ranking .numOther{
-	width: 94px;
+	width: 88px;
 	height: 77px;
 	float: left;
 }
 .ranking .numLast{
-	width: 107px;
+	width: 108px;
 	height: 77px;
 	float: left;
+}
+/*作者处不同处理*/
+.ranking .numFirst dd{
+	width: 66px;
+}
+.ranking .numOther dd{
+	width: 63px;
+}
+.ranking .numLast dd{
+	width: 65px;
 }
 /*排行榜处头像处理*/
 .ranking .autors dt{
 	float: left;
 	width: 55px;
 	height: 55px;
+}
+.ranking .numFirst dt{
+	margin-left: 4px;
 }
 .ranking .autors dt a{
 	display: block;
@@ -206,14 +225,17 @@ img{
 	border-radius: 50%;
 	border: 4px solid #fff;
 }
+/*头像设置成圆形*/
+.ranking .autors dt img{
+	border-radius: 46px;
+}
 .ranking .autors dt a:hover{
 	border: 4px solid #ff0000;
 }
 .ranking .autors dd{
 	font-size: 5px;
 	color: #828282;
-	float: right;
-	width: 68px;
+	float: left;
 }
 /*中间模板展示区*/
 .sample{

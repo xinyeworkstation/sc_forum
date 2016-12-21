@@ -1,0 +1,308 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: "微软雅黑";
+}
+a,a:hover{
+  	text-decoration:none;
+}
+img{
+  	border: none;
+}
+.main{
+	max-width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: #e3e3e3;
+}
+ /*head*/
+.head{
+ 	width: 1200px;
+ 	height: 433px;
+ 	background: url(../../../../../../../Public/images/mologo.jpg) center center no-repeat;
+ 	background-size: cover;
+ 	width: 100%;
+ }
+.head .headContent{
+ 	width: 859px;
+ 	margin: 0 auto;
+	overflow: hidden;
+ }
+ /*头部logo图片部分*/
+.headContent .logo{
+ 	display: block;
+ 	float: left;
+ 	width: 120px;
+ 	height: 50px;
+ 	margin:5px 0 0 40px;
+ }
+.headContent .logo img{
+  	width: 100%;
+  	height: 100%;
+  }
+  /*头部右上导航条部分*/
+.headContent .headNav{
+	float: left;
+	width: ;
+	height: 62px;
+	line-height: 62px;
+	margin: 0 0 0 120px;
+  }
+.headContent .headNav li{
+	float: left;
+  }
+.headContent .headNav a{
+	display: block;
+	margin-right: 32px;
+	font-size: 15px;
+	color: #fff;
+	border-top: 3px solid #75b42b;
+}
+.headContent .headNav a:hover{
+	color: #50cb31;
+	border-top: 3px solid #fff;
+}
+/*案例展示部分*/
+.headContent .show{
+	float: left;
+	width: 378px;
+	height: 60px;
+	margin: 230px 0 0 250px;
+}
+.headContent .show p{
+	float: left;
+	width: 160px;
+	height: 48px;
+	line-height: 45px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin-right: 18px;
+	font-size: 20px;
+	color: #fff;
+}
+.headContent .show img{
+	display: block;
+	float: left;
+	width: 35px;
+	height: 35px;
+	margin: 5px 10px 0 8px;
+}
+/*轮播图处点的处理*/
+.headContent .dot{
+	float: left;
+	width: 453px;
+	padding-left: 406px;
+	margin-top: 40px;
+}
+.headContent .dot li{
+	margin-right: 5px;
+	float: left;
+}
+.headContent .dot a{
+	display: block;
+	float: left;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	border:  2px solid #fff;
+	cursor: pointer;
+}
+.headContent .dot a:hover{
+	background: #fff;
+}
+/*中间body部分*/
+.body{
+	width: 855px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.body .serviceItem{
+	width: 855px;
+	height: 392px;
+	margin: 30px auto 0;
+	background: url(../../../../../../../Public/images/graybac.gif) center center no-repeat;
+	background-size: 100% 100%;
+ 	width: 100%;
+}
+.serviceItem .title,.caseShowone .caseShow{
+	padding-top: 15px;
+	font-size: 25px;
+}
+.serviceItem .title,.serviceItem .englishName,.caseShowone .caseShow,.caseShowone .englishName{
+	text-align: center;
+}
+.serviceItem .title span{
+	border-bottom: 2px solid #066f12;
+}
+.serviceItem .englishName,.caseShowone .englishName{
+	font-size: 15px;
+	padding-top: 5px;
+}
+.serviceItem .englishName,.caseShowone .englishName{
+	color: #808080;
+}
+.serviceItem .aboutDesign{
+	width: 732px;
+	margin: 20px auto 0;
+}
+.serviceItem .aboutDesign div{
+	width: 171px;
+	height: 208px;
+	border-radius: 15px;
+	box-shadow: 5px 5px #373334;
+	-webkit-box-shadow: 3px 0px 5px #373334;
+    -moz-box-shadow: 1px -1px 4px #373334;
+    -ms-box-shadow: 2px -2px 4px #373334;
+    -o-box-shadow: 2px -2px 4px #373334;
+    float: left;
+    margin: 0 12px 25px 0;
+    background: #fff;
+}
+.serviceItem .aboutDesign dl{
+	width: 135px;
+	height: 198px;
+	margin: 5px auto 0;
+	background: #39aa4b;
+}
+.serviceItem .aboutDesign dl p{
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	padding: 15px 0 0 0;
+}
+.serviceItem .aboutDesign dt{
+	width: 76px;
+	height: 76px;
+	margin: 10px auto 16px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 5px #373334;
+	-webkit-box-shadow: 2px 2px 5px #373334;
+    -moz-box-shadow: 2px 2px 5px #373334;
+    -ms-box-shadow: 2px 2px 5px #373334;
+    -o-box-shadow: 2px 2px 5px #373334;
+}
+.serviceItem .aboutDesign img{
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+}
+.serviceItem .aboutDesign dd{
+	font-size: 8px;
+	text-align: center;
+	color: #fff;
+	padding-bottom: 5px;
+}
+.serviceItem .introduce,.serviceItem .introduceTwo{
+	font-size: 8px;
+	text-align: center;
+	padding-bottom: 8px;	
+}
+.serviceItem .introduceTwo{
+	margin-bottom: 17px;
+}
+.body .caseShowone,.body .caseShowtwo{
+	width: 855px;
+}
+.caseShowone .caseShowblack{
+	width: 855px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../../../../../../../Public/images/blackbac.gif) center center no-repeat;
+	background-size: 100% 100%; 
+ 	width: 100%;
+ }
+.caseShowone .caseShow{
+ 	color: #fff;
+ }
+.caseShowone .caseShow span{
+ 	border-bottom: 2px solid #066f12;
+ }
+ /*查看更多*/
+.leftSide{
+ 	float: left;
+ 	margin-top: 100px;
+ }
+.leftSide p{
+  	width: 30px;
+  	height: 75px;
+  	background: #fff;
+  	border-radius: 0 36px 36px 0;
+  }
+.leftSide a{
+	display: inline-block;
+	width: 15px;
+	font-size: 8px;
+	margin: 0 0 0 8px;
+	padding-top: 8px;
+	cursor: pointer;
+}
+/*案例展示模板展示部分*/
+.showBody{
+	width: 855px;
+	height: 350px;
+	margin: 0 auto;
+}
+.showModels{
+	float: left;
+	height: 350px;
+	margin-left: 10px;
+}
+.showModels a{
+	width: 188px!important;
+	height: 320px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	background: url(../../../../../../../Public/images/bordertwo.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModels a:hover{
+	background: url(../../../../../../../Public/images/borderone.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModels img{
+	margin: 11px 0 0 10px;
+	width: 92%;
+	height: 92%;
+}
+.modelStyle{
+	float: left;
+	width: 40px!important;
+	height: 128px;
+	background: url(../../../../../../../Public/images/trangle.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+ 	margin: 78px 0 0 3px;
+}
+.modelStyle a{
+	display: inline-block;
+	width: 15px;
+	font-size: 8px;
+	margin: 34px 0 0 23px;
+	cursor: pointer;
+	color: #fff;
+}
+/*边框外三角图片部分*/
+.outPicture{
+	float: left;
+	width: 30px;
+	height: 150px;
+	
+	
+}
+.outPicture img{
+	width: 100%;
+	height: 100%;
+}
+/*灰底模板*/
+.caseShowtwo .caseShowgray{
+	width: 855px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../../../../../../../Public/images/graybac.gif) center center no-repeat;
+	background-size: 100% 100%; 
+ 	width: 100%;
+ }
