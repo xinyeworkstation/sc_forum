@@ -6,7 +6,11 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-md-6">
-            <a href="{:U('user/add',array('level'=>$level))}" class="btn btn-success">添加用户</a>
+            <a href="{:U('user/add',array('level'=>$level))}" class="btn btn-success"><if condition="$level eq 0">添加站长
+                <elseif condition="$level eq 1"/>添加管理员
+                    <elseif condition="$level eq 2"/>添加vip用户
+                        <else />添加普通用户
+            </if></a>
         </div>
         <div class="col-md-6">
             <form action="{:U('user/index',array('level'=>$level))}" method="post">
@@ -49,13 +53,9 @@
             </if>
         </tr>
     </foreach>
-    <tr>
-        <td colspan='5' align='center'>
-            {$page}
-        </td>
-    </tr>
         </tbody>
     </table>
+    {$page}
 </div>
 
 
