@@ -240,6 +240,31 @@
 			$this->display();
 		}
 
+		function allow($id){
+			
+		}
+
+
+		function forbidden($id){
+			$work = M('work');
+			$data['flag'] = '0';
+			$num = $work->where('id='.$id)->save($data);
+			if($num){
+				$model = M('delete');
+				$data['table'] = 'work';
+				$data['t_id'] = $id;
+				$data['time'] = time()+7*24*60*60;//设置删除的时间为七天后
+				$row = $model->add($data);
+				if($row){
+					$this->success('操作成功');
+				}else{
+					$this->error('操作失败');
+				}
+			}else{
+				$this->error('操作失败');
+			}
+		}
+
 		function delete($id){
 			$model = M('work');
 			$where['id'] = $id;

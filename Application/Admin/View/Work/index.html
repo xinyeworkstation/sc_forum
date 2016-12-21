@@ -37,9 +37,10 @@
                 <td>{$v.username}</td>
                 <if condition="$v.flag eq 1">
                 <td><a href="{:U('work/verify?id=')}{$v.id}">未审核</a></td>
+                <elseif condition="$v.flag eq 0"/><td>禁用</td>
                 <else /><td>正常</td>
                 </if>
-                <td><a href="{:U('work/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a> | <a href="{:U('work/edit?id=')}{$v.id}">编辑</a></td>
+                <td><if condition="$v.flag eq 0"><a href="{:U('work/allow?id=')}{$v.id}">启用</a><else /><a href="{:U('work/forbidden?id=')}{$v.id}">禁用</a></if> | <a href="{:U('work/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a> | <a href="{:U('work/edit?id=')}{$v.id}">编辑</a></td>
             </tr>
         </foreach>
         </tbody>
