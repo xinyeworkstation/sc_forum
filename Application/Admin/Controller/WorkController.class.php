@@ -7,11 +7,20 @@
 			if(!$key==""){
 				$where['workname'] = array("like","%$key%");
 				$where['username'] = array("like","%$key%");
+				if ($key == '禁用') {
+					$where['flag'] = '0';
+				} else if ($key == '正常') {
+					$where['flag'] = '1';
+				}
 				$where['_logic'] = "or";
 				
 			}
 			$model = M('work');
-			$where['flag'] = $_GET['flag'];
+			if ($_GET['flag'] == '1') {//禁用与审核通过
+				$where['flag'] = array('in',array('0','1'));
+			} else if($_GET['flag'] == '2') {//审核未通过
+				$where['flag'] = '2';
+			}
 			$count = $model->alias('w')
 						   ->join('user u ON w.user_id=u.id')
 						   ->field('w.id,workname,w.price,u.username,w.flag')
@@ -220,7 +229,7 @@
 				$data['workname'] = trim(I('post.workname'));
 				$data['cate_id'] = I('post.pid');
 				$data['intro'] = I('post.intro');
-				$data['flag'] = I('post.flag');
+				//$data['flag'] = I('post.flag');
 				foreach($data as $v){
 					if(strlen(trim($v))==0){
 						$this->error('输入的值不能为空');
@@ -240,30 +249,32 @@
 			$this->display();
 		}
 
+		/**
+		 * 启用作品
+		 * @param  [int] $id 作品id
+		 */
 		function allow($id){
-			
-		}
-
-
-		function forbidden($id){
-			$work = M('work');
-			$data['flag'] = '0';
-			$num = $work->where('id='.$id)->save($data);
-			if($num){
-				$model = M('delete');
-				$data['table'] = 'work';
-				$data['t_id'] = $id;
-				$data['time'] = time()+7*24*60*60;//设置删除的时间为七天后
-				$row = $model->add($data);
-				if($row){
-					$this->success('操作成功');
-				}else{
-					$this->error('操作失败');
-				}
-			}else{
+			$flag = allow('work',$id,'flag');
+			if ($flag) {
+				$this->success('操作成功');
+			} else {
 				$this->error('操作失败');
 			}
 		}
+
+		/**
+		 * 禁用作品
+		 * @param  [int] $id 作品id
+		 */
+		function forbidden($id){
+			$flag = forbidden('work',$id,'flag');
+			if ($flag) {
+				$this->success('操作成功');
+			} else {
+				$this->error('操作失败');
+			}
+		}
+
 
 		function delete($id){
 			$model = M('work');

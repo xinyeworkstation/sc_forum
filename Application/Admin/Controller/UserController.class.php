@@ -128,7 +128,7 @@ class UserController extends BaseController
 			}
 			if (I('level') == 0) {
 				$num = $user->where('level=0')->count();
-				if ($num == 5) {
+				if ($num >= 5) {
 					$this->error('站长数量不能超过5个！！！');
 				}
 			}
@@ -157,24 +157,29 @@ class UserController extends BaseController
 	}
 
 	/**
-	 * 禁止用户
-	 * @param  [int] $id 用户id
+	 * 启用作品
+	 * @param  [int] $id 作品id
 	 */
-	public function disable ($id,$act) {
-		$model = M('user');
-    	$where['id'] = $id;
-    	
-    	if ($act == 'start'){
-    		$data['status'] = 1;
-    	} else {
-    		$data['status'] = 0;
-    	}
-    	$num = $model->where($where)->save($data);
-    	if ($num) {
-    		$this->success('操作成功');
-    	} else {
-    		$this->error('操作失败');
-    	}
+	function allow ($id) {
+		$flag = allow('user',$id);
+		if ($flag) {
+			$this->success('操作成功');
+		} else {
+			$this->error('操作失败');
+		}
+	}
+
+	/**
+	 * 禁用作品
+	 * @param  [int] $id 作品id
+	 */
+	function forbidden ($id) {
+		$flag = forbidden('user',$id);
+		if ($flag) {
+			$this->success('操作成功');
+		} else {
+			$this->error('操作失败');
+		}
 	}
 	
 }

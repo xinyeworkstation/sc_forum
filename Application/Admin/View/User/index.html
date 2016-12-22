@@ -46,10 +46,10 @@
                 <elseif condition="$vo.status neq 0"/>
                     <td>正常</td>
             </if>
-            <if condition="$vo.status eq 0">  
-                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/disable',array('id'=>$vo['id'],'act'=>'start'))}" style="color:#50AD1E;">启用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
+            <if condition="$vo.status eq '0'">  
+                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/allow',array('id'=>$vo['id']))}" style="color:#50AD1E;">启用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
                 <else/>
-                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/disable',array('id'=>$vo['id'],'act'=>'ban'))}" style="color:red;" onclick="javascript:return del('禁用后该用户不能再登录!\n\n请确认!!!');">禁用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
+                    <td><a href="{:U('user/update',array('id'=>$vo['id'],'level'=>$level))}">编辑</a> | <a href="{:U('user/forbidden',array('id'=>$vo['id']))}" style="color:red;" onclick="javascript:return del('禁用后该用户不能再登录!\n\n请确认!!!');">禁用</a> |<a href="{:U('user/delete',array('id'=>$vo['id']))}"><span  id="delete" onclick=" return del('删除后该用户数据将不再存在!\n\n请确认!!!')">删除</span></a></td>
             </if>
         </tr>
     </foreach>
