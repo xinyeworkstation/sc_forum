@@ -7,11 +7,20 @@
 			if(!$key==""){
 				$where['workname'] = array("like","%$key%");
 				$where['username'] = array("like","%$key%");
+				if ($key == '禁用') {
+					$where['flag'] = '0';
+				} else if ($key == '正常') {
+					$where['flag'] = '1';
+				}
 				$where['_logic'] = "or";
 				
 			}
 			$model = M('work');
-			$where['flag'] = $_GET['flag'];
+			if ($_GET['flag'] == '1') {//禁用与审核通过
+				$where['flag'] = array('in',array('0','1'));
+			} else if($_GET['flag'] == '2') {//审核未通过
+				$where['flag'] = '2';
+			}
 			$count = $model->alias('w')
 						   ->join('user u ON w.user_id=u.id')
 						   ->field('w.id,workname,w.price,u.username,w.flag')
@@ -45,14 +54,16 @@
 				}
 				$files = array();
 				$files = $_FILES;
+				$flash = $_FILES['flash'];
 				//将$_FILES数组的格式进行改变，变成单个作品的属性在同一数组下，在进行upload调用时，将文件单个进行上传
 				$_FILES = array();
 				//$n = count($files['picname']['name']);	
 				foreach($files as $key => $name){
 					//picname或compress上传的文件个数
 					$n = count($files[$key]['name']);
+					if($key == 'flash')
+						continue;
 					for($i=0;$i<$n;$i++){
-
 						$_FILES[$key][$i]['name'] = $name['name'][$i];
 						$_FILES[$key][$i]['type'] = $name['type'][$i];
 						$_FILES[$key][$i]['tmp_name'] = $name['tmp_name'][$i];
@@ -61,7 +72,7 @@
 						
 					}
 				}
-				//var_dump($_FILES);
+				//var_dump($_FILES);var_dump($flash);
 				//exit;
 				$dir = I('post.pid');	//上传的文件子目录
 				if(!$n){
@@ -105,7 +116,18 @@
 					$compress .= '@and'.'./Public/'.$upload[0]['savepath'].$upload[0]['savename'];
 					$compress = ltrim($compress,'@and');
 				}
-
+				if(!empty($flash)){
+					$config = array(
+					'maxSize' => 10*1024*1024,
+					'savePath' => 'Uploads/work/flash/'.$dir.'/',
+					'rootPath' => './Public/',
+					'saveName' => md5(uniqid(microtime(true),true)),
+					'exts' => array('swf'),
+					);
+					$file[] = $flash;
+					$upload = upload($config,$file);
+					$flash = './Public/'.$upload[1]['savepath'].$upload[1]['savename'];
+				}
 				//exit;
 				if(!$upload==true){
 					$this->error($upload);			
@@ -122,6 +144,7 @@
 				$data['price'] = (int)floor(I('post.price'));
 				$data['works'] = $works;
 				$data['compress'] = $compress;
+				$data['flash'] = $flash;
 				if(!is_numeric($data['price'])){
 					$this->error('您输入的金币有误，请输入一个整数!!!');
 				}
@@ -153,7 +176,7 @@
 				$cate = $model2->select();
 				$work = $model->alias('w')
 							  ->join('user u on w.user_id=u.id')
-							  ->field('w.id,workname,works,cate_id,price,intro,u.username')
+							  ->field('w.id,workname,works,flash,cate_id,price,intro,u.username')
 							  ->where('w.id='.$id)
 							  ->find();
 				$url = get_url($work['works']);//得到图片的路径
@@ -203,9 +226,55 @@
 			}
 			if(IS_POST){
 				$id = $_POST['id'];
+				$data['workname'] = trim(I('post.workname'));
+				$data['cate_id'] = I('post.pid');
+				$data['intro'] = I('post.intro');
+				//$data['flag'] = I('post.flag');
+				foreach($data as $v){
+					if(strlen(trim($v))==0){
+						$this->error('输入的值不能为空');
+					}
+				}
+				$data['price'] = (int)floor(I('post.price'));
+				if(!is_numeric($data['price'])){
+					$this->error('您输入的金币有误，请输入一个整数!!!');
+				}
+				$num = $model->where('id='.$id)->save($data);
+				if($num){
+					$this->success('操作成功!',U('work/index?flag=2'));
+				}else{
+					$this->error('操作失败!');
+				}
 			}
 			$this->display();
 		}
+
+		/**
+		 * 启用作品
+		 * @param  [int] $id 作品id
+		 */
+		function allow($id){
+			$flag = allow('work',$id,'flag');
+			if ($flag) {
+				$this->success('操作成功');
+			} else {
+				$this->error('操作失败');
+			}
+		}
+
+		/**
+		 * 禁用作品
+		 * @param  [int] $id 作品id
+		 */
+		function forbidden($id){
+			$flag = forbidden('work',$id,'flag');
+			if ($flag) {
+				$this->success('操作成功');
+			} else {
+				$this->error('操作失败');
+			}
+		}
+
 
 		function delete($id){
 			$model = M('work');
