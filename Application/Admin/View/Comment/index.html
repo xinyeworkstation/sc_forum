@@ -3,44 +3,13 @@
 <div id="page-wrapper">
 
     <div class="row">
-    <if condition="$model[0]['cate1_id'] eq 1">
         <div class="col-md-6">
-            <a href="#" class="btn btn-success">动态模板</a>
+            <a href="#" class="btn btn-success">管理评论</a>
         </div>
-        <elseif condition="$model[0]['cate1_id'] eq 2"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">静态模板</a>
-        </div>
-        <elseif condition="$model[0]['cate1_id'] eq 3"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">登录器皮肤</a>
-        </div>
-        <elseif condition="$model[0]['cate1_id'] eq 4"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">游戏网站</a>
-        </div>
-        <elseif condition="$model[0]['cate1_id'] eq 5"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">网站原画</a>
-        </div>
-        <elseif condition="$model[0]['cate1_id'] eq 6"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">LOGO素材</a>
-        </div>
-        <elseif condition="$model[0]['cate1_id'] eq 7"/>
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">其他素材</a>
-        </div>
-        <else />
-        <div class="col-md-6">
-            <a href="#" class="btn btn-success">该版区暂时没有评论</a>
-        </div>
-    </if>
-
         <div class="col-md-6">
             <form action="{:U('comment/index')}" method="post">
                 <div class="form-group input-group">
-                    <input type="hidden" name="cate_id" value="{$model[0]['cate1_id']}"/>
+                    <input type="hidden" name="status" value="{$model[0]['status']}"/>
                     <input type="text" class="form-control" name="key"  placeholder="输入评论内容关键词搜索">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
@@ -56,7 +25,10 @@
             <th>用户名</th>
             <th>评论内容</th>
             <th>所属作品</th>
+            <th>所属版区</th>
             <th>评论时间</th>
+            <th>父编号</th>
+            <th>状态</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -67,11 +39,15 @@
                 <td>{$vo.username}</td>
                 <td>{$vo.content}</td>
                 <td>{$vo.workname}</td>
+                <td>{$vo.catename}</td>
                 <td>{$vo.time|date="Y-m-d H:i:s",###}</td>
+                <td>{$vo.parent_id}</td>
                 <if condition="($vo.status eq 0)">
-                	<td style="color:red;">禁用中 | <a href="{:U('comment/show?id=')}{$vo.id}" style="color:#50AD1E;">显示</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" >删除</a> | <a href="{:U('comment/more?id=')}{$vo.id}" >查看评论</a></td>
+                	<td><a href="{:U('comment/more?id=')}{$vo.id}" >去审核</a></td>
+                    <td><a href="{:U('comment/show?id=')}{$vo.id}" >通过</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" style="color:red" onclick="javascript:return del('您确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
                 <else />
-                	<td style="color:#50AD1E;">使用中 | <a href="{:U('comment/forbid?id=')}{$vo.id}" style="color:red;">禁用</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" >删除</a> | <a href="{:U('comment/more?id=')}{$vo.id}" >查看评论</a></td>
+                	<td style="color:#50AD1E;">通过审核</td>
+                    <td><a href="{:U('comment/forbid?id=')}{$vo.id}" onclick="javascript:alert('您确定要禁用吗？\n\n禁用后如不回复将在七天后删除!');" >禁用</a> | <a href="{:U('comment/delete?id=')}{$vo.id}" style="color:red" onclick="javascript:return del('您确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>
                 </if>
             </tr>
         </foreach>
