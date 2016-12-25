@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>知了设计-个人中心</title>
+	<link rel="stylesheet" href="../Public/static/css/personal-center.css"">
+	<script type="text/javascript" src="../Public/static/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="../Public/static/js/tabcut.js"></script>
+</head>
+<body>
+	<!-- 中间部分开始 -->
+	<div class="container">
+		<!-- 左边侧边栏开始 -->
+		<aside class="personSidebar">			
+			<dl class="sidebarColumnOne">
+				<dt>个人资料</dt>
+				<dd><a class="sidebarColumnOneFirstA" href="#">基础资料</a></dd>
+				<dd><a class="sidebarColumnOneSecA" href="#">个人信息</a></dd>
+				<dd><a class="sidebarColumnOneThirdA" href="#">修改密码</a></dd>
+			</dl>					
+			<dl class="sidebarColumnTwo">
+				<dt>我的作品</dt>
+				<dd><a class="sidebarColumnTwoFirstA" href="#">上传作品</a></dd>
+				<dd><a class="sidebarColumnTwoSecA activeProduct" href="#">作品管理</a></dd>
+				<dd><a class="sidebarColumnTwoThirdA" href="#">我的收藏</a></dd>
+			</dl>						
+			<dl class="sidebarColumnThree">
+				<dt>账户管理</dt>
+				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
+				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
+				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
+				<dd><a class="sidebarColumnThreeFourthA" href="#">交易记录</a></dd>
+			</dl>			
+		</aside>
+		<!-- 左边侧边栏结束 -->
+		<!-- 右边内容区-作品管理开始 -->
+		<div id="mainProduction" class="tabContent">
+			<!-- 用于点击切换的标签开始 -->
+			<ul class="cutManage">
+				<li><a class="pass" href="javascript:;">已通过<span>6</span></a></li>
+				<li><a class="audit" href="javascript:;">待审核<span>2</span></a></li>
+				<li><a class="failed" href="javascript:;">未通过<span>0</span></a></li>
+			</ul>
+			<!-- 用于点击切换的标签结束 -->
+			<ul class="productionNumber">
+				<li>动态模板<span>3</span></li>
+				<li>静态模板<span>2</span></li>
+				<li>原创<span></span></li>
+				<li>界面<span></span></li>
+				<li>登录器皮肤<span>1</span></li>
+				<li>其他<span></span></li>
+			</ul>
+			<!-- 作品管理下-已通过小区域页面开始 -->
+			<ul class="productions">
+				<li class="proItro">
+					<figure class="proImg">
+						<a href=""><img src="../../../../Public/images/tempic.jpg"></a>
+						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
+					</figure>
+					<section class="preII">
+						<div class="preIcon"><a href=""><img src="../../../../Public/images/manpic.jpg"></a><span>XXX</span></div>
+						<div class="preInfor"><a href=""><img src="../../../../Public/images/download-icon.jpg"></a><span>4</span></div>
+						<div class="preNum"><a href=""><img src="../../../../Public/images/star-icon.jpg"></a><span>1</span></div>
+					</section>
+				</li>
+				<li class="proItro">
+					<figure class="proImg">
+						<a href=""><img src="../../../../Public/images/tempic.jpg"></a>
+						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
+					</figure>
+					<section class="preII">
+						<div class="preIcon"><a href=""><img src="../../../../Public/images/manpic.jpg"></a><span>XXX</span></div>
+						<div class="preInfor"><a href=""><img src="../../../../Public/images/download-icon.jpg"></a><span>4</span></div>
+						<div class="preNum"><a href=""><img src="../../../../Public/images/star-icon.jpg"></a><span>1</span></div>
+					</section>
+				</li>
+				<li class="proItro">
+					<figure class="proImg">
+						<a href=""><img src="../../../../Public/images/tempic.jpg"></a>
+						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
+					</figure>
+					<section class="preII">
+						<div class="preIcon"><a href=""><img src="../../../../Public/images/manpic.jpg"></a><span>XXX</span></div>
+						<div class="preInfor"><a href=""><img src="../../../../Public/images/download-icon.jpg"></a><span>4</span></div>
+						<div class="preNum"><a href=""><img src="../../../../Public/images/star-icon.jpg"></a><span>1</span></div>
+					</section>
+				</li>
+			</ul>
+			<!-- 作品管理下-已通过小区域页面结束 -->
+			<!-- 作品管理下-未通过小区域页面开始 -->
+			<div class="proFContent">
+				<ul class="previse">
+					<li>预览图</li>
+					<li>图片信息</li>
+					<li>操作</li>
+				</ul>
+				<div class="productionFail">
+					<img src="../../../../Public/images/production.jpg">
+					<a href="##">修改</a>
+				</div>
+				<div class="productionFail">
+					<img src="../../../../Public/images/production.jpg">
+					<a href="##">修改</a>
+				</div>
+			</div>
+			<!-- 作品管理下-未通过小区域页面结束 -->
+		</div>
+		<!-- 右边内容区-作品管理结束 -->
+		</div>
+	<!-- 中间部分结束 -->
+</body>
+</html>

@@ -40,7 +40,7 @@ img{
 /*导航条部分*/
 .nav{
 	width: 1200px;
-	height: 90px;
+	height: 120px;
 }
 .nav li{
 	float: left;
@@ -51,39 +51,55 @@ img{
 	line-height: 44px;
 	border-bottom: 1px solid #e2e2e2;
 	font-size: 15px;
-	padding-left: 40px;
+	padding-left: 35px;
 	overflow: hidden;
 }
 .mainNav li{
 	display: inline-block;
-	margin-right: 28px;
+	margin-right: 15px;
 }
-.mainNav li a,.leftNav li a{
+.mainNav li a{
 	color: #7c7c7c;
 	display: block;
 	height: 42px;
 }
-.mainNav li a:hover{
+.mainNav li a:hover,.leftNavtop li a:hover,.leftNavbottom li a:hover{
 	color: #59c48e;
 	border-bottom: 2px solid #59c48e;
 }
 .leftNav{
-	height: 45px;
+	height: 60px;
 	width: 518px;
-	padding-left: 40px;
+	padding-left: 35px;
 	font-size: 12px;
 	float: left;
 }
-.leftNav li{
-	margin-right: 30px;
-	line-height: 45px;
+.leftNavtop{
+	width: 300px;
+	height: 20px;
+	font-size: 15px;
+	padding-top: 10px;
+	float: left;
 }
-.leftNav li a:hover{
-	color: #59c48e;
+.leftNavtop li{
+	margin-right: 30px;
+}
+.leftNavtop a,.leftNavbottom a{
+	color: #7c7c7c;
+	display: block;
+	height: 20px;
+}
+.leftNavbottom{
+	height: 20px;
+	float: left;
+	padding-top: 10px;
+}
+.leftNavbottom li{
+	margin-right: 30px;
 }
 .rightNav{
 	float: right;
-	margin: 8px 20px 0 0;
+	margin: 23px 20px 0 0;
 	height: 37px;
 }
 .rightNav li{
@@ -144,44 +160,63 @@ img{
 	margin: 0 auto;
 	height: 77px;
 }
-/*排行榜的数字图片处理*/
-.ranking .numbers,.ranking .numberFirst,.ranking .numberLast{
+/*排行榜的数字处理*/
+.ranking span{
 	float: left;
-	display: inline-block;
-}
-.ranking .numberFirst{
-	margin:20px 0 0 0;
 	display: block;
+	color: #7c7c7c;
+	font-style: italic;/*字体倾斜*/
+}
+.ranking .numFirst span{
+	margin:18px 0 0 0;
 	width: 28px;
-	height: 41px;
+	height: 45px;
+	font-size: 43px;
 }
-.ranking .numbers{
-	margin:30px 5px 0 0;
+.ranking .numOther span{
+	margin:32px 0 0 0;
+	width: 22px;
+	font-size: 30px;
 }
-.ranking .numberLast{
-	margin:28px 0 0 0;
+.ranking .numLast span{
+	margin:32px 0 0 0;
 	width: 39px;
+	font-size: 30px;
 }
+/*不同dl块的处理*/
 .ranking .numFirst{
-	width: 97px;
+	width: 98px;
 	height: 77px;
 	float: left;
 }
 .ranking .numOther{
-	width: 94px;
+	width: 88px;
 	height: 77px;
 	float: left;
 }
 .ranking .numLast{
-	width: 107px;
+	width: 108px;
 	height: 77px;
 	float: left;
+}
+/*作者处不同处理*/
+.ranking .numFirst dd{
+	width: 66px;
+}
+.ranking .numOther dd{
+	width: 63px;
+}
+.ranking .numLast dd{
+	width: 65px;
 }
 /*排行榜处头像处理*/
 .ranking .autors dt{
 	float: left;
 	width: 55px;
 	height: 55px;
+}
+.ranking .numFirst dt{
+	margin-left: 4px;
 }
 .ranking .autors dt a{
 	display: block;
@@ -190,14 +225,17 @@ img{
 	border-radius: 50%;
 	border: 4px solid #fff;
 }
+/*头像设置成圆形*/
+.ranking .autors dt img{
+	border-radius: 46px;
+}
 .ranking .autors dt a:hover{
 	border: 4px solid #ff0000;
 }
 .ranking .autors dd{
 	font-size: 5px;
 	color: #828282;
-	float: right;
-	width: 68px;
+	float: left;
 }
 /*中间模板展示区*/
 .sample{
@@ -206,7 +244,7 @@ img{
 	font-size: 13px;
 	overflow: hidden;
 }
-.singleSample,.lastSample{
+.singleSample{
 	width: 227px;
 	height: 380px;
 	border: 1px solid #d9d9d9;
@@ -214,13 +252,7 @@ img{
     -webkit-box-shadow:2px 2px 5px #d9d9d9;
     box-shadow:2px 2px 5px #d9d9d9;
     float: left;
-    margin-bottom: 45px;
-}
-.singleSample{
-	margin-right: 12px;
-}
-.lastSample{
-	margin-right: 0px;
+    margin: 0 10px 45px 0;
 }
 .tempic{
 	height: 304px;
@@ -231,14 +263,14 @@ img{
 	width: 100%;
 	height: 100%;
 }
-.singleSample p,.lastSample p{
+.singleSample p{
 	text-align: center;
 	margin-bottom: 10px;
 }
-.singleSample a,.lastSample a{
+.singleSample a{
 	color: #7f7f7f;
 }
-.singleSample span,.lastSample span{
+.singleSample span{
 	display: block;
 	height: 28px;
 	line-height: 28px;

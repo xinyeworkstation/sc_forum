@@ -121,6 +121,31 @@ a {
 	background: url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
 }
 
+.activeProduct {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+}
+.activeCollection {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+}
+.activeTransationRecord {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+}
+.activePersonMessage {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+}
+.activeBasicData {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+}
+.activeChangePassword {
+	color: #009900;
+	background: #ffffff url(../../../../../../Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+}
+
 /*左边边侧栏导航结束*/
 /*右边内容区-作品管理开始*/	
 #mainProduction {
@@ -145,10 +170,15 @@ a {
 	background-color: #eaeaea;
 }
 .cutManage li a {
-	color: #000000;
 	float: left;
 	width: 100%;
 	height: 100%;
+}
+.pass {
+	color: #ff6633;
+}
+.failed,.audit {
+	color: #000000;
 }
 .cutManage li a span {
 	margin-left: 10px;
@@ -300,7 +330,6 @@ a {
 	width: 940px;
 	height: auto;
 	float: left;
-	display: none;
 }
 .collectionNumber {
 	width: 760px;
@@ -317,6 +346,7 @@ a {
 .colleItroRightmost {
 	margin-right: 0px;
 }
+
 /*右边内容区-我的收藏结束*/	
 
 /*右边内容区-交易记录开始*/	
@@ -324,7 +354,6 @@ a {
 	width: 940px;
 	height: auto;
 	float: left;
-	display: none;
 }
 .headerBlance {
 	width: 770px;
@@ -417,7 +446,6 @@ a {
 	padding: 30px 0 0 76px;
 	height: auto;
 	float: left;
-	display: none;
 }
 .personMessageLeft {
 	width: 210px;
@@ -538,7 +566,6 @@ a {
 	width: 940px;
 	height: auto;
 	float: left;
-	display: none;
 }
 .basicDataTop {
 	margin: 36px 0 0 30px;
@@ -646,7 +673,6 @@ a {
 	height: auto;
 	float: left;
 	padding: 60PX 0 0 0;
-	display: none;
 }
 .passwordForm {
 	overflow: hidden;

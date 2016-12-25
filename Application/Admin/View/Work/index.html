@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <form action="{:U('work/index')}" method="post">
                 <div class="form-group input-group">
-                    <input type="text" class="form-control" name="key" placeholder="输入作者名字或作品名搜索">
+                    <input type="text" class="form-control" name="key" placeholder="输入作者名字或作品名或作品状态搜索">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                     </span>
@@ -35,11 +35,14 @@
                 <td>{$v.workname}</td>
                 <td>￥{$v.price}</td>
                 <td>{$v.username}</td>
-                <if condition="$v.flag eq 1">
+                <if condition="$v.flag eq 2">
                 <td><a href="{:U('work/verify?id=')}{$v.id}">未审核</a></td>
+                <elseif condition="$v.flag eq 0"/><td><span style="color:red">禁用</span></td>
                 <else /><td>正常</td>
                 </if>
-                <td><a href="{:U('work/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a> | <a href="{:U('work/edit?id=')}{$v.id}">编辑</a></td>
+                <td>
+                <if condition="$v.flag lt '2'">
+                <if condition="$v.flag eq 0"><a href="{:U('work/allow',array('id'=>$v['id']))}" style="color:#50AD1E;">启用</a><else /><a href="{:U('work/forbidden',array('id'=>$v['id']))}" style="color:red;" onclick="javascript:return del('禁用后该作品将不在前台显示!\n\n请确认!!!');">禁用</a></if> |</if> <a href="{:U('work/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a> | <a href="{:U('work/edit?id=')}{$v.id}">编辑</a></td>
             </tr>
         </foreach>
         </tbody>
