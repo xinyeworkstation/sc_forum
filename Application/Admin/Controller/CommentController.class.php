@@ -49,6 +49,7 @@ class CommentController extends BaseController{
         $id = $_GET['id'];
         $where['id'] = $id;
         $model = M('Comment');
+        $del=M('delete');
         $comment1=$model->where($where)->field('id,parent_id')->find();
         $arr[]=$comment1['id'];//将当前评论的id给arr数组
         $res=$this->getComment($comment1['id']);//得到当前评论的所有评论
@@ -57,7 +58,15 @@ class CommentController extends BaseController{
        	$wh['id'] = array('in',$arr);
        	$update['status']='0';
         $ban=$model->where($wh)->save($update);
-         if($ban){
+        $count=count($arr);
+
+        for($i=0;$i<$count;$i++){
+            $whe['table']='comment';
+            $whe['t_id']=$arr[$i];
+            $whe['time']=time()+7*24*60*60; 
+            $ban2=$del->add($whe);
+        }
+        if($ban){
             $this->success('禁用成功');
         }else{
             $this->error("禁用失败");
@@ -69,6 +78,7 @@ class CommentController extends BaseController{
         $id = $_GET['id'];
         $where['id'] = $id;
         $model = M('Comment');
+        $del=M('delete');
         $comment1=$model->where($where)->find();
         $res=$this->getComment2($comment1['parent_id']);//得到当前评论的所有评论
         $arr[]=$comment1['id'];//将当前评论的id给arr数组
@@ -77,13 +87,72 @@ class CommentController extends BaseController{
        	$wh['id'] = array('in',$arr);
        	$update['status']='1';
         $pass=$model->where($wh)->save($update);
-         if($pass){
+        $whe['t_id']=array('in',$arr);
+        $whe['table']='comment';
+        $allow=$del->where($whe)->delete();
+        if($pass){
             $this->success('启用成功');
         }else{
             $this->error("启用失败");
         }
 
     }//show ok
+    
+
+    public function delete(){
+        $id = $_GET['id'];
+        $where['id'] = $id;
+        $model = M('Comment');
+        $comment1=$model->where($where)->field('id,parent_id,status')->find();
+
+        $arr[]=$comment1['id'];//将当前评论的id给arr数组
+        $res=$this->getComment($comment1['id']);
+        $arr=$this->getCommentId($res,$arr);//得到所有评论的id
+        var_dump($arr);
+
+        $count=count($arr);
+        $wh['id'] = array('in',$arr);
+        $del=$model->where($wh)->delete();
+        if($del){
+            $this->success('删除成功');
+        }else{
+            $this->error("删除失败");
+        }
+
+    }// delete ok
+
+
+    //得到所有的评论
+    private function getComment($parent_id,&$result=array()){  
+        $where['parent_id']=$parent_id;    
+        $arr = M('comment')->where($where)->select();
+        if(empty($arr)){
+            return array();
+        }
+        foreach ($arr as $cm) {
+            $thisArr=&$result[];
+            $cm["children"] = $this->getComment($cm["id"],$thisArr);
+            $thisArr = $cm; 
+        }
+        return $result;
+    }
+
+    //将得到的评论，得到所有的评论id，便于删除
+    private function getCommentId($res,&$arr){
+        foreach ( $res as $key ) {
+            $thisArr=&$arr[];
+            //var_dump($key);
+           // echo '123';
+            $thisArr=$key['id'];
+            //var_dump($arr);
+            if($key['children']){
+                $this->getCommentId($key['children'],$arr);
+            }
+        }
+        return $arr;
+    }
+
+    
       //得到所有的评论
     private function getComment2($id,&$result=array()){
         $where['id']=$id;    //3
@@ -112,58 +181,6 @@ class CommentController extends BaseController{
         return $arr;
     }
 
-
-    public function delete(){
-        $id = $_GET['id'];
-        $where['id'] = $id;
-        $model = M('Comment');
-        $comment1=$model->where($where)->field('id,parent_id,status')->find();
-
-        $arr[]=$comment1['id'];//将当前评论的id给arr数组
-        $res=$this->getComment($comment1['id']);
-        $arr=$this->getCommentId($res,$arr);//得到所有评论的id
-        var_dump($arr);
-
-        $count=count($arr);
-        $wh['id'] = array('in',$arr);
-        $del=$model->where($wh)->delete();
-        if($del){
-            $this->success('删除成功');
-        }else{
-            $this->error("删除失败");
-        }
-
-    }// delete ok
-
-    //将得到的评论，得到所有的评论id，便于删除
-    private function getCommentId($res,&$arr){
-        foreach ( $res as $key ) {
-            $thisArr=&$arr[];
-            //var_dump($key);
-           // echo '123';
-            $thisArr=$key['id'];
-            //var_dump($arr);
-            if($key['children']){
-                $this->getCommentId($key['children'],$arr);
-            }
-        }
-        return $arr;
-    }
-
-    //得到所有的评论
-    private function getComment($parent_id,&$result=array()){  
-        $where['parent_id']=$parent_id;    
-        $arr = M('comment')->where($where)->select();
-        if(empty($arr)){
-            return array();
-        }
-        foreach ($arr as $cm) {
-            $thisArr=&$result[];
-            $cm["children"] = $this->getComment($cm["id"],$thisArr);
-            $thisArr = $cm; 
-        }
-        return $result;
-    }
 
 
 

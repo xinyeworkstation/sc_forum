@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>知了设计-个人中心</title>
-	<link rel="stylesheet" href="../Public/static/css/personal-center.css"">
-	<script type="text/javascript" src="../Public/static/js/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="../Public/static/js/tabcut.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/personal-center.css"">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
 </head>
 <body>
 	<!-- 中间部分开始 -->
@@ -14,22 +14,22 @@
 		<aside class="personSidebar">			
 			<dl class="sidebarColumnOne">
 				<dt>个人资料</dt>
-				<dd><a class="sidebarColumnOneFirstA" href="#">基础资料</a></dd>
-				<dd><a class="sidebarColumnOneSecA activePersonMessage" href="#">个人信息</a></dd>
-				<dd><a class="sidebarColumnOneThirdA" href="#">修改密码</a></dd>
+				<dd><a class="sidebarColumnOneFirstA" href="{:U('Person/index')}">基础资料</a></dd>
+				<dd><a class="sidebarColumnOneSecA activePersonMessage" href="{:U('Person/personMessage')}">个人信息</a></dd>
+				<dd><a class="sidebarColumnOneThirdA" href="{:U('Person/changePassword')}">修改密码</a></dd>
 			</dl>					
 			<dl class="sidebarColumnTwo">
 				<dt>我的作品</dt>
-				<dd><a class="sidebarColumnTwoFirstA" href="#">上传作品</a></dd>
-				<dd><a class="sidebarColumnTwoSecA" href="#">作品管理</a></dd>
-				<dd><a class="sidebarColumnTwoThirdA" href="#">我的收藏</a></dd>
+				<dd><a class="sidebarColumnTwoFirstA" href="{:U('Person/transationRecord')}">上传作品</a></dd>
+				<dd><a class="sidebarColumnTwoSecA" href="{:U('Person/production')}">作品管理</a></dd>
+				<dd><a class="sidebarColumnTwoThirdA" href="{:U('Person/collection')}">我的收藏</a></dd>
 			</dl>						
 			<dl class="sidebarColumnThree">
 				<dt>账户管理</dt>
 				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
 				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
 				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
-				<dd><a class="sidebarColumnThreeFourthA" href="#">交易记录</a></dd>
+				<dd><a class="sidebarColumnThreeFourthA" href="{:U('Person/transationRecord')}">交易记录</a></dd>
 			</dl>			
 		</aside>
 		<!-- 左边侧边栏结束 -->
@@ -37,7 +37,7 @@
 		<div id="mainPersonMessage">
 			<div class="personMessageLeft">
 				<figure class="headPortrait">
-					<img src="../../../../Public/images/head-portrait.jpg" alt="头像">
+					<img src="__PUBLIC__/images/head-portrait.jpg" alt="头像">
 					<figcaption><a href="">上传头像</a></figcaption>
 				</figure>
 			</div>
