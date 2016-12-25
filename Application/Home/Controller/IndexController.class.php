@@ -28,6 +28,7 @@ class IndexController extends Controller {
     			$work[$i]['works'] = $url[0];
     		}
     		//var_dump($work);exit;
+    		
     		$this->assign('order',$order);
     		$this->assign('work',$work);
     	}
@@ -39,7 +40,6 @@ class IndexController extends Controller {
     	}	
         $this->display();
     }
-<<<<<<< HEAD
 
     /**
      * webuploader 上传文件
@@ -62,8 +62,8 @@ class IndexController extends Controller {
         }
     }
 }
-=======
+
     
 
-}
->>>>>>> 3dbdfca903cfcadaae3fcd6b2bbd38c6d80f4bce
+
+
