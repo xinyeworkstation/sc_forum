@@ -111,9 +111,9 @@ img{
 	border-right: 5px solid #009900;
 }
 /*充值金币部分css*/
-/*#goldCoin{
+#goldCoin{
 	display: none;
-}*/
+}
 .rightBody{
 	float: left;
 	height: 655px;
@@ -195,9 +195,9 @@ img{
 }
 
 /*开通VIP部分css*/
-#openVip{
+/*#openVip{
 	display: none;
-}
+}*/
 .openVIP .discount{
 	border: 1px solid #ee0a0a;
 	font-size: 12px;

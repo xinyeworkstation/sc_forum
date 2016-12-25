@@ -233,3 +233,55 @@ function ajax_upload($path='file',$format='empty',$maxSize='10485760'){
     }
 }
 
+/**
+ * 在delete表中记录任意其他表中的禁用数据，并定时一周进行删除
+ * @param  [String] $tname 表名
+ * @param  [int] $id   禁用字段id
+ * @param  [String] $flag  表中禁用字段属性名
+ * @return [bool]   操作是否成功   
+ */
+function forbidden ($tname,$id,$flag = 'status') {
+	$work = M($tname);
+	$arr[$flag] = '0';
+	$num = $work->where('id='.$id)->save($arr);
+	if ($num) {
+		$model = M('delete');
+		$data['table'] = $tname;
+		$data['t_id'] = $id;
+		$data['time'] = time()+7*24*60*60;//设置删除的时间为七天后
+		$row = $model->add($data);
+		if($row){
+			return true;
+		}else{
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
+/**
+ * 在delete表中删除任意其他表中的已启用数据
+ * @param  [String] $tname 表名
+ * @param  [int] $id   禁用字段id
+ * @param  [String] $flag  表中禁用字段属性名
+ * @return [bool]   操作是否成功
+ */
+function allow ($tname,$id,$flag = 'status') {
+	$work = M($tname);
+	$arr[$flag] = '1';
+	$num = $work->where('id='.$id)->save($arr);
+	if ($num) {
+		$model = M('delete');
+		$where = array('table'=>$tname,'t_id'=>$id);
+		$row = $model->where($where)->delete();
+		if($row){
+			return true;
+		}else{
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
