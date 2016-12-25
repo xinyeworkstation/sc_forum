@@ -11,91 +11,100 @@ class LoginController extends Controller{
 
     public function index()
     {
-
-
-    }
-
-    public function login($type=null)
-    {   
-        //本地账号登陆
-        if(empty($type)){
-            if(!IS_POST){
-              $this->display();  
-            }
-            if(IS_POST){
-                //验证码自己开启。代码省略
-                $data['username'] = I('post.username');
-                $data['password'] = I('post.password','','md5');
-                $member = M('member')->where($data)->find();
-                if($member){
-                    session('userid',$member['id']);
-                    session('username',$member['username']);
-                    $this->success("登陆成功");
+        //注册
+        if($_GET['user'] && $_GET['email']){
+            $register['username']=I('get.user');
+            $regist['email'] = I('get.email');//邮箱
+            $model=M('user');
+            $counts=$model->where($register)->count();//查询此邮箱和用户有没有被注册
+            //如果创纪录小于一则未被注册
+            if($counts<1){
+                    $regist['password'] = I('get.pass','','md5');//MD5加密密码
+                    // $regist['Invitation'] = $_GET['Invitation'];//邀请码
+                    $regist['qq'] =I('get.qq');//qq
+                if($model->add($register)){
+                    $success = array(
+                        'info' => 'YES'
+                    );
+                    $this->ajaxReturn($success);//返回前端，用JS跳转
                 }else{
-                    $this->error("账号或密码错误");
+                    $fail = array(
+                        'info' => '注册失败！'
+                    );
+                    $this->ajaxReturn($fail);//返回前端，用JS跳转
                 }
+            }else{
+                //如果counts>1返回错误信息！
+                $fail = array(
+                    'info' => '此邮箱或用户名已被注册'
+                );
+                $this->ajaxReturn($fail);//返回前端，用JS跳转
             }
-            return;
         }
-        //第三方登陆 这里最好先验证一下$type
-        //验证允许实用的登陆方式，可在后台用代码实现
-    
-        $can_use = in_array(strtolower($type), array('qq','sina','github'));
-        if(!$can_use){
-            $this->error("不允许使用此方式登陆");
+
+
+
+        //登陆
+        if($_GET['user'] && $_GET['verify']) {
+            if ($this->check_verify($_GET['verify'])) {
+                $login['username'] = I('get.user');
+                $login['password'] = I('get.pass', '', 'md5');
+                $model = M('user');
+                $member = $model->where($login)->find();
+                if ($member) {
+                    session('user_id', $member['id']);
+                    session('user_name', $member['username']);
+                    session('user_level', $member['level']);
+                    $success = array(
+                        'info' => 'YES'
+                    );
+                    $this->ajaxReturn($success);//返回前端，用JS跳转
+                } else {
+                    $fail = array(
+                        'info' => '此用户未被注册！！'
+                    );
+                    $this->ajaxReturn($fail);//返回前端，用JS跳转
+                }
+            }else{
+                $fail = array(
+                    'info' => '验证码错误！'
+                );
+                $this->ajaxReturn($fail);//返回前端，用JS跳转
+            }
         }
-        //验证通过  使用第三方登陆
-        if($type != null){
-            $sns = ThinkOauth::getInstance($type);
-            redirect($sns->getRequestCodeURL());  
+
+
+
+
+
+        if(IS_POST) {
+            /*$regist['username'] = $_POST['name'];//用户名
+            $regist['password'] = $_POST['pass'];//密码
+            $regist['email'] = $_POST['email'];//邮箱
+            $regist['Invitation'] = $_POST['Invitation'];//邀请码
+            $regist['qq'] = $_POST['qq'];*/
+               echo "123";
+
+            $this->ajaxReturn($data);
+
         }
-        
-    }
-
-    public function callback($type = null, $code = null) 
-    {
-      
-        if(empty($type) || empty($code)){
-            $this->error('参数错误');  
-        } 
-     
-        $sns = ThinkOauth::getInstance($type);
-
-        //腾讯微博需传递的额外参数
-        $extend = null;
-        if ($type == 'tencent') {
-            $extend = array('openid' => $this->_get('openid'), 'openkey' => $this->_get('openkey'));
-        }
-        $tokenArray = $sns->getAccessToken($code, $extend);
-        $openid = $tokenArray['openid'];
-        //$token = $tokenArray['access_token'];  //根据需求储存  主要用来刷新并延长授权时间
-        //dd($tokenArray);
-        //
-        //执行后续操作,代码自己实现。
-        //请记住每个用户的openid都是唯一的,所以把openid存到数据库即可
-        $member = D('MemberView');
-        //根据openid判断用户是否存在，如果存在 ，判断用户是否被禁用。如果不存在,把openid存到数据库,相当于注册用户
-
-        #
-        #
-        #  代码自己实现
-        #
-        #
-        #
-    
-        
-    }
-
-
-    public function logout()
-    {
-        session('userid',null);
-        session('username',null);
-        $this->success("已成功退出登陆");
-
-    }
-
-    public function ww(){
         $this->display();
+
+
     }
+
+    //验证码
+    public function verify(){
+        $Verify = new \Think\Verify();
+        $Verify->codeSet = '0123456789';
+        $Verify->fontSize = 13;
+        $Verify->length = 4;
+        $Verify->entry();
+    }
+    protected function check_verify($code){
+        $verify = new \Think\Verify();
+        return $verify->check($code);
+    }
+
+
 }

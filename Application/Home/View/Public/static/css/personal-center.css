@@ -99,6 +99,28 @@ a {
 .sidebarColumnOneThirdA:hover {
 	background: url(../../../../../../Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
 }
+.sidebarColumnTwoFirstA:hover {
+	background: url(../../../../../../Public/images/personal-fourcharge.jpg) no-repeat 70px 5px;
+}
+.sidebarColumnTwoSecA:hover {
+	background: url(../../../../../../Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnTwoThirdA:hover {
+	background: url(../../../../../../Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+}
+.sidebarColumnThreeFirstA:hover {
+	background: url(../../../../../../Public/images/personal-eightcharge.jpg) no-repeat 64px 6px;
+}
+.sidebarColumnThreeSecA:hover {
+	background: url(../../../../../../Public/images/personal-sevencharge.jpg) no-repeat 64px 5px;
+}
+.sidebarColumnThreeThirdA:hover {
+	background: url(../../../../../../Public/images/personal-ninecharge.jpg) no-repeat 64px 8px;
+}
+.sidebarColumnThreeFourthA:hover {
+	background: url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+}
+
 /*左边边侧栏导航结束*/
 /*右边内容区-作品管理开始*/	
 #mainProduction {
