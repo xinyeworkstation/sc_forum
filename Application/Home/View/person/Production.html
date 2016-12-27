@@ -37,9 +37,12 @@
 		<div id="mainProduction" class="tabContent">
 			<!-- 用于点击切换的标签开始 -->
 			<ul class="cutManage">
-				<li><a class="pass" href="{:U('person/production?flag=1')}">已通过<span>{$allow}</span></a></li>
-				<li><a class="audit" href="{:U('person/production?flag=2')}">待审核<span>{$undeter}</span></a></li>
-				<li><a class="failed" href="{:U('person/production?flag=3')}">未通过<span>{$ban}</span></a></li>
+				<!--<li><a class="pass" href="https://www.baidu.com">已通过<span>{$allow}</span></a></li>
+				<li><a class="audit" href="{:U('Person/production?flag=2')}">待审核<span>{$undeter}</span></a></li>
+				<li><a class="failed" href="{:U('Person/production?flag=3')}">未通过<span>{$ban}</span></a></li>-->
+				<li><a href="{:U('Person/production?flag=1')}">已通过<span>{$allow}</span></a></li>
+				<li><a href="{:U('Person/production?flag=2')}">待审核<span>{$undeter}</span></a></li>
+				<li><a href="{:U('Person/production?flag=3')}">未通过<span>{$ban}</span></a></li>
 			</ul>
 			<!-- 用于点击切换的标签结束 -->
 			<ul class="productionNumber">
