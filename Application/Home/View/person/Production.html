@@ -21,7 +21,7 @@
 			<dl class="sidebarColumnTwo">
 				<dt>我的作品</dt>
 				<dd><a class="sidebarColumnTwoFirstA" href="{:U('Person/transationRecord')}">上传作品</a></dd>
-				<dd><a class="sidebarColumnTwoSecA activeProduct" href="{:U('Person/production')}">作品管理</a></dd>
+				<dd><a class="sidebarColumnTwoSecA activeProduct" href="{:U('Person/production?flag=1')}">作品管理</a></dd>
 				<dd><a class="sidebarColumnTwoThirdA" href="{:U('Person/collection')}">我的收藏</a></dd>
 			</dl>						
 			<dl class="sidebarColumnThree">
@@ -37,9 +37,9 @@
 		<div id="mainProduction" class="tabContent">
 			<!-- 用于点击切换的标签开始 -->
 			<ul class="cutManage">
-				<li><a class="pass" href="javascript:;">已通过<span>6</span></a></li>
-				<li><a class="audit" href="javascript:;">待审核<span>2</span></a></li>
-				<li><a class="failed" href="javascript:;">未通过<span>0</span></a></li>
+				<li><a class="pass" href="{:U('person/production?flag=1')}">已通过<span>{$allow}</span></a></li>
+				<li><a class="audit" href="{:U('person/production?flag=2')}">待审核<span>{$undeter}</span></a></li>
+				<li><a class="failed" href="{:U('person/production?flag=3')}">未通过<span>{$ban}</span></a></li>
 			</ul>
 			<!-- 用于点击切换的标签结束 -->
 			<ul class="productionNumber">
@@ -51,42 +51,23 @@
 				<li>其他<span></span></li>
 			</ul>
 			<!-- 作品管理下-已通过小区域页面开始 -->
+			<foreach name='work' item='v'>
 			<ul class="productions">
 				<li class="proItro">
 					<figure class="proImg">
-						<a href=""><img src="__PUBLIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
+						<a href=""><img src={$v.works}></a>
+						<figcaption>{$v.workname}<span>游戏网站</span>PSD素材</figcaption>
 					</figure>
 					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__PUBLIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__PUBLIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__PUBLIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro">
-					<figure class="proImg">
-						<a href=""><img src="__PUBLIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__PUBLIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__PUBLIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__PUBLIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro">
-					<figure class="proImg">
-						<a href=""><img src="__PUBLIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__PUBLIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__PUBLIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__PUBLIC__/images/star-icon.jpg"></a><span>1</span></div>
+						<div class="preIcon"><a href=""><img src={$v.headimg}></a><span>{$v.username}</span></div>
+						<div class="preInfor"><a href=""><img src="__PUBLIC__/images/download-icon.jpg"></a><span>{$v.download}</span></div>
+						<div class="preNum"><a href=""><img src="__PUBLIC__/images/star-icon.jpg"></a><span>{$v.favor}</span></div>
 					</section>
 				</li>
 			</ul>
+			</foreach>
 			<!-- 作品管理下-已通过小区域页面结束 -->
+
 			<!-- 作品管理下-未通过小区域页面开始 -->
 			<div class="proFContent">
 				<ul class="previse">
