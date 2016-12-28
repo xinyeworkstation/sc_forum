@@ -21,7 +21,7 @@
 			<dl class="sidebarColumnTwo">
 				<dt>我的作品</dt>
 				<dd><a class="sidebarColumnTwoFirstA" href="{:U('Person/transationRecord')}">上传作品</a></dd>
-				<dd><a class="sidebarColumnTwoSecA" href="{:U('Person/production?flag=1')}">作品管理</a></dd>
+				<dd><a class="sidebarColumnTwoSecA" href="{:U('Person/production')}">作品管理</a></dd>
 				<dd><a class="sidebarColumnTwoThirdA" href="{:U('Person/collection')}">我的收藏</a></dd>
 			</dl>						
 			<dl class="sidebarColumnThree">
@@ -48,12 +48,13 @@
 				<li>账户余额</li>
 			</ul>
 			<div class="records">
+				<foreach name="business" item="v">
 				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
+					<li>{$v.time|date="y/m/d",###}</li>
+					<li><if condition="$v.flag eq 1">收入<else />支出</if>{$b_money}</li>
+					<li>{$v.money}</li>
 				</ul>
-				
+				</foreach>
 			</div>
 		</div>
 		<!-- 右边内容区-交易记录结束 -->

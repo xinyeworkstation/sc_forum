@@ -67,9 +67,15 @@ class PersonController extends Controller {
         $this->display();
     }
      public function transationRecord(){
-        $user=M('user');
-        $where['id']=1;
-        $money=$user->where($where)->field('money')->find();
+        $where['user_id'] = 1;//$_SESSION['user_id'];
+        $model = M('business');
+        $business = $model->field('b_money,time,money,flag')
+                          ->where($where)
+                          ->order('time desc')
+                          ->select();
+        $user = M('user');
+        $money = $user->where($where)->field('money')->find();
+        $this->assign('business',$business);
         $this->assign('money',$money);
         $this->display();
     }
