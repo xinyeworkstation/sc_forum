@@ -228,6 +228,8 @@ img{
 /*头像设置成圆形*/
 .ranking .autors dt img{
 	border-radius: 46px;
+	width: 100%;
+	height: 100%;
 }
 .ranking .autors dt a:hover{
 	border: 4px solid #ff0000;
