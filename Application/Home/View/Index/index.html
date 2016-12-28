@@ -1,5 +1,4 @@
 <include file="Public/header" title="知了首页" />
-
 <body>
 	<div class="main">
 		<ul class="positions">
@@ -54,6 +53,7 @@
 			<div class="autors">
 				<dl class="numFirst">
 					<span>1</span>
+
 					<dt><a href="#"><img src="__PUBLIC__/Images/headpic.gif"/></a></dt>
 					<dd>作者:银行阴</dd>
 				</dl>
@@ -101,13 +101,78 @@
 					<span>10</span>
 					<dt><a href="#"><img src="__PUBLIC__/Images/headpic.gif"/></a></dt>
 					<dd>作者:银行阴</dd>
+					<dt><a href="#"><img src="/{$order[0]['headimg']}"/></a></dt>
+					<dd>作者:{$order[0]['username']}</dd>
+				</dl>
+				<dl class="numFirst">
+					<span>2</span>
+					<dt><a href="#"><img src="/{$order[1]['headimg']}"/></a></dt>
+					<dd>作者:{$order[1]['username']}</dd>
+				</dl>
+				<dl class="numFirst">
+					<span>3</span>
+					<dt><a href="#"><img src="/{$order[2]['headimg']}"/></a></dt>
+					<dd>作者:{$order[2]['username']}</dd>
+				</dl>
+				<dl class="numOther"> 
+					<span>4</span>
+					<dt><a href="#"><img src="/{$order[3]['headimg']}"/></a></dt>
+					<dd>作者:{$order[3]['username']}</dd>
+				</dl>
+				<dl class="numOther">
+					<span>5</span>
+					<dt><a href="#"><img src="/{$order[4]['headimg']}"/></a></dt>
+					<dd>作者:{$order[4]['username']}</dd>
+				</dl>
+				<dl class="numOther">
+					<span>6</span>
+					<dt><a href="#"><img src="/{$order[5]['headimg']}"/></a></dt>
+					<dd>作者:{$order[5]['username']}</dd>
+				</dl>
+				<dl class="numOther">
+					<span>7</span>
+					<dt><a href="#"><img src="/{$order[6]['headimg']}"/></a></dt>
+					<dd>作者:{$order[6]['username']}</dd>
+				</dl>
+				<dl class="numOther">
+					<span>8</span>
+					<dt><a href="#"><img src="/{$order[7]['headimg']}"/></a></dt>
+					<dd>作者:{$order[7]['username']}</dd>
+				</dl>
+				<dl class="numOther">
+					<span>9</span>
+					<dt><a href="#"><img src="/{$order[8]['headimg']}"/></a></dt>
+					<dd>作者:{$order[8]['username']}</dd>
+				</dl>
+				<dl class="numLast">
+					<span>10</span>
+					<dt><a href="#"><img src="/{$order[9]['headimg']}"/></a></dt>
+					<dd>作者:{$order[9]['username']}</dd>
+
 				</dl>
 			</div>
 		</div>
 
 		<div class="sample">
 		<!-- 此处为具体模板展示区，共六排,此处为第一排的内容-->
+			<foreach name="work" item="v">
 			<div class="singleSample">
+
+				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
+				<p class="slogan"><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
+				<p class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg"></a><span>XXX</span></p>
+				<p class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</p>
+				<p class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</p>
+
+				<div class="tempic"><img src="/{$v.works}"/></div>
+				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
+				<span class="manpic"><a href="#"><img src="/{$v.headimg}">{$v.username}</a></span>
+				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>{$v.download}</span>
+				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>{$v.favor}</span>
+
+			</div>
+			</foreach>
+			<!--<div class="singleSample">
 				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
 				<p class="slogan"><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<p class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg"></a><span>XXX</span></p>
@@ -130,18 +195,18 @@
 			</div>
 			<div class="singleSample">
 				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
+<<<<<<< HEAD
 				<p class="slogan"><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<p class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg"></a><span>XXX</span></p>
 				<p class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</p>
 				<p class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</p>
 			</div>
-			<div class="singleSample">
-				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
-				<p class="slogan"><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<p class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg"></a><span>XXX</span></p>
-				<p class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</p>
-				<p class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</p>
-			</div>
+=======
+				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
+				<span class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg">XXX</a></span>
+				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</span>
+				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</span>
+			</div>-->
 			<!-- 以上是第一排的模板 -->
 		</div>
 		<!--翻页的页码部分-->

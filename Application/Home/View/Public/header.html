@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<title>[title]</title>
 	<link rel="stylesheet" href="__STATIC__/css/index-header.css">
-	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index_center.css">
+	<link rel="stylesheet" href="__STATIC__/css/personal-center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/voucher_center.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer.css">
 	<script>
 		// 实现头部选项框的下拉列表菜单
 		window.onload = function (){
@@ -46,7 +47,7 @@
 					</ul>
 				</div>
 				<input class="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
-				<input class="inputBtn" type="button" value="搜索">
+				<input class="inputBtn" type="submit" value="搜索">
 			</form>
 			<!-- 表单搜索结束 -->
 			<div class="personal">
@@ -60,7 +61,7 @@
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<div class="headerPersonal">
-					<a href="#"><img src="__PUBLIC__/images/personalvip.jpg" alt="头像"></a>
+					<a href="#"><img src="/{$order[1]['headimg']}" alt="头像"></a>
 					<span>而生</span>
 					<span>(ID:24867843)</span>
 				</div>
