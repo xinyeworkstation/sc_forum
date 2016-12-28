@@ -73,6 +73,35 @@ class CommentController extends BaseController{
         }
     }//forbid ok
 
+   /* public function show(){
+        //通过一条评论时，其上的评论也会被通过，有没有
+        $id = $_GET['id'];
+        $where['id'] = $id;
+        $model = M('Comment');
+        $del=M('delete');
+        $comment1=$model->where($where)->find();
+        //得到当前评论的所有评论，如果有评论是0，这条评论不让通过
+        $res=$this->getComment2($comment1['parent_id']);
+        $arr[]=$comment1['id'];//将当前评论的id给arr数组
+        $arr=$this->getCommentId2($res,$arr);//得到所有评论的id
+
+       	var_dump($arr);
+       	$wh['id'] = array('in',$arr);
+       	$update['status']='1';
+        $pass=$model->where($wh)->save($update);
+        $whe['t_id']=array('in',$arr);
+        $whe['table']='comment';
+
+        $allow=$del->where($whe)->delete();
+        if($pass){
+            $this->success('启用成功');
+        }else{
+            $this->error("启用失败");
+        }
+
+    }//show ok*/
+
+
     public function show(){
         //通过一条评论时，其上的评论也会被通过，有没有
         $id = $_GET['id'];
@@ -80,11 +109,20 @@ class CommentController extends BaseController{
         $model = M('Comment');
         $del=M('delete');
         $comment1=$model->where($where)->find();
-        $res=$this->getComment2($comment1['parent_id']);//得到当前评论的所有评论
-        $arr[]=$comment1['id'];//将当前评论的id给arr数组
+        //得到当前评论的所有评论，如果有评论是0，这条评论不让通过
+        $res=$this->getComment2($comment1['parent_id']);
+        $arr[]=$comment1['id'];//将当前评论的id给arr数组 5
         $arr=$this->getCommentId2($res,$arr);//得到所有评论的id
-       	var_dump($arr);
-       	$wh['id'] = array('in',$arr);
+        $wh['id'] = array('in',$arr);
+        $sel=$model->where($wh)->select();
+        $sc=count($sel);
+        var_dump($sel);
+        for($s=0;$s<$sc-1;$s++){
+        	var_dump(strcmp($sel[$s]['status'],'0'));
+        	if(strcmp($sel[$s]['status'],'0')==0){
+        		$this->error("此评论的父评论没有启用，启用失败");
+        	}
+        }
        	$update['status']='1';
         $pass=$model->where($wh)->save($update);
         $whe['t_id']=array('in',$arr);
@@ -96,7 +134,7 @@ class CommentController extends BaseController{
             $this->error("启用失败");
         }
 
-    }//show ok
+    }
     
 
     public function delete(){

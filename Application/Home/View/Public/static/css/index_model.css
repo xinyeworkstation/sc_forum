@@ -1,0 +1,471 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-family: "微软雅黑";
+}
+a,a:hover{
+  	text-decoration:none;
+}
+img{
+  	border: none;
+}
+.main{
+	background: #e4e4e4;
+}
+ /*head*/
+ .head{
+ 	width: 100%;
+ 	background: #75b42b;
+ }
+.caseHeader {
+	width: 100%;
+	height: 80px;
+	background-color: #75b42b;
+}
+.caseHeaderContent {
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.caseHeaderContent img {
+	width: 11%;
+	float: left;
+	margin: 20px 0 0 0;
+}
+.caseHeaderContent ul {
+	width: 600px;
+	height: 80px;
+	float: right;
+	margin: 0 90px 0 0;
+	font-size: 14px;
+}
+.caseHeaderContent ul li {
+	float: left;
+	width: 100px;
+	height: 80px;
+}
+.caseHeaderContent ul li a {
+	color: #ffffff;
+	float: left;
+	width: 90px;
+	height: 100%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 80px;
+}
+.caseHeaderContent ul li a:hover {
+	color: #3ed634;
+	height: 75px;
+	line-height: 69px;
+	border-top: 5px solid #ffffff;
+}
+/*轮播图图片*/
+.carousel{
+ 	width: 100%;
+ 	height: 420px;
+ /*	position: relative;*/
+}
+.carousel img{
+	width: 100%;
+	height: 100%;
+}
+/*案例展示部分*/
+.carousel div{
+	width: 1200px;
+	height: 120px;
+	margin: 0 auto;
+	position: relative;
+}
+.carousel .show{
+	width: 375px;
+	height: 60px;
+	margin: 0 auto;
+	position: absolute;
+	top: -120px;
+	left: 415px;
+}
+.carousel .show a{
+	float: left;
+	display: inline-block;
+	width: 160px;
+	height: 48px;
+	line-height: 45px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin-right: 20px;
+	font-size: 20px;
+	color: #fff;
+	cursor: pointer;
+}
+.carousel .show img{
+	display: block;
+	float: left;
+	width: 35px;
+	height: 35px;
+	margin: 7px 10px 0 8px;
+}
+/*轮播图处点的处理*/
+.carousel .dot{
+	width: 64px;
+	height: 20px;
+	margin: 0 auto;
+	position: absolute;
+	top: -45px;
+	left: 572px;
+}
+.carousel .dot li{
+	margin:0 5px 0 0;
+	float: left;
+}
+.carousel .dot a{
+	display: block;
+	float: left;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	border:  2px solid #fff;
+	cursor: pointer;
+}
+.carousel .dot a:hover{
+	background: #fff;
+}
+/*中间body部分*/
+.body{
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+/*服务项目*/
+.body .serviceItem{
+	width: 1200px;
+	height: 544px;
+	margin: 30px auto 0;
+	background: url(../../../../../../../Public/images/graybac.gif) center center no-repeat;
+	background-size: 100% 100%;
+ 	width: 100%;
+}
+.serviceItem .title,.caseShowone .caseShow{
+	padding-top: 15px;
+	font-size: 30px;
+}
+.serviceItem .title,.serviceItem .englishName,.caseShowone .caseShow,.caseShowone .englishName{
+	text-align: center;
+}
+.serviceItem .title span{
+	border-bottom: 2px solid #066f12;
+}
+.serviceItem .englishName,.caseShowone .englishName{
+	font-size: 18px;
+	padding-top: 5px;
+}
+.serviceItem .englishName,.caseShowone .englishName{
+	color: #808080;
+}
+/*各种设计方式*/
+.serviceItem .aboutDesign{
+	width: 1050px;
+	overflow: hidden;
+	margin: 20px auto 0;
+}
+.serviceItem .aboutDesign div{
+	width: 250px;
+	height: 310px;
+	border-radius: 15px;
+	box-shadow: 5px 5px #373334;
+	-webkit-box-shadow: 3px 0px 5px #373334;
+    -moz-box-shadow: 1px -1px 4px #373334;
+    -ms-box-shadow: 2px -2px 4px #373334;
+    -o-box-shadow: 2px -2px 4px #373334;
+    float: left;
+    margin: 0 12px 35px 0;
+    background: #fff;
+}
+.serviceItem .aboutDesign dl{
+	width: 210px;
+	height: 297px;
+	margin: 5px auto 0;
+	background: #39aa4b;
+}
+.serviceItem .aboutDesign dl p{
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	padding: 20px 0 0 0;
+}
+.serviceItem .aboutDesign dt{
+	width: 110px;
+	height: 110px;
+	margin: 18px auto 30px;
+	border-radius: 15px;
+	box-shadow: 2px 2px 5px #373334;
+	-webkit-box-shadow: 2px 2px 5px #373334;
+    -moz-box-shadow: 2px 2px 5px #373334;
+    -ms-box-shadow: 2px 2px 5px #373334;
+    -o-box-shadow: 2px 2px 5px #373334;
+}
+.serviceItem .aboutDesign img{
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+}
+.serviceItem .aboutDesign dd{
+	font-size: 13px;
+	text-align: center;
+	color: #fff;
+	padding-bottom: 5px;
+}
+.serviceItem .introduce,.serviceItem .introduceTwo{
+	float: left;
+	width: 100%;
+	font-size: 13px;
+	text-align: center;
+	padding-bottom: 8px;	
+}
+.serviceItem .introduceTwo{
+	margin-bottom: 17px;
+}
+/*模板展示部分*/
+.body .caseShowone,.body .caseShowtwo,.body .csaeShowthree{
+	width: 1200px;
+}
+.caseShowone .caseShowblack{
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../../../../../../../Public/images/blackbac.gif) center center no-repeat;
+	background-size: 100% 100%; 
+ 	width: 100%;
+ }
+ .caseShowthree .caseShowblack{
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../../../../../../../Public/images/blackbactwo.gif) center center no-repeat;
+	background-size: 100% 100%; 
+ 	width: 100%;
+ }
+.caseShow{
+ 	color: #fff;
+ }
+.caseShow span{
+ 	border-bottom: 2px solid #066f12;
+ }
+ /*查看更多*/
+.leftSide{
+ 	float: left;
+ 	margin-top: 135px;
+ }
+.leftSide p{
+  	width: 50px;
+  	height: 120px;
+  	background: #fff;
+  	border-radius: 0 60px 60px 0;
+}
+.leftSide a,.rightSide a{
+	display: inline-block;
+	width: 15px;
+	font-size: 15px;
+	padding-top: 22px;
+	cursor: pointer;
+}
+.leftSide a{
+	margin: 0 0 0 10px;
+}
+/*案例展示模板展示部分*/
+.showBodyone,.showBodytwo{
+	width: 1200px;
+	height: 460px;
+}
+.showBodyone{
+	margin: 10px auto 0;
+	position: relative;
+}
+.showModelsone,.showModelstwo{
+	float: left;
+	height: 430px;
+	margin-left: 22px;
+}
+.showModelsone a,.showModelstwo a{
+	width: 250px!important;
+	height: 430px;
+	display: block;
+	float: left;
+	margin-right: 15px;
+}
+.showModelsone a{
+	background: url(../../../../../../../Public/images/bordertwo.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModelstwo a{
+	background: url(../../../../../../../Public/images/borderfour.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModelsone a:hover{
+	background: url(../../../../../../../Public/images/borderone.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModelstwo a:hover{
+	background: url(../../../../../../../Public/images/borderthree.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+}
+.showModelsone img,.showModelstwo img{
+	margin: 15px 0 0 10px;
+	width: 92%;
+	height: 92%;
+}
+.dynamic{
+	float: left;
+	width: 60px!important;
+	height: 175px;
+	background: url(../../../../../../../Public/images/trangle.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+ 	margin: 120px 0 0 8px;
+}
+.dynamic a{
+	display: inline-block;
+	width: 15px;
+	font-size: 15px;
+	margin: 44px 0 0 35px;
+	cursor: pointer;
+	color: #fff;
+}
+/*边框外三角图片部分*/
+.outPicture{
+	float: left;
+	width: 50px;
+	height: 170px;
+	position: absolute;
+	top: 1303px;
+	left: 1275px;
+}
+.outPicture img,.outPicturetwo img,.outPicturethree img,.outPicturefour img,.outPicturefive img{
+	width: 100%;
+	height: 100%;
+}
+/*灰底模板*/
+.caseShowtwo .caseShowgray{
+	width: 855px;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url(../../../../../../../Public/images/graybactwo.gif) center center no-repeat;
+	background-size: 100% 100%; 
+ 	width: 100%;
+ }
+.showBodytwo,.showBodyone{
+ 	margin: 30px auto 0;
+ }
+.static{
+ 	width: 50px!important;
+  	height: 165px;
+  	float: left;
+ 	background: url(../../../../../../../Public/images/trangletwo.gif) center center no-repeat;
+	background-size: cover;
+ 	width: 100%;
+ 	margin: 120px 0 0 0;
+ }
+.static a{
+	display: inline-block;
+	width: 15px;
+	font-size: 15px;
+	margin: 45px 0 0 8px;
+	cursor: pointer;
+	color: #fff;
+}
+.rightSide{
+	float: left;
+ 	margin: 135px 0 0 17px;
+}
+.rightSide p{
+	width: 50px;
+	height: 120px;
+	background: #000000;
+  	border-radius: 60px 0 0 60px;
+}
+.rightSide a{
+	color: #fff;
+	margin: 0 0 0 23px;
+}
+/*边框外三角图片部分*/
+.outPicturetwo,.outPicturethree,.outPicturefour,.outPicturefive{
+	float: left;
+	width: 50px;
+	height: 170px;
+}
+.outPicturetwo{
+	position: absolute;
+	top: 1787px;
+	left: 25px;
+}
+.outPicturethree{
+	position: absolute;
+	top: 2285px;
+	left: 1275px;
+}
+.outPicturefour{
+	position: absolute;
+	top: 2765px;
+	left: 25px;
+}
+.outPicturefive{
+	position: absolute;
+	top: 3265px;
+	left: 1275px;
+}
+
+/*底部*/
+.footer{
+	width: 100%;
+	height: 350px;
+	background: #75b42b;
+	margin-top: 30px;
+}
+.footer div{
+	width: 100%;
+	margin: 0 auto 35px;
+	padding: 20px;
+	border: 2px solid #83bc41;
+}
+.footer p{
+	text-align: center;
+}
+.names{
+	font-size: 25px;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+}
+.address,.telephone{
+	font-size: 15px;
+	color: #e3f0d5;
+	padding-top: 8px;
+}
+.footer ul{
+	width: 260px;
+	height: 50px;
+	margin: 35px auto 0;
+	padding-left: 35px;
+}
+.footer ul li{
+	float: left;
+	padding: 0 35px 0 8px;
+}
+.footer ul li a{
+	display: inline-block;
+	width : 40px; 
+	height: 40px;
+}
+.footer img{
+	width: 100%;
+	height: 100%;
+}
+.words{
+	font-size: 15px;
+	color: #fff;
+	margin-bottom: 10px;
+}
