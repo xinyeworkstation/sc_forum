@@ -58,11 +58,14 @@ a {
 .caseSction {
 	margin: 0 auto;
 	width: 1200px;
-	height: hidden;
+	height: auto;
+	padding: 50px 0 0 0;
 }
 .caseSctionPrompt {
 	color: #7f7f7f;
+	margin: 0 0 0 14px;
 	font-size: 14px;
+	height: 24px;
 }
 .caseSctionPrompt a {
 	color: #75b42b;
@@ -70,4 +73,223 @@ a {
 .caseSctionPrompt a:hover {
 	text-decoration: underline;
 }
+/*中间TOP部分：位置到设计方案开始*/
+.caseSctionTop {
+	width: 100%;
+	height: auto;
+	padding: 0 0 30px 0;
+	border-top: 1px solid #c9c9c9;
+	border-left: 1px solid #888586;
+	border-right: 1px solid #888586;
+	border-bottom: 1px solid #3b3638;
+	box-shadow: 0 4px 4px #888586;
+}
+.casePosition {
+	height: 38px;
+	font-size: 12px;
+	line-height: 38px;
+	padding: 0 0 0 12px;
+	color: #7f7f7f;
+	border-bottom: 2px solid #c9c9c9;
+}
+.casePageTurn {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #c9c9c9;
+}
+.casePageTurnLeft {
+	float: left;
+	padding: 0 0 0 12px;
+	font-size: 18px;
+	line-height: 50px;
+	color: #2e2e2e;
+	font-family: 微软雅黑
+}
+.casePageTurnRight {
+	float: right;
+	overflow: hidden;
+	margin: 10px 0 0 0;
+}
+.casePageTurnRight li {
+	float: left;
+	color: #a8a8a8;
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 20px 0 0;
+	border: 1px solid #d7d7d7;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 16px;
+}
+.casePageTurnRight li:nth-child(2) {
+	width: 50px;
+	color: #75b42b;
+}
+.caseMouldDetail {
+	width: 100%;
+	height: 146px;
+	font-family: 微软雅黑;
+	font-size: 16px;
+	border-bottom: 2px solid #c9c9c9;
+}
+.caseMouldDetailLeft {
+	float: left;
+}
+.caseMouldDetailLeft p {
+	height: 34px;
+	line-height: 34px;
+	padding: 0 0 0 12px;
+}
+.caseMouldDetailLeft .check {
+	margin: 12px 6px 0 0;
+	float: left;
+}
+.mouldDetailIntro:nth-child(3) {
+	margin: 0 40px 0 0;
+}
+.mouldDetailMoney {
+	color: #c40000;
+	font-size: 26px;
+	float: left;
+}
+.MouldDetailtitle {
+	float: left;
+}
+.mouldDetailIntro {
+	font-size: 14px;
+	float: left;
+}
+.caseMouldDetailRight {
+	float: right;
+	margin:52px 20px 0 0;
+}
+.caseMouldDetailRight input {
+	width: 110px;
+	height: 36px;
+	line-height: 36px;
+	color: #c40000;
+	border: 1px solid #c40000;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.caseMouldDetailRight input:hover {
+	background-color: #c40000;
+	color: #ffffff;
+}
+.caseDownArea {
+	width: 100%;
+	height: auto;
+	border: 1px solid #c9c9c9;
+}
+.caseDownArea p {
+	font-size: 18px;
+	padding: 6px 0 0 12px;
+	font-family: 微软雅黑;
+}
+.caseDownArea p span {
+	font-size: 14px;
+}
+.downAreaFile {
+	overflow: hidden;
+	padding: 18px 0 30px 12px;
+}
+.downAreaCompress {
+	float: left;
+	margin: 0 36px 0 0;
+}
+.downAreaCompressTop {
+	width: 164px;
+	background-color: #ffffff;
+	height: 48px;
+
+}
+.downAreaCompressTop dt {
+	float: left;
+	margin: 6px 4px 0 4px;
+}
+.downAreaCompressTop dt img {
+	width: 96%;
+}
+.downAreaCompressTop dd {
+	float: left;
+	line-height: 12px;
+	color: #6e6e6e;
+	font-size: 12px;
+}
+.downAreaCompressTop .compressName {
+	color: #000000;
+	margin: 6px 0 0 0;
+}
+.caseDownArea .downAreaCompressBottom {
+	padding: 0 0 0 0;
+}
+.downAreaCompressBottom a {
+	color: #757575;
+	font-size: 14px;
+	float: left;
+	text-decoration: underline;
+}
+.caseDesignPlan {
+	width: 100%;
+	height: auto;
+	font-family: 微软雅黑;
+}
+.caseDesignPlan span {
+	color: #000000;
+	font-size: 16px;
+	padding: 12px 0 0 12px;
+	display: block;
+}
+.designPlanExplain h2{
+	font-size: 16px;
+	color: #75b42b;
+	height: 50px;
+	line-height: 50px;
+	font-weight: normal;
+	text-align: center;
+	margin: 0 0 8px 0;
+}
+.designPlanExplain p {
+	font-size: 14px;
+	margin: 0 0 0 160px;
+	height: 28px;
+}
+/*中间TOP部分：位置到设计方案结束*/
+/*中间CENTER部分：展示区开始*/
+.caseSctionCenter {
+	width: 100%;
+	height: auto;
+	background-color: #d8d8d8;
+	border-top: 1px solid #3b3638;
+	border-left: 1px solid #a6a4a5;
+	border-right: 1px solid #a6a4a5;
+	border-bottom: 1px solid #686566;
+	box-shadow: 0 6px 6px #686566;
+}
+.caseSctionCenterTitle {
+	width: 300px;
+	font-family: 微软雅黑;
+	font-size: 16px;
+	text-align: center;
+	height: 44px;
+	border: 4px solid #ebebeb;
+	background-color: #e8e8e8;
+	line-height: 44px;
+	margin: 30px auto;
+}
+embed {
+	background: url(../../../../../../Public/images/flashbac.jpg) no-repeat center;	
+	width: 1000px;
+	height: 400px;
+	margin: 10px 106px;
+}
+.caseSctionCenter img {
+	margin: 30px 0 50px 50px;
+	width: 1100px;
+}
+/*中间CENTER部分：展示区结束*/
 /*中间主体部分结束*/
