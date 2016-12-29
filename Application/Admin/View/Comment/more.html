@@ -3,7 +3,15 @@
 <div id="page-wrapper">
 	<div class="col-md-6">
 		<a href="#" onClick="javascript :history.back(-1);" class="btn btn-success">返回</a>
-    </div><br /><br /><br />
-    {$model}
+    </div><br /><br />
+  	<div class="form-group">
+            <label>评论内容</label>
+            <input class="form-control" type="text" name="username"  value="{$model.content}">
+    </div> 
+    <!--<div class="form-group">
+        <a href="{:U('comment/show?id=')}{$model.id}" >通过</a>
+    </div> -->
+    
+    
 </div>
 <include file="Public/footer" />

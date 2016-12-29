@@ -17,7 +17,7 @@ class IndexController extends Controller {
     		$work = $model->alias('w')
     					  ->join('user u ON w.user_id=u.id')
     					  ->field('w.id w_id,works,download,favor,u.id u_id,u.username,u.headimg')
-    					  ->where('flag=2')
+    					  ->where('flag=1')
     					  ->order('w.id desc')
     					  //->limit(30)
     					  ->select();
@@ -28,6 +28,7 @@ class IndexController extends Controller {
     			$work[$i]['works'] = $url[0];
     		}
     		//var_dump($work);exit;
+    		
     		$this->assign('order',$order);
     		$this->assign('work',$work);
     	}
@@ -39,7 +40,6 @@ class IndexController extends Controller {
     	}	
         $this->display();
     }
-<<<<<<< HEAD
 
     /**
      * webuploader 上传文件
@@ -61,9 +61,6 @@ class IndexController extends Controller {
             $this->display();
         }
     }
-}
-=======
-    
+
 
 }
->>>>>>> 3dbdfca903cfcadaae3fcd6b2bbd38c6d80f4bce
