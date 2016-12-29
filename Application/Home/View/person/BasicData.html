@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>知了设计-个人中心</title>
-	<link rel="stylesheet" href="../Public/static/css/personal-center.css"">
-	<script type="text/javascript" src="../Public/static/js/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="../Public/static/js/tabcut.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/personal-center.css"">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
 </head>
 <body>
 	<!-- 中间部分开始 -->
@@ -37,20 +37,20 @@
 		<div id="mainBasicData">
 			<div class="basicDataTop">
 				<div class="headSculpture">
-					<img src="../../../../Public/images/head-portrait.jpg" alt="头像">
+					<img src="__STATIC__/images/head-portrait.jpg" alt="头像">
 					<a href="">修改头像</a>
 				</div>
 				<ul class="basicDataMore">
-					<li>昵称：<span>而生</span></li>
-					<li>ID：<span>568695467</span></li>
-					<li>会员等级：<span>*******</span></li>
-					<li>余额：<span>*********</span></li>
-					<li>邮箱：<span>1323435@qq.com</span></li>
-					<li><a href="">修改资料</a></li>
+					<li>昵称：<span>{$P_message.username}</span></li>
+					<li>ID：<span>{$P_message.id}</span></li>
+					<li>会员等级：<span>{$P_message.level}</span></li>
+					<li>余额：<span>{$P_message.money}</span></li>
+					<li>邮箱：<span>{$P_message.email}</span></li>
+					<li><a href="{:U('Person/PersonMessage')}">修改资料</a></li>
 				</ul>
 			</div>
 			<div class="basicDataBottom">
-				<a href="">上传作品<img src="../../../../Public/images/updata.jpg"></a>
+				<a href="">上传作品<img src="__STATIC__/images/updata.jpg"></a>
 			</div>
 			<ul class="cutBasicData">
 				<li><a href="#">已通过<span>6</span></a></li>

@@ -60,90 +60,90 @@ a {
 	padding: 34px 0 0 0;
 }
 .sidebarColumnOneFirstA {
-	background: url(../../../../../../Public/images/personal-oneicon.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/images/personal-oneicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneSecA {
-	background: url(../../../../../../Public/images/personal-twoicon.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/images/personal-twoicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneThirdA {
-	background: url(../../../../../../Public/images/personal-threeicon.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/images/personal-threeicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoFirstA {
-	background: url(../../../../../../Public/images/personal-fouricon.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/Public/images/personal-fouricon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoSecA {
-	background: url(../../../../../../Public/images/personal-fiveicon.jpg) no-repeat 70px 8px;
+	background: url(__STATIC__/Public/images/personal-fiveicon.jpg) no-repeat 70px 8px;
 }
 .sidebarColumnTwoThirdA {
-	background: url(../../../../../../Public/images/personal-sixicon.jpg) no-repeat 70px 6px;
+	background: url(__STATIC__/Public/images/personal-sixicon.jpg) no-repeat 70px 6px;
 }
 .sidebarColumnThreeFirstA {
-	background: url(../../../../../../Public/images/personal-eighticon.jpg) no-repeat 64px 6px;
+	background: url(__STATIC__/Public/images/personal-eighticon.jpg) no-repeat 64px 6px;
 }
 .sidebarColumnThreeSecA {
-	background: url(../../../../../../Public/images/personal-sevenicon.jpg) no-repeat 64px 5px;
+	background: url(__STATIC__/Public/images/personal-sevenicon.jpg) no-repeat 64px 5px;
 }
 .sidebarColumnThreeThirdA {
-	background: url(../../../../../../Public/images/personal-nineicon.jpg) no-repeat 64px 8px;
+	background: url(__STATIC__/Public/images/personal-nineicon.jpg) no-repeat 64px 8px;
 }
 .sidebarColumnThreeFourthA {
-	background: url(../../../../../../Public/images/personal-tenicon.jpg) no-repeat 64px 6px;
+	background: url(__STATIC__/Public/images/personal-tenicon.jpg) no-repeat 64px 6px;
 }
 
 .sidebarColumnOneFirstA:hover {
-	background: url(../../../../../../Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneSecA:hover {
-	background: url(../../../../../../Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneThirdA:hover {
-	background: url(../../../../../../Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoFirstA:hover {
-	background: url(../../../../../../Public/images/personal-fourcharge.jpg) no-repeat 70px 5px;
+	background: url(__STATIC__/Public/images/personal-fourcharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoSecA:hover {
-	background: url(../../../../../../Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+	background: url(__STATIC__/Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
 }
 .sidebarColumnTwoThirdA:hover {
-	background: url(../../../../../../Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+	background: url(__STATIC__/Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
 }
 .sidebarColumnThreeFirstA:hover {
-	background: url(../../../../../../Public/images/personal-eightcharge.jpg) no-repeat 64px 6px;
+	background: url(__STATIC__/Public/images/personal-eightcharge.jpg) no-repeat 64px 6px;
 }
 .sidebarColumnThreeSecA:hover {
-	background: url(../../../../../../Public/images/personal-sevencharge.jpg) no-repeat 64px 5px;
+	background: url(__STATIC__/Public/images/personal-sevencharge.jpg) no-repeat 64px 5px;
 }
 .sidebarColumnThreeThirdA:hover {
-	background: url(../../../../../../Public/images/personal-ninecharge.jpg) no-repeat 64px 8px;
+	background: url(__STATIC__/Public/images/personal-ninecharge.jpg) no-repeat 64px 8px;
 }
 .sidebarColumnThreeFourthA:hover {
-	background: url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+	background: url(__STATIC__/Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
 }
 
 .activeProduct {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+	background: #ffffff url(__STATIC__/Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
 }
 .activeCollection {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+	background: #ffffff url(__STATIC__/Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
 }
 .activeTransationRecord {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+	background: #ffffff url(__STATIC__/Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
 }
 .activePersonMessage {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(__STATIC__/Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
 }
 .activeBasicData {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(__STATIC__/Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
 }
 .activeChangePassword {
 	color: #009900;
-	background: #ffffff url(../../../../../../Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(__STATIC__/Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
 }
 
 /*左边边侧栏导航结束*/
