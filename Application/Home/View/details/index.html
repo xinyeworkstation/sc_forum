@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>商品详情页</title>
-	<link rel="stylesheet" type="text/css" href="details.css">
-</head>
-<body>
+<include file="Public/header" title="商品详情页" />
 <!-- 商品详情页 -->
 	<section id="Details">
 		<div id="Details-main">
 			<div class="Person">
 				<div class="PersonPic">
-					<a href="#"><img src="images/person_03.png" alt=""></a>
+					<a href="#"><img src="<if condition="$author['headimg']">/{$author['headimg']}<else/>__PUBLIC__/Images/person_03.png</if>" alt=""></a>
 				</div>
 				<div class="PersonName">
-					<h3>野蛮女友猫七</h3>
+					<h3>{$author['username']}</h3>
 					<p><a href="#">【查看她的主页】</a></p>
 				</div>
 			</div>
 			<div class="PersonNav">
 				<ul>
 					<li><a href="#"><span>网站模板</span></a></li>
-					<li><a href="#"><i><img src="images/download_07.jpg" alt=""></i><span>33下载</span></a></li>
-					<li><a href="#"><i><img src="images/star_09.jpg" alt=""></i><span>77收藏</span></a></li>
+					<li><a href="#"><i><img src="__PUBLIC__/Images/download_07.jpg" alt=""></i><span>{$display['download']}下载</span></a></li>
+					<li><a href="#"><i><img src="__PUBLIC__/Images/star_09.jpg" alt=""></i><span id="flove">{$display['favor']}</span>收藏</a></li>
 				</ul>
 			</div>
 			<div class="PersonIntro">
 				<h2>作品简介:</h2>
-			<p> 异步 JavaScript和XML（标准通用标记语言的子集）。AJAX AJAX即“Asynchronous异步JavaScript和XML(标准通用标记语言的子)AJAX11111111111111111
+			<p> {$display['intro']}
 			</p> 
 			</div>
 		</div>
@@ -36,49 +29,49 @@
 			<div class="ShowIntro">
 				<div class="ShowPic">
 					<div class="ShowPicBig" id="ShowPicBig">
-						<img src="images/p1.jpg" alt="商品预览图">
+						<img src="__PUBLIC__/Images/p1.jpg" alt="商品预览图">
 					</div>
 					<div class="ShowPicSmall" id="ShowPicSmall">
 						<ul>
-							<li class="current"><a href="images/p1.jpg" target="_blank"><img src="images/p1.jpg" alt="商品预览图"></a></li>
-							<li><a href="images/p2.jpg"  target="_blank"><img src="images/p2.jpg" alt="商品预览图"></a></li>
-							<li><a href="images/p3.jpg"  target="_blank"><img src="images/p3.jpg" alt="商品预览图"></a></li>
-							<li><a href="images/p4.jpg"  target="_blank"><img src="images/p4.jpg" alt="商品预览图"></a></li>
+							<li class="current"><a href="__PUBLIC__/Images/p1.jpg" target="_blank"><img src="__PUBLIC__/Images/p1.jpg" alt="商品预览图"></a></li>
+							<li><a href="__PUBLIC__/Images/p2.jpg"  target="_blank"><img src="__PUBLIC__/Images/p2.jpg" alt="商品预览图"></a></li>
+							<li><a href="__PUBLIC__/Images/p3.jpg"  target="_blank"><img src="__PUBLIC__/Images/p3.jpg" alt="商品预览图"></a></li>
+							<li><a href="__PUBLIC__/Images/p4.jpg"  target="_blank"><img src="__PUBLIC__/Images/p4.jpg" alt="商品预览图"></a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="ShowWorks">
 					<div class="ShowWorksHd">
-						<h3>作品名称：<span>倩女幽魂3</span></h3>
+						<h3>作品名称：<span>{$display['workname']}</span></h3>
 					</div>
 					<div class="ShowWorksPanel">
 					<div class="ShowWorksSource">
 						<ul>
 							<li title=""><span>素材来源：</span>原创作品</li>
-							<li title=""><span>素材类型：</span>动态模板</li>
+							<li title=""><span>素材类型：</span>{$display['catename']}</li>
 						</ul>
 					</div>
 					<div class="ShowWorksMessage">
 						<ul>
-							<li title=""><span>编号：</span>123438</li>
+							<li title=""><span>编号：</span>{$display['id']}</li>
 							<li title=""><span>模式：</span>RGB</li>
-							<li title=""><span>类型：</span>JPG</li>
+							<li title=""><span>类型：</span>{$display['type']}</li>
 							<li title=""><span>尺寸：</span>900*600px</li>
 							<li title=""><span>体积：</span></li>
-							<li title=""><span>上传时间：</span>2016-11-20 22:26:28</li>
+							<li title=""><span>上传时间：</span>{$display['wtime']}</li>
 						</ul>
 					</div>	
 					</div>
 					<!-- 素材价格 -->
 					<div class="ShowWorksPrice">
-						<p>素材价格：<em>200000</em>金币</p>
+						<p>素材价格：<em>{$display['price']} </em>金币</p>
 					</div>
 					<div class="ShowWorksAction">
 						<div class="ShowWorksActionBuy">
 							<a href="#">立即购买</a>
 						</div>
 						<div class="ShowWorksActionCollect">
-							<a href="#">加入收藏</a>
+							<a href="#" id="favor" _id="{$display['id']}" link="{:U('details/putFavor')}"><if condition="$favor eq 0">加入收藏<else/>取消收藏</if></a>
 						</div>
 					</div>
 				</div>
@@ -92,7 +85,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -107,7 +100,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -122,7 +115,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -137,7 +130,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -152,7 +145,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -167,7 +160,7 @@
 						<li title="">
 							<div class="DownloadRegionOne">
 								<div class="DownloadRegionOneBag">
-									<img src="images/Compression_10.jpg">
+									<img src="__PUBLIC__/Images/Compression_10.jpg">
 								</div>
 								<div class="DownloadRegionOneIntro">
 									<p>asds33.zip</p>
@@ -191,11 +184,11 @@
 			<div class="WorksFlash">
 				<p>
 					<embed></embed>
-					<img src="images/flash1_09.jpg" alt=""/>
+					<img src="__PUBLIC__/Images/flash1_09.jpg" alt=""/>
 				</p>
-				<p><img src="images/flash2_09.jpg" alt=""/></p>
-				<p><img src="images/flash3_12.jpg" alt=""/></p>
-				<p><img src="images/flash4_14.jpg" alt=""/></p>
+				<p><img src="__PUBLIC__/Images/flash2_09.jpg" alt=""/></p>
+				<p><img src="__PUBLIC__/Images/flash3_12.jpg" alt=""/></p>
+				<p><img src="__PUBLIC__/Images/flash4_14.jpg" alt=""/></p>
 			</div>
 			<!-- 评论 -->
 			<div class="Comment">
@@ -209,7 +202,7 @@
 					</div>
 					<div class="CommentInputClick">
 						<div class="CommentInputClickFace">
-							<a href="#"><img src="images/face_03.jpg"></a>
+							<a href="#"><img src="__PUBLIC__/Images/face_03.jpg"></a>
 							<span>添加表情</span>
 						</div>
 						<div class="CommentInputClickBut">
@@ -223,7 +216,9 @@
 
 		</div><!-- 照片展示介绍区 结尾标签-->
 	</section>
-	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" src="js/show.js"></script>
-</body>
-</html>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/show.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/favor.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/cookie.js"></script>
+<include file="Public/footer" />
