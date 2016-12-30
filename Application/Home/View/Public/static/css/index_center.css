@@ -292,7 +292,7 @@ p.manpic{
 }
 .manpic a{
 	float: left;
-	display: inline-block;
+	display: block;
 	width: 25px;
 	height: 25px;
 	border-radius: 25px;
@@ -300,6 +300,8 @@ p.manpic{
 }
 .manpic img{
 	border-radius: 25px;
+	width: 100%;
+	height: 100%;
 }
 p.loadpic{
 	width: 46px;
@@ -318,6 +320,8 @@ p.loadpic,p.support{
 .support a{
 	cursor: pointer;
 }
+
+/*翻页的页码部分*/
 .pages{
 	width: 852px;
 	height: 56px;

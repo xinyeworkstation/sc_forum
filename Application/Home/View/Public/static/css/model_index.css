@@ -1,5 +1,9 @@
 
+
 /*轮播图图片*/
+.headCarousel{
+	background: #75b42b;
+}
 .carousel{
  	width: 100%;
  	height: 420px;

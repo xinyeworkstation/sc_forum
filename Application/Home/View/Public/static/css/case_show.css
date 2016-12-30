@@ -1,0 +1,181 @@
+body{
+	background: #ececec;
+}
+.bodyCenter{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-top: 50px;
+	margin-bottom: 75px;
+}
+.bodyCenter .poster{
+	color: #7f7f7f;
+	border-bottom: 2px solid #3a3536;
+	font-size: 15px;
+	padding-left: 5px;
+}
+.bodyCenter .poster a{
+	color: #75b42b;
+}
+.bodyCenter .positions{
+	height: 45px;
+	line-height: 45px;
+	padding-left: 5px;
+	font-size: 15px;
+	color: #7f7f7f;
+}
+/*导航条*/
+.bodyCenter .nav{
+	height: 40px;
+	line-height: 40px;
+	border: 2px solid #b7b7b7;
+	padding-left: 15px;
+}
+.bodyCenter .nav li{
+	float: left;
+}
+.bodyCenter .nav a{
+	float: left;
+	display: block;
+	height: 40px;
+	margin-right: 23px;
+	color: #7f7f7f;
+	padding: 0 8px;
+}
+.bodyCenter .nav a:hover{
+	background: #75b42b;
+	color: #fff;
+}
+/*顶部翻页*/
+.topPageturn{
+	width: 1200px;
+	height: 45px;
+}
+.topPageturn .rightNav{
+	float: right;
+	margin: 0 10px 0 0;
+	height: 28px;
+	padding-top: 8px;
+}
+.topPageturn .rightNav li{
+	width: 36px;
+	height: 25px;
+	display: block;
+	float: left;
+	background: #fff;
+	margin-right: 5px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #d9d9d9;
+	border: 1px solid #d9d9d9;
+	-moz-box-shadow:2px 2px 10px #d9d9d9;
+    -webkit-box-shadow:2px 2px 5px #d9d9d9;
+    box-shadow:2px 2px 5px #d9d9d9;
+}
+.topPageturn .rightNav a{
+	display: block;
+	color: #d9d9d9;
+    cursor: pointer;
+}
+/*模板展示*/
+.caseShow{
+	width: 1200px;
+	background: #d8d8d8;
+	padding-left: 10px;
+	overflow: hidden;
+}
+.caseShow dl{
+	width: 285px;
+	height: 480px;
+	border: 1px solid #d9d9d9;
+	-moz-box-shadow:2px 2px 10px #939393;
+    -webkit-box-shadow:2px 2px 5px #939393;
+    box-shadow:2px 2px 5px #939393;
+    float: left;
+    margin: 0 10px 10px 0;
+    background: #fff;
+}
+.caseShow dt{
+	width: 281px;
+	height: 423px;
+	margin: 2px 2px;
+}
+.caseShow dt img{
+	width: 100%;
+	height: 100%;
+}
+.caseShow dd{
+	text-align: center;
+	height: 25px;
+	line-height: 25px;
+}
+.caseShow dd a{
+	color: #000000;
+	font-size: 15px;
+}
+.caseShow dd a:hover{
+	color: #24691a;
+	text-decoration: underline;
+}
+a.detailed{
+	color: #7f7f7f;
+	font-size: 12px;
+	margin: 0 0 0 8px;
+	display: inline-block;
+	width: 110px;
+}
+a.detailed:hover{
+	color: #000000;
+}
+a.prices{
+	color: #7f7f7f;
+	font-size: 12px;
+	display: inline-block;
+	width: 160px;
+	text-align: right;
+	cursor: pointer;
+}
+a.prices:hover{
+	color: #ff0000;
+}
+
+/*翻页的页码部分*/
+.pages{
+	width: 852px;
+	height: 56px;
+	background: #f8f8f8;
+	margin: 30px 0 35px 150px;
+	float: left;
+	padding-left: 13px;
+}
+.pages li{
+	display: inline-block;
+	margin: 10px 13px 0 0;
+	float: left;
+	height: 36px;
+	text-align: center;
+	line-height: 36px;
+	font-size: 15px;
+}
+.pageFirst{
+	width: 90px;
+	background: #fff;
+}
+.pageSecond{
+	width: 47px;
+	background: #fff;
+}
+.pageMore{
+	width: 30px;
+	background: #f8f8f8;
+}
+.pages a{
+	color: #a9a9a9;
+	display: block;
+}
+.pages a:hover{
+	background: #1aba78;
+	color: #fff;
+}
