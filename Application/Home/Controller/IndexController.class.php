@@ -17,7 +17,7 @@ class IndexController extends Controller {
     		$work = $model->alias('w')
     					  ->join('user u ON w.user_id=u.id')
     					  ->field('w.id w_id,works,download,favor,u.id u_id,u.username,u.headimg')
-    					  ->where('flag=2')
+    					  ->where('flag=1')
     					  ->order('w.id desc')
     					  //->limit(30)
     					  ->select();
