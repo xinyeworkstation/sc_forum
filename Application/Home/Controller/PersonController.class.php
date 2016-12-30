@@ -59,4 +59,20 @@ class PersonController extends Controller
 
 
     }
+
+    public function ChangePassword(){
+        if(IS_POST){
+            //$user['username']=session('username');//获取登陆后的的用户名称
+            $model=M('user');
+            $user['password']=$model->where($user)->field('password')->find();
+            if($user['password']==I('user_old_password','','md5')){
+                $use['password']=I('user_new_password','','md5');//重置的新密码
+                if($model->save($use));
+            }
+        }
+        if(!IS_POST){
+            $this->display();
+        }
+
+    }
 }
