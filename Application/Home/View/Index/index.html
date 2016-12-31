@@ -56,6 +56,7 @@
 					<dt><a href="#"><img src="/{$order[0]['headimg']}"/></a></dt>
 					<dd>作者:{$order[0]['username']}</dd>
 				</dl>
+				
 				<dl class="numFirst">
 					<span>2</span>
 					<dt><a href="#"><img src="/{$order[1]['headimg']}"/></a></dt>
@@ -108,41 +109,21 @@
 		<!-- 此处为具体模板展示区，共六排,此处为第一排的内容-->
 			<foreach name="work" item="v">
 			<div class="singleSample">
+
+				<!--<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
+				<p class="slogan"><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
+				<p class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg"></a><span>XXX</span></p>
+				<p class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</p>
+				<p class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</p>-->
+
 				<div class="tempic"><img src="/{$v.works}"/></div>
 				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
 				<span class="manpic"><a href="#"><img src="/{$v.headimg}">{$v.username}</a></span>
 				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>{$v.download}</span>
 				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>{$v.favor}</span>
+
 			</div>
 			</foreach>
-			<!--<div class="singleSample">
-				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
-				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<span class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg">XXX</a></span>
-				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</span>
-				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</span>
-			</div>
-			<div class="singleSample">
-				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
-				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<span class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg">XXX</a></span>
-				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</span>
-				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</span>
-			</div>
-			<div class="singleSample">
-				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
-				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<span class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg">XXX</a></span>
-				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</span>
-				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</span>
-			</div>
-			<div class="singleSample">
-				<div class="tempic"><img src="__PUBLIC__/Images/tempic.jpg"/></div>
-				<p><a href="#">报名火热开启<strong>游戏网站</strong>PSD素材</a></p>
-				<span class="manpic"><a href="#"><img src="__PUBLIC__/Images/manpic.jpg">XXX</a></span>
-				<span class="loadpic"><a href="#"><img src="__PUBLIC__/Images/loadpic.jpg"></a>4</span>
-				<span class="support"><a><img src="__PUBLIC__/Images/support.jpg"></a>1</span>
-			</div>-->
 			<!-- 以上是第一排的模板 -->
 		</div>
 		<!--翻页的页码部分-->

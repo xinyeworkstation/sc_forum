@@ -222,12 +222,14 @@ img{
 	display: block;
 	width: 46px;
 	height: 46px;
-	border-radius: 50%;
+	border-radius: 46px;
 	border: 4px solid #fff;
 }
 /*头像设置成圆形*/
 .ranking .autors dt img{
 	border-radius: 46px;
+	width: 100%;
+	height: 100%;
 }
 .ranking .autors dt a:hover{
 	border: 4px solid #ff0000;
@@ -263,35 +265,46 @@ img{
 	width: 100%;
 	height: 100%;
 }
-.singleSample p{
+.singleSample .slogan{
 	text-align: center;
 	margin-bottom: 10px;
 }
 .singleSample a{
 	color: #7f7f7f;
 }
-.singleSample span{
-	display: block;
+.manpic,.loadpic,.support{
 	height: 28px;
 	line-height: 28px;
 	float: left;
 }
-span.manpic{
+p.manpic{
 	margin-left: 23px;
 	color: #888888;
 	width: 110px;
+	height: 28px;
+	line-height: 28px;
 }
-.manpic a{
+.manpic span{
 	display: inline-block;
-}
-.manpic img{
-	margin-right: 6px;
+	height: 28px;
+	line-height: 30px;
 	float: left;
 }
-span.loadpic{
+.manpic a{
+	float: left;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+	margin-right: 6px;
+}
+.manpic img{
+	border-radius: 25px;
+}
+p.loadpic{
 	width: 46px;
 }
-span.loadpic,span.support{
+p.loadpic,p.support{
 	color: #a9a9a9;
 }
 .loadpic img{

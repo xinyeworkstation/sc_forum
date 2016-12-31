@@ -14,380 +14,52 @@
 		<aside class="personSidebar">			
 			<dl class="sidebarColumnOne">
 				<dt>个人资料</dt>
-				<dd><a class="sidebarColumnOneFirstA" href="#">基础资料</a></dd>
-				<dd><a class="sidebarColumnOneSecA" href="#">个人信息</a></dd>
-				<dd><a class="sidebarColumnOneThirdA" href="#">修改密码</a></dd>
+				<dd><a class="sidebarColumnOneFirstA activeBasicData" href="{:U('Person/index')}">基础资料</a></dd>
+				<dd><a class="sidebarColumnOneSecA" href="{:U('Person/personMessage')}">个人信息</a></dd>
+				<dd><a class="sidebarColumnOneThirdA" href="{:U('Person/changePassword')}">修改密码</a></dd>
 			</dl>					
 			<dl class="sidebarColumnTwo">
 				<dt>我的作品</dt>
-				<dd><a class="sidebarColumnTwoFirstA" href="#">上传作品</a></dd>
-				<dd><a class="sidebarColumnTwoSecA" href="#">作品管理</a></dd>
-				<dd><a class="sidebarColumnTwoThirdA" href="#">我的收藏</a></dd>
+				<dd><a class="sidebarColumnTwoFirstA" href="{:U('Person/transationRecord')}">上传作品</a></dd>
+				<dd><a class="sidebarColumnTwoSecA" href="{:U('Person/production')}">作品管理</a></dd>
+				<dd><a class="sidebarColumnTwoThirdA" href="{:U('Person/collection')}">我的收藏</a></dd>
 			</dl>						
 			<dl class="sidebarColumnThree">
 				<dt>账户管理</dt>
 				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
 				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
 				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
-				<dd><a class="sidebarColumnThreeFourthA" href="#">交易记录</a></dd>
+				<dd><a class="sidebarColumnThreeFourthA" href="{:U('Person/transationRecord')}">交易记录</a></dd>
 			</dl>			
 		</aside>
 		<!-- 左边侧边栏结束 -->
-		<!-- 右边内容区-作品管理开始 -->
-		<div id="mainProduction">
-			<!-- 用于点击切换的标签开始 -->
-			<ul class="cutManage">
-				<li><a href="#">已通过<span>6</span></a></li>
-				<li><a href="#">待审核<span>2</span></a></li>
-				<li><a href="#">未通过<span>0</span></a></li>
-			</ul>
-			<!-- 用于点击切换的标签结束 -->
-			<ul class="productionNumber">
-				<li>动态模板<span>3</span></li>
-				<li>静态模板<span>2</span></li>
-				<li>原创<span></span></li>
-				<li>界面<span></span></li>
-				<li>登录器皮肤<span>1</span></li>
-				<li>其他<span></span></li>
-			</ul>
-			<!-- 作品管理下-已通过小区域页面开始 -->
-			<ul class="productions">
-				<li class="proItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-			</ul>
-			<!-- 作品管理下-已通过小区域页面结束 -->
-			<!-- 作品管理下-未通过小区域页面开始 -->
-			<div class="proFContent">
-				<ul class="previse">
-					<li>预览图</li>
-					<li>图片信息</li>
-					<li>操作</li>
-				</ul>
-				<div class="productionFail">
-					<img src="__STATIC__/images/production.jpg">
-					<a href="##">修改</a>
-				</div>
-				<div class="productionFail">
-					<img src="__STATIC__/images/production.jpg">
-					<a href="##">修改</a>
-				</div>
-			</div>
-			<!-- 作品管理下-未通过小区域页面结束 -->
-		</div>
-		<!-- 右边内容区-作品管理结束 -->
-		<!-- 右边内容区-我的收藏开始 -->
-		<div id="mainCollection">
-			<ul class="productionNumber collectionNumber">
-				<li>动态模板<span>3</span></li>
-				<li>静态模板<span>2</span></li>
-				<li>原创<span></span></li>
-				<li>界面<span></span></li>
-				<li>登录器皮肤<span>1</span></li>
-				<li>其他<span></span></li>
-			</ul>
-			<ul class="productions collections">
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro colleItroRightmost">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-				<li class="proItro colleItro">
-					<figure class="proImg">
-						<a href=""><img src="__STATIC__/images/tempic.jpg"></a>
-						<figcaption>报名火热开启<span>游戏网站</span>PSD素材</figcaption>
-					</figure>
-					<section class="preII">
-						<div class="preIcon"><a href=""><img src="__STATIC__/images/manpic.jpg"></a><span>XXX</span></div>
-						<div class="preInfor"><a href=""><img src="__STATIC__/images/download-icon.jpg"></a><span>4</span></div>
-						<div class="preNum"><a href=""><img src="__STATIC__/images/star-icon.jpg"></a><span>1</span></div>
-					</section>
-				</li>
-			</ul>
-		</div>
-		<!-- 右边内容区-我的收藏结束 -->
-		<!-- 右边内容区-交易记录开始 -->
-		<div id="mainTransationRecord">
-			<header class="headerBlance">
-				<h2>余额：<span>300</span>金币</h2>
-				<div class="rechargeWithdraw">
-					<a href="#">充值</a>
-					<a href="#">提现</a>
-				</div>
-			</header>
-			<ul class="transationRecords">
-				<li>时间</li>
-				<li>收入/支出</li>
-				<li>账户余额</li>
-			</ul>
-			<div class="records">
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
-				</ul>
-			</div>
-		</div>
-		<!-- 右边内容区-交易记录结束 -->
-		<!-- 右边内容区-个人信息开始 -->
-		<div id="mainPersonMessage">
-			<div class="personMessageLeft">
-				<figure class="headPortrait">
-					<img src="__STATIC__/images/head-portrait.jpg" alt="头像">
-					<figcaption><a href="">上传头像</a></figcaption>
-				</figure>
-			</div>
-			<div class="personMessageRight">
-				<form>
-					<div class="messageForm">
-						<span>邮箱：</span>
-						<input type="email" name="user_email">
-					</div>
-					<div class="messageForm">
-						<span>昵称：</span>
-						<input type="text" name="user_name">
-					</div>
-					<div class="messageForm">
-						<span>QQ：</span>
-						<input type="text" name="user_QQ">
-					</div>
-					<div class="messageForm">
-						<span>所在城市：</span>
-						<input type="text" name="user_address">
-					</div>
-					<div class="messageForm">
-						<span>性别：</span>
-						<input class="messageFormSex" type="radio" name="user_sex" id="man"><label for="man">男</label>
-						<input class="messageFormSex" type="radio" name="user_sex"><label>女</label>
-						<input class="messageFormSex" type="radio" name="user_sex"><label>保密</label>
-					</div>
-					<div class="messageForm">
-						<span>生日：</span>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">年</label>
-						</div>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">月</label>
-						</div>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">日</label>
-						</div>
-					</div>
-					<div class="messageForm">
-						<span>职业：</span>
-						<input type="text" name="user_profession">
-					</div>
-					<div class="messageForm">
-						<span>关于自己：</span>
-						<textarea name="user_oneself"  class="messageFormOneself"></textarea>
-					</div>
-					<input class="messageFormRevise" type="button" value="确认修改">
-				</form>
-			</div>
-		</div>
-		<!-- 右边内容区-个人信息结束 -->
 		<!-- 右边内容区-基本资料开始 -->
 		<div id="mainBasicData">
 			<div class="basicDataTop">
 				<div class="headSculpture">
+<<<<<<< HEAD:Application/Home/View/person/BasicData.html
 					<img src="__STATIC__/images/head-portrait.jpg" alt="头像">
 					<a href="">修改头像</a>
+=======
+					<img src="__PUBLIC__/images/head-portrait.jpg" alt="头像">
+					<a href="{:U('Person/modifyHead')}">修改头像</a>
+>>>>>>> 9dddb5d7bcef561dda20ac85abb4ab02ab924d4d:Application/Home/View/person/index.html
 				</div>
 				<ul class="basicDataMore">
-					<li>昵称：<span>而生</span></li>
-					<li>ID：<span>568695467</span></li>
-					<li>会员等级：<span>*******</span></li>
-					<li>余额：<span>*********</span></li>
-					<li>邮箱：<span>1323435@qq.com</span></li>
-					<li><a href="">修改资料</a></li>
+					<li>昵称：<span>{$P_message.username}</span></li>
+					<li>ID：<span>{$P_message.id}</span></li>
+					<li>会员等级：<span>{$P_message.level}</span></li>
+					<li>余额：<span>{$P_message.money}</span></li>
+					<li>邮箱：<span>{$P_message.email}</span></li>
+					<li><a href="{:U('Person/PersonMessage')}">修改资料</a></li>
 				</ul>
 			</div>
 			<div class="basicDataBottom">
+<<<<<<< HEAD:Application/Home/View/person/BasicData.html
 				<a href="">上传作品<img src="__STATIC__/images/updata.jpg"></a>
+=======
+				<a href="">上传作品<img src="__PUBLIC__/images/updata.jpg"></a>
+>>>>>>> 9dddb5d7bcef561dda20ac85abb4ab02ab924d4d:Application/Home/View/person/index.html
 			</div>
 			<ul class="cutBasicData">
 				<li><a href="#">已通过<span>6</span></a></li>
@@ -396,31 +68,7 @@
 			</ul>
 		</div>
 		<!-- 右边内容区-基本资料结束 -->
-		<!-- 右边内容区-修改密码开始 -->
-		<div id="mainChangePassword">
-			<form>
-				<div class="passwordForm">
-					<span>原密码：</span>
-					<input type="text" name="user_old_password">
-				</div>
-				<div class="passwordForm">
-					<span>新密码：</span>
-					<input type="text" name="user_new_password">
-				</div>
-				<div class="passwordForm">
-					<span>确认新密码：</span>
-					<input type="text" name="user_new_password">
-				</div>
-				<div class="passwordForm testForm">
-					<span>验证码：</span>
-					<input type="text" name="user_test">
-					<a href="">发送验证码</a>
-				</div>
-				<input class="passwordFormRevise" type="button" value="确认修改">
-			</form>
 		</div>
-		<!-- 右边内容区-修改密码结束 -->
-	</div>
 	<!-- 中间部分结束 -->
 </body>
 </html>
