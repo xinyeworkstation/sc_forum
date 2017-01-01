@@ -84,7 +84,7 @@ a {
 }
 
 .inputText {
-	
+	float: left;
 	height: 100%;
 	border: none;
 	outline: none;
@@ -170,22 +170,9 @@ a {
 	margin-top: 26px;
 	float: right;
 }
-.headerPersonal div{
-	float: left;
-	overflow: hidden;
-}
-.headerPersonal div a {
+.headerPersonal a {
 	float: left;
 	margin-right: 8px;
-	display: inline-block;
-	width: 32px;
-	height: 32px;
-	border-radius: 32px;
-}
-.headerPersonal div a img{
-	border-radius: 32px;
-	width: 100%;
-	height: 100%;
 }
 .headerPersonal span {
 	float: left;
