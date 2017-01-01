@@ -4,9 +4,12 @@
 	list-style-type: none;
 	font-family: "微软雅黑";
 }
+<<<<<<< HEAD
+=======
 ul{
 	list-style-type: none;
 }
+>>>>>>> 944688e41070c68288cf6388614af1a38219df43
 a,a:hover{
   	text-decoration:none;
 }

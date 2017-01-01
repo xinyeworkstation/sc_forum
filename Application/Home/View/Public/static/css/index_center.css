@@ -284,6 +284,25 @@ p.manpic{
 	width: 110px;
 	height: 28px;
 	line-height: 28px;
+<<<<<<< HEAD
+}
+.manpic span{
+	display: inline-block;
+	height: 28px;
+	line-height: 30px;
+	float: left;
+}
+.manpic a{
+	float: left;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+	margin-right: 6px;
+}
+.manpic img{
+	border-radius: 25px;
+=======
 }
 .manpic span{
 	display: inline-block;
@@ -303,6 +322,7 @@ p.manpic{
 	border-radius: 25px;
 	width: 100%;
 	height: 100%;
+>>>>>>> 944688e41070c68288cf6388614af1a38219df43
 }
 p.loadpic{
 	width: 46px;

@@ -84,7 +84,7 @@ a {
 }
 
 .inputText {
-	float: left;
+	
 	height: 100%;
 	border: none;
 	outline: none;
@@ -94,6 +94,7 @@ a {
 	font-weight: bold;
 }
 .inputBtn {
+	cursor: pointer;
 	float: left;
 	width: 100px;
 	height: 100%;
