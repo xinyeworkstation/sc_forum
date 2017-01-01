@@ -185,12 +185,12 @@ img{
 }
 /*不同dl块的处理*/
 .ranking .numFirst{
-	width: 98px;
+	width: 103px;
 	height: 77px;
 	float: left;
 }
 .ranking .numOther{
-	width: 88px;
+	width: 95px;
 	height: 77px;
 	float: left;
 }
@@ -201,10 +201,10 @@ img{
 }
 /*作者处不同处理*/
 .ranking .numFirst dd{
-	width: 66px;
+	width: 75px;
 }
 .ranking .numOther dd{
-	width: 63px;
+	width: 70px;
 }
 .ranking .numLast dd{
 	width: 65px;
@@ -238,6 +238,7 @@ img{
 	font-size: 5px;
 	color: #828282;
 	float: left;
+	text-indent: 8px; 
 }
 /*中间模板展示区*/
 .sample{

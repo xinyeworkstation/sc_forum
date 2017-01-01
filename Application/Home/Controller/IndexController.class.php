@@ -12,6 +12,10 @@ class IndexController extends Controller {
                        ->order('down desc')
                        //->limit(10)
                        ->select();
+        $num = count($order);
+        for($i=0;$i<$num;$i++){
+            $order[$i]['username'] = $this->cut_username($order[$i]['username']);
+        }
     	if(!IS_POST){
     		
     		//var_dump($order);exit;
@@ -27,6 +31,7 @@ class IndexController extends Controller {
     		for($i=0;$i<$num;$i++){
     			$url = get_url($work[$i]['works']);
     			$work[$i]['works'] = $url[0];
+                $work[$i]['username'] = $this->cut_username($work[$i]['username']);
     		}
     		//var_dump($work);exit;
             
@@ -49,11 +54,23 @@ class IndexController extends Controller {
                           ->order('w.id desc')
                           ->limit(30)
                           ->select();
+            //循环获得首页图片展示的路径（默认为第一张）
+            $num = count($work);
+            for($i=0;$i<$num;$i++){
+                $url = get_url($work[$i]['works']);
+                $work[$i]['works'] = $url[0];
+                $work[$i]['username'] = $this->cut_username($work[$i]['username']);
+            }
             //echo $model->getLastSql();exit;
     	}
         $this->assign('order',$order);
         $this->assign('work',$work);	
         $this->display();
+    }
+
+    private function cut_username($username){
+        $username = substr($username, 0,15);
+        return $username;
     }
 
     /**
