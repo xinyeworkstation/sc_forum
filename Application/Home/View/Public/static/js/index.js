@@ -122,7 +122,7 @@ var ok8=false;
 		 if(ok1&&ok2&&ok3&&ok4&&ok5){
 		 		$.ajax({
 		 			cache:true,
-					type:'GET',
+					type:'POST',
 					url:'',
 					dataType:'json',
 					data:$('#form1').serialize(),
@@ -137,7 +137,7 @@ var ok8=false;
 				});
 			//alert($('#form1').serialize());
 		 }else{
-		 	alert(1111);
+		 	return false;
 		 }
 	
 	});
@@ -162,7 +162,7 @@ var ok8=false;
 				});
 			//alert($('#form2').serialize());
 		 }else{
-		 	alert(1111);
+			 return false;
 		 }
 	
 	});
