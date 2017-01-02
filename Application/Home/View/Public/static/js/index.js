@@ -123,7 +123,7 @@ var ok8=false;
 		 		$.ajax({
 		 			cache:true,
 					type:'POST',
-					url:'/sc_forum/index.php/Login/login',
+					url:'./sc_forum/index.php/Login/login',
 					dataType:'json',
 					data:$('#form1').serialize(),
 					success:function(data,status){

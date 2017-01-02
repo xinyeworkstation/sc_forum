@@ -12,44 +12,44 @@ class LoginController extends Controller{
     public function index(){
         $this->display();
     }
-    
+
     public function login(){
         //登陆
         if(IS_POST) {
-            print_r($_POST);
-        }
-        /*
-            $login['username'] = I('get.user');
-            $login['password'] = I('get.pass', '', 'md5');
-            $model = M('user');
-            $member = $model->where($login)->find();
-            if ($member) {
-                session('user_id', $member['id']);
-                session('user_name', $member['username']);
-                session('user_level', $member['level']);
-                $success = array(
-                    'info' => 'YES'
-                );
-                $this->ajaxReturn($success);//返回前端，用JS跳转
-            } else {
-                $fail = array(
-                    'info' => '此用户未被注册！！'
-                );
-                $this->ajaxReturn($fail);//返回前端，用JS跳转
-            }
+            $login['Code']=I('Code');
+            $login['username'] = I('name');
+            $login['password'] = I('password', '', 'md5');
+            if(check_verify($login['Code']){
+                    $model = M('user');
+                    $member = $model->where($login)->find();
+                    if ($member) {
+                            session('user_id', $member['id']);
+                            session('user_name', $member['username']);
+                            session('user_level', $member['level']);
+                            $success = array(
+                            'info' => 'YES'
+                         );
+                            $this->ajaxReturn($success);//返回前端，用JS跳转
+                        }else {
+                            $fail = array(
+                             'info' => '此用户未被注册！！'
+                          );
+                             $this->ajaxReturn($fail);//返回前端，用JS跳转
+                            }
         }else{
             $fail = array(
                 'info' => '验证码错误！'
             );
             $this->ajaxReturn($fail);//返回前端，用JS跳转
         }
-        */
     }
+    }
+
 
     public function register()
     {
         //注册
-        if($_GET['user'] && $_GET['email']){
+        if(IS_POST){
             $register['username']=I('get.user');
             $regist['email'] = I('get.email');//邮箱
             $model=M('user');
@@ -105,7 +105,7 @@ class LoginController extends Controller{
 
 
 
-/*
+
     //验证码
     public function verify(){
         $Verify = new \Think\Verify();
@@ -119,5 +119,5 @@ class LoginController extends Controller{
         return $verify->check($code);
     }
 
-*/
+
 }
