@@ -16,6 +16,7 @@ class IndexController extends Controller {
         for($i=0;$i<$num;$i++){
             $order[$i]['username'] = $this->cut_username($order[$i]['username']);
         }
+
     	if(!IS_POST){
     		
     		//var_dump($order);exit;
@@ -41,7 +42,7 @@ class IndexController extends Controller {
     	}
     	if(IS_POST){
     		//$cate_id = $_POST['cate_id'];
-    		
+    		//var_dump($_POST);var_dump($_GET);exit;
     		//$where['workname'] = array("like","%".I('post.key')."%");
     		//$where['username'] = array("like","%".I('post.key')."%");
             $key = I('post.key');
@@ -63,6 +64,36 @@ class IndexController extends Controller {
             }
             //echo $model->getLastSql();exit;
     	}
+
+        if($_GET){
+            //var_dump($_GET);exit;
+            switch (I('get.search')) {
+                case '1':
+                    # code...
+                    break;
+                case '2':
+                    $work = $model->alias('w')
+                          ->join('user u ON w.user_id=u.id')
+                          ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg')
+                          ->where($where)
+                          ->order('download desc')
+                          ->limit(30)
+                          ->select();
+                    break;
+                case '3':
+                    $work = $model->alias('w')
+                          ->join('user u ON w.user_id=u.id')
+                          ->field('w.id w_id,works,workname,wtime,download,favor,u.id u_id,u.username,u.headimg')
+                          ->where($where)
+                          ->order('wtime desc')
+                          ->limit(30)
+                          ->select();
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
         $this->assign('order',$order);
         $this->assign('work',$work);	
         $this->display();
