@@ -43,10 +43,10 @@
 					return false;
 				}
 				$.ajax({
-					type:'post',
-					url:'',
+					type:'POST',
+					url:"{:U(index/index)}",
 					dataType:'json',
-					data:$('#inputText').serializeArray(),
+					data:$('#optionSelect').serializeArray(),
 					success:function(data,status){
 						alert('1');
 					}
