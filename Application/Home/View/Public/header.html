@@ -51,21 +51,12 @@
 				var Input1=$('#inputText').val();
 				if(Input1==""){
 					return false;
-<<<<<<< HEAD
 				}else{
 					$.ajax({
 					type:'POST',
 					url:'',
 					dataType:'json',
 					data:$('#inputText').serialize(),
-=======
-				}
-				$.ajax({
-					type:'POST',
-					url:"{:U(index/index)}",
-					dataType:'json',
-					data:$('#optionSelect').serializeArray(),
->>>>>>> origin/master
 					success:function(data,status){
 						alert('1');
 					}
