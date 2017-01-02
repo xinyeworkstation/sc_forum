@@ -48,13 +48,16 @@
 				$this->display();
 			}
 			if(IS_POST){
-				//var_dump($_FILES);
+				//var_dump($_FILES);exit;
 				if(empty($_FILES['picname']) || empty($_FILES['compress'])){
 					$this->error('请选择要上传的作品!');
 				}
 				$files = array();
 				$files = $_FILES;
-				$flash = $_FILES['flash'];
+				if(!empty($_FILES['flash']['name'])){
+					$flash = $_FILES['flash'];
+				}
+				
 				//将$_FILES数组的格式进行改变，变成单个作品的属性在同一数组下，在进行upload调用时，将文件单个进行上传
 				$_FILES = array();
 				//$n = count($files['picname']['name']);	
