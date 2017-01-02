@@ -123,16 +123,15 @@ var ok8=false;
 		 		$.ajax({
 		 			cache:true,
 					type:'POST',
-					url:'./sc_forum/index.php/Login/login',
+					url:"{:U('index.php/login/register')}",
 					dataType:'json',
 					data:$('#form1').serialize(),
-					success:function(data,status){
+					success:function(response,data,status){
 						if (data==1) {
 							alert('success');
 						}else{
 							alert('fiale')
 						}
-						
 					}
 				});
 			//alert($('#form1').serialize());

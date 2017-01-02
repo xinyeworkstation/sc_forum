@@ -35,7 +35,7 @@
 
 			$('#searchOps ul li').click(function(){
 				var txt= $(this).text();
-				$('#inputText').val(txt);
+				$('#optionSelect').val(txt);
 			});
 			$('#inputBtn').click(function(){
 				var Input1=$('#inputText').val();
@@ -78,7 +78,7 @@
 						<li>其他素材</li>
 					</ul>
 				</div>
-				<input class="inputText" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
+				<input class="inputText" name="key" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
 				<input class="inputBtn" id="inputBtn" type="submit" value="搜索" style="cursor: pointer;">
 			</form>
 			<!-- 表单搜索结束 -->

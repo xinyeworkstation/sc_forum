@@ -4,41 +4,73 @@ use Think\Controller;
 class IndexController extends Controller {
 
     public function index(){
+        $model = M('work');
+        $order = $model->alias('w')
+                       ->join('user u ON u.id=w.user_id')
+                       ->field('user_id,sum(download) down,u.username,u.headimg')
+                       ->group('user_id')
+                       ->order('down desc')
+                       //->limit(10)
+                       ->select();
+        $num = count($order);
+        for($i=0;$i<$num;$i++){
+            $order[$i]['username'] = $this->cut_username($order[$i]['username']);
+        }
     	if(!IS_POST){
-    		$model = M('work');
-    		$order = $model->alias('w')
-    					   ->join('user u ON u.id=w.user_id')
-    					   ->field('user_id,sum(download) down,u.username,u.headimg')
-    					   ->group('user_id')
-    					   ->order('down desc')
-    					   //->limit(10)
-    					   ->select();
+    		
     		//var_dump($order);exit;
     		$work = $model->alias('w')
     					  ->join('user u ON w.user_id=u.id')
     					  ->field('w.id w_id,works,download,favor,u.id u_id,u.username,u.headimg')
     					  ->where('flag=1')
     					  ->order('w.id desc')
-    					  //->limit(30)
+    					  ->limit(30)
     					  ->select();
     		//循环获得首页图片展示的路径（默认为第一张）
     		$num = count($work);
     		for($i=0;$i<$num;$i++){
     			$url = get_url($work[$i]['works']);
     			$work[$i]['works'] = $url[0];
+                $work[$i]['username'] = $this->cut_username($work[$i]['username']);
     		}
     		//var_dump($work);exit;
+            
+    	   
     		
-    		$this->assign('order',$order);
     		$this->assign('work',$work);
     	}
     	if(IS_POST){
     		//$cate_id = $_POST['cate_id'];
-    		$model = M('work');
-    		$where['workname'] = array("like","%".I('post.key')."%");
-    		$where['username'] = array("like","%".I('post.key')."%");
-    	}	
+    		
+    		//$where['workname'] = array("like","%".I('post.key')."%");
+    		//$where['username'] = array("like","%".I('post.key')."%");
+            $key = I('post.key');
+            $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
+            $where['flag'] = '1';
+            $work = $model->alias('w')
+                          ->join('user u ON w.user_id=u.id')
+                          ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg')
+                          ->where($where)
+                          ->order('w.id desc')
+                          ->limit(30)
+                          ->select();
+            //循环获得首页图片展示的路径（默认为第一张）
+            $num = count($work);
+            for($i=0;$i<$num;$i++){
+                $url = get_url($work[$i]['works']);
+                $work[$i]['works'] = $url[0];
+                $work[$i]['username'] = $this->cut_username($work[$i]['username']);
+            }
+            //echo $model->getLastSql();exit;
+    	}
+        $this->assign('order',$order);
+        $this->assign('work',$work);	
         $this->display();
+    }
+
+    private function cut_username($username){
+        $username = substr($username, 0,15);
+        return $username;
     }
 
     /**

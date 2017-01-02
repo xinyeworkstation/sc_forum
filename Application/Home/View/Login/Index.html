@@ -69,7 +69,7 @@
 					<div class="Code loginCode">
 							<input type="text" name="Code" placeholder="验证码" id="Code">
 							<div class="Codepic">
-								<a href="#" title="">1<img src="" alt=""></a>
+								<a href="javascript:void(0)"><img class="verify" src="{:U('index.php/login/verify')}" alt="点击刷新"/></a>
 							</div>
 					</div>
 					<div class="Button1">
@@ -112,5 +112,16 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	$(function(){
+		$(".verify").click(function(){
+			var src = "{:U('login/verify')}";
+			var random = Math.floor(Math.random()*(1000+1));
+			$(this).attr("src",src+"&random="+random);
+
+		});
+	})
+</script>
 </body>
 </html>

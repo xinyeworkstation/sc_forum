@@ -19,7 +19,7 @@ class LoginController extends Controller{
             $login['Code']=I('Code');
             $login['username'] = I('name');
             $login['password'] = I('password', '', 'md5');
-            if(check_verify($login['Code']){
+            if($this->check_verify($login['Code'])){
                     $model = M('user');
                     $member = $model->where($login)->find();
                     if ($member) {
@@ -42,23 +42,23 @@ class LoginController extends Controller{
             );
             $this->ajaxReturn($fail);//返回前端，用JS跳转
         }
-    }
-    }
+    }}
 
 
     public function register()
     {
         //注册
         if(IS_POST){
-            $register['username']=I('get.user');
-            $regist['email'] = I('get.email');//邮箱
+            print_r($_POST);
+            $register['username']=I('name');
+            $regist['email'] = I('email');//邮箱
             $model=M('user');
             $counts=$model->where($register)->count();//查询此邮箱和用户有没有被注册
             //如果创纪录小于一则未被注册
             if($counts<1){
-                    $regist['password'] = I('get.pass','','md5');//MD5加密密码
-                    // $regist['Invitation'] = $_GET['Invitation'];//邀请码
-                    $regist['qq'] =I('get.qq');//qq
+                    $regist['password'] = I('pass','','md5');//MD5加密密码
+                   // $regist['Invitation'] = $_GET['Invitation'];//邀请码
+                    $regist['qq'] =I('QQ');//qq
                 if($model->add($register)){
                     $success = array(
                         'info' => 'YES'
@@ -78,35 +78,14 @@ class LoginController extends Controller{
                 $this->ajaxReturn($fail);//返回前端，用JS跳转
             }
         }
-
-
-
-
-
-
-
-
-/*
-        if(IS_POST) {
-            $regist['username'] = $_POST['name'];//用户名
-            $regist['password'] = $_POST['pass'];//密码
-            $regist['email'] = $_POST['email'];//邮箱
-            $regist['Invitation'] = $_POST['Invitation'];//邀请码
-            $regist['qq'] = $_POST['qq'];
-               echo "123";
-
-            $this->ajaxReturn($data);
-
-        }*/
-        $this->display();
-
-
     }
 
+public function  email(){
+
+}
 
 
-
-    //验证码
+//验证码
     public function verify(){
         $Verify = new \Think\Verify();
         $Verify->codeSet = '0123456789';
@@ -118,6 +97,4 @@ class LoginController extends Controller{
         $verify = new \Think\Verify();
         return $verify->check($code);
     }
-
-
 }
