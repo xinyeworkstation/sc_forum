@@ -9,7 +9,44 @@ use Extend\Oauth\ThinkOauth;
  */
 class LoginController extends Controller{
 
-    public function index()
+    public function index(){
+        $this->display();
+    }
+    
+    public function login(){
+        //登陆
+        if(IS_POST) {
+            print_r($_POST);
+        }
+        /*
+            $login['username'] = I('get.user');
+            $login['password'] = I('get.pass', '', 'md5');
+            $model = M('user');
+            $member = $model->where($login)->find();
+            if ($member) {
+                session('user_id', $member['id']);
+                session('user_name', $member['username']);
+                session('user_level', $member['level']);
+                $success = array(
+                    'info' => 'YES'
+                );
+                $this->ajaxReturn($success);//返回前端，用JS跳转
+            } else {
+                $fail = array(
+                    'info' => '此用户未被注册！！'
+                );
+                $this->ajaxReturn($fail);//返回前端，用JS跳转
+            }
+        }else{
+            $fail = array(
+                'info' => '验证码错误！'
+            );
+            $this->ajaxReturn($fail);//返回前端，用JS跳转
+        }
+        */
+    }
+
+    public function register()
     {
         //注册
         if($_GET['user'] && $_GET['email']){
@@ -44,55 +81,31 @@ class LoginController extends Controller{
 
 
 
-        //登陆
-        if($_GET['user'] && $_GET['verify']) {
-            if ($this->check_verify($_GET['verify'])) {
-                $login['username'] = I('get.user');
-                $login['password'] = I('get.pass', '', 'md5');
-                $model = M('user');
-                $member = $model->where($login)->find();
-                if ($member) {
-                    session('user_id', $member['id']);
-                    session('user_name', $member['username']);
-                    session('user_level', $member['level']);
-                    $success = array(
-                        'info' => 'YES'
-                    );
-                    $this->ajaxReturn($success);//返回前端，用JS跳转
-                } else {
-                    $fail = array(
-                        'info' => '此用户未被注册！！'
-                    );
-                    $this->ajaxReturn($fail);//返回前端，用JS跳转
-                }
-            }else{
-                $fail = array(
-                    'info' => '验证码错误！'
-                );
-                $this->ajaxReturn($fail);//返回前端，用JS跳转
-            }
-        }
 
 
 
 
 
+/*
         if(IS_POST) {
-            /*$regist['username'] = $_POST['name'];//用户名
+            $regist['username'] = $_POST['name'];//用户名
             $regist['password'] = $_POST['pass'];//密码
             $regist['email'] = $_POST['email'];//邮箱
             $regist['Invitation'] = $_POST['Invitation'];//邀请码
-            $regist['qq'] = $_POST['qq'];*/
+            $regist['qq'] = $_POST['qq'];
                echo "123";
 
             $this->ajaxReturn($data);
 
-        }
+        }*/
         $this->display();
 
 
     }
 
+
+
+/*
     //验证码
     public function verify(){
         $Verify = new \Think\Verify();
@@ -106,5 +119,5 @@ class LoginController extends Controller{
         return $verify->check($code);
     }
 
-
+*/
 }

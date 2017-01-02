@@ -123,7 +123,7 @@ var ok8=false;
 		 		$.ajax({
 		 			cache:true,
 					type:'POST',
-					url:'',
+					url:'/sc_forum/index.php/Login/login',
 					dataType:'json',
 					data:$('#form1').serialize(),
 					success:function(data,status){
@@ -147,8 +147,8 @@ var ok8=false;
 		 if(ok6&&ok7){
 		 		$.ajax({
 		 			cache:true,
-					type:'GET',
-					url:'',
+					type:'POST',
+					url:'/sc_forum/index.php/Login/login',
 					dataType:'json',
 					data:$('#form2').serialize(),
 					success:function(data,status){
