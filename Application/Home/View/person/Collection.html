@@ -42,8 +42,9 @@
 				<li>登录器皮肤<span>1</span></li>
 				<li>其他<span></span></li>
 			</ul>
-			<foreach name='work' item='v'>
+			
 			<ul class="productions collections">
+			<foreach name='work' item='v'>
 				<li class="proItro colleItro">
 					<figure class="proImg">
 						<a href=""><img src={$v.works}></a>
@@ -55,8 +56,9 @@
 						<div class="preNum"><a href=""><img src="__PUBLIC__/images/star-icon.jpg"></a><span>{$v.favor}</span></div>
 					</section>
 				</li>
+				</foreach>
 			</ul>
-			</foreach>
+			
 		</div>
 		<!-- 右边内容区-我的收藏结束 -->
 		</div>

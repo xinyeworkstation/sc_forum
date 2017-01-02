@@ -15,22 +15,26 @@ class PersonController extends Controller {
     }
 
 
-
+    //favorite表中我收藏的作品
+    //favorite,work_id,user_id,我收藏的作品
+    //work,cate_id,works,workname,download,favor
+    //user,username,headimg
      public function collection(){
-        $work=M('work');
-        $where['w.user_id']=1;
-        $work=$work->where($where)
-                    ->alias('w')
+        $favorite=M('favorite');
+        $where['f.user_id']=1;//找我的收藏，user_id=1是舒映的收藏
+        $favor=$favorite->where($where)
+                    ->alias('f')
                     ->field('w.cate_id,w.works,w.workname,u.username,u.headimg,w.download,w.favor')
+                    ->join('work w on f.work_id=w.id')
                     ->join('user u on w.user_id=u.id')
                     ->select();
-        $count=count($work);           
+        $count=count($favor);           
         for($i=0;$i<$count;$i++){
-            $work[$i]['headimg']='/'.$work[$i]['headimg'];//处理头像
-            $img=get_url($work[$i]['works']);//处理图片
-            $work[$i]['works']='/'.$img[0];
+            $favor[$i]['headimg']='/'.$favor[$i]['headimg'];//处理头像
+            $img=get_url($favor[$i]['works']);//处理图片
+            $favor[$i]['works']='/'.$img[0];
         }
-        $this->assign('work',$work);
+        $this->assign('work',$favor);
         $this->display();
     }
 
@@ -78,12 +82,15 @@ class PersonController extends Controller {
 	                ->field('w.flag,w.cate_id,w.works,w.workname,u.username,u.headimg,w.download,w.favor')
 	                ->join('user u on w.user_id=u.id')
 	                ->select();
+
+
 	    $count1=count($work1);
 	    for($x=0;$x<$count1;$x++){
-	        $wor1k[$x]['headimg']='/'.$work1[$x]['headimg'];//处理头像
+	        $work1[$x]['headimg']='/'.$work1[$x]['headimg'];//处理头像
 	        $img=get_url($work1[$x]['works']);//处理图片
 	        $work1[$x]['works']='/'.$img[0];
 	    }
+
 	    $count2=count($work2);
 	    for($y=0;$y<$count2;$y++){
 	        $work2[$y]['headimg']='/'.$work2[$y]['headimg'];//处理头像

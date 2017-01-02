@@ -214,7 +214,10 @@ a {
 	font-size: 12px;
 	color: #a9a9a9;
 	display: block;
-}	
+}
+.productions li:nth-child(3),.productions li:nth-child(6),.productions li:nth-child(9),.productions li:nth-child(12),.productions li:nth-child(15),.productions li:nth-child(18),.productions li:nth-child(21),.productions li:nth-child(24),.productions li:nth-child(27),.productions li:nth-child(30),.productions li:nth-child(33),.productions li:nth-child(36),.productions li:nth-child(39),.productions li:nth-child(42){
+	margin-right: 0;
+}
 .proItro {
 	float: left;
 	width: 188px;
@@ -235,7 +238,8 @@ a {
 }
 .proImg img {
 	margin: 2px 2px 6px 2px;
-	width: 98%;
+	width: 184px;
+	height: 247.5px;
 }
 .proImg figcaption {
 	text-align: center;
@@ -256,6 +260,8 @@ a {
 }
 .preIcon img {
 	float: left;
+	width: 25px;
+	height: 27px;
 }
 .preIcon span {
 	line-height: 30px;
