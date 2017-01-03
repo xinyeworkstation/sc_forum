@@ -69,14 +69,14 @@
 					<div class="Code loginCode">
 							<input type="text" name="Code" placeholder="验证码" id="Code">
 							<div class="Codepic">
-								<a href="javascript:void(0)"><img class="verify" src="{:U('index.php/login/verify')}" alt="点击刷新"/></a>
+								<a href="javascript:void(0)"><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
 							</div>
 					</div>
 					<div class="Button1">
-						<input type="button" name="" value="登录" class="ButtonWrapper1" id="Button2">
+						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
 					</div>
 					<div class="unable-login">
-						<a href="#" title="">忘记密码?点此找回</a>
+						<a href="{:U('login/index')}" title="">忘记密码?点此找回</a>
 					</div>
 				</form>
 			</div>
@@ -116,9 +116,9 @@
 <script>
 	$(function(){
 		$(".verify").click(function(){
-			var src = "{:U('login/verify')}";
+			var src = '/sc_forum/login/verify';
 			var random = Math.floor(Math.random()*(1000+1));
-			$(this).attr("src",src+"&random="+random);
+			$(this).attr("src",src+"/random="+random);
 
 		});
 	})

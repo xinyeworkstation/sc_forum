@@ -16,6 +16,11 @@ class LoginController extends Controller{
     public function login(){
         //登陆
         if(IS_POST) {
+            $fail = array(
+                'info' => '验证码错误！'
+            );
+            $this->ajaxReturn($fail);//返回前端，用JS跳转
+            /*
             $login['Code']=I('Code');
             $login['username'] = I('name');
             $login['password'] = I('password', '', 'md5');
@@ -42,6 +47,7 @@ class LoginController extends Controller{
             );
             $this->ajaxReturn($fail);//返回前端，用JS跳转
         }
+*/
     }}
 
 
@@ -49,16 +55,15 @@ class LoginController extends Controller{
     {
         //注册
         if(IS_POST){
-            print_r($_POST);
             $register['username']=I('name');
-            $regist['email'] = I('email');//邮箱
+            $register['email'] = I('email');//邮箱
             $model=M('user');
             $counts=$model->where($register)->count();//查询此邮箱和用户有没有被注册
             //如果创纪录小于一则未被注册
             if($counts<1){
-                    $regist['password'] = I('pass','','md5');//MD5加密密码
+                    $register['password'] = I('password','','md5');//MD5加密密码
                    // $regist['Invitation'] = $_GET['Invitation'];//邀请码
-                    $regist['qq'] =I('QQ');//qq
+                    $register['qq'] =I('QQ');//qq
                 if($model->add($register)){
                     $success = array(
                         'info' => 'YES'

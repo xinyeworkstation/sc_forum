@@ -123,14 +123,14 @@ var ok8=false;
 		 		$.ajax({
 		 			cache:true,
 					type:'POST',
-					url:"{:U('index.php/login/register')}",
+					url:'/sc_forum/login/register',
 					dataType:'json',
 					data:$('#form1').serialize(),
 					success:function(response,data,status){
 						if (data==1) {
-							alert('success');
+							alert(response.info);
 						}else{
-							alert('fiale')
+							alert(response.info)
 						}
 					}
 				});
@@ -147,15 +147,18 @@ var ok8=false;
 		 		$.ajax({
 		 			cache:true,
 					type:'POST',
-					url:'/sc_forum/index.php/Login/login',
+					url:'/sc_forum/Login/login',
 					dataType:'json',
 					data:$('#form2').serialize(),
-					success:function(data,status){
+					success:function(respones,data,status){
 						if (data==1) {
-							alert('success');
+						
+							alert(response.info);
 						}else{
-							alert('fiale')
-						}
+						
+							alert(response.info)
+							
+					}
 						
 					}
 				});
