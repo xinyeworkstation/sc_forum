@@ -36,21 +36,33 @@
 			$('#searchOps ul li').click(function(){
 				var txt= $(this).text();
 				$('#optionSelect').val(txt);
+				$.ajax({
+					type:'POST',
+					url:'',
+					dataType:'json',
+					data:txt,
+					success:function(data,status){
+						alert('1');
+					}
+				});
+				alert($('#optionSelect').val(txt));
 			});
 			$('#inputBtn').click(function(){
 				var Input1=$('#inputText').val();
 				if(Input1==""){
 					return false;
-				}
-				$.ajax({
-					type:'post',
+				}else{
+					$.ajax({
+					type:'POST',
 					url:'',
 					dataType:'json',
-					data:$('#nputText').serializeArray(),
+					data:$('#inputText').serialize(),
 					success:function(data,status){
 						alert('1');
 					}
 				});
+					alert($('#inputText').serialize());
+				}
 			});
 		});
 	</script>
