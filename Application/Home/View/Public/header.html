@@ -42,10 +42,11 @@
 					dataType:'json',
 					data:txt,
 					success:function(data,status){
-						alert('1');
+						alert('status');
 					}
 				});
-				alert($('#optionSelect').val(txt));
+				alert(txt);
+				
 			});
 			$('#inputBtn').click(function(){
 				var Input1=$('#inputText').val();
@@ -58,7 +59,7 @@
 					dataType:'json',
 					data:$('#inputText').serialize(),
 					success:function(data,status){
-						alert('1');
+						alert('status');
 					}
 				});
 					alert($('#inputText').serialize());
