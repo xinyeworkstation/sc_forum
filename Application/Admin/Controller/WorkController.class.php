@@ -218,8 +218,9 @@
 		}
 
 		function edit($id){
+			$model = M('work');
 			if(!IS_POST){
-				$model = M('work');
+				
 				$model2 = M('category');
 				$cate = $model2->select();
 				$work = $model->alias('w')
@@ -233,7 +234,7 @@
 				$this->assign('work',$work);
 			}
 			if(IS_POST){
-				$id = $_POST['id'];
+				$where['id'] = $_POST['id'];
 				$data['workname'] = trim(I('post.workname'));
 				$data['cate_id'] = I('post.pid');
 				$data['intro'] = I('post.intro');
@@ -247,7 +248,7 @@
 				if(!is_numeric($data['price'])){
 					$this->error('您输入的金币有误，请输入一个整数!!!');
 				}
-				$num = $model->where('id='.$id)->save($data);
+				$num = $model->where($where)->save($data);
 				if($num){
 					$this->success('操作成功!',U('work/index?flag=2'));
 				}else{
