@@ -37,20 +37,29 @@
 		<div id="mainBasicData">
 			<div class="basicDataTop">
 				<div class="headSculpture">
+<<<<<<< HEAD:Application/Home/View/person/BasicData.html
+					<img src="__STATIC__/images/head-portrait.jpg" alt="头像">
+					<a href="">修改头像</a>
+=======
 					<img src="__PUBLIC__/images/head-portrait.jpg" alt="头像">
 					<a href="{:U('Person/modifyHead')}">修改头像</a>
+>>>>>>> 9dddb5d7bcef561dda20ac85abb4ab02ab924d4d:Application/Home/View/person/index.html
 				</div>
 				<ul class="basicDataMore">
-					<li>昵称：<span>而生</span></li>
-					<li>ID：<span>568695467</span></li>
-					<li>会员等级：<span>*******</span></li>
-					<li>余额：<span>*********</span></li>
-					<li>邮箱：<span>1323435@qq.com</span></li>
-					<li><a href="">修改资料</a></li>
+					<li>昵称：<span>{$P_message.username}</span></li>
+					<li>ID：<span>{$P_message.id}</span></li>
+					<li>会员等级：<span>{$P_message.level}</span></li>
+					<li>余额：<span>{$P_message.money}</span></li>
+					<li>邮箱：<span>{$P_message.email}</span></li>
+					<li><a href="{:U('Person/PersonMessage')}">修改资料</a></li>
 				</ul>
 			</div>
 			<div class="basicDataBottom">
+<<<<<<< HEAD:Application/Home/View/person/BasicData.html
+				<a href="">上传作品<img src="__STATIC__/images/updata.jpg"></a>
+=======
 				<a href="">上传作品<img src="__PUBLIC__/images/updata.jpg"></a>
+>>>>>>> 9dddb5d7bcef561dda20ac85abb4ab02ab924d4d:Application/Home/View/person/index.html
 			</div>
 			<ul class="cutBasicData">
 				<li><a href="#">已通过<span>6</span></a></li>
