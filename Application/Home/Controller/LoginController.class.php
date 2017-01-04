@@ -36,7 +36,7 @@ class LoginController extends Controller
                     $this->ajaxReturn($success);//返回前端，用JS跳转
                 } else {
                     $fail = array(
-                        'info' => '此用户未被注册！！'
+                        'info' => '账号或密码错误！'
                     );
                     $this->ajaxReturn($fail);//返回前端，用JS跳转
                 }

@@ -20,10 +20,10 @@
 
 			<!-- 注册 -->
 			<div class="loginForm1 TabForm" >
-				<form action="" method="POST" accept-charset="utf-8" id="form1">
+				<form action="" method="" accept-charset="utf-8" id="form1">
 					<div class="name">
 						<input type="text" name="name" placeholder="用户名" id="user1">
-							<span class="star"> </span>
+							<span class="star" id="star"> </span>
 					</div>
 					<div class="password">
 						<input type="text" name="password" placeholder="密码" id="pass">
@@ -57,20 +57,24 @@
 
 			<!-- 登录 -->
 			<div class="loginForm2 TabForm" style="display: none;">
-				<form action="" method="POST" accept-charset="utf-8" id="form2">
+				<form action="" method="" accept-charset="utf-8" id="form2">
 					<div class="name loginName">
 							<input type="text" name="name" placeholder="用户名" id="user2">
-							<span class="star"> </span>
+							<span class="star" id="star1"> </span>
 					</div>
 					<div class="password loginPass">
 							<input type="text" name="password" placeholder="密码" id="pass2">
 							<span class="star"> </span>
 					</div>
 					<div class="Code loginCode">
+						<div class="Code-input">
 							<input type="text" name="Code" placeholder="验证码" id="Code">
-							<div class="Codepic">
+						</div>
+						<div class="Codepic">
 								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
 							</div>
+
+						<!--<span class="star"> </span>-->
 					</div>
 					<div class="Button1">
 						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
