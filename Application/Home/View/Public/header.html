@@ -35,22 +35,40 @@
 
 			$('#searchOps ul li').click(function(){
 				var txt= $(this).text();
-				$('#inputText').val(txt);
+				$('#optionSelect').val(txt);
+				/*$.ajax({
+					type:'POST',
+					url:"{:U('index/index')}",
+					dataType:'',
+					data:{'name':txt},
+					success:function(data,status){
+
+						alert(data);
+					}
+				});*/
+				//alert($('#optionSelect').val(txt));
+
+					}
+				});			
+
 			});
 			$('#inputBtn').click(function(){
 				var Input1=$('#inputText').val();
 				if(Input1==""){
 					return false;
-				}
-				$.ajax({
-					type:'post',
-					url:'',
-					dataType:'json',
-					data:$('#nputText').serializeArray(),
+				}else{
+					$.ajax({
+					type:'POST',
+					url:"{:U('index/index')}",
+					dataType:'',
+					//data:$('#inputText').serialize(),
+					data:{name:$('#optionSelect').val(),key:$('#inputText').val()},
 					success:function(data,status){
-						alert('1');
+						alert(data);
 					}
 				});
+					//alert($('#inputText').serialize());
+				}
 			});
 		});
 	</script>
@@ -64,7 +82,7 @@
 				<figcaption>专注正版设计作品交易</figcaption>
 			</figure>
 			<!-- 表单搜索开始 -->
-			<form action="{:U('index/index')}" method="post" class="headerSearch">
+			<form method="post" action="{:U('index/index')}" class="headerSearch">
 				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly value="全部">
 				<div class="headerSearchOptions" id="searchOps">
 					<ul>
@@ -78,7 +96,7 @@
 						<li>其他素材</li>
 					</ul>
 				</div>
-				<input class="inputText" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
+				<input class="inputText" name="key" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
 				<input class="inputBtn" id="inputBtn" type="submit" value="搜索" style="cursor: pointer;">
 			</form>
 			<!-- 表单搜索结束 -->
