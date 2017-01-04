@@ -142,6 +142,7 @@ var ok8=false;
 	});
 
 // 登录
+
 	$('#Button2').click(function(){
 		 if(ok6&&ok7){
 		 		$.ajax({
@@ -152,14 +153,10 @@ var ok8=false;
 					data:$('#form2').serialize(),
 					success:function(respones,data,status){
 						if (data==1) {
-						
 							alert(response.info);
 						}else{
-						
 							alert(response.info)
-							
-					}
-						
+						}
 					}
 				});
 			//alert($('#form2').serialize());
