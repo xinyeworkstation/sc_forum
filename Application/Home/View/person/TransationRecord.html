@@ -27,8 +27,8 @@
 			<dl class="sidebarColumnThree">
 				<dt>账户管理</dt>
 				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
-				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
-				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
+				<dd><a class="sidebarColumnThreeSecA" href="{:U('Person/vip')}">开通VIP</a></dd>
+				<dd><a class="sidebarColumnThreeThirdA" href="{:U('Person/recharge')}">充值提现</a></dd>
 				<dd><a class="sidebarColumnThreeFourthA activeTransationRecord" href="{:U('Person/transationRecord')}">交易记录</a></dd>
 			</dl>			
 		</aside>
@@ -48,12 +48,13 @@
 				<li>账户余额</li>
 			</ul>
 			<div class="records">
+				<foreach name="business" item="v">
 				<ul class="recordsBranch">
-					<li>2010/7/26</li>
-					<li>收入210</li>
-					<li>32000</li>
+					<li>{$v.time|date="y/m/d",###}</li>
+					<li><if condition="$v.flag eq 1">收入<else />支出</if>{$b_money}</li>
+					<li>{$v.money}</li>
 				</ul>
-				
+				</foreach>
 			</div>
 		</div>
 		<!-- 右边内容区-交易记录结束 -->

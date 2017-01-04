@@ -26,21 +26,46 @@
 			</dl>						
 			<dl class="sidebarColumnThree">
 				<dt>账户管理</dt>
-				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
-				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
-				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
+				<dd><a class="sidebarColumnThreeFirstA" href="##">我的订单</a></dd>
+				<dd><a class="sidebarColumnThreeSecA" href="{:U('Person/vip')}">开通VIP</a></dd>
+				<dd><a class="sidebarColumnThreeThirdA" href="{:U('Person/recharge')}">充值提现</a></dd>
 				<dd><a class="sidebarColumnThreeFourthA" href="{:U('Person/transationRecord')}">交易记录</a></dd>
 			</dl>			
 		</aside>
 		<!-- 右边内容区-我的收藏开始 -->
 		<div id="mainCollection">
 			<ul class="productionNumber collectionNumber">
-				<li>动态模板<span>3</span></li>
-				<li>静态模板<span>2</span></li>
-				<li>原创<span></span></li>
-				<li>界面<span></span></li>
-				<li>登录器皮肤<span>1</span></li>
-				<li>其他<span></span></li>
+			<foreach name='arr' item='vo' key='k'>
+				<if condition="$k eq 1">
+				<li>动态模板<span>{$vo}</span></li>
+				<elseif condition="$k eq 2"/>
+				<li>静态模板<span>{$vo}</span></li>
+				<elseif condition="$k eq 3"/>
+				<li>登录器皮肤<span>{$vo}</span></li>
+				<elseif condition="$k eq 4"/>
+				<li>游戏界面<span>{$vo}</span></li>
+				<elseif condition="$k eq 5"/>
+				<li>网站原画<span>{$vo}</span></li>
+				<elseif condition="$k eq 6"/>
+				<li>LOGO素材<span>{$vo}</span></li>
+				<elseif condition="$k eq 7"/>
+				<li>原创衣服<span>{$vo}</span></li>
+				<elseif condition="$k eq 8"/>
+				<li>原创武器<span>{$vo}</span></li>
+				<elseif condition="$k eq 9"/>
+				<li>原创地图<span>{$vo}</span></li>
+				<elseif condition="$k eq 10"/>
+				<li>特效技能<span>{$vo}</span></li>
+				<elseif condition="$k eq 11"/>
+				<li>精品怪物<span>{$vo}</span></li>
+				<elseif condition="$k eq 12"/>
+				<li>高档NPC素材<span>{$vo}</span></li>
+				<elseif condition="$k eq 13"/>
+				<li>首饰法宝<span>{$vo}</span></li>
+				<elseif condition="$k eq 14"/>
+				<li>其他素材<span>{$vo}</span></li>
+				</if>
+			</foreach>
 			</ul>
 			
 			<ul class="productions collections">

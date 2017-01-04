@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>知了提现中心</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/voucher_center.css">
+</head>
+<body>
+
+	<div class="main"> 
+		<!--账户头像信息部分-->
+		<div class="topBody">
+			<div class="headPic"><div><img src="__PUBLIC__/Images/head.jpg"/></div></div>
+			<ul class="imformations">
+				<li>当前账户：野蛮女友猫七</li>
+				<li>身份等级：普通用户</li>
+				<li>邮箱：1029076489@qq.com</li>
+			</ul>
+			<a class="personal" href="{:U('Person/personMessage')}">个人信息</a>
+			<a class="personal" href="{:U('Person/recharge')}">在线充值</a>
+			<ul class="states">
+				<li><a href="#">余额：0金币</a> |</li>
+				<li><a href="#">作品：0</a> |</li>
+				<li><a href="#">收藏：0</a></li>
+			</ul>
+		</div>
+		<!--主体内容部分-->
+		<div class="bottomBody">
+			<!--左边栏目部分-->
+			<div class="sideBars">
+				<ol>
+					<li><a href="{:U('Person/vip')}">开通VIP</a></li>
+					<li><a href="{:U('Person/recharge')}">充值金币</a></li>
+					<li><a href="{:U('Person/withdraw')}">出售提现</a></li>
+				</ol>
+			</div>
+
+			<!--出售提现部分-->
+			<div class="rightBody" id="drawMoney">
+				<p class="titleOne">账户可提现金币余额：<strong>0</strong><span>（每次只能提现100元，可多次提现）</span></p>
+				<div class="cash">
+					<a href="#">使用 <span class="blueWords">30000 </span>金币兑换 <span class="redWords">100 RMB</span></a>
+				</div>
+				<p class="titleTwo">提现账号<span>（不支持信用卡账号）</span></p>
+				<div class="withdrawNumber">
+					<form class="accountNumber" action="" name="accountNumber">
+						<ul>
+							<li>
+								<label for="类型">类型：</label>
+								<select name="style">
+									<option value="支付宝">支付宝</option>
+								</select>
+								<span class="advice">（建议您使用支付宝免费提现）</span>
+							</li>
+							<li>
+								<label for="账号">账号：</label>
+								<input type="text" value="" required/>
+							</li>
+							<li>
+								<label for="收款人">收款人：</label>
+								<input type="text" placeholder="必须和支付宝账号的账户名/姓名一致" required/>
+							</li>
+							<li>
+								<button class="submit" type="submit">确认提现</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+				<div class="introduction">
+					<p >温馨提示：</p>
+					<ul>
+						<li>1.本交易平台提现功能只支持支付宝提现，请认真填写信息哦。</li>
+						<li>2.确认提现后请稍等，我们确认后，管理员手动给您处理，几分钟即可生效。</li>
+					</ul>
+				</div>
+			</div>  
+		</div>
+	</div>
+</body>
+</html>

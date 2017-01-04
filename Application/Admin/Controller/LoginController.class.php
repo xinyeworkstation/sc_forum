@@ -11,8 +11,8 @@ class LoginController extends Controller {
     public function login(){
         $member = M('user');
         $username =I('username');
-        //$password =I('password','','md5');
         $password =I('password','','md5');
+       // $password =I('password');
         $code = I('verify','','strtolower');
         //验证验证码是否正确
         if(!($this->check_verify($code))){

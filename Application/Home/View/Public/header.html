@@ -8,19 +8,51 @@
 	<link rel="stylesheet" href="__STATIC__/css/personal-center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/voucher_center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer.css">
-	<script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
 		// 实现头部选项框的下拉列表菜单
-		window.onload = function (){
-			var oInput = document.getElementById('optionSelect');
-			var aOps = document.getElementById('searchOps').getElementsByTagName('li');
-			var oSeach = document.getElementById('searchOps')
-			// 点击显示隐藏的下拉列表
-			oInput.onclick = function (){
-				if (oSeach.style.display = 'none') {
-					oSeach.style.display = 'block';
+		// window.onload = function (){
+		// 	var oInput = document.getElementById('optionSelect');
+		// 	var aOps = document.getElementById('searchOps').getElementsByTagName('li');
+		// 	var oSeach = document.getElementById('searchOps')
+		// 	// 点击显示隐藏的下拉列表
+		// 	oInput.onclick = function (){
+		// 		if (oSeach.style.display = 'none') {
+		// 			oSeach.style.display = 'block';
+		// 		}
+		// 	};
+		// };
+		// 
+		$(function(){
+			$('#optionSelect').click(function(e){
+				$('#searchOps').slideDown();
+				e.stopPropagation();//阻止事件冒泡
+			});
+			//在桌面上任意地方点击，他时关闭的
+			$(document).click(function(){
+				$('#searchOps').slideUp();
+			});
+
+			$('#searchOps ul li').click(function(){
+				var txt= $(this).text();
+				$('#optionSelect').val(txt);
+			});
+			$('#inputBtn').click(function(){
+				var Input1=$('#inputText').val();
+				if(Input1==""){
+					return false;
 				}
-			};
-		};
+				$.ajax({
+					type:'POST',
+					url:"{:U(index/index)}",
+					dataType:'json',
+					data:$('#optionSelect').serializeArray(),
+					success:function(data,status){
+						alert('1');
+					}
+				});
+			});
+		});
 	</script>
 </head>
 <body>
@@ -46,8 +78,8 @@
 						<li>其他素材</li>
 					</ul>
 				</div>
-				<input class="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
-				<input class="inputBtn" type="submit" value="搜索">
+				<input class="inputText" name="key" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
+				<input class="inputBtn" id="inputBtn" type="submit" value="搜索" style="cursor: pointer;">
 			</form>
 			<!-- 表单搜索结束 -->
 			<div class="personal">
@@ -61,7 +93,10 @@
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<div class="headerPersonal">
-					<a href="#"><img src="/{$order[1]['headimg']}" alt="头像"></a>
+					<div>
+						<a href="#"><img src="/{$order[1]['headimg']}" alt="头像"></a>
+						<img src="__PUBLIC__/images/VIP.gif">
+					</div>
 					<span>而生</span>
 					<span>(ID:24867843)</span>
 				</div>

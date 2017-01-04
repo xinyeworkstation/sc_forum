@@ -194,27 +194,7 @@ img{
 	margin-bottom: 5px;
 }
 
-/*开通VIP部分css*/
-/*#openVip{
-	display: none;
-}*/
-.openVIP .discount{
-	border: 1px solid #ee0a0a;
-	font-size: 12px;
-	color: #ee0a0a;
-	padding: 1px 4px;
-	margin-left: 5px;
-}
-.rightBody .openVIP a{
-	margin: 0 95px 10px 0;
-}
-.rightBody .openVIP p{
-	float: left;
-	height: 35px;
-	width: 700px;
-	color: #989393;
-	font-size: 15px;
-}
+
 /*出售提现部分css*/
 #drawMoney{
 	display: none;
