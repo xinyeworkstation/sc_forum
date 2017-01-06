@@ -73,21 +73,36 @@ class IndexController extends Controller {
     		
     	}
     	if(IS_POST){
-
+            
     		//$cate_id = $_POST['cate_id'];
-    		var_dump($_POST);var_dump($_GET);exit;
+    		//var_dump($_POST);var_dump($_GET);exit;
     		//$where['workname'] = array("like","%".I('post.key')."%");
     		//$where['username'] = array("like","%".I('post.key')."%");
-            $key = I('post.key');
+            
+            $key = $_POST['key'];
+            //echo $key;
+            $name = $_POST['name'];
+            echo $name;
             $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
             $where['flag'] = '1';
+            /*$name = I('post.name');
+            if(!$name == '全部'){
+                $where['catename'] = $name;
+            }*/
+             
+            //echo $key;
+            //echo $where['catename'];
             $work = $model->alias('w')
                           ->join('user u ON w.user_id=u.id')
+                          //->join('category c ON w.cate_id=c.id')
                           ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg')
                           ->where($where)
                           ->order('w.id desc')
                           ->limit(30)
                           ->select();
+            if(empty($work)){
+                echo '没有找到您要查询的作品';
+            }
             //echo $model->getLastSql();exit;
     	}
 

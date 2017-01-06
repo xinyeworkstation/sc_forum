@@ -49,7 +49,7 @@
 			}
 			if(IS_POST){
 				//var_dump($_FILES);exit;
-				if(empty($_FILES['picname']) || empty($_FILES['compress'])){
+				if(empty($_FILES['picname']['name']) || empty($_FILES['compress']['name'])){
 					$this->error('请选择要上传的作品!');
 				}
 				$files = array();
@@ -118,6 +118,10 @@
 					//得到压缩包保存的路径，多个文件之间的路径用@and分隔保存在数据库
 					$compress .= '@and'.'./Public/'.$upload[0]['savepath'].$upload[0]['savename'];
 					$compress = ltrim($compress,'@and');
+
+					$size .= '@and'.$upload[0]['size'];
+					$size = ltrim($size,'@and');
+					//var_dump($size);exit;
 				}
 				if(!empty($flash)){
 					$config = array(
@@ -148,6 +152,7 @@
 				$data['works'] = $works;
 				$data['compress'] = $compress;
 				$data['flash'] = $flash;
+				$data['size'] = $size;
 				if(!is_numeric($data['price'])){
 					$this->error('您输入的金币有误，请输入一个整数!!!');
 				}
@@ -213,8 +218,9 @@
 		}
 
 		function edit($id){
+			$model = M('work');
 			if(!IS_POST){
-				$model = M('work');
+				
 				$model2 = M('category');
 				$cate = $model2->select();
 				$work = $model->alias('w')
@@ -228,7 +234,7 @@
 				$this->assign('work',$work);
 			}
 			if(IS_POST){
-				$id = $_POST['id'];
+				$where['id'] = $_POST['id'];
 				$data['workname'] = trim(I('post.workname'));
 				$data['cate_id'] = I('post.pid');
 				$data['intro'] = I('post.intro');
@@ -242,7 +248,7 @@
 				if(!is_numeric($data['price'])){
 					$this->error('您输入的金币有误，请输入一个整数!!!');
 				}
-				$num = $model->where('id='.$id)->save($data);
+				$num = $model->where($where)->save($data);
 				if($num){
 					$this->success('操作成功!',U('work/index?flag=2'));
 				}else{
