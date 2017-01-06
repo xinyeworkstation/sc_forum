@@ -65,6 +65,7 @@ body{
 }
 #Code{
 	float: left;
+	display:block;
 }
 .loginForm1 input{
 	width: 300px;
@@ -111,6 +112,7 @@ body{
 	box-sizing: border-box;
 	outline: none;
 }
+
 .text-center{
 
 	text-align: center;
@@ -159,6 +161,9 @@ body{
 }
 .Codepic{
 	float: left;
+}
+.Code-input{
+	float:left;
 }
 .Codepic a{
 	display:block;
