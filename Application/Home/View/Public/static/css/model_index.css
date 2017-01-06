@@ -1,5 +1,13 @@
 
+<<<<<<< HEAD
 /*轮播图图片*/
+=======
+
+/*轮播图图片*/
+.headCarousel{
+	background: #75b42b;
+}
+>>>>>>> 944688e41070c68288cf6388614af1a38219df43
 .carousel{
  	width: 100%;
  	height: 420px;

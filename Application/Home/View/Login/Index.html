@@ -1,205 +1,128 @@
-!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-	<title>footer</title>
-	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer1.css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css"></link>
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/index.js"></script>
 </head>
 <body>
-<!-- footer -->
-	<footer id="footer">
-		<div class="footer_top">
-			<div class="safety">
-				<img src="__STATIC__/images/pledge_03.jpg"/>
-			</div>
-			<div class="zlIntroduce">
-				<h3>专注正版设计作品交易平台</h3>
-				<p>知了设计为了广大游戏工作者，游戏爱好者、设计师等等，提供超多的游戏素材</p>
-				<div class="zlIntroduce-service"><span>在线客服 : </span><img src="__STATIC__/images/qqzx_06.jpg"><span> 咨询电话：133-8748-2802</span></div>
-			</div>
-			<div class="guide">
-				<h3>客户指南</h3>
+<section id="main">
+	<div id="dialog">
+		<div class="login">
+			<div class="loginTab">
 				<ul>
-					<li><a href="#">关于我们</a></li>
-					<li><a href="#">售后服务</a></li>
-					<li><a href="#">版权声明</a></li>
-					<li><a href="#">出售作品</a></li>
-					<li><a href="#">投诉举报</a></li>
-					<li><a href="#">网站导航</a></li>
-					<li><a href="#">联系我们</a></li>
-					<li><a href="#">图片下载</a></li>
+					<li class="tab-item "><a href="#" class="selected">注册</a></li>
+					<li><a href="#">登录</a></li>
 				</ul>
 			</div>
-			<div class="footerLogo">
-				<img src="__STATIC__/images/logo_06.png"/>
-			</div>
-		</div>
-		<!--  footer_bottom-->
-		<div class="footer_bottom"> 
-			<div class="footer_bottom_container">
-				<p>Copyright ?  2008-2014知了设计蜀ICP备16029489号</p>
-				<p>若您发现您的权利被侵害， 请发起知识产权投诉。</p>
-				<p>CIcada design (Changsha) Network Technology Co., Ltd. all rights reserved. 知了设计 （长沙） 网络技术有限公司版权所有</p>
-			</div>
-		</div>
-	</footer>
-<!-- footer结尾 -->
 
-<!-- 注册登录 -->
-	<section id="dialog">
-	<div class=""></div>
-		<div class="Prompt"><p>温馨提示：购买邀请码之后才能注册哦！</p></div>
-		<nav class="login-nav">
-			<ul>
-				<li ><a href="#" class="active">邀请码</a></li>
-				<li><a href="#">注册</a></li>
-				<li><a href="#">登录</a></li>
-				<li><a href="#">找回密码</a></li>
-			</ul>
-		</nav>
-		<!-- 邀请码 -->
-		<div class="dialog-table" >
-			<div class="dialog-main" style="display: none;">
-				<div class="Promp2"><p>邀请码为<strong>10元</strong>一个,支持支付宝、微信等在线支付。</p>	</div>
-				<div class="pay">
-					<dl>
-						<dd>
-							<a href="#" class="current">
-								<i class="zfb-pay-icon">
-								1
-								</i>
-							</a>
-						</dd>
-						<dd>
-							<a href="#" class="current">
-								<i class="wechat-pay-icon">
-								1
-								</i>
-							</a>
-						</dd>
-							
-					</dl>
-					<div class="clickBtn">
-						<button class="btn-pay">立即支付</button>
+			<!-- 注册 -->
+			<div class="loginForm1 TabForm" >
+				<form action="" method="" accept-charset="utf-8" id="form1">
+					<div class="name">
+						<input type="text" name="name" placeholder="用户名" id="user1">
+							<span class="star" id="star"> </span>
+					</div>
+					<div class="password">
+						<input type="text" name="password" placeholder="密码" id="pass">
+						<span class="star"> </span>
+					</div>
+					<div class="msgpassword">
+						<input type="text" name="msgpassword" placeholder="确认密码" id="msgpass">
+						<span class="star"> </span>
+					</div>
+					<div class="email">
+						<input type="text" name="email" placeholder="邮箱" id="email">
+						<span class="star"> </span>
+					</div>
+					<div class="QQ">
+						<input type="text" name="QQ" placeholder="QQ" id="QQ">
+						<span class="star"> </span>
+					</div>
+					
+					<div class="Invitation">
+						<input type="text" name="Invitation" placeholder="邀请码" id="Invitation">
+						<div class="InvitationBuy" >
+							<a href="#" title="">购买邀请码</a>
+						</div>
+					</div>
+					
+					<div class="Button">
+						<input type="submit" name="" value="注册" class="ButtonWrapper" id="Button1">
+					</div>
+				</form>
+			</div>
+
+			<!-- 登录 -->
+			<div class="loginForm2 TabForm" style="display: none;">
+				<form action="" method="" accept-charset="utf-8" id="form2">
+					<div class="name loginName">
+							<input type="text" name="name" placeholder="用户名" id="user2">
+							<span class="star" id="star1"> </span>
+					</div>
+					<div class="password loginPass">
+							<input type="text" name="password" placeholder="密码" id="pass2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+						<div class="Code-input">
+							<input type="text" name="Code" placeholder="验证码" id="Code">
+						</div>
+						<div class="Codepic">
+								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
+							</div>
+
+						<!--<span class="star"> </span>-->
+					</div>
+					<div class="Button1">
+						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
+					</div>
+					<div class="unable-login">
+						<a href="{:U('login/index')}" title="">忘记密码?点此找回</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- 找回密码 -->
+	<div class="FindPass">
+		<div class="FindPassDialog">
+			<form action="{:U('login/email')}" method="post" accept-charset="utf-8">
+				<div class="text-center">
+					<a href="#" title="">通过邮箱找回密码</a>
+				</div>
+				<div class="reset-box">
+					<div class="email">
+							<input type="text" name="email" placeholder="邮箱" id="email2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+								<input type="text" name="Code" placeholder="验证码" id="Code">
+								<div class="Codepic">
+									<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"></a>
+								</div>
+					</div>
+					<div class="Button2">
+							<input type="submit" name="" value="找回密码" class="ButtonWrapper2" id="Button3">
+					</div>
+					<div class="unable-login">
+							<a href="#" title="">转到登录页面吗?</a>
 					</div>
 				</div>
-				<!-- 规定 -->
-				<div class="rule">
-				<h3>规定：</h3>
-				<p>1. 严禁匿名转载原创作品。</p>
-				<p>2. 严禁恶意转卖本交易平台已有的资源</p>
-				<p>3. 评论是不能无故辱骂作者或者其他评人。</p>
-				<p>4. 喷子类的行为将被禁ID，删号。</p>
-				<p>5. 不能违反国家相关规定。</p>
-				</div>
 				
-			</div>
-			<!-- -dialog logo -->
-			<div class="login-logo">
-				<a href="#"><img src="">1</a>
-			</div>
-		</div><!-- 邀请码 -->
-
-		<!-- 注册 -->
-		<div class="dialog-main"   style="display: none;">
-			<div class="register" >
-				<form method="" name="" title="会员注册" id="reg">
-					<p>
-						<label for="user">用户名：</label>
-						<input type="text" name="user" class="text" id="user1" title="请输入帐号，不少于两位" placeholder="请设置用户名"/ >
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label for="pass1">设置密码：</label>
-						<input type="passward" name="pass" class="text" id="pass1" title="请输入密码，不少于六位" placeholder="请设置密码" />
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label for="msgpass1">确认密码：</label>
-						<input type="passward" name="msgpass" class="text" id="msgpass1" title="请确认密码"  placeholder="请确认密码"/>
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label for="email">邮箱：</label>
-						<input type="text" name="email" class="email1" id="email1" placeholder="请确认密码" title="请输入正确的邮箱"/>
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label for="qq">联系QQ：</label>
-						<input type="text" name="qq" class="text" id="qq1" title="请输入正确的qq号码" placeholder="可用于联系您"/>
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label >邀请码：</label>
-						<input type="text" name="Invitation"  class="text" id="Invitation1" placeholder="请输入邀请码"/>
-						<span class="star">*</span>
-					</p>
-					<button class="btn-pay login" id="submit">注册</button>
-					<div id="box"></div>
-				</form>
-			</div>
+			</form>
 		</div>
-		<!-- 登录 -->
-		<div class="dialog-main" style="display: none;">
-			<div class="register">
-				<form method="get" name="" id="login">
-					<p>
-						<label for="user">用户名：</label>
-						<input type="text" name="user" class="text" id="user2" title="请输入帐号，不少于两位" placeholder="请设置用户名"/ >
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label for="pass">密码：</label>
-						<input type="passward" name="pass" class="text" id="pass2" title="请输入密码，不少于六位" placeholder="请设置密码" />
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label >验证码：</label>
-						<input type="text" name="verify"  id="security" placeholder="请输入验证码"/>
-						<span class="star">*</span>
-						<i class="code"><a href="javascript:void(0)"><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a></i>
-					</p>
-					<button class="btn-pay login">登录</button>
-					<div id="box1"></div>
-				</form>
-			</div>
-		</div>
+	</div>
+</section>
 
-		<!-- 找回密码 -->
-		<div class="dialog-main"  >
-			<div class="register">
-				<form method="" name="" id="findpass">
-					<div id="hite"><p>通过电子邮箱找回密码</p></div>
-					<p>
-						<label for="email">邮箱：</label>
-						<input type="text" name="email" class="email2" id="email2" placeholder="请确认密码" title="请输入正确的邮箱"/>
-						<span class="star">*</span>
-					</p>
-					<p>
-						<label >验证码：</label>
-						<input type="text" name=""  id="find"  placeholder="请输入验证码"/>
-						<span class="star">*</span>
-						<i class="code">验证码图片</i>
-					</p>
-					<button class="btn-pay login">提交</button>
-					<div id="box2"></div>
-				</form>
-				<div class="Warm"><p>温馨提示：提交后请在一个小时之内登录邮箱重置用户密码</p></div>
-			</div>
-		</div>
-	</section>
-
-
-<!-- 注册登录 结尾-->
-<script type="text/javascript" src="__STATIC__/js/jquery-3.0.0.min.js"></script>
-<script type="text/javascript" src="__STATIC__/js/index.js"></script>
-<script type="text/javascript" src="__STATIC__/js/validation.js"></script>
 <script>
 	$(function(){
 		$(".verify").click(function(){
-			var src = "{:U('login/verify')}";
+			var src = '/sc_forum/login/verify';
 			var random = Math.floor(Math.random()*(1000+1));
-			$(this).attr("src",src+"&random="+random);
+			$(this).attr("src",src+"/random="+random);
 
 		});
 	})

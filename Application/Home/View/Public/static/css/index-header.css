@@ -94,6 +94,7 @@ a {
 	font-weight: bold;
 }
 .inputBtn {
+	cursor: pointer;
 	float: left;
 	width: 100px;
 	height: 100%;
