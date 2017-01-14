@@ -103,6 +103,7 @@
 					$works .= '@and'.'./Public/'.$upload[0]['savepath'].$upload[0]['savename'];
 					$works = ltrim($works,'@and');
 				}
+				
 				//循环将压缩包单个上传
 				for($i=0;$i<$cnum;$i++){
 					$config = array(
@@ -112,6 +113,7 @@
 					'saveName' => md5(uniqid(microtime(true),true)),
 					'exts' => array('rar','zip'),
 					);
+					
 					$file = array();
 					$file[] = $_FILES['compress'][$i];
 					$upload = upload($config,$file);
@@ -119,6 +121,7 @@
 					$compress .= '@and'.'./Public/'.$upload[0]['savepath'].$upload[0]['savename'];
 					$compress = ltrim($compress,'@and');
 				}
+			
 				if(!empty($flash)){
 					$config = array(
 					'maxSize' => 10*1024*1024,
@@ -131,7 +134,7 @@
 					$upload = upload($config,$file);
 					$flash = './Public/'.$upload[1]['savepath'].$upload[1]['savename'];
 				}
-				//exit;
+				
 				if(!$upload==true){
 					$this->error($upload);			
 				}
