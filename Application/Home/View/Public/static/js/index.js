@@ -121,19 +121,21 @@ var ok8=false;
 	$('#Button1').click(function(){
 		 if(ok1&&ok2&&ok3&&ok4&&ok5){
 		 		$.ajax({
+		 			async:false,
 		 			cache:true,
 					type:'POST',
-					url:"{:U('index.php/login/register')}",
+					url:'/sc_forum/login/register',
 					dataType:'json',
 					data:$('#form1').serialize(),
 					success:function(response,data,status){
-						if (data==1) {
-							alert('success');
+						if(response.info=='YES'){
+							window.location.href ='/sc_forum/index'
 						}else{
-							alert('fiale')
+							$('#star').html(response.info);
 						}
 					}
 				});
+			 return false;
 			//alert($('#form1').serialize());
 		 }else{
 		 	return false;
@@ -142,23 +144,25 @@ var ok8=false;
 	});
 
 // 登录
+
 	$('#Button2').click(function(){
 		 if(ok6&&ok7){
 		 		$.ajax({
+					async:false,
 		 			cache:true,
 					type:'POST',
-					url:'/sc_forum/index.php/Login/login',
+					url:'/sc_forum/Login/login',
 					dataType:'json',
 					data:$('#form2').serialize(),
-					success:function(data,status){
-						if (data==1) {
-							alert('success');
+					success:function(response,data,status){
+						if(response.info=='YES'){
+							window.location.href ='/sc_forum/index'
 						}else{
-							alert('fiale')
+							$('#star1').html(response.info);
 						}
-						
 					}
 				});
+			  return false;
 			//alert($('#form2').serialize());
 		 }else{
 			 return false;

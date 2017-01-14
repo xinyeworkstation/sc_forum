@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>知了设计-个人中心</title>
+	<title>知了设计-基础资料</title>
 	<link rel="stylesheet" href="__STATIC__/css/personal-center.css"">
 	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
@@ -14,7 +14,7 @@
 		<aside class="personSidebar">			
 			<dl class="sidebarColumnOne">
 				<dt>个人资料</dt>
-				<dd><a class="sidebarColumnOneFirstA" href="{:U('Person/index')}">基础资料</a></dd>
+				<dd><a class="sidebarColumnOneFirstA activePersonMessage" href="{:U('Person/index')}">基础资料</a></dd>
 				<dd><a class="sidebarColumnOneSecA" href="{:U('Person/personMessage')}">个人信息</a></dd>
 				<dd><a class="sidebarColumnOneThirdA" href="{:U('Person/changePassword')}">修改密码</a></dd>
 			</dl>					
@@ -27,37 +27,38 @@
 			<dl class="sidebarColumnThree">
 				<dt>账户管理</dt>
 				<dd><a class="sidebarColumnThreeFirstA" href="#">我的订单</a></dd>
-				<dd><a class="sidebarColumnThreeSecA" href="{:U('Person/vip')}">开通VIP</a></dd>
-				<dd><a class="sidebarColumnThreeThirdA" href="{:U('Person/recharge')}">充值提现</a></dd>
-				<dd><a class="sidebarColumnThreeFourthA activeTransationRecord" href="{:U('Person/transationRecord')}">交易记录</a></dd>
+				<dd><a class="sidebarColumnThreeSecA" href="#">开通VIP</a></dd>
+				<dd><a class="sidebarColumnThreeThirdA" href="#">充值提现</a></dd>
+				<dd><a class="sidebarColumnThreeFourthA" href="{:U('Person/transationRecord')}">交易记录</a></dd>
 			</dl>			
 		</aside>
 		<!-- 左边侧边栏结束 -->
-		<!-- 右边内容区-交易记录开始 -->
-		<div id="mainTransationRecord">
-			<header class="headerBlance">
-				<h2>余额：<span>{$money.money}</span>金币</h2>
-				<div class="rechargeWithdraw">
-					<a href="#">充值</a>
-					<a href="#">提现</a>
+		<!-- 右边内容区-基本资料开始 -->
+		<div id="mainBasicData">
+			<div class="basicDataTop">
+				<div class="headSculpture">
+					<img src="../../../../Public/images/head-portrait.jpg" alt="头像">
+					<a href="">修改头像</a>
 				</div>
-			</header>
-			<ul class="transationRecords">
-				<li>时间</li>
-				<li>收入/支出</li>
-				<li>账户余额</li>
-			</ul>
-			<div class="records">
-				<foreach name="business" item="v">
-				<ul class="recordsBranch">
-					<li>{$v.time|date="y/m/d",###}</li>
-					<li><if condition="$v.flag eq 1">收入<else />支出</if>{$b_money}</li>
-					<li>{$v.money}</li>
+				<ul class="basicDataMore">
+					<li>昵称：<span>而生</span></li>
+					<li>ID：<span>568695467</span></li>
+					<li>会员等级：<span>*******</span></li>
+					<li>余额：<span>*********</span></li>
+					<li>邮箱：<span>1323435@qq.com</span></li>
+					<li><a href="">修改资料</a></li>
 				</ul>
-				</foreach>
 			</div>
+			<div class="basicDataBottom">
+				<a href="">上传作品<img src="../../../../Public/images/updata.jpg"></a>
+			</div>
+			<ul class="cutBasicData">
+				<li><a href="#">已通过<span>6</span></a></li>
+				<li><a href="#">待审核<span>2</span></a></li>
+				<li><a href="#">未通过<span>0</span></a></li>
+			</ul>
 		</div>
-		<!-- 右边内容区-交易记录结束 -->
+		<!-- 右边内容区-基本资料结束 -->
 		</div>
 	<!-- 中间部分结束 -->
 </body>

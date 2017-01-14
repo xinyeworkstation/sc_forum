@@ -1,0 +1,73 @@
+/*开通VIP部分css*/
+/*#openVip{
+	display: none;
+}*/
+.openVIP .discount{
+	border: 1px solid #ee0a0a;
+	font-size: 12px;
+	color: #ee0a0a;
+	padding: 1px 4px;
+	margin-left: 5px;
+}
+.rightBodyone .openVIP a{
+	margin: 0 95px 10px 0;
+}
+.rightBodyone .openVIP p{
+	float: left;
+	height: 35px;
+	width: 700px;
+	color: #989393;
+	font-size: 15px;
+}
+
+/* Button Style */
+button.submit{
+	width: 170px;
+	height: 50px;
+	margin: 30px 0 0 50px;
+    background-color: #009900;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#009900));
+    background: -webkit-linear-gradient(top, #68b12f, #009900);
+    background: -moz-linear-gradient(top, #68b12f, #009900);
+    background: -ms-linear-gradient(top, #68b12f, #009900);
+    background: -o-linear-gradient(top, #68b12f, #009900);
+    background: linear-gradient(top, #68b12f, #009900);
+    border: 1px solid #005e15;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover{
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active{
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+}
+/*兼容placeholder处的文字样式*/
+:-moz-placeholder{
+    color: #c3c3c3;
+}
+:-webkit-input-placeholder{
+    color: #c3c3c3;
+}
+/*去掉:focus样式*/
+*:focus{
+	outline: none;
+}

@@ -1,0 +1,56 @@
+/*出售提现部分css*/
+/*#drawMoney{
+	display: none;
+}*/
+.rightBodythree .titleOne strong{
+	color: #f91212;
+} 
+.rightBodythree .titleTwo span{
+	font-size: 15px;
+	padding-left: 5px;
+}
+.rightBodythree .withdrawNumber{
+	padding-left: 60px;
+}
+.accountNumber ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.accountNumber li{
+    padding:12px; 
+    position:relative;
+}
+.accountNumber label{
+	width:90px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.accountNumber select{
+	width: 90px;
+	height: 32px;
+	padding:5px 8px;
+}
+.accountNumber input{
+	width: 450px;
+	height:20px; 
+	padding:5px 8px;
+}
+.accountNumber textarea{
+	padding:8px; 
+	width:300px;
+}
+.accountNumber input,.accountNumber textarea,.accountNumber select{
+	border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.accountNumber input:focus,.accountNumber textarea:focus,.accountNumber select:focus{
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+}
