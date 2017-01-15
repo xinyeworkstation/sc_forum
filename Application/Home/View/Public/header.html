@@ -58,12 +58,13 @@
 				}else{
 					$.ajax({
 					type:'POST',
-					url:"{:U('index/index')}",
+					url:"{:U('index/serch')}",
 					dataType:'',
 					//data:$('#inputText').serialize(),
 					data:{name:$('#optionSelect').val(),key:$('#inputText').val()},
 					success:function(data,status){
 						alert(data);
+						console.log(data);
 					}
 				});
 					//alert($('#inputText').serialize());
