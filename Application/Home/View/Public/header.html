@@ -58,13 +58,20 @@
 				}else{
 					$.ajax({
 					type:'POST',
-					url:"{:U('index/serch')}",
+					url:"{:U('index/index')}",
 					dataType:'',
 					//data:$('#inputText').serialize(),
 					data:{name:$('#optionSelect').val(),key:$('#inputText').val()},
 					success:function(data,status){
-						alert(data);
-						console.log(data);
+						if(data==0){
+							alert('没有查询到您要找的作品');
+							//然后再跳转到首页
+						}else{
+							//在这里将后台传回来的json数据（data）替换首页的内容
+							//alert(data);
+							//console.log(data);
+						}
+						
 					}
 				});
 					//alert($('#inputText').serialize());
@@ -87,9 +94,9 @@
 				<div class="headerSearchOptions" id="searchOps">
 					<ul>
 						<li>全部</li>
-						<li><input type="hidden" cateid='1'>动态模版</li>
-						<li>静态模版</li>
-						<li>登陆器皮肤</li>
+						<li>动态模板</li>
+						<li>静态模板</li>
+						<li>登录器皮肤</li>
 						<li>游戏界面</li>
 						<li>网站原画</li>
 						<li>logo素材</li>
@@ -104,15 +111,15 @@
 			<!-- 充值至发布作品开始 -->
 				<div class="headerPersonalDetails">
 					<ul>
-						<li><span class="icon">充</span><a href="#">充值</a><span class="rechageNumber">1</span></li>
-						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="#">收藏</a></li>
-						<li><span class="icon">发</span><a href="#">发布作品</a></li>
+						<li><span class="icon">充</span><a href="{:U('recharge/index')}">充值</a><span class="rechageNumber">1</span></li>
+						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}">收藏</a></li>
+						<li><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<div class="headerPersonal">
 					<div>
-						<a href="#"><img src="/{$order[1]['headimg']}" alt="头像"></a>
+						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
 						<img src="__PUBLIC__/images/VIP.gif">
 					</div>
 					<span>而生</span>
