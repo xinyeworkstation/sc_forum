@@ -17,11 +17,14 @@ class IndexController extends Controller {
             $order[$i]['username'] = $this->cut_name($order[$i]['username'],15);
         }
 
+      $where['flag'] = '1';
+      $count = $model->where($where)->count();
+      $Page = new \Extend\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(30)
+      $show = $Page->show();// 分页显示输出
     	if(!IS_POST){
     		if($_GET){
             //var_dump($_GET);exit;
                 //查询已经审核通过的作品
-                $where['flag'] = '1';
                 switch (I('get.search')) {
                     //首页综合排序
                     case '1':
@@ -35,7 +38,7 @@ class IndexController extends Controller {
                               ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg,catename')
                               ->where($where)
                               ->order('download desc')
-                              ->limit(30)
+                              ->limit($Page->firstRow.','.$Page->listRows)
                               ->select();
                               //var_dump($work);exit;
                         break;
@@ -47,7 +50,7 @@ class IndexController extends Controller {
                               ->field('w.id w_id,works,workname,wtime,download,favor,u.id u_id,u.username,u.headimg,catename')
                               ->where($where)
                               ->order('wtime desc')
-                              ->limit(30)
+                              ->limit($Page->firstRow.','.$Page->listRows)
                               ->select();
                         break;
                     default:
@@ -64,7 +67,7 @@ class IndexController extends Controller {
                                   ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg,catename')
                                   ->where($where)
                                   ->order('w.id desc')
-                                  ->limit(30)
+                                  ->limit($Page->firstRow.','.$Page->listRows)
                                   ->select();
                 }
                 
@@ -74,9 +77,9 @@ class IndexController extends Controller {
                               ->join('user u ON w.user_id=u.id')
                               ->join('category c ON w.cate_id=c.id')
                               ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg,catename')
-                              ->where('flag=1')
+                              ->where($where)
                               ->order('w.id desc')
-                              ->limit(30)
+                              ->limit($Page->firstRow.','.$Page->listRows)
                               ->select();
             }
     		
@@ -123,7 +126,8 @@ class IndexController extends Controller {
         $work = $this->new_work($work);
         //var_dump($work);exit;
         $this->assign('order',$order);
-        $this->assign('work',$work);	
+        $this->assign('work',$work);
+        $this->assign('page',$show);	
         $this->display();
     }
 

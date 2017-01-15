@@ -1,4 +1,4 @@
-*{
+﻿*{
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -380,6 +380,7 @@ p.loadpic,p.support{
 	background: #1aba78;
 	color: #fff;
 }
+
 /*侧边栏*/
 .sidebar{
 	width:50px;
