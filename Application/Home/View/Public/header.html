@@ -48,8 +48,7 @@
 				});*/
 				//alert($('#optionSelect').val(txt));
 
-					}
-				});			
+					
 
 			});
 			$('#inputBtn').click(function(){
@@ -82,12 +81,12 @@
 				<figcaption>专注正版设计作品交易</figcaption>
 			</figure>
 			<!-- 表单搜索开始 -->
-			<form method="post" action="{:U('index/index')}" class="headerSearch">
+			<form method="post" class="headerSearch">
 				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly value="全部">
 				<div class="headerSearchOptions" id="searchOps">
 					<ul>
 						<li>全部</li>
-						<li>动态模版</li>
+						<li><input type="hidden" cateid='1'>动态模版</li>
 						<li>静态模版</li>
 						<li>登陆器皮肤</li>
 						<li>游戏界面</li>
