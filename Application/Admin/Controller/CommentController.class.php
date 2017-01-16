@@ -111,20 +111,26 @@ class CommentController extends BaseController{
         $comment1=$model->where($where)->find();
         //得到当前评论的所有评论，如果有评论是0，这条评论不让通过
         $res=$this->getComment2($comment1['parent_id']);
-        $arr[]=$comment1['id'];//将当前评论的id给arr数组 5
+        //$arr[]=$comment1['id'];//将当前评论的id给arr数组 5
         $arr=$this->getCommentId2($res,$arr);//得到所有评论的id
+        //var_dump($arr);
+
         $wh['id'] = array('in',$arr);
+        //var_dump($comment1['id']);
         $sel=$model->where($wh)->select();
         $sc=count($sel);
-        var_dump($sel);
-        for($s=0;$s<$sc-1;$s++){
-        	var_dump(strcmp($sel[$s]['status'],'0'));
+        //var_dump($sel);
+        
+        for($s=0;$s<$sc;$s++){
+        	//var_dump(strcmp($sel[$s]['status'],'0'));
         	if(strcmp($sel[$s]['status'],'0')==0){
         		$this->error("此评论的父评论没有启用，启用失败");
         	}
-        }
+        }//exit;
+        //若他父评论全部是启用状态，让他显示
        	$update['status']='1';
-        $pass=$model->where($wh)->save($update);
+        $w['id']=$comment1['id'];
+        $pass=$model->where($w)->save($update);
         $whe['t_id']=array('in',$arr);
         $whe['table']='comment';
         $allow=$del->where($whe)->delete();
@@ -218,9 +224,6 @@ class CommentController extends BaseController{
         }
         return $arr;
     }
-
-
-
 
     public function more(){
         $id = $_GET['id'];

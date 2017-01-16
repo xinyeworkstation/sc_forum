@@ -85,7 +85,8 @@ class UserController extends BaseController
 				if (!$info) {
 					$this->error($upload->getError());
 				} else {//成功则对图片进行处理
-					$image = new \Think\Image(); 
+					$image = new \Think\Image();
+
 					$image->open($face_name);// 生成一个固定大小为100*130的缩略图并保存为thumb.jpg
 					$data['headimg'] = $url.time().'_'.mt_rand().'.jpg';
 					$image->thumb(100, 130,\Think\Image::IMAGE_THUMB_FIXED)->save($data['headimg']);
@@ -157,8 +158,8 @@ class UserController extends BaseController
 	}
 
 	/**
-	 * 启用作品
-	 * @param  [int] $id 作品id
+	 * 启用用户
+	 * @param  [int] $id 用户id
 	 */
 	function allow ($id) {
 		$flag = allow('user',$id);
@@ -170,8 +171,8 @@ class UserController extends BaseController
 	}
 
 	/**
-	 * 禁用作品
-	 * @param  [int] $id 作品id
+	 * 禁用用户
+	 * @param  [int] $id 用户id
 	 */
 	function forbidden ($id) {
 		$flag = forbidden('user',$id);

@@ -104,4 +104,15 @@ function sendMail($to, $title, $content)
     return ($mail->Send());
 }
 
+/**
+ * 以M的形式显示压缩包大小
+ */
+function statuSize ($size) {
+	$size = round($size/1024/1024,1);
+	if ($size == 0) {
+		$size = 0.1;
+	}
+	return $size;
+}
+ 
  ?>

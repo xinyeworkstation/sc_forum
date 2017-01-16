@@ -2,14 +2,14 @@
 /*#drawMoney{
 	display: none;
 }*/
-.rightBody .titleOne strong{
+.rightBodythree .titleOne strong{
 	color: #f91212;
 } 
-.rightBody .titleTwo span{
+.rightBodythree .titleTwo span{
 	font-size: 15px;
 	padding-left: 5px;
 }
-.rightBody .withdrawNumber{
+.rightBodythree .withdrawNumber{
 	padding-left: 60px;
 }
 .accountNumber ul {
