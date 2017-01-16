@@ -60,90 +60,90 @@ a {
 	padding: 34px 0 0 0;
 }
 .sidebarColumnOneFirstA {
-	background: url(__STATIC__/images/personal-oneicon.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-oneicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneSecA {
-	background: url(__STATIC__/images/personal-twoicon.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-twoicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneThirdA {
-	background: url(__STATIC__/images/personal-threeicon.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-threeicon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoFirstA {
-	background: url(__STATIC__/Public/images/personal-fouricon.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-fouricon.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoSecA {
-	background: url(__STATIC__/Public/images/personal-fiveicon.jpg) no-repeat 70px 8px;
+	background: url(../../../../../../Public/Images/personal-fiveicon.jpg) no-repeat 70px 8px;
 }
 .sidebarColumnTwoThirdA {
-	background: url(__STATIC__/Public/images/personal-sixicon.jpg) no-repeat 70px 6px;
+	background: url(../../../../../../Public/Images/personal-sixicon.jpg) no-repeat 70px 6px;
 }
 .sidebarColumnThreeFirstA {
-	background: url(__STATIC__/Public/images/personal-eighticon.jpg) no-repeat 64px 6px;
+	background: url(../../../../../../Public/Images/personal-eighticon.jpg) no-repeat 64px 6px;
 }
 .sidebarColumnThreeSecA {
-	background: url(__STATIC__/Public/images/personal-sevenicon.jpg) no-repeat 64px 5px;
+	background: url(../../../../../../Public/Images/personal-sevenicon.jpg) no-repeat 64px 5px;
 }
 .sidebarColumnThreeThirdA {
-	background: url(__STATIC__/Public/images/personal-nineicon.jpg) no-repeat 64px 8px;
+	background: url(../../../../../../Public/Images/personal-nineicon.jpg) no-repeat 64px 8px;
 }
 .sidebarColumnThreeFourthA {
-	background: url(__STATIC__/Public/images/personal-tenicon.jpg) no-repeat 64px 6px;
+	background: url(../../../../../../Public/Images/personal-tenicon.jpg) no-repeat 64px 6px;
 }
 
 .sidebarColumnOneFirstA:hover {
-	background: url(__STATIC__/Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-onecharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneSecA:hover {
-	background: url(__STATIC__/Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-twocharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnOneThirdA:hover {
-	background: url(__STATIC__/Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-threecharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoFirstA:hover {
-	background: url(__STATIC__/Public/images/personal-fourcharge.jpg) no-repeat 70px 5px;
+	background: url(../../../../../../Public/Images/personal-fourcharge.jpg) no-repeat 70px 5px;
 }
 .sidebarColumnTwoSecA:hover {
-	background: url(__STATIC__/Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+	background: url(../../../../../../Public/Images/personal-fivecharge.jpg) no-repeat 70px 8px;
 }
 .sidebarColumnTwoThirdA:hover {
-	background: url(__STATIC__/Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+	background: url(../../../../../../Public/Images/personal-sixcharge.jpg) no-repeat 70px 6px;
 }
 .sidebarColumnThreeFirstA:hover {
-	background: url(__STATIC__/Public/images/personal-eightcharge.jpg) no-repeat 64px 6px;
+	background: url(../../../../../../Public/Images/personal-eightcharge.jpg) no-repeat 64px 6px;
 }
 .sidebarColumnThreeSecA:hover {
-	background: url(__STATIC__/Public/images/personal-sevencharge.jpg) no-repeat 64px 5px;
+	background: url(../../../../../../Public/Images/personal-sevencharge.jpg) no-repeat 64px 5px;
 }
 .sidebarColumnThreeThirdA:hover {
-	background: url(__STATIC__/Public/images/personal-ninecharge.jpg) no-repeat 64px 8px;
+	background: url(../../../../../../Public/Images/personal-ninecharge.jpg) no-repeat 64px 8px;
 }
 .sidebarColumnThreeFourthA:hover {
-	background: url(__STATIC__/Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+	background: url(../../../../../../Public/Images/personal-tencharge.jpg) no-repeat 64px 6px;
 }
 
 .activeProduct {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-fivecharge.jpg) no-repeat 70px 8px;
+	background: #ffffff url(../../../../../../Public/Images/personal-fivecharge.jpg) no-repeat 70px 8px;
 }
 .activeCollection {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-sixcharge.jpg) no-repeat 70px 6px;
+	background: #ffffff url(../../../../../../Public/Images/personal-sixcharge.jpg) no-repeat 70px 6px;
 }
 .activeTransationRecord {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-tencharge.jpg) no-repeat 64px 6px;
+	background: #ffffff url(../../../../../../Public/Images/personal-tencharge.jpg) no-repeat 64px 6px;
 }
 .activePersonMessage {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-twocharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(../../../../../../Public/Images/personal-twocharge.jpg) no-repeat 70px 5px;
 }
 .activeBasicData {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-onecharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(../../../../../../Public/Images/personal-onecharge.jpg) no-repeat 70px 5px;
 }
 .activeChangePassword {
 	color: #009900;
-	background: #ffffff url(__STATIC__/Public/images/personal-threecharge.jpg) no-repeat 70px 5px;
+	background: #ffffff url(../../../../../../Public/Images/personal-threecharge.jpg) no-repeat 70px 5px;
 }
 
 
@@ -214,7 +214,10 @@ a {
 	font-size: 12px;
 	color: #a9a9a9;
 	display: block;
-}	
+}
+.productions li:nth-child(3),.productions li:nth-child(6),.productions li:nth-child(9),.productions li:nth-child(12),.productions li:nth-child(15),.productions li:nth-child(18),.productions li:nth-child(21),.productions li:nth-child(24),.productions li:nth-child(27),.productions li:nth-child(30),.productions li:nth-child(33),.productions li:nth-child(36),.productions li:nth-child(39),.productions li:nth-child(42){
+	margin-right: 0;
+}
 .proItro {
 	float: left;
 	width: 188px;
@@ -235,7 +238,8 @@ a {
 }
 .proImg img {
 	margin: 2px 2px 6px 2px;
-	width: 98%;
+	width: 184px;
+	height: 247.5px;
 }
 .proImg figcaption {
 	text-align: center;
@@ -256,6 +260,8 @@ a {
 }
 .preIcon img {
 	float: left;
+	width: 25px;
+	height: 27px;
 }
 .preIcon span {
 	line-height: 30px;
@@ -263,7 +269,7 @@ a {
 }
 .preInfor {
 	float: left;
-	margin: 8px 0 0 50px;
+	margin: 8px 0 0 24px;
 }
 .preInfor a {
 	float: left;
@@ -343,6 +349,9 @@ a {
 	margin-right: 16px;
 	margin-bottom: 30px;
 	width: 183px;
+}
+.colleItro:nth-child(4),.colleItro:nth-child(8),.colleItro:nth-child(12),.colleItro:nth-child(16),.colleItro:nth-child(20),.colleItro:nth-child(24),.colleItro:nth-child(28),.colleItro:nth-child(32),.colleItro:nth-child(36),.colleItro:nth-child(40),.colleItro:nth-child(44),.colleItro:nth-child(48),.colleItro:nth-child(52),.colleItro:nth-child(56),.colleItro:nth-child(60),.colleItro:nth-child(64),.colleItro:nth-child(68),.colleItro:nth-child(72),.colleItro:nth-child(76),.colleItro:nth-child(80),.colleItro:nth-child(84),.colleItro:nth-child(88),.colleItro:nth-child(92),.colleItro:nth-child(96),.colleItro:nth-child(100),.colleItro:nth-child(104),.colleItro:nth-child(108),.colleItro:nth-child(112),.colleItro:nth-child(116),.colleItro:nth-child(120),.colleItro:nth-child(124),.colleItro:nth-child(126),.colleItro:nth-child(130),.colleItro:nth-child(134),.colleItro:nth-child(138),.colleItro:nth-child(142),.colleItro:nth-child(146),.colleItro:nth-child(150),.colleItro:nth-child(154),.colleItro:nth-child(158),.colleItro:nth-child(162),.colleItro:nth-child(166),.colleItro:nth-child(170),.colleItro:nth-child(174){
+	margin: 0 0 0 16px;
 }
 .colleItroRightmost {
 	margin-right: 0px;

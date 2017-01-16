@@ -48,8 +48,7 @@
 				});*/
 				//alert($('#optionSelect').val(txt));
 
-					}
-				});			
+					
 
 			});
 			$('#inputBtn').click(function(){
@@ -64,7 +63,15 @@
 					//data:$('#inputText').serialize(),
 					data:{name:$('#optionSelect').val(),key:$('#inputText').val()},
 					success:function(data,status){
-						alert(data);
+						if(data==0){
+							alert('没有查询到您要找的作品');
+							//然后再跳转到首页
+						}else{
+							//在这里将后台传回来的json数据（data）替换首页的内容
+							//alert(data);
+							//console.log(data);
+						}
+						
 					}
 				});
 					//alert($('#inputText').serialize());
@@ -82,14 +89,14 @@
 				<figcaption>专注正版设计作品交易</figcaption>
 			</figure>
 			<!-- 表单搜索开始 -->
-			<form method="post" action="{:U('index/index')}" class="headerSearch">
+			<form method="post" class="headerSearch">
 				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly value="全部">
 				<div class="headerSearchOptions" id="searchOps">
 					<ul>
 						<li>全部</li>
-						<li>动态模版</li>
-						<li>静态模版</li>
-						<li>登陆器皮肤</li>
+						<li>动态模板</li>
+						<li>静态模板</li>
+						<li>登录器皮肤</li>
 						<li>游戏界面</li>
 						<li>网站原画</li>
 						<li>logo素材</li>
@@ -104,15 +111,15 @@
 			<!-- 充值至发布作品开始 -->
 				<div class="headerPersonalDetails">
 					<ul>
-						<li><span class="icon">充</span><a href="#">充值</a><span class="rechageNumber">1</span></li>
-						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="#">收藏</a></li>
-						<li><span class="icon">发</span><a href="#">发布作品</a></li>
+						<li><span class="icon">充</span><a href="{:U('recharge/index')}">充值</a><span class="rechageNumber">1</span></li>
+						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}">收藏</a></li>
+						<li><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<div class="headerPersonal">
 					<div>
-						<a href="#"><img src="/{$order[1]['headimg']}" alt="头像"></a>
+						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
 						<img src="__PUBLIC__/images/VIP.gif">
 					</div>
 					<span>而生</span>
@@ -122,15 +129,15 @@
 		</div>
 		<!-- 头部LOGO这一栏结束 -->
 	</header>
-	<!-- 头部导航栏开始 -->
+	<!-- 头部导航栏开始 --> 
 	<nav class="headerNav">
 		<ul>
 			<li><a href="#">平台首页</a></li>
 			<li><a href="#">知了官网</a></li>
 			<li><a href="#">发布素材</a></li>
-			<li><a href="#">知了服务</a></li>
-			<li><a href="#">个人中心</a></li>
-			<li><a href="#">充值中心</a></li>
+			<li><a href="{:U('custom/index')}">知了服务</a></li>
+			<li><a href="{:U('person/basicdata')}">个人中心</a></li>
+			<li><a href="{:U('recharge/index')}">充值中心</a></li>
 		</ul>
 	</nav>
 	<!-- 头部导航栏结束 -->

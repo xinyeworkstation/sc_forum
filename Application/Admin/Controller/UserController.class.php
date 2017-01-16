@@ -158,8 +158,8 @@ class UserController extends BaseController
 	}
 
 	/**
-	 * 启用作品
-	 * @param  [int] $id 作品id
+	 * 启用用户
+	 * @param  [int] $id 用户id
 	 */
 	function allow ($id) {
 		$flag = allow('user',$id);
@@ -171,8 +171,8 @@ class UserController extends BaseController
 	}
 
 	/**
-	 * 禁用作品
-	 * @param  [int] $id 作品id
+	 * 禁用用户
+	 * @param  [int] $id 用户id
 	 */
 	function forbidden ($id) {
 		$flag = forbidden('user',$id);
