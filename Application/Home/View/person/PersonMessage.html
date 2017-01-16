@@ -38,7 +38,7 @@
 			<form action="{:U('Person/PersonMessage')}"  enctype="multipart/form-data" method="post">
 			<div class="personMessageLeft">
 				<figure class="headPortrait">
-					<label><img src="<if condition='$P_message["headimg"]'>http://localhost/sc_forum/{$P_message['headimg']}<else/>__PUBLIC__/Images/head-portrait.jpg</if>" id="editPic" width="100" height="128/"><a herf="#" class="FILE"><input type="file" name="picture" id="picture"/>上传头像</a></label>
+					<label><img src="<if condition='$P_message["headimg"]'>/{$P_message['headimg']}<else/>__PUBLIC__/Images/head-portrait.jpg</if>" id="editPic" width="100" height="128/"><a herf="#" class="FILE"><input type="file" name="picture" id="picture"/>上传头像</a></label>
 					<!--<figcaption><a href=""></a></figcaption>-->
 				</figure>
 			</div>
