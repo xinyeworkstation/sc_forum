@@ -734,3 +734,33 @@ a {
 	color: #6198d8;
 }
 /*右边内容区-修改密码结束*/
+
+.FILE{
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+	width:120px;
+	 cursor: pointer;
+	 text-align:center;
+	 margin:14px 0 0 20px;
+}
+.FILE input{
+	position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+	opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+

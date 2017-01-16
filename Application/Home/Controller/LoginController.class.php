@@ -26,6 +26,7 @@ class LoginController extends Controller
                 $model = M('user');
                 $member = $model->where($login)->find();
                 if ($member) {
+                    session('headimg',$member['headimg']);
                     session('user_id', $member['id']);
                     session('user_name', $member['username']);
                     session('user_level', $member['level']);
@@ -56,12 +57,16 @@ class LoginController extends Controller
     {
         //注册
         if (IS_POST) {
-            $register['username'] = I('name');
-            $register['email'] = I('email');//邮箱
+            $register1['username'] = I('name');
+            $register2['email'] = I('email');//邮箱
+
             $model = M('user');
-            $counts = $model->where($register)->count();//查询此邮箱和用户有没有被注册
+            $counts = $model->where($register1)->count();
+            $counts1 = $model->where($register2)->count();//查询此邮箱和用户有没有被注册
             //如果创纪录小于一则未被注册
-            if ($counts < 1) {
+            if ($counts < 1 && $counts1 <1) {
+                $register['username'] = I('name');
+                $register['email'] = I('email');//邮箱
                 $register['password'] = I('password', '', 'md5');//MD5加密密码
                 // $regist['Invitation'] = $_GET['Invitation'];//邀请码
                 $register['qq'] = I('QQ');//qq

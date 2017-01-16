@@ -13,16 +13,23 @@ class PersonController extends Controller
 
     public function index()
     {
-        $this->display();
+        /*$model = M('user');//实例化USER对象
+        $user['username'] = 'yangyang';
+        if (!IS_POST) {
+            $person_message = $model->where($user)->find();//获取用户基本信息
+            $this->assign('P_message', $person_message);*/
+            $this->display();
+
     }
 
     public function PersonMessage()
     {
         //$user['username']=session('username');//获取登陆后的的用户名称
         $model = M('user');//实例化USER对象
-        $user['username'] = 'yangyang';
+        $user['username'] = session('user_name');
         if (!IS_POST) {
             $person_message = $model->where($user)->find();//获取用户基本信息
+            print_r($person_message['headimg']);
             $this->assign('P_message', $person_message);
             $this->display();
         }
@@ -36,12 +43,37 @@ class PersonController extends Controller
             $user['birth'] = I('user_birth');
             $user['profession'] = I('user_profession');
             $user['oneself'] = I('user_oneself');
-            print_r($user);
+            //修改头像
+            if ($_FILES['picture']) {
+                $upload = new \Think\Upload();// 实例化上传类
+                $upload->maxSize = 2097152 ;// 设置附件上传大小限制为2M
+                $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+                $upload->savePath = 'Uploads/Face/'; // 设置附件上传目录    // 上传文件
+                $upload->rootPath = './Public/';
+                $upload->saveName = time().'_'.mt_rand(); //图片保存名
+                $info = $upload->upload();
+                $url = './Public/'.$info['picture']['savepath'];
+                $face_name = $url.$info['picture']['savename'];
+                if (!$info) {
+                    $this->error($upload->getError());
+                } else {//成功则对图片进行处理
+                    $image = new \Think\Image();
+
+                    $image->open($face_name);// 生成一个固定大小为100*130的缩略图并保存为thumb.jpg
+                    $user['headimg'] = $url.time().'_'.mt_rand().'.jpg';
+                    $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_FIXED)->save($user['headimg']);
+                    unlink($face_name);//删除原图
+                }
+            }else{
+
+                $user['headimg'] = '123';
+            }
             //通过id为条件，更新数据
-            if ($model->where('id=8')->save($user)) {
+            $id['id']=session('user_id');
+            if ($model->where($id)->save($user)) {
                 $this->success('成功插入！');
             } else {
-                $this->error('成功插入！');
+                $this->error('插入失败插入！');
             }
 
         }
@@ -65,29 +97,40 @@ class PersonController extends Controller
     {
         if (IS_POST) {
             if ($_POST['user_test'] == session('password_id')) {
-                echo "123";
-            } else {
-                echo " 1234";
+
+
+                $user['username'] = session('user_name');//获取登陆后的的用户名称
+                $model = M('user');
+                $user['password'] = $model->where($user)->field('password')->find();
+                $user2['password']= I('user_old_password', '', 'md5');
+                if ($user['password'] == $user2['password']) {
+                    $use['password'] = I('user_new_password', '', 'md5');//重置的新密码
+                    if ($model->where($user)->save($use)) {
+                        $this->success('修改成功');
+                    }else{
+                        $this->error('修改失败');
+                    }
+                }else{
+                    $this->error('请填写正确的密码');
+                }
+            }else{
+                $this->error('验证码错误');
             }
-            /*//$user['username']=session('username');//获取登陆后的的用户名称
-            $model=M('user');
-            $user['password']=$model->where($user)->field('password')->find();
-            if($user['password']==I('user_old_password','','md5')){
-                $use['password']=I('user_new_password','','md5');//重置的新密码
-                if($model->save($use));
-            }*/
         }
-        if (!IS_POST) {
-            $this->display();
+            if (!IS_POST) {
+                $this->display();
+            }
         }
-    }
+
 
     public function email_verify()
     {
         $id = $this->getRandOnlyId();
         session('password_id', $id);//记录id到session通过邮箱匹配修改密码
         $user['email'] = '975289275@qq.com';
-        SendMail($user['email'], "您好，请点击链接修改密码！", "您的验证码是:" . $id . "/n" . "打死也不要给别人看到哦！");
+        if(SendMail($user['email'], "您好，请点击链接修改密码！", "您的验证码是:" . $id . "/n" . "打死也不要给别人看到哦！")){
+            $this->success('验证码发送成功请注意查收！');
+        }
 
     }
 
