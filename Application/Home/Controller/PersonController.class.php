@@ -11,14 +11,16 @@ use Extend\Oauth\ThinkOauth;
 class PersonController extends Controller
 {
 
-    public function index()
+    public function Index()
     {
-        /*$model = M('user');//实例化USER对象
-        $user['username'] = 'yangyang';
+        $model = M('user');//实例化USER对象
+        $user['username'] = session('user_name');
         if (!IS_POST) {
             $person_message = $model->where($user)->find();//获取用户基本信息
-            $this->assign('P_message', $person_message);*/
+            $this->assign('P_message', $person_message);
             $this->display();
+        }
+
 
     }
 
@@ -29,7 +31,6 @@ class PersonController extends Controller
         $user['username'] = session('user_name');
         if (!IS_POST) {
             $person_message = $model->where($user)->find();//获取用户基本信息
-            print_r($person_message['headimg']);
             $this->assign('P_message', $person_message);
             $this->display();
         }
@@ -58,7 +59,6 @@ class PersonController extends Controller
                     $this->error($upload->getError());
                 } else {//成功则对图片进行处理
                     $image = new \Think\Image();
-
                     $image->open($face_name);// 生成一个固定大小为100*130的缩略图并保存为thumb.jpg
                     $user['headimg'] = $url.time().'_'.mt_rand().'.jpg';
                     $image->thumb(100, 130,\Think\Image::IMAGE_THUMB_FIXED)->save($user['headimg']);
@@ -71,7 +71,7 @@ class PersonController extends Controller
             //通过id为条件，更新数据
             $id['id']=session('user_id');
             if ($model->where($id)->save($user)) {
-                $this->success('成功插入！');
+                $this->success('成功插入！',U('Person/Index'),0);
             } else {
                 $this->error('插入失败插入！');
             }
@@ -80,18 +80,7 @@ class PersonController extends Controller
 
     }
 
-    public function BasicData()
-    {
-        $model = M('user');//实例化USER对象
-        $user['username'] = 'yangyang';
-        if (!IS_POST) {
-            $person_message = $model->where($user)->find();//获取用户基本信息
-            $this->assign('P_message', $person_message);
-            $this->display();
-        }
 
-
-	}
     //favorite表中我收藏的作品
     //favorite,work_id,user_id,我收藏的作品
     //work,cate_id,works,workname,download,favor

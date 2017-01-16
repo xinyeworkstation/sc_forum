@@ -37,16 +37,19 @@
 		<div id="mainBasicData">
 			<div class="basicDataTop">
 				<div class="headSculpture">
-					<img src="../../../../Public/images/head-portrait.jpg" alt="头像">
-					<a href="">修改头像</a>
+					<img src="/{$P_message['headimg']}" width="100" height="128" alt="头像">
 				</div>
 				<ul class="basicDataMore">
-					<li>昵称：<span>而生</span></li>
-					<li>ID：<span>568695467</span></li>
-					<li>会员等级：<span>*******</span></li>
-					<li>余额：<span>*********</span></li>
-					<li>邮箱：<span>1323435@qq.com</span></li>
-					<li><a href="">修改资料</a></li>
+					<li>昵称：<span>{$P_message.username}</span></li>
+					<li>ID：<span>{$P_message.id}</span></li>
+					<li>会员等级：<span><if condition="$P_message.level eq 1">1
+								 <elseif condition="$P_message.level eq 2"/>2
+									<elseif condition="$P_message.level eq 3"/>超级大用户
+								</if>
+					</span></li>
+					<li>余额：<span>{$P_message.money}</span></li>
+					<li>邮箱：<span>{$P_message.email}</span></li>
+					<li><a href="{:U('Person/PersonMessage')}">修改资料</a></li>
 				</ul>
 			</div>
 			<div class="basicDataBottom">
