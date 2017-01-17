@@ -16,15 +16,14 @@ class IndexController extends Controller {
         for($i=0;$i<$num;$i++){
             $order[$i]['username'] = $this->cut_name($order[$i]['username'],15);
         }
-
-      $where['flag'] = '1';
-      $count = $model->where($where)->count();
-      $Page = new \Extend\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数(30)
-      $show = $Page->show();// 分页显示输出
+        //查询已经审核通过的作品
+        $where['flag'] = '1';
+        $count = $model->where($where)->count();
+        $Page = new \Extend\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(30)
+        $show = $Page->show();// 分页显示输出
     	if(!IS_POST){
     		if($_GET){
             //var_dump($_GET);exit;
-                //查询已经审核通过的作品
                 switch (I('get.search')) {
                     //首页综合排序
                     case '1':
@@ -83,16 +82,7 @@ class IndexController extends Controller {
                               ->select();
             }
     		
-    	}
-
-        //按用户要求查询搜索的作品
-    	if(IS_AJAX){
-            
-    		//$cate_id = $_POST['cate_id'];
-    		//var_dump($_POST);var_dump($_GET);exit;
-    		//$where['workname'] = array("like","%".I('post.key')."%");
-    		//$where['username'] = array("like","%".I('post.key')."%");
-            
+    	}elseif(IS_AJAX){
             $key = I('post.key');
             //echo $key;exit;
             $name = $_POST['name'];
@@ -101,13 +91,12 @@ class IndexController extends Controller {
             $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
             $where['flag'] = '1';
             //$name = I('post.name');
-            /*if(!($name == '全部')){
-                $where['catename'] = $name;
-            }*/
-            $cate['catename'] = $name;
-            $cmodel = M('category');
-            $cid = $cmodel->where($cate)->find();
-            $where['cate_id'] = $cid['id'];
+            if(!($name == '全部')){
+                $cate['catename'] = $name;
+                $cmodel = M('category');
+                $cid = $cmodel->where($cate)->find();
+                $where['cate_id'] = $cid['id'];
+            } 
             $work = $model->alias('w')
                           ->join('user u ON w.user_id=u.id')
                           ->join('category c ON w.cate_id=c.id')
@@ -118,12 +107,11 @@ class IndexController extends Controller {
                           ->select();
 
             if(empty($work)){
-                echo 0;
+                echo 0;exit;
             }
-            echo $model->getLastSql();
+            //echo $model->getLastSql();
     	}
 
-        
         $work = $this->new_work($work);
         //var_dump($work);exit;
         $this->assign('order',$order);
@@ -132,15 +120,9 @@ class IndexController extends Controller {
         $this->display();
     }
 
-    public function serch () {
+    public function search () {
          //按用户要求查询搜索的作品
       if(IS_AJAX){
-            
-        //$cate_id = $_POST['cate_id'];
-        //var_dump($_POST);var_dump($_GET);exit;
-        //$where['workname'] = array("like","%".I('post.key')."%");
-        //$where['username'] = array("like","%".I('post.key')."%");
-            
             $key = I('post.key');
             //echo $key;exit;
             $name = $_POST['name'];
@@ -149,14 +131,14 @@ class IndexController extends Controller {
             $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
             $where['flag'] = '1';
             //$name = I('post.name');
-            /*if(!($name == '全部')){
-                $where['catename'] = $name;
-            }*/
+            if(!($name == '全部')){
+                $cate['catename'] = $name;
+                $cmodel = M('category');
+                $cid = $cmodel->where($cate)->find();
+                $where['cate_id'] = $cid['id'];
+            }
             $model = M('work');
-            $cate['catename'] = $name;
-            $cmodel = M('category');
-            $cid = $cmodel->where($cate)->find();
-            $where['cate_id'] = $cid['id'];
+            //echo $cid['id'];exit;
             $work = $model->alias('w')
                           ->join('user u ON w.user_id=u.id')
                           ->join('category c ON w.cate_id=c.id')
@@ -167,7 +149,14 @@ class IndexController extends Controller {
                           ->select();
 
             if(empty($work)){
+<<<<<<< HEAD
                // echo 0;
+=======
+                echo 0;
+            }else{
+                $work = json_encode($this->new_work($work));
+                $this->ajaxReturn($work);
+>>>>>>> 356c40bb55e476a7a5d4f66125d33d98afe3b055
             }
              echo $model->getLastSql();
         }

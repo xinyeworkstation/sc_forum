@@ -116,7 +116,30 @@ var ok8=false;
 			ok8=false;
 		}
 	});
-
+	//验证找回密码邮箱
+	$('#email2').focus(function(){
+		$(this).next().text('请输入正确的emial').removeClass('state1').addClass('state2');
+	}).blur(function(){
+		if($(this).val().search(/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/)==-1){
+			$(this).next().text('请输入正确的emial').removeClass('state4').addClass('state3');
+			ok9=false;
+		}else{
+			$(this).next().text('').removeClass('state1').addClass('state4');
+			ok9=true;
+		}
+	});
+//登录找回密码验证码
+	$('#Code1').focus(function(){
+		$(this).next().text('').removeClass('state1').addClass('state2');
+	}).blur(function(){
+		if ($(this).val()!=' ') {
+			$(this).next().text('').removeClass('state1').addClass('state4');
+			ok10=true;
+		}else{
+			$(this).next().text('请输入验证码').removeClass('state4').addClass('state3');
+			ok10=false;
+		}
+	});
 // 注册
 	$('#Button1').click(function(){
 		 if(ok1&&ok2&&ok3&&ok4&&ok5){
@@ -129,7 +152,7 @@ var ok8=false;
 					data:$('#form1').serialize(),
 					success:function(response,data,status){
 						if(response.info=='YES'){
-							window.location.href ='/sc_forum/index'
+							window.location.href ='/sc_forum/Person/PersonMessage'
 						}else{
 							$('#star').html(response.info);
 						}
@@ -156,7 +179,7 @@ var ok8=false;
 					data:$('#form2').serialize(),
 					success:function(response,data,status){
 						if(response.info=='YES'){
-							window.location.href ='/sc_forum/index'
+							window.location.href ='/index.php/Person/PersonMessage'
 						}else{
 							$('#star1').html(response.info);
 						}
@@ -170,7 +193,32 @@ var ok8=false;
 	
 	});
 
+//找回密码
 
+	$('#Button3').click(function(){
+		if(ok9){
+			$.ajax({
+				async:false,
+				cache:true,
+				type:'POST',
+				url:'/sc_forum/Login/email',
+				dataType:'json',
+				data:$('#form3').serialize(),
+				success:function(response,data,status){
+					if(response.info=='YES'){
+						alert('邮箱发送成功请注意查收！');
+					}else{
+						$('#star2').html(response.info);
+					}
+				}
+			});
+			return false;
+		}else{
+			return false;
+
+		}
+
+	});
 
 
 });

@@ -85,7 +85,8 @@ class UserController extends BaseController
 				if (!$info) {
 					$this->error($upload->getError());
 				} else {//成功则对图片进行处理
-					$image = new \Think\Image(); 
+					$image = new \Think\Image();
+
 					$image->open($face_name);// 生成一个固定大小为100*130的缩略图并保存为thumb.jpg
 					$data['headimg'] = $url.time().'_'.mt_rand().'.jpg';
 					$image->thumb(100, 130,\Think\Image::IMAGE_THUMB_FIXED)->save($data['headimg']);

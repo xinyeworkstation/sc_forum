@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>知了设计-个人中心</title>
-	<link rel="stylesheet" href="__STATIC__/css/personal-center.css"">
-	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
-</head>
-<body>
+<include file="Public/header" title="知了设计--个人中心" />
 	<!-- 中间部分开始 -->
 	<div class="container">
 		<!-- 左边侧边栏开始 -->
@@ -35,22 +26,15 @@
 		<!-- 左边侧边栏结束 -->
 		<!-- 右边内容区-个人信息开始 -->
 		<div id="mainPersonMessage">
+			<form action="{:U('Person/PersonMessage')}"  enctype="multipart/form-data" method="post">
 			<div class="personMessageLeft">
 				<figure class="headPortrait">
-<<<<<<< HEAD
-<<<<<<< HEAD
-					<img src="__STATIC__/images/head-portrait.jpg" alt="头像">
-=======
-					<img src="__PUBLIC__/images/head-portrait.jpg" alt="头像">
->>>>>>> 9dddb5d7bcef561dda20ac85abb4ab02ab924d4d
-=======
-					<img src="__PUBLIC__/images/head-portrait.jpg" alt="头像">
->>>>>>> 944688e41070c68288cf6388614af1a38219df43
-					<figcaption><a href="">上传头像</a></figcaption>
+					<label><img src="<if condition='$P_message["headimg"]'>/{$P_message['headimg']}<else/>__PUBLIC__/Images/head-portrait.jpg</if>" id="editPic" width="100" height="128/"><a herf="#" class="FILE"><input type="file" name="picture" id="picture"/>上传头像</a></label>
+					<!--<figcaption><a href=""></a></figcaption>-->
 				</figure>
 			</div>
 			<div class="personMessageRight">
-				<form action method="post">
+
 					<div class="messageForm">
 						<span>邮箱:</span>
 						<input type="email" name="user_email" value="{$P_message.email}">
@@ -103,5 +87,7 @@
 		<!-- 右边内容区-个人信息结束 -->
 		</div>
 	<!-- 中间部分结束 -->
+	<script src="__STATIC__/js/uploadPreview.js"></script>
+<include file="Public/footer" />
 </body>
 </html>

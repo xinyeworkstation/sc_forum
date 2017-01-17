@@ -26,6 +26,8 @@ class LoginController extends Controller
                 $model = M('user');
                 $member = $model->where($login)->find();
                 if ($member) {
+                    session('user_eamil',$member['email']);
+                    session('headimg',$member['headimg']);
                     session('user_id', $member['id']);
                     session('user_name', $member['username']);
                     session('user_level', $member['level']);
@@ -56,12 +58,16 @@ class LoginController extends Controller
     {
         //注册
         if (IS_POST) {
-            $register['username'] = I('name');
-            $register['email'] = I('email');//邮箱
+            $register1['username'] = I('name');
+            $register2['email'] = I('email');//邮箱
+
             $model = M('user');
-            $counts = $model->where($register)->count();//查询此邮箱和用户有没有被注册
+            $counts = $model->where($register1)->count();
+            $counts1 = $model->where($register2)->count();//查询此邮箱和用户有没有被注册
             //如果创纪录小于一则未被注册
-            if ($counts < 1) {
+            if ($counts < 1 && $counts1 <1) {
+                $register['username'] = I('name');
+                $register['email'] = I('email');//邮箱
                 $register['password'] = I('password', '', 'md5');//MD5加密密码
                 // $regist['Invitation'] = $_GET['Invitation'];//邀请码
                 $register['qq'] = I('QQ');//qq
@@ -89,7 +95,10 @@ class LoginController extends Controller
     public function email()
     {
         if ($this->check_verify($_POST['Code'])) {
-            $this->error('验证码错误');
+            $fail = array(
+                'info' => '验证码错误！'
+            );
+            $this->ajaxReturn($fail);
         }
         $email = $_POST['email'];
         //安全验证
@@ -100,7 +109,10 @@ class LoginController extends Controller
         cookie('id', $id, 3600);
         cookie('email', $email, 3600);
         if (SendMail($_POST['email'], "您好，请点击链接修改密码！", "http://localhost/cnsecer-ThinkAdmin-master/cnsecer-ThinkAdmin-master/shopshop/index.php?m=&c=Login&a=alter&tg_id=$id&email=$email")) {
-            $this->success('发送成功，请注意查收您的邮箱！');
+            $success = array(
+                'info' => 'YES'
+            );
+            $this->ajaxReturn($success);//返回前端，用JS跳转
         }
 
 
