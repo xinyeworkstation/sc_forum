@@ -60,6 +60,9 @@ class IndexController extends Controller {
                 if($_GET['id']){
                     $id = I('get.id');//传过来的模块id
                     $where['cate_id'] = $id;
+                    $count = $model->where($where)->count();
+                    $Page = new \Extend\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(30)
+                    $show = $Page->show();// 分页显示输出
                     $work = $model->alias('w')
                                   ->join('user u ON w.user_id=u.id')
                                   ->join('category c ON w.cate_id=c.id')
