@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>[title]</title>
+	<link rel="icon" href="__PUBLIC__/Images/tempic.jpg">
 	<link rel="stylesheet" href="__STATIC__/css/index-header.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index_center.css">
 	<link rel="stylesheet" href="__STATIC__/css/personal-center.css">
@@ -120,14 +121,23 @@
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
+				<if condition="$_SESSOIN['headimg'] neq null">
 				<div class="headerPersonal">
 					<div>
 						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
-						<img class="vipImg" src="__PUBLIC__/images/VIP.gif">
+						<img class="vipImg" src="__PUBLIC__/Images/VIP.gif">
 					</div>
-					<span>而生</span>
-					<span>(ID:24867843)</span>
+					<span>{$_SESSION['user_name']}</span>
 				</div>
+				<else />
+				<div class="headerPersonal">
+					<div>
+						<a href="#"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
+						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
+					</div>
+					<span>游客</span>
+				</div>
+				</if>
 			</div>
 		</div>
 		<!-- 头部LOGO这一栏结束 -->
@@ -135,11 +145,11 @@
 	<!-- 头部导航栏开始 --> 
 	<nav class="headerNav">
 		<ul>
-			<li><a href="#">平台首页</a></li>
-			<li><a href="#">知了官网</a></li>
-			<li><a href="#">发布素材</a></li>
+			<li><a href="{:U('index/index')}">平台首页</a></li>
+			<li><a href="{:U('index/index_model')}">知了官网</a></li>
+			<li><a href="{:U('Release/index')}">发布素材</a></li>
 			<li><a href="{:U('custom/index')}">知了服务</a></li>
-			<li><a href="{:U('person/basicdata')}">个人中心</a></li>
+			<li><a href="{:U('person/index')}">个人中心</a></li>
 			<li><a href="{:U('recharge/index')}">充值中心</a></li>
 		</ul>
 	</nav>

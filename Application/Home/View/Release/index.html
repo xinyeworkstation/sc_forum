@@ -1,9 +1,10 @@
+<include file="Public/header" title="发布素材" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>案例详细信息</title>
-	<link rel="stylesheet" href="../Public/static/css/Release-material.css">
+	<title>发布素材</title>
+	<link rel="stylesheet" href="__STATIC__/css/Release-material.css">
 </head>
 <body>
 	<header class="releaseMaterial">
@@ -11,8 +12,8 @@
 	</header>
 	<section class="mainRelease">
 		<figure class="mainReleaseFigure">
-			<img src="../../../../Public/images/imgicon.jpg" alt="头像">
-			<figcaption>xxxxxx,您好!请输入您拥有该作品的版权，严禁盗用他人作品哦。</figcaption>
+			<img src="/{$_SESSION['headimg']}" alt="头像">
+			<figcaption>{$_SESSOIN['user_name']},您好!请输入您拥有该作品的版权，严禁盗用他人作品哦。</figcaption>
 		</figure>
 		<!-- 表单从作品名称到确定发布开始 -->
 		<form class="mainReleaseForm">
@@ -26,16 +27,15 @@
 			</div>
 			<div class="worksInfo">
 				<span class="worksClassify">作品分类 :</span>
-				<select class="worksClassifyInput">
-					<option>请选择分类</option>
-					<option>请选择分类</option>
-					<option>请选择分类</option>
-					<option>请选择分类</option>
+				<select class="worksClassifyInput" name="cate_id">
+					<foreach name="cate" item="v">
+					<option value="{$v.id}">{$v.catename}</option>
+					</foreach>>
 				</select>
 			</div>
 			<div class="worksInfo">
 				<span class="worksPrice">售卖价格 :</span>
-				<input class="worksPriceInput" min="0" step="1" type="number">
+				<input class="worksPriceInput" name="price" min="0" step="1" type="number">
 				<span class="worksExplain">（1元=100金币，价格按金币计算）</span>
 			</div>
 			<div class="worksInfo">
@@ -46,7 +46,7 @@
 			<div class="worksInfo">
 				<a href="##" class="worksUploadLink UploadFLASH">上传FLASH</a>
 				<a href="##" class="worksUploadLink">上传压缩包</a>
-				<span class="worksExplain">（文件大小超过10M请打包压缩后再上传）</span>
+				<span class="worksExplain">（文件大小超过10M请分开打包压缩后再上传）</span>
 			</div>
 			<div class="worksInfo">
 				<span class="worksAcc">作品授权 :</span>
@@ -58,3 +58,4 @@
 	</section>
 </body>
 </html>
+<include file="Public/footer" />
