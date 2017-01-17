@@ -1,4 +1,16 @@
-<include file="Public/header" title="商品详情页" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品详情页</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/show.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/favor.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/cookie.js"></script>
+</head>
+<body>
 <!-- 商品详情页 -->
 	<section id="Details">
 		<div id="Details-main">
@@ -66,7 +78,7 @@
 						<p>素材价格：<em>{$display['price']} </em>金币</p>
 					</div>
 					<div class="ShowWorksAction">
-						<div class="ShowWorksActionBuy">
+						<div class="ShowWorksActionBuy" id="ShowWorksActionBuy">
 							<a href="#">立即购买</a>
 						</div>
 						<div class="ShowWorksActionCollect">
@@ -94,113 +106,15 @@
 								</div>
 							</div>
 							<div class="DownloadRegionTwo">
-						<if condition="$_SESSION['user_id']">
 							<if condition="$downFlag eq 0">
 								<!--选择是否购买页面-->
-								<a href="#">点击下载</a>
+								<a href="#" class="Buydown"?  style="color:red">点击下载</a>
 								<else />
 								<a href="/{$v['url']}">点击下载</a>
 							</if>
-
-							<else />
-							<!--选择是否登录页面-->
-							<a href="#">点击下载</a>
-						</if>
 							</div>
 						</li>
 					</foreach>
-						<!--<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						<li title="">
-							<div class="DownloadRegionOne">
-								<div class="DownloadRegionOneBag">
-									<img src="__PUBLIC__/Images/Compression_10.jpg">
-								</div>
-								<div class="DownloadRegionOneIntro">
-									<p>asds33.zip</p>
-									<p>WinRAR.zip 压缩文件</p>
-									<p>4.886 kb</p>
-								</div>
-							</div>
-							<div class="DownloadRegionTwo">
-								<a href="#">点击下载</a>
-							</div>
-						</li>
-						-->
-
 					</ul>
 				</div>
 			</div><!--  下载区域-->
@@ -249,10 +163,25 @@
 
 
 		</div><!-- 照片展示介绍区 结尾标签-->
+		<div class="BuyDialog" id="BuyDialog">
+			<div class="BuyDialog-One">
+				<div class="BuyDialog-head">
+					<p>支付金额 ：<span>{$display['price']}</span>金币</p>
+					<p>当前余额 ：<strong>{$money}</strong>金币</p>
+				</div>
+				<div class="BuyDialog-Btn">
+					<form action="{:U('details/buy')}" method="post">
+					<input type="hidden" name="wid" value="{$display['id']}">
+					<input type="submit" name="" value="确认购买" class="BuyDialog-Btn1" id="Buy-Btn1">
+					</form>
+					<p> </p>
+					<a href="#" title="">金币不足，点击购买 > ></a>
+				</div>
+				<div class="BuyClose" id="BuyClose">
+					x
+				</div>
+			</div>
+		</div>
 	</section>
-	<link rel="stylesheet" type="text/css" href="__STATIC__/css/details.css">
-	<script type="text/javascript" src="__STATIC__/js/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" src="__STATIC__/js/show.js"></script>
-	<script type="text/javascript" src="__STATIC__/js/favor.js"></script>
-	<script type="text/javascript" src="__STATIC__/js/cookie.js"></script>
-<include file="Public/footer" />
+</body>
+</html>

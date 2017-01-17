@@ -18,6 +18,7 @@ class DetailsController extends Controller {
 		//显示该作品的作者
 		$user = M('user');
 		$author = $user->where('id='.$display['user_id'])->field('username,headimg')->find();
+		$user_money = $user->where('id='.$uid)->field('money')->find();
 
 		$img = get_url($display['works']);
 		$num = count($img);
@@ -61,6 +62,7 @@ class DetailsController extends Controller {
 	
 
 		$this->assign('author',$author);
+		$this->assign('money',$user_money['money']);
 		$this->assign('img',$firstimg);
 		$this->assign('decimg',$img);
 		$this->assign('display',$display);
@@ -72,8 +74,46 @@ class DetailsController extends Controller {
 		$this->display();
 	} 
 
+	//购买作品
+	public function buy () {
+		$wid = I('wid');
+		//$uid = $_SESSION['user_id'];
+		$uid = 3;
+		$umodel = M('user');
+		$umoney = $umodel->where('id='.$uid)->field('money')->find();
+		$wmodel = M('work');
+		$wmoney = $wmodel->where('id='.$wid)->field('price')->find();
+
+		//查询该用户是否已购买该作品
+		$model = M('business');
+		$where = array ('work_id'=>$wid,'user_id'=>$uid);
+		$downFlag = $model->where($where)->count();
+		if(!$downFlag){
+			if ($wmoney['price'] <= $umoney['money']) {//可以购买
+				$model = M('business');
+				$data['b_money'] = $wmoney;
+				$data['time'] = time();
+				$data['flag'] = 0;
+				$data['work_id'] = $wid;
+				$data['user_id'] = $uid;
+				$idnum = $model->add($data);
+				if ($idnum) {
+					$udata['money'] = $umoney['money'] - $wmoney['price'];
+					$umodel->where('id='.$uid)->save($udata);
+					$this->success('支付成功！');
+				} else {
+					$this->error('操作有误，支付失败！');
+				}
+			} else {
+				$this->error('金币不够，支付失败！');
+			}
+		} else {
+			$this->error('您已购买过该作品，请勿重复购买！');
+		}
+	}
+
 	//更新收藏数
-	public function putFavor(){
+	public function putFavor () {
 		$id = $_GET['id'];//作品id
 		$flag = $_GET['al'];//设置收藏状态标志(1:加入收藏 2：取消收藏)
 		if (IS_AJAX) {

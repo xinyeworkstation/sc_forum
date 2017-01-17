@@ -167,9 +167,9 @@ class IndexController extends Controller {
                           ->select();
 
             if(empty($work)){
-                echo 0;
+               // echo 0;
             }
-            echo $model->getLastSql();
+             echo $model->getLastSql();
         }
 
     }
