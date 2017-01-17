@@ -7,14 +7,15 @@ class CommentController extends BaseController{
     public function index($key="")
     {
         $status = I('get.status');//从sidebar传过来的，将相应的版区评论放在相应的版区
+        $where['c.status']=$status;
+        //如果key不为空，根据key的条件查询
         if(!($key == "")){
-            $status=I('post.status');//从相应的版区传过来的，模糊查询是，将相应的版区评论放在本版区
             $where['content'] = array('like',"%$key%");
             $where['catename'] = array('like',"%$key%");
             $where['_logic'] = 'or';
         }
-        $where['c.status']=$status;
         $model = M('Comment');
+        //统计需要显示的评论条数
         $count = $model->where($where)
                         ->alias('c')
                         ->join('category ca ON c.user_id=ca.id')
@@ -22,6 +23,7 @@ class CommentController extends BaseController{
                         ->count();
         $Page = new \Extend\Page($count,15);// 实例化分页类传入总记录数和每页显示的记录数(15)
         $show = $Page->show();// 分页显示输出
+        //查询显示的评论具体内容
         $model = $model->limit($Page->firstRow.','.$Page->listRows)
             ->where($where)
             ->order('c.id')
@@ -31,6 +33,7 @@ class CommentController extends BaseController{
             ->join('work w on c.work_id=w.id')
             ->join('category ca on c.cate1_id=ca.id')
             ->select();
+        //var_dump($model);
         for($i = 0; $i < $count; $i++ ){
             if(strlen($model[$i]['content']) > 60){
                 $model[$i]['content']=substr($model[$i]['content'],0,60);
@@ -73,73 +76,41 @@ class CommentController extends BaseController{
         }
     }//forbid ok
 
-   /* public function show(){
-        //通过一条评论时，其上的评论也会被通过，有没有
-        $id = $_GET['id'];
-        $where['id'] = $id;
-        $model = M('Comment');
-        $del=M('delete');
-        $comment1=$model->where($where)->find();
-        //得到当前评论的所有评论，如果有评论是0，这条评论不让通过
-        $res=$this->getComment2($comment1['parent_id']);
-        $arr[]=$comment1['id'];//将当前评论的id给arr数组
-        $arr=$this->getCommentId2($res,$arr);//得到所有评论的id
-
-       	var_dump($arr);
-       	$wh['id'] = array('in',$arr);
-       	$update['status']='1';
-        $pass=$model->where($wh)->save($update);
-        $whe['t_id']=array('in',$arr);
-        $whe['table']='comment';
-
-        $allow=$del->where($whe)->delete();
-        if($pass){
-            $this->success('启用成功');
-        }else{
-            $this->error("启用失败");
-        }
-
-    }//show ok*/
+   
 
 
     public function show(){
-        //通过一条评论时，其上的评论也会被通过，有没有
+        //通过一条评论时，其上的评论没有被通过，此条评论不能通过
         $id = $_GET['id'];
         $where['id'] = $id;
         $model = M('Comment');
         $del=M('delete');
         $comment1=$model->where($where)->find();
-        //得到当前评论的所有评论，如果有评论是0，这条评论不让通过
-        $res=$this->getComment2($comment1['parent_id']);
-        //$arr[]=$comment1['id'];//将当前评论的id给arr数组 5
-        $arr=$this->getCommentId2($res,$arr);//得到所有评论的id
-        //var_dump($arr);
-
-        $wh['id'] = array('in',$arr);
-        //var_dump($comment1['id']);
-        $sel=$model->where($wh)->select();
-        $sc=count($sel);
-        //var_dump($sel);
-        
-        for($s=0;$s<$sc;$s++){
-        	//var_dump(strcmp($sel[$s]['status'],'0'));
-        	if(strcmp($sel[$s]['status'],'0')==0){
-        		$this->error("此评论的父评论没有启用，启用失败");
-        	}
-        }//exit;
-        //若他父评论全部是启用状态，让他显示
-       	$update['status']='1';
-        $w['id']=$comment1['id'];
-        $pass=$model->where($w)->save($update);
-        $whe['t_id']=array('in',$arr);
-        $whe['table']='comment';
-        $allow=$del->where($whe)->delete();
-        if($pass){
-            $this->success('启用成功');
-        }else{
-            $this->error("启用失败");
-        }
-
+        //调用函数，查询出所有上面的评论
+	    $res=$this->getComment2($comment1['parent_id']);
+	    $arr[]=$comment1['id'];//将当前评论的id给arr数组
+	    $arr=$this->getCommentId2($res,$arr);//arr得到这个评论的id和其上面评论的id
+	    $wh['id'] = array('in',$arr);
+	    $sel=$model->where($wh)->select();//查询这条评论和他上面的评论
+	    $sc=count($sel)-1;
+	    //判断上面的评论有没有禁用的
+	    for($s=0;$s<$sc;$s++){
+	       	if(strcmp($sel[$s]['status'],'0')==0){
+	    	$this->error("此评论的父评论没有启用，启用失败");
+	    	}
+	    }
+	    //若他父评论全部是启用状态，让这条显示
+	    $update['status']='1';
+	    $w['id']=$comment1['id'];
+	    $pass=$model->where($w)->save($update);
+	    $whe['t_id']=array('in',$arr);
+	    $whe['table']='comment';
+	    $allow=$del->where($whe)->delete();
+	    if($pass){
+	        $this->success('启用成功');
+	    }else{
+	        $this->error("启用失败");
+	    }
     }
     
 
