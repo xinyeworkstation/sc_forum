@@ -69,7 +69,18 @@ class IndexController extends Controller {
                                   ->limit($Page->firstRow.','.$Page->listRows)
                                   ->select();
                 }
-                
+          
+                if(!($_GET['search'] || $_GET['id']) && $_GET['p']) {
+                   $work = $model->alias('w')
+                              ->join('user u ON w.user_id=u.id')
+                              ->join('category c ON w.cate_id=c.id')
+                              ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg,catename')
+                              ->where($where)
+                              ->order('w.id desc')
+                              ->limit($Page->firstRow.','.$Page->listRows)
+                              ->select();
+                }
+              
             }else{
                 //var_dump($order);exit;
                 $work = $model->alias('w')
@@ -149,14 +160,10 @@ class IndexController extends Controller {
                           ->select();
 
             if(empty($work)){
-<<<<<<< HEAD
-               // echo 0;
-=======
                 echo 0;
             }else{
                 $work = json_encode($this->new_work($work));
                 $this->ajaxReturn($work);
->>>>>>> 356c40bb55e476a7a5d4f66125d33d98afe3b055
             }
              echo $model->getLastSql();
         }
