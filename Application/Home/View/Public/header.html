@@ -125,7 +125,11 @@
 				<div class="headerPersonal">
 					<div>
 						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
+						<if condition="$_SESSOIN['user_level'] eq 3">
 						<img class="vipImg" src="__PUBLIC__/Images/VIP.gif">
+						<else />
+						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
+						</if>
 					</div>
 					<span>{$_SESSION['user_name']}</span>
 				</div>

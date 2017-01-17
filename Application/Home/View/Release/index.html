@@ -16,14 +16,14 @@
 			<figcaption>{$_SESSOIN['user_name']},您好!请输入您拥有该作品的版权，严禁盗用他人作品哦。</figcaption>
 		</figure>
 		<!-- 表单从作品名称到确定发布开始 -->
-		<form class="mainReleaseForm">
+		<form method="post" action="{:U('release/release')}" class="mainReleaseForm" enctype="multipart/form-data">
 			<div class="worksInfo">
 				<span class="worksName">作品名称 :</span>
-				<input class="worksNameInput" maxlength="50" type="text" placeholder="50字以内" name="name" required>
+				<input class="worksNameInput" maxlength="50" type="text" placeholder="50字以内" name="workname" required>
 			</div>
 			<div class="worksInfo">
 				<span class="worksIntro">作品简介 :</span>
-				<textarea class="worksIntroInput" name="introduction" placeholder="简要的作品说明，如设计思路、创作背景、作品特色等等，500字以内。" maxlength="500" required></textarea> 
+				<textarea class="worksIntroInput" name="intro" placeholder="简要的作品说明，如设计思路、创作背景、作品特色等等，500字以内。" maxlength="500" required></textarea> 
 			</div>
 			<div class="worksInfo">
 				<span class="worksClassify">作品分类 :</span>
@@ -41,17 +41,17 @@
 			<div class="worksInfo">
 				<span class="worksUpload">上传素材 :</span>
 				<div class="worksUploadFile">上传图片
-					<input type="file" value="上传图片"
+					<input name="picname[]" multiple="multiple" type="file" value="上传图片"
 					 required>
 				</div>
 				<span class="worksExplain worksExplainFloat">（PGB模式，支持JPG/GIF/PNG格式，单张大小&lt;10M，支持批量上传，上传第一张图将作品首页展示的封面）</span>
 			</div>
 			<div class="worksInfo">
 				<div class="worksUploadFile UploadFLASH">上传FLASH
-					<input type="file" value="上传FLASH">
+					<input type="file" name="flash" value="上传FLASH">
 				</div>
 				<div class="worksUploadFile">上传压缩包
-					<input type="file" value="上传压缩包" required>
+					<input type="file" name="compress[]" multiple="multiple" value="上传压缩包" required>
 				</div>
 				<span class="worksExplain worksExplainFloat">（文件大小超过10M请打包压缩后再上传）</span>
 			</div>
