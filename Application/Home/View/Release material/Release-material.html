@@ -16,7 +16,43 @@
 		</figure>
 		<!-- 表单从作品名称到确定发布开始 -->
 		<form class="mainReleaseForm">
-			
+			<div class="worksInfo">
+				<span class="worksName">作品名称 :</span>
+				<input class="worksNameInput" type="text" placeholder="50字以内">
+			</div>
+			<div class="worksInfo">
+				<span class="worksIntro">作品简介 :</span>
+				<textarea class="worksIntroInput" placeholder="简要的作品说明，如设计思路、创作背景、作品特色等等，500字以内。"></textarea> 
+			</div>
+			<div class="worksInfo">
+				<span class="worksClassify">作品分类 :</span>
+				<select class="worksClassifyInput">
+					<option>请选择分类</option>
+					<option>请选择分类</option>
+					<option>请选择分类</option>
+					<option>请选择分类</option>
+				</select>
+			</div>
+			<div class="worksInfo">
+				<span class="worksPrice">售卖价格 :</span>
+				<input class="worksPriceInput" min="0" step="1" type="number">
+				<span class="worksExplain">（1元=100金币，价格按金币计算）</span>
+			</div>
+			<div class="worksInfo">
+				<span class="worksUpload">上传素材 :</span>
+				<a href="##" class="worksUploadLink">上传图片</a>
+				<span class="worksExplain">（PGB模式，支持JPG/GIF/PNG格式，单张大小&lt;10M，支持批量上传，上传第一张图将作品首页展示的封面）</span>
+			</div>
+			<div class="worksInfo">
+				<a href="##" class="worksUploadLink UploadFLASH">上传FLASH</a>
+				<a href="##" class="worksUploadLink">上传压缩包</a>
+				<span class="worksExplain">（文件大小超过10M请打包压缩后再上传）</span>
+			</div>
+			<div class="worksInfo">
+				<span class="worksAcc">作品授权 :</span>
+				<span class="worksExplain">严禁匿名转载：严禁违法私用。</span>
+			</div>
+			<input class="worksButton" type="button" value="确定发布">
 		</form>
 		<!-- 表单从作品名称到确定发布结束 -->
 	</section>
