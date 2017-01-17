@@ -55,6 +55,19 @@ $(function(){
 			});
 		}
 		})
+		$(window).resize(function(){
+			center('dialog');
+			function center(id){
+			h=$(window).height();
+			w=$(window).width();
+			fh=$('#'+id).height();
+			fw=$('#'+id).width();
+			$('#'+id).css({
+				'top':(h-fh)/2,
+				'left':(w-fw)/2
+			});
+		}
+		})
 		
 	$('.Buydown').on('click',function(){
 		$('body').append("<div id='mask'></div>");

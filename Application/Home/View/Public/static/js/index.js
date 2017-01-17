@@ -215,10 +215,45 @@ var ok8=false;
 			return false;
 		}else{
 			return false;
-
 		}
-
 	});
+
+// 登录注册弹窗
+$('#loginstart').on('click',function(){
+			$('body').append("<div id='mask'></div>");
+			$('#mask').addClass('mask').fadeIn('slow');
+			$('#dialog').fadeIn('slow');
+			center('dialog');
+		});
+
+$('.BuyClose').on('click',function(){
+			$('#dialog').fadeOut("fast");
+			$('#mask').css({display:'none'});
+		})
+
+function center(id){
+			var h=$(window).height();
+			var w=$(window).width();
+			var fh=$('#'+id).height();
+			var fw=$('#'+id).width();
+			$('#'+id).css({
+				'top':(h-fh)/2,
+				'left':(w-fw)/2
+			});
+		}
+		$(window).resize(function(){
+			center('dialog');
+			function center(id){
+			h=$(window).height();
+			w=$(window).width();
+			fh=$('#'+id).height();
+			fw=$('#'+id).width();
+			$('#'+id).css({
+				'top':(h-fh)/2,
+				'left':(w-fw)/2
+			});
+		}
+		})
 
 
 });
