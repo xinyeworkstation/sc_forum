@@ -26,6 +26,7 @@ class LoginController extends Controller
                 $model = M('user');
                 $member = $model->where($login)->find();
                 if ($member) {
+                    session('user_eamil',$member['email']);
                     session('headimg',$member['headimg']);
                     session('user_id', $member['id']);
                     session('user_name', $member['username']);
@@ -94,7 +95,10 @@ class LoginController extends Controller
     public function email()
     {
         if ($this->check_verify($_POST['Code'])) {
-            $this->error('验证码错误');
+            $fail = array(
+                'info' => '验证码错误！'
+            );
+            $this->ajaxReturn($fail);
         }
         $email = $_POST['email'];
         //安全验证
@@ -105,7 +109,10 @@ class LoginController extends Controller
         cookie('id', $id, 3600);
         cookie('email', $email, 3600);
         if (SendMail($_POST['email'], "您好，请点击链接修改密码！", "http://localhost/cnsecer-ThinkAdmin-master/cnsecer-ThinkAdmin-master/shopshop/index.php?m=&c=Login&a=alter&tg_id=$id&email=$email")) {
-            $this->success('发送成功，请注意查收您的邮箱！');
+            $success = array(
+                'info' => 'YES'
+            );
+            $this->ajaxReturn($success);//返回前端，用JS跳转
         }
 
 

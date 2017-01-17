@@ -161,9 +161,8 @@ class PersonController extends Controller
     public function ChangePassword()
     {
         if (IS_POST) {
+            //比对邮箱返回的id
             if ($_POST['user_test'] == session('password_id')) {
-
-
                 $user['username'] = session('user_name');//获取登陆后的的用户名称
                 $model = M('user');
                 $user['password'] = $model->where($user)->field('password')->find();
@@ -191,10 +190,14 @@ class PersonController extends Controller
     public function email_verify()
     {
         $id = $this->getRandOnlyId();
-        session('password_id', $id);//记录id到session通过邮箱匹配修改密码
+        session('password_id', $id,3600);//记录id到session通过邮箱匹配修改密码
+        //$user['email'] = session('user_email');
         $user['email'] = '975289275@qq.com';
         if(SendMail($user['email'], "您好，请点击链接修改密码！", "您的验证码是:" . $id . "/n" . "打死也不要给别人看到哦！")){
-            $this->success('验证码发送成功请注意查收！');
+            $success = array(
+                'info' => 'YES'
+            );
+            $this->ajaxReturn($success);//返回前端，用JS跳转
         }
 
 	}

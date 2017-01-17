@@ -129,7 +129,7 @@ var ok8=false;
 		}
 	});
 //登录找回密码验证码
-	$('#Code').focus(function(){
+	$('#Code1').focus(function(){
 		$(this).next().text('').removeClass('state1').addClass('state2');
 	}).blur(function(){
 		if ($(this).val()!=' ') {
@@ -179,7 +179,7 @@ var ok8=false;
 					data:$('#form2').serialize(),
 					success:function(response,data,status){
 						if(response.info=='YES'){
-							window.location.href ='/sc_forum/index.php/Person/PersonMessage'
+							window.location.href ='/index.php/Person/PersonMessage'
 						}else{
 							$('#star1').html(response.info);
 						}
@@ -193,7 +193,31 @@ var ok8=false;
 	
 	});
 
+//找回密码
 
+	$('#Button3').click(function(){
+		if(ok9){
+			$.ajax({
+				async:false,
+				cache:true,
+				type:'POST',
+				url:'/sc_forum/Login/email',
+				dataType:'json',
+				data:$('#form3').serialize(),
+				success:function(response,data,status){
+					if(response.info=='YES'){
+						alert('邮箱发送成功请注意查收！');
+					}else{
+						$('#star2').html(response.info);
+					}
+				}
+			});
+			return false;
+		}else{
+			return false;
+		}
+
+	});
 
 
 });
