@@ -2,7 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 
-class BasicController extends Controller{
+class BaseController extends Controller{
 	public function _initialize(){
 		 $uid = session('user_id');
         //判断用户是否登陆

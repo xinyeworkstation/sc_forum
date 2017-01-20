@@ -10,9 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/voucher_center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/1.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css"></link>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/index.js"></script>
 	<script type="text/javascript">
 	</script>
 </head>
@@ -36,13 +38,13 @@
 					<ul>
 						<li><span class="icon">充</span><a href="{:U('recharge/index')}">充值</a><span class="rechageNumber">1</span></li>
 						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}">收藏</a></li>
-						<li><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
+						<li ><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<if condition="$_SESSOIN['headimg'] neq null">
 				<div class="headerPersonal">
-					<div>
+					<div >
 						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
 						<if condition="$_SESSOIN['user_level'] eq 3">
 						<img class="vipImg" src="__PUBLIC__/Images/VIP.gif">
@@ -55,7 +57,7 @@
 				<else />
 				<div class="headerPersonal">
 					<div>
-						<a href="#"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
+						<a href="#" id="loginstart"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
 						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
 					</div>
 					<span>游客</span>
@@ -77,3 +79,85 @@
 		</ul>
 	</nav>
 	<!-- 头部导航栏结束 -->
+<!-- 登录注册 -->
+<div id="dialog">
+		<div class="login">
+			<div class="loginTab">
+				<ul>
+					<li class="tab-item "><a href="#" class="selected">注册</a></li>
+					<li><a href="#">登录</a></li>
+				</ul>
+			</div>
+			<!-- 注册 -->
+			<div class="loginForm1 TabForm" >
+				<form action="{:U('login/register')}" method="post" accept-charset="utf-8" id="form1">
+					<div class="name">
+						<input type="text" name="name" placeholder="用户名" id="user1">
+							<span class="star" id="star"> </span>
+					</div>
+					<div class="password">
+						<input type="text" name="password" placeholder="密码" id="pass">
+						<span class="star">   </span>
+					</div>
+					<div class="msgpassword">
+						<input type="text" name="msgpassword" placeholder="确认密码" id="msgpass">
+						<span class="star"> </span>
+					</div>
+					<div class="email">
+						<input type="text" name="email" placeholder="邮箱" id="email">
+						<span class="star"> </span>
+					</div>
+					<div class="QQ">
+						<input type="text" name="QQ" placeholder="QQ" id="QQ">
+						<span class="star"> </span>
+					</div>
+					
+					<div class="Invitation">
+						<input type="text" name="Invitation" placeholder="邀请码" id="Invitation">
+						<div class="InvitationBuy" >
+							<a href="#" title="">购买邀请码</a>
+						</div>
+					</div>
+					
+					<div class="Button">
+						<input type="submit" name="" value="注册" class="ButtonWrapper" id="Button1">
+					</div>
+				</form>
+			</div>
+
+			<!-- 登录 -->
+			<div class="loginForm2 TabForm" style="display: none;">
+				<form action="" method="" accept-charset="utf-8" id="form2">
+					<div class="name loginName">
+							<input type="text" name="name" placeholder="用户名" id="user2">
+							<span class="star" id="star1"> </span>
+					</div>
+					<div class="password loginPass">
+							<input type="text" name="password" placeholder="密码" id="pass2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+						<div class="Code-input">
+							<input type="text" name="Code" placeholder="验证码" id="Code">
+						</div>
+						<div class="Codepic">
+								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
+							</div>
+
+						<!--<span class="star"> </span>-->
+					</div>
+					<div class="Button1">
+						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
+					</div>
+					<div class="unable-login">
+						<a href="{:U('login/index')}" title="">忘记密码?点此找回</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="BuyClose" id="BuyClose">
+			x
+		</div>
+	</div>
+
+

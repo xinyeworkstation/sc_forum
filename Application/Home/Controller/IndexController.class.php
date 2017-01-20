@@ -101,11 +101,21 @@ class IndexController extends Controller {
       }else{//显示首页
           //var_dump($order);exit;
           if(!$key==""){//按用户要求做查询
-            //$where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
-            $where['_string'] = "workname like %{$key}% or username like %{$key}%";
-            $count = $model->where($where)->count();
+            $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
+            //$where['workname'] = array("like","%{$key}%");
+            //$where['username'] = array("like","%{$key}%");
+            $count = $model->alias('w')
+                        ->join('user u ON w.user_id=u.id')
+                        ->join('category c ON w.cate_id=c.id')
+                        ->field('w.id w_id,works,workname,download,favor,u.id u_id,username,u.headimg,catename')
+                        ->where($where)
+                        ->order('w.id desc')
+                        ->limit($Page->firstRow.','.$Page->listRows)
+                        ->count();
             $Page = new \Extend\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(30)
             $show = $Page->show();// 分页显示输出
+            $this->assign('count',$count);
+            
           }
           $work = $model->alias('w')
                         ->join('user u ON w.user_id=u.id')
@@ -126,46 +136,7 @@ class IndexController extends Controller {
         $this->display();
     }
 
-    public function search () {
-         //按用户要求查询搜索的作品
-      if(IS_AJAX){
-            $key = I('post.key');
-            //echo $key;exit;
-            $name = $_POST['name'];
-            //$name = I('post.name');
-            //echo $name;exit;
-            $where['_string'] = "workname like '%{$key}%' or username like '%{$key}%'";
-            $where['flag'] = '1';
-            //$name = I('post.name');
-            if(!($name == '全部')){
-                $cate['catename'] = $name;
-                $cmodel = M('category');
-                $cid = $cmodel->where($cate)->find();
-                $where['cate_id'] = $cid['id'];
-            }
-            $model = M('work');
-            //echo $cid['id'];exit;
-            $work = $model->alias('w')
-                          ->join('user u ON w.user_id=u.id')
-                          ->join('category c ON w.cate_id=c.id')
-                          ->field('w.id w_id,works,workname,download,favor,u.id u_id,u.username,u.headimg,catename')
-                          ->where($where)
-                          ->order('w.id desc')
-                          ->limit(30)
-                          ->select();
-
-            if(empty($work)){
-                echo 0;
-            }else{
-                $work = json_encode($this->new_work($work));
-                $this->ajaxReturn($work);
-            }
-             echo $model->getLastSql();
-        }
-
-    }
-
-
+   
     function index_model(){
         $this->display();
     }
@@ -210,4 +181,3 @@ class IndexController extends Controller {
         }
     }
 }
-
