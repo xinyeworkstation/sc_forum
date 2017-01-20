@@ -121,7 +121,7 @@
 <script>
 	$(function(){
 		$(".verify").click(function(){
-			var src = '/sc_forum/login/verify';
+			var src = __APP__'/login/verify';
 			var random = Math.floor(Math.random()*(1000+1));
 			$(this).attr("src",src+"/random="+random);
 

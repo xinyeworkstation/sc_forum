@@ -5,7 +5,7 @@
 			<li>您的位置：</li>
 			<li>交易商城> </li>
 			<li class="gameNet">游戏网站</li>
-			<li>共搜索到<span> 565 </span>个作品</li> 
+			<if condition="$count eq -1"><li>没有找到您要找的作品，首页看看吧！</li><elseif condition="$count gt 0" /><li>共搜索到<span> {$count} </span>个作品</li></if>
 		</ul>
 		<!--导航条部分-->
 		<nav class="nav">
@@ -53,53 +53,53 @@
 			<div class="autors">
 				<dl class="numFirst">
 					<span>1</span>
-					<dt><a href="#"><img src="/{$order[0]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[0]['user_id']))}"><img src="/{$order[0]['headimg']}"/></a></dt>
 					<dd>{$order[0]['username']}</dd>
 				</dl>
 				
 				<dl class="numFirst">
 					<span>2</span>
-					<dt><a href="#"><img src="/{$order[1]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[1]['user_id']))}"><img src="/{$order[1]['headimg']}"/></a></dt>
 					<dd>{$order[1]['username']}</dd>
 				</dl>
 				<dl class="numFirst">
 					<span>3</span>
-					<dt><a href="#"><img src="/{$order[2]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[2]['user_id']))}"><img src="/{$order[2]['headimg']}"/></a></dt>
 					<dd>{$order[2]['username']}</dd>
 				</dl>
 				<dl class="numOther"> 
 					<span>4</span>
-					<dt><a href="#"><img src="/{$order[3]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[3]['user_id']))}"><img src="/{$order[3]['headimg']}"/></a></dt>
 					<dd>{$order[3]['username']}</dd>
 				</dl>
 				<dl class="numOther">
 					<span>5</span>
-					<dt><a href="#"><img src="/{$order[4]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[4]['user_id']))}"><img src="/{$order[4]['headimg']}"/></a></dt>
 					<dd>{$order[4]['username']}</dd>
 				</dl>
 				<dl class="numOther">
 					<span>6</span>
-					<dt><a href="#"><img src="/{$order[5]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[5]['user_id']))}"><img src="/{$order[5]['headimg']}"/></a></dt>
 					<dd>{$order[5]['username']}</dd>
 				</dl>
 				<dl class="numOther">
 					<span>7</span>
-					<dt><a href="#"><img src="/{$order[6]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[6]['user_id']))}"><img src="/{$order[6]['headimg']}"/></a></dt>
 					<dd>{$order[6]['username']}</dd>
 				</dl>
 				<dl class="numOther">
 					<span>8</span>
-					<dt><a href="#"><img src="/{$order[7]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[7]['user_id']))}"><img src="/{$order[7]['headimg']}"/></a></dt>
 					<dd>{$order[7]['username']}</dd>
 				</dl>
 				<dl class="numOther">
 					<span>9</span>
-					<dt><a href="#"><img src="/{$order[8]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[8]['user_id']))}"><img src="/{$order[8]['headimg']}"/></a></dt>
 					<dd>{$order[8]['username']}</dd>
 				</dl>
 				<dl class="numLast">
 					<span>10</span>
-					<dt><a href="#"><img src="/{$order[9]['headimg']}"/></a></dt>
+					<dt><a href="{:U('index/index',array('user_id'=>$order[9]['user_id']))}"><img src="/{$order[9]['headimg']}"/></a></dt>
 					<dd>{$order[9]['username']}</dd>
 				</dl>
 			</div>

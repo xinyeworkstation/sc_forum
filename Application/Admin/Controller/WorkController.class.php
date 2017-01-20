@@ -78,7 +78,7 @@
 				//var_dump($_FILES);var_dump($flash);
 				//exit;
 				$dir = I('post.pid');	//上传的文件子目录
-				if(!$n){
+				if(!$dir){
 					$this->error('请选择作品所属版区');
 				}
 				//计算上传了几张图片
