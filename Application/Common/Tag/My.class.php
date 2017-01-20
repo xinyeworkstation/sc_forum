@@ -8,7 +8,7 @@ class My extends TagLib {
     protected $tags=array(
         'jquery'=>array('attr'=>'','close'=>0),
         'webuploadercss'=>array('attr'=>'','close'=>0),
-        'webuploader'=>array('attr'=>'name,url,word','close'=>0),
+        'webuploader'=>array('attr'=>'name,url,word,wid','close'=>0),
         'webuploaderjs'=>array('attr'=>'','close'=>0)
         );
 
@@ -55,7 +55,8 @@ php;
     public function _webuploader($tag){
         $url=isset($tag['url'])?$tag['url']:U('Index/ajax_upload');
         $name=isset($tag['name'])?$tag['name']:'file_name';
-        $word=isset($tag['word'])?$tag['word']:'或将照片拖到这里，单次最多可选300张';
+        $word=isset($tag['word'])?$tag['word']:'或将照片拖到这里，单次最多可选100张';
+        $wid= isset($tag['wid'])?$tag['wid']:'1';
         $id_name='upload-'.uniqid();
             $str=<<<php
 <div id="$id_name" class="xb-uploader">
@@ -165,9 +166,9 @@ jQuery(function() {
         disableGlobalDnd: true,
 
         server: "$url",
-        fileNumLimit: 300,
-        fileSizeLimit: 10 * 1024 * 1024,    // 10 M
-        fileSingleSizeLimit: 10 * 1024 * 1024    // 10 M
+        fileNumLimit: 100,
+        fileSizeLimit: 50 * 1024 * 1024,    // 50 M
+        fileSingleSizeLimit: 10 * 1024 * 1024    // 20 M
     });
 
     // 添加“添加文件”的按钮，
@@ -175,7 +176,7 @@ jQuery(function() {
        id: "#$id_name .filePicker2",
        label: '继续添加'
     });
-
+    
     // 当有文件添加进来时执行，负责view的创建
     function addFile( file ) {
         var \$li = \$( '<li id="' + file.id + '">' +
@@ -324,7 +325,7 @@ jQuery(function() {
         updateTotalProgress();
         \$li.off().find('.file-panel').off().end().remove();
     }
-
+    
     function updateTotalProgress() {
         var loaded = 0,
             total = 0,
@@ -532,6 +533,7 @@ jQuery(function() {
 
     \$upload.addClass( 'state-' + state );
     updateTotalProgress();
+
 });
 </script>
 php;
