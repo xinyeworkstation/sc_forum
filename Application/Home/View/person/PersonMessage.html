@@ -33,23 +33,27 @@
 					<!--<figcaption><a href=""></a></figcaption>-->
 				</figure>
 			</div>
-			<div class="personMessageRight">
-
+			</form>
+			<div class="personMessageRight" id="personMessageRight">
 					<div class="messageForm">
-						<span>邮箱:</span>
-						<input type="email" name="user_email" value="{$P_message.email}">
+						<span>邮箱：</span>
+						<input type="email" id="messageemail" class="messageemail" name="user_email" value="{$P_message.email}">
+						<em class="star2"> </em>
 					</div>
 					<div class="messageForm">
 						<span>昵称：</span>
-						<input type="text" name="user_name" value="{$P_message.username}">
+						<input type="text" id="messageuser" class="messageuser" name="user_name" value="{$P_message.username}">
+						<em class="star2"> </em>
 					</div>
 					<div class="messageForm">
 						<span>QQ：</span>
-						<input type="text" name="user_QQ">
+						<input type="text" id="messageqq" class="messageqq" name="user_QQ">
+						<em class="star2"> </em>
 					</div>
 					<div class="messageForm">
 						<span>所在城市：</span>
 						<input type="text" name="user_address">
+						<em class="star2"> </em>
 					</div>
 					<div class="messageForm">
 						<span>性别：</span>
@@ -58,36 +62,22 @@
 						<input class="messageFormSex" type="radio" name="user_sex"><label>保密</label>
 					</div>
 					<div class="messageForm">
-						<span>生日：</span>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">年</label>
-						</div>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">月</label>
-						</div>
-						<div>
-							<input class="messageFormBirth" type="datetime" name="user_birth" >
-							<label class="messageFormData">日</label>
-						</div>
-					</div>
-					<div class="messageForm">
 						<span>职业：</span>
 						<input type="text" name="user_profession">
+						<em class="star2"> </em>
 					</div>
 					<div class="messageForm">
 						<span>关于自己：</span>
 						<textarea name="user_oneself"  class="messageFormOneself"></textarea>
 					</div>
-					<input class="messageFormRevise" type="submit" value="确认修改">
-				</form>
+					<input class="messageFormRevise" id="Messagebtn" type="submit" value="确认修改">
 			</div>
 		</div>
 		<!-- 右边内容区-个人信息结束 -->
 		</div>
 	<!-- 中间部分结束 -->
 	<script src="__STATIC__/js/uploadPreview.js"></script>
+	<script src="__STATIC__/js/peason.js"></script>
 <include file="Public/footer" />
 </body>
 </html>

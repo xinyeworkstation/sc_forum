@@ -271,7 +271,11 @@ body{
 	top: 0;
 	cursor: pointer;
 }
-
+.star2{
+	display: block;
+	height: 38px!important;
+	line-height: 38px!important;
+}
 
 
 

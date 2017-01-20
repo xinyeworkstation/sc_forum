@@ -203,7 +203,7 @@ var ok8=false;
 				type:'POST',
 				url:'/sc_forum/Login/email',
 				dataType:'json',
-				data:$('#form3').serialize(),
+				data:$('#personMessageRight').serialize(),
 				success:function(response,data,status){
 					if(response.info=='YES'){
 						alert('邮箱发送成功请注意查收！');
@@ -219,17 +219,26 @@ var ok8=false;
 	});
 
 // 登录注册弹窗
-$('#loginstart').on('click',function(){
-			$('body').append("<div id='mask'></div>");
+function showpage(){
+	$('body').append("<div id='mask'></div>");
 			$('#mask').addClass('mask').fadeIn('slow');
 			$('#dialog').fadeIn('slow');
 			center('dialog');
-		});
+}
+$(window).click=showpage();
+
+if (true) {
+	$(window).click();
+}
+	
 
 $('.BuyClose').on('click',function(){
 			$('#dialog').fadeOut("fast");
 			$('#mask').css({display:'none'});
 		})
+
+
+	
 
 function center(id){
 			var h=$(window).height();
@@ -253,7 +262,7 @@ function center(id){
 				'left':(w-fw)/2
 			});
 		}
-		})
+		});
 
 
 });
