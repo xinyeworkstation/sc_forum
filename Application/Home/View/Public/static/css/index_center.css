@@ -284,25 +284,6 @@ p.manpic{
 	width: 110px;
 	height: 28px;
 	line-height: 28px;
-<<<<<<< HEAD
-}
-.manpic span{
-	display: inline-block;
-	height: 28px;
-	line-height: 30px;
-	float: left;
-}
-.manpic a{
-	float: left;
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	border-radius: 25px;
-	margin-right: 6px;
-}
-.manpic img{
-	border-radius: 25px;
-=======
 }
 .manpic span{
 	display: inline-block;
@@ -322,7 +303,6 @@ p.manpic{
 	border-radius: 25px;
 	width: 100%;
 	height: 100%;
->>>>>>> 944688e41070c68288cf6388614af1a38219df43
 }
 p.loadpic{
 	width: 46px;
@@ -343,23 +323,7 @@ p.loadpic,p.support{
 }
 
 /*翻页的页码部分*/
-.pages{
-	width: 852px;
-	height: 56px;
-	background: #f8f8f8;
-	margin: 0px auto 25px;
-	clear: both;
-	padding-left: 13px;
-}
-.pages li{
-	display: inline-block;
-	margin: 10px 13px 0 0;
-	float: left;
-	height: 36px;
-	text-align: center;
-	line-height: 36px;
-	font-size: 15px;
-}
+
 .pageFirst{
 	width: 90px;
 	background: #fff;
@@ -372,14 +336,7 @@ p.loadpic,p.support{
 	width: 30px;
 	background: #f8f8f8;
 }
-.pages a{
-	color: #a9a9a9;
-	display: block;
-}
-.pages a:hover{
-	background: #1aba78;
-	color: #fff;
-}
+
 
 /*侧边栏*/
 .sidebar{
@@ -410,4 +367,52 @@ li.sidebarpic{
 }
 img.toptrangle{
 	margin: 5px 0 0 15px;
+}
+
+/*分页样式重写*/
+.pages{
+	width: 852px;
+	height: 56px;
+	/*background: #f8f8f8;*/
+	margin: 0px auto 25px;
+	clear: both;
+	padding-left: 13px;
+}
+.pages li{
+	display: inline-block;
+	margin: 10px 8px 10px 6px;
+	float: left;
+	text-align: center;
+	font-size: 15px;
+	background-color: #ffffff;
+	border-radius: 4px;
+}
+.pages a{
+	color: #a9a9a9;
+	float: left;
+	padding: 6px 14px 6px 14px;
+	border-radius: 4px;
+}
+.pages a:hover{
+	background: #1aba78;
+	color: #fff;
+}
+
+.pagination {
+	list-style-type: none;
+	overflow: hidden;
+	float: left;
+	margin: 0 0 0 200px;
+	/*margin: 0 auto;*/
+	/*width: 440px;*/
+	background: #f8f8f8;
+}
+.pagination .active {
+	background-color: #1aba78;
+}
+.pagination .active span {
+	color: #ffffff;
+	float: left;
+	padding: 6px 14px 6px 14px; 
+	border-radius: 4px;
 }
