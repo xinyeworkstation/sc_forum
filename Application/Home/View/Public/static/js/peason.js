@@ -42,4 +42,26 @@ var okc=false;
 	   	}
 	   });	
 
+
+$('#Messagebtn').click(function(){
+			$.ajax({
+				async:false,
+				cache:true,
+				type:'POST',
+				url:'/sc_forum/Login/email',
+				dataType:'json',
+				data:$('#personMessageRight').serialize(),
+				success:function(response,data,status){
+					if(response.info=='YES'){
+						alert('邮箱发送成功请注意查收！');
+					}else{
+						$('#star2').html(response.info);
+					}
+				}
+			});
+			return false;
+		}
+	
+
+
 });

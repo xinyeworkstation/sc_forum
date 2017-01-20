@@ -272,8 +272,9 @@ body{
 	cursor: pointer;
 }
 .star2{
-	height: 38px;
-	line-height: 38px;
+	display: block;
+	height: 38px!important;
+	line-height: 38px!important;
 }
 
 

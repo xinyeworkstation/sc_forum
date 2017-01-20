@@ -203,7 +203,7 @@ var ok8=false;
 				type:'POST',
 				url:'/sc_forum/Login/email',
 				dataType:'json',
-				data:$('#form3').serialize(),
+				data:$('#personMessageRight').serialize(),
 				success:function(response,data,status){
 					if(response.info=='YES'){
 						alert('邮箱发送成功请注意查收！');

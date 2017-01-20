@@ -33,8 +33,8 @@
 					<!--<figcaption><a href=""></a></figcaption>-->
 				</figure>
 			</div>
-			<div class="personMessageRight">
-
+			</form>
+			<div class="personMessageRight" id="personMessageRight">
 					<div class="messageForm">
 						<span>邮箱：</span>
 						<input type="email" id="messageemail" class="messageemail" name="user_email" value="{$P_message.email}">
@@ -70,8 +70,7 @@
 						<span>关于自己：</span>
 						<textarea name="user_oneself"  class="messageFormOneself"></textarea>
 					</div>
-					<input class="messageFormRevise" type="submit" value="确认修改">
-				</form>
+					<input class="messageFormRevise" id="Messagebtn" type="submit" value="确认修改">
 			</div>
 		</div>
 		<!-- 右边内容区-个人信息结束 -->
