@@ -1,0 +1,152 @@
+/*出售提现部分css*/
+#drawMoney{
+	float: left;
+    height: 655px;
+    width: 962px;
+    border-bottom: 1px solid #eaeaea; 
+}
+.rightBodythree .titleOne,.rightBodythree .titleTwo{
+    margin: 25px 0 25px 45px;
+    font-size: 20px;
+}
+.rightBodythree .titleOne span,.advice{
+    color: #989393;
+    font-size: 15px;
+    padding-left: 5px;
+} 
+.rightBodythree .titleOne strong{
+	color: #f91212;
+} 
+.rightBodythree .titleTwo span{
+	font-size: 15px;
+	padding-left: 5px;
+}
+.rightBodythree .cash{
+    overflow: hidden;
+    margin: 0 0 20px 55px;
+}
+.rightBodythree .cash a{
+    display: block;
+    width: 348px;
+    height: 39px;
+    line-height: 40px;
+    background: #d8d7d7;
+    border: 2px solid #a5a4a4;
+    float: left;
+    padding-left: 8px;
+    color: #000000;
+    margin: 0 95px 30px 0;
+}
+.rightBodythree .cash a:hover{
+    border: 2px solid #009900;
+    cursor: pointer;
+}
+.rightBodythree .withdrawNumber{
+	padding-left: 55px;
+}
+.accountNumber ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.accountNumber li{
+    padding:12px 12px 12px 0; 
+    position:relative;
+}
+.accountNumber label{
+	width: 75px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.accountNumber select{
+	width: 90px;
+	height: 32px;
+	padding:5px 8px;
+}
+.accountNumber input{
+	width: 450px;
+	height:20px; 
+	padding:5px 8px;
+}
+.accountNumber textarea{
+	padding:8px; 
+	width:300px;
+}
+.accountNumber input,.accountNumber textarea,.accountNumber select{
+	border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.accountNumber input:focus,.accountNumber textarea:focus,.accountNumber select:focus{
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+}
+/* Button Style */
+button.submit{
+    width: 170px;
+    height: 50px;
+    margin: 30px 0 0 15px;
+    background-color: #009900;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#009900));
+    background: -webkit-linear-gradient(top, #68b12f, #009900);
+    background: -moz-linear-gradient(top, #68b12f, #009900);
+    background: -ms-linear-gradient(top, #68b12f, #009900);
+    background: -o-linear-gradient(top, #68b12f, #009900);
+    background: linear-gradient(top, #68b12f, #009900);
+    border: 1px solid #005e15;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover{
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active{
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+}
+/*兼容placeholder处的文字样式*/
+:-moz-placeholder{
+    color: #c3c3c3;
+}
+:-webkit-input-placeholder{
+    color: #c3c3c3;
+}
+/*去掉:focus样式*/
+*:focus{
+    outline: none;
+}
+.rightBodythree .introduction{
+    margin: 35px 0 0 45px;
+}
+.rightBodythree .introduction p{
+    font-size: 20px;
+}
+.rightBodythree .introduction ul{
+    margin: 10px 0 0 10px;
+    font-size: 15px;
+}
+.rightBodythree .introduction li{
+    margin-bottom: 5px;
+}

@@ -3,84 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>[title]</title>
+	<link rel="icon" href="__PUBLIC__/Images/tempic.jpg">
 	<link rel="stylesheet" href="__STATIC__/css/index-header.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index_center.css">
 	<link rel="stylesheet" href="__STATIC__/css/personal-center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/voucher_center.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="__STATIC__/css/1.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css"></link>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="__STATIC__/js/tabcut.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/index.js"></script>
 	<script type="text/javascript">
-		// 实现头部选项框的下拉列表菜单
-		// window.onload = function (){
-		// 	var oInput = document.getElementById('optionSelect');
-		// 	var aOps = document.getElementById('searchOps').getElementsByTagName('li');
-		// 	var oSeach = document.getElementById('searchOps')
-		// 	// 点击显示隐藏的下拉列表
-		// 	oInput.onclick = function (){
-		// 		if (oSeach.style.display = 'none') {
-		// 			oSeach.style.display = 'block';
-		// 		}
-		// 	};
-		// };
-		// 
-		$(function(){
-			$('#optionSelect').click(function(e){
-				$('#searchOps').slideDown();
-				e.stopPropagation();//阻止事件冒泡
-			});
-			//在桌面上任意地方点击，他时关闭的
-			$(document).click(function(){
-				$('#searchOps').slideUp();
-			});
-
-			$('#searchOps ul li').click(function(){
-				var txt= $(this).text();
-				$('#optionSelect').val(txt);
-				/*$.ajax({
-					type:'POST',
-					url:"{:U('index/index')}",
-					dataType:'',
-					data:{'name':txt},
-					success:function(data,status){
-
-						alert(data);
-					}
-				});*/
-				//alert($('#optionSelect').val(txt));
-
-					
-
-			});
-			$('#inputBtn').click(function(){
-				var Input1=$('#inputText').val();
-				if(Input1==""){
-					return false;
-				}else{
-					$.ajax({
-					type:'POST',
-					url:"{:U('index/index')}",
-					dataType:'',
-					//data:$('#inputText').serialize(),
-					data:{name:$('#optionSelect').val(),key:$('#inputText').val()},
-					success:function(data,status){
-						if(data==0){
-							alert('没有查询到您要找的作品');
-							//然后再跳转到首页
-						}else{
-							//在这里将后台传回来的json数据（data）替换首页的内容
-							//alert(data);
-							//console.log(data);
-						}
-						
-					}
-				});
-					//alert($('#inputText').serialize());
-				}
-			});
-		});
 	</script>
 </head>
 <body>
@@ -88,24 +23,11 @@
 		<!-- 头部LOGO这一栏开始 -->
 		<div class="headerTop">
 			<figure class="headerLogo">
-				<img src="__PUBLIC__/images/logo.jpg" alt="logo">
+				<img src="__PUBLIC__/Images/logo.jpg" alt="logo">
 				<figcaption>专注正版设计作品交易</figcaption>
 			</figure>
 			<!-- 表单搜索开始 -->
 			<form method="post" class="headerSearch">
-				<input type="text" class="inputOps" id="optionSelect" autocomplete="off" readonly value="全部">
-				<div class="headerSearchOptions" id="searchOps">
-					<ul>
-						<li>全部</li>
-						<li>动态模板</li>
-						<li>静态模板</li>
-						<li>登录器皮肤</li>
-						<li>游戏界面</li>
-						<li>网站原画</li>
-						<li>logo素材</li>
-						<li>其他素材</li>
-					</ul>
-				</div>
 				<input class="inputText" name="key" id="inputText" type="text" placeholder="请输入标题、关键字、编号搜索" autocomplete="off">
 				<input class="inputBtn" id="inputBtn" type="submit" value="搜索" style="cursor: pointer;">
 			</form>
@@ -114,20 +36,33 @@
 			<!-- 充值至发布作品开始 -->
 				<div class="headerPersonalDetails">
 					<ul>
-						<li><span class="icon">充</span><a href="{:U('recharge/index')}">充值</a><span class="rechageNumber">1</span></li>
-						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}">收藏</a></li>
-						<li><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
+						<li><span class="icon">充</span><a href="{:U('recharge/index')}" onclick="del();return false">充值</a><span class="rechageNumber">1</span></li>
+						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}" onclick="del();return false">收藏</a></li>
+						<li ><span class="icon">发</span><a href="{:U('person/production')}" onclick="del();return false" >发布作品</a></li>
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
+				<if condition="$_SESSOIN['headimg'] neq null">
+				<div class="headerPersonal">
+					<div >
+						<a href="#" onclick="del();return false"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
+						<if condition="$_SESSOIN['user_level'] eq 3">
+						<img class="vipImg" src="__PUBLIC__/Images/VIP.gif">
+						<else />
+						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
+						</if>
+					</div>
+					<span>{$_SESSION['user_name']}</span>
+				</div>
+				<else />
 				<div class="headerPersonal">
 					<div>
-						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
-						<img class="vipImg" src="__PUBLIC__/images/VIP.gif">
+						<a href="#" id="loginstart" onclick="del();return false"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
+						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
 					</div>
-					<span>而生</span>
-					<span>(ID:24867843)</span>
+					<span>游客</span>
 				</div>
+				</if>
 			</div>
 		</div>
 		<!-- 头部LOGO这一栏结束 -->
@@ -135,12 +70,171 @@
 	<!-- 头部导航栏开始 --> 
 	<nav class="headerNav">
 		<ul>
-			<li><a href="#">平台首页</a></li>
-			<li><a href="#">知了官网</a></li>
-			<li><a href="#">发布素材</a></li>
+			<li><a href="{:U('index/index')}" >平台首页</a></li>
+			<li><a href="{:U('index/index_model')}">知了官网</a></li>
+			<li><a href="{:U('Release/index')}">发布素材</a></li>
 			<li><a href="{:U('custom/index')}">知了服务</a></li>
-			<li><a href="{:U('person/basicdata')}">个人中心</a></li>
-			<li><a href="{:U('recharge/index')}">充值中心</a></li>
+			<li><a href="{:U('person/index')}" onclick="del();return false">个人中心</a></li>
+			<li><a href="{:U('recharge/index')}" onclick="del();return false">充值中心</a></li>
 		</ul>
 	</nav>
 	<!-- 头部导航栏结束 -->
+<!-- 登录注册 -->
+<div id="dialog">
+		<div class="login">
+			<div class="loginTab">
+				<ul>
+					<li class="tab-item "><a href="#" class="selected">注册</a></li>
+					<li><a href="#">登录</a></li>
+				</ul>
+			</div>
+			<!-- 注册 -->
+			<div class="loginForm1 TabForm" >
+				<form action="{:U('login/register')}" method="post" accept-charset="utf-8" id="form1">
+					<div class="name">
+						<input type="text" name="name" placeholder="用户名" id="user1">
+							<span class="star" id="star"> </span>
+					</div>
+					<div class="password">
+						<input type="text" name="password" placeholder="密码" id="pass">
+						<span class="star">   </span>
+					</div>
+					<div class="msgpassword">
+						<input type="text" name="msgpassword" placeholder="确认密码" id="msgpass">
+						<span class="star"> </span>
+					</div>
+					<div class="email">
+						<input type="text" name="email" placeholder="邮箱" id="email">
+						<span class="star"> </span>
+					</div>
+					<div class="QQ">
+						<input type="text" name="QQ" placeholder="QQ" id="QQ">
+						<span class="star"> </span>
+					</div>
+					
+					<div class="Invitation">
+						<input type="text" name="Invitation" placeholder="邀请码" id="Invitation">
+						<div class="InvitationBuy" >
+							<a href="#" title="">购买邀请码</a>
+						</div>
+					</div>
+					
+					<div class="Button">
+						<input type="submit" name="" value="注册" class="ButtonWrapper" id="Button1">
+					</div>
+				</form>
+			</div>
+
+			<!-- 登录 -->
+			<div class="loginForm2 TabForm" style="display: none;">
+				<form action="" method="" accept-charset="utf-8" id="form2">
+					<div class="name loginName">
+							<input type="text" name="name" placeholder="用户名" id="user2">
+							<span class="star" id="star1"> </span>
+					</div>
+					<div class="password loginPass">
+							<input type="text" name="password" placeholder="密码" id="pass2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+						<div class="Code-input">
+							<input type="text" name="Code" placeholder="验证码" id="Code">
+						</div>
+						<div class="Codepic">
+								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('index.php/login/verify')}" alt="点击刷新"/></a>
+							</div>
+
+						<!--<span class="star"> </span>-->
+					</div>
+					<div class="Button1">
+						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
+					</div>
+					<div class="unable-login">
+						<a href="{:U('login/index')}" title="">忘记密码?点此找回</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="BuyClose" id="BuyClose">
+			x
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$(".verify").click(function(){
+				var src = '/sc_forum/index.php/login/verify';
+				var random = Math.floor(Math.random()*(1000+1));
+				$(this).attr("src",src+"/random="+random);
+
+			});
+		})
+
+			function del(){
+				$.ajax({
+					type:'POST',
+					//url:$("#sub").attr('link'),
+					url:'/sc_forum/index.php/Login/_initialize',
+					success:function(response,status,xhr){
+						if(response.info=='YES') {
+							alert('你是成功登陆的！');
+						}else{
+							showpage();
+
+						}
+
+
+
+					}
+				});
+			}
+
+		function showpage(){
+			$('body').append("<div id='mask'></div>");
+			$('#mask').addClass('mask').fadeIn('slow');
+			$('#dialog').fadeIn('slow');
+			center('dialog');
+		}
+	/*	if (!$_SESSOIN['headimg']) {
+		 $(window).click();
+		 }
+		 $(window).click=showpage();*/
+
+
+
+
+		$('.BuyClose').on('click',function(){
+			$('#dialog').fadeOut("fast");
+			$('#mask').css({display:'none'});
+		})
+
+
+
+
+		function center(id){
+			var h=$(window).height();
+			var w=$(window).width();
+			var fh=$('#'+id).height();
+			var fw=$('#'+id).width();
+			$('#'+id).css({
+				'top':(h-fh)/2,
+				'left':(w-fw)/2
+			});
+		}
+		$(window).resize(function(){
+			center('dialog');
+			function center(id){
+				h=$(window).height();
+				w=$(window).width();
+				fh=$('#'+id).height();
+				fw=$('#'+id).width();
+				$('#'+id).css({
+					'top':(h-fh)/2,
+					'left':(w-fw)/2
+				});
+			}
+		});
+
+
+	</script>
+
+

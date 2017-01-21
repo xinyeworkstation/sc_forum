@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>重置密码</title>
+	<link rel="stylesheet" href="__STATIC__/Css/password.css">
+	<script type="text/javascript" src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+	<section class="passwordCenter">
+		<h2 class="passwordTitle">重置密码</h2>
+		<form class="resetPasswordForm" action="{:U('index.php/login/alter')}"  method="post" accept-charset="utf-8" id="form4">
+			<div class="resetForm">
+				<span>设置新密码：</span>
+				<input id="setWords" type="password" name="new_password" data-explain="输入新密码" placeholder="请输入新密码">
+				<span id="star3"></span>
+			</div>
+
+			<div class="resetForm">
+				<span>确认新密码：</span>
+				<input id="confirmWords" type="password" name="p_new_password" data-explain="确认新密码" placeholder="请确认新密码">
+			</div>
+			<div class="resetForm resetTest">
+				<span>验证码：</span>
+				<input type="text" name="verify" placeholder="请输入验证码">
+				<a class="sendIdentifyingCode" href="javascript:void(0)" title=""><img class="verify" src="{:U('index.php/login/verify')}" alt="点击刷新"/></a>
+			</div>
+			<input type="submit" class="resetPassSub"  value="提交" id="Button4">
+		</form>
+	</section>
+	<script>
+		$(function(){
+			$(".verify").click(function(){
+				var src ='sc_forum/index.php/login/verify';
+				var random = Math.floor(Math.random()*(1000+1));
+				$(this).attr("src",src+"/random="+random);
+
+			});
+		})
+	</script>
+</body>
+</html>
