@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<title>发布素材</title>
 	<link rel="stylesheet" href="__STATIC__/css/Release-material.css">
+	<webuploadercss />
+	<webuploaderjs />
 </head>
 <body>
 	<header class="releaseMaterial">
@@ -27,7 +29,7 @@
 			</div>
 			<div class="worksInfo">
 				<span class="worksClassify">作品分类 :</span>
-				<select class="worksClassifyInput" name="cate_id">
+				<select class="worksClassifyInput" name="cate_id" onchange="getwid(this.value)">
 					<foreach name="cate" item="v">
 					<option value="{$v.id}">{$v.catename}</option>
 					</foreach>
@@ -40,21 +42,26 @@
 			</div>
 			<div class="worksInfo">
 				<span class="worksUpload">上传素材 :</span>
-				<div class="worksUploadFile">上传图片
+				<!--<div class="worksUploadFile">上传图片
 					<input name="picname[]" multiple="multiple" type="file" value="上传图片"
 					 required>
+				</div>-->
+   					<webuploader name="image" url="{:U('release/ajax_upload_img')}" word="或将照片拖到这里，单次最多可选100张(不超过10M)" wid="getwid()"/>
+					<!--<span class="worksExplain worksExplainFloat">（PGB模式，支持JPG/GIF/PNG格式，单张大小&lt;10M，支持批量上传，上传第一张图将作品首页展示的封面）</span>-->
+					<webuploader name="file" url="{:U('release/ajax_upload_file')}" word="或将压缩包拖到这里，单次最多可选100张(不超过10M)" />
+					<div class="worksUploadFile UploadFLASH">上传FLASH
+					<input type="file" name="flash" value="上传FLASH">
 				</div>
-				<span class="worksExplain worksExplainFloat">（PGB模式，支持JPG/GIF/PNG格式，单张大小&lt;10M，支持批量上传，上传第一张图将作品首页展示的封面）</span>
 			</div>
-			<div class="worksInfo">
+			<!--<div class="worksInfo">
 				<div class="worksUploadFile UploadFLASH">上传FLASH
 					<input type="file" name="flash" value="上传FLASH">
 				</div>
 				<div class="worksUploadFile">上传压缩包
-					<input type="file" name="compress[]" multiple="multiple" value="上传压缩包" required>
+					<webuploader name="file" url="{:U('release/ajax_upload_file')}" word="或将文件拖到这里，单次最多可选300张(不超过10M)" />
 				</div>
 				<span class="worksExplain worksExplainFloat">（文件大小超过10M请打包压缩后再上传）</span>
-			</div>
+			</div>-->
 			<div class="worksInfo">
 				<span class="worksAcc">作品授权 :</span>
 				<span class="worksExplain">严禁匿名转载：严禁违法私用。</span>
@@ -63,6 +70,11 @@
 		</form>
 		<!-- 表单从作品名称到确定发布结束 -->
 	</section>
+<script>
+	function getwid(wid){
+		return wid;
+	}
+</script>
 </body>
 </html>
 <include file="Public/footer" />

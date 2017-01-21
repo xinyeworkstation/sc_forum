@@ -104,7 +104,7 @@ function p($data){
  * 上传文件类型控制 此方法仅限ajax上传使用
  * @param  string   $path    字符串 保存文件路径示例： /Upload/image/
  * @param  string   $format  文件格式限制
- * @param  integer  $maxSize 允许的上传文件最大值 52428800
+ * @param  integer  $maxSize 允许的上传文件最大值 10485760
  * @return booler   返回ajax的json格式数据
  */
 function ajax_upload($path='file',$format='empty',$maxSize='10485760'){
@@ -124,7 +124,7 @@ function ajax_upload($path='file',$format='empty',$maxSize='10485760'){
     if(!empty($_FILES)){
         // 上传文件配置
         $config=array(
-                'maxSize'   =>  $maxSize,               // 上传文件最大为50M
+                'maxSize'   =>  $maxSize,               // 上传文件最大为10M
                 'rootPath'  =>  './Public',                   // 文件上传保存的根路径
                 'savePath'  =>  './'.$path.'/',         // 文件上传的保存路径（相对于根路径）
                 'saveName'  =>  array('uniqid',''),     // 上传文件的保存规则，支持数组和字符串方式定义

@@ -16,6 +16,8 @@ class ReleaseController extends Controller{
 	}
 
 	function release(){
+		 p($_POST);die;
+
 		if(empty($_FILES['picname']['name']) || empty($_FILES['compress']['name'])){
 					$this->error('请选择要上传的作品!');
 				}
@@ -144,4 +146,23 @@ class ReleaseController extends Controller{
 		}
 
 	}
+
+
+	 /**
+     * webuploader 上传文件
+     */
+    public function ajax_upload_img(){
+        // 根据自己的业务调整上传路径、允许的格式、文件大小
+        ajax_upload('Uploads/work/img/');
+    }
+ 	
+ 	 /**
+     * webuploader 上传文件
+     */
+    public function ajax_upload_file(){
+        // 根据自己的业务调整上传路径、允许的格式、文件大小
+        ajax_upload('Uploads/work/compress/');
+    }
+
+
 }
