@@ -36,16 +36,16 @@
 			<!-- 充值至发布作品开始 -->
 				<div class="headerPersonalDetails">
 					<ul>
-						<li><span class="icon">充</span><a href="{:U('recharge/index')}">充值</a><span class="rechageNumber">1</span></li>
-						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}">收藏</a></li>
-						<li ><span class="icon">发</span><a href="{:U('person/production')}">发布作品</a></li>
+						<li><span class="icon">充</span><a href="{:U('recharge/index')}" onclick="del();return false">充值</a><span class="rechageNumber">1</span></li>
+						<li><img src="__PUBLIC__/images/staricon.jpg"><a href="{:U('person/collection')}" onclick="del();return false">收藏</a></li>
+						<li ><span class="icon">发</span><a href="{:U('person/production')}" onclick="del();return false" >发布作品</a></li>
 					</ul>
 				</div>
 				<!-- 充值至发布作品结束 -->
 				<if condition="$_SESSOIN['headimg'] neq null">
 				<div class="headerPersonal">
 					<div >
-						<a href="#"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
+						<a href="#" onclick="del();return false"><img src="/{$_SESSOIN['headimg']}" alt="头像"></a>
 						<if condition="$_SESSOIN['user_level'] eq 3">
 						<img class="vipImg" src="__PUBLIC__/Images/VIP.gif">
 						<else />
@@ -57,7 +57,7 @@
 				<else />
 				<div class="headerPersonal">
 					<div>
-						<a href="#" id="loginstart"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
+						<a href="#" id="loginstart" onclick="del();return false"><img src="__PUBLIC__/Images/headpic.gif" alt="头像"></a>
 						<img class="vipImg" src="__PUBLIC__/Images/personal-sevenicon.jpg">
 					</div>
 					<span>游客</span>
@@ -70,12 +70,12 @@
 	<!-- 头部导航栏开始 --> 
 	<nav class="headerNav">
 		<ul>
-			<li><a href="{:U('index/index')}">平台首页</a></li>
+			<li><a href="{:U('index/index')}" >平台首页</a></li>
 			<li><a href="{:U('index/index_model')}">知了官网</a></li>
 			<li><a href="{:U('Release/index')}">发布素材</a></li>
 			<li><a href="{:U('custom/index')}">知了服务</a></li>
-			<li><a href="{:U('person/index')}">个人中心</a></li>
-			<li><a href="{:U('recharge/index')}">充值中心</a></li>
+			<li><a href="{:U('person/index')}" onclick="del();return false">个人中心</a></li>
+			<li><a href="{:U('recharge/index')}" onclick="del();return false">充值中心</a></li>
 		</ul>
 	</nav>
 	<!-- 头部导航栏结束 -->
@@ -141,7 +141,7 @@
 							<input type="text" name="Code" placeholder="验证码" id="Code">
 						</div>
 						<div class="Codepic">
-								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
+								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('index.php/login/verify')}" alt="点击刷新"/></a>
 							</div>
 
 						<!--<span class="star"> </span>-->
@@ -159,5 +159,82 @@
 			x
 		</div>
 	</div>
+	<script>
+		$(function(){
+			$(".verify").click(function(){
+				var src = '/sc_forum/index.php/login/verify';
+				var random = Math.floor(Math.random()*(1000+1));
+				$(this).attr("src",src+"/random="+random);
+
+			});
+		})
+
+			function del(){
+				$.ajax({
+					type:'POST',
+					//url:$("#sub").attr('link'),
+					url:'/sc_forum/index.php/Login/_initialize',
+					success:function(response,status,xhr){
+						if(response.info=='YES') {
+							alert('你是成功登陆的！');
+						}else{
+							showpage();
+
+						}
+
+
+
+					}
+				});
+			}
+
+		function showpage(){
+			$('body').append("<div id='mask'></div>");
+			$('#mask').addClass('mask').fadeIn('slow');
+			$('#dialog').fadeIn('slow');
+			center('dialog');
+		}
+	/*	if (!$_SESSOIN['headimg']) {
+		 $(window).click();
+		 }
+		 $(window).click=showpage();*/
+
+
+
+
+		$('.BuyClose').on('click',function(){
+			$('#dialog').fadeOut("fast");
+			$('#mask').css({display:'none'});
+		})
+
+
+
+
+		function center(id){
+			var h=$(window).height();
+			var w=$(window).width();
+			var fh=$('#'+id).height();
+			var fw=$('#'+id).width();
+			$('#'+id).css({
+				'top':(h-fh)/2,
+				'left':(w-fw)/2
+			});
+		}
+		$(window).resize(function(){
+			center('dialog');
+			function center(id){
+				h=$(window).height();
+				w=$(window).width();
+				fh=$('#'+id).height();
+				fw=$('#'+id).width();
+				$('#'+id).css({
+					'top':(h-fh)/2,
+					'left':(w-fw)/2
+				});
+			}
+		});
+
+
+	</script>
 
 

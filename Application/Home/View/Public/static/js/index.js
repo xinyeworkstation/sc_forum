@@ -147,12 +147,12 @@ var ok8=false;
 		 			async:false,
 		 			cache:true,
 					type:'POST',
-					url:'/sc_forum/login/register',
+					url:'/sc_forum/index.php/login/register',
 					dataType:'json',
 					data:$('#form1').serialize(),
 					success:function(response,data,status){
 						if(response.info=='YES'){
-							window.location.href ='/sc_forum/Person/PersonMessage'
+							window.location.href ='/sc_forum/index.php/Person/PersonMessage'
 						}else{
 							$('#star').html(response.info);
 						}
@@ -174,12 +174,12 @@ var ok8=false;
 					async:false,
 		 			cache:true,
 					type:'POST',
-					url:'/sc_forum/Login/login',
+					url:'/sc_forum/index.php/Login/login',
 					dataType:'json',
 					data:$('#form2').serialize(),
 					success:function(response,data,status){
 						if(response.info=='YES'){
-							window.location.href ='/index.php/Person/PersonMessage'
+							window.location.href ='/sc_forum/index.php/Person/PersonMessage'
 						}else{
 							$('#star1').html(response.info);
 						}
@@ -218,19 +218,44 @@ var ok8=false;
 		}
 	});
 
+
+
+
 // 登录注册弹窗
+
+	/*$(window).click(function(){
+		$.ajax({
+			type:'POST',
+			//url:$("#sub").attr('link'),
+			url:'/sc_forum/index.php/Login/_initialize',
+			success:function(response,status,xhr){
+				if(response.info=='YES') {
+					alert('你是成功登陆的！');
+				}else{
+					showpage();
+
+				}
+
+
+
+			}
+		});
+	})
+
+
 function showpage(){
 	$('body').append("<div id='mask'></div>");
 			$('#mask').addClass('mask').fadeIn('slow');
 			$('#dialog').fadeIn('slow');
 			center('dialog');
 }
+	if (!$_SESSOIN['headimg']) {
+		$(window).click();
+	}
 $(window).click=showpage();
 
-if (true) {
-	$(window).click();
-}
-	
+
+
 
 $('.BuyClose').on('click',function(){
 			$('#dialog').fadeOut("fast");
@@ -238,7 +263,7 @@ $('.BuyClose').on('click',function(){
 		})
 
 
-	
+
 
 function center(id){
 			var h=$(window).height();
@@ -263,7 +288,7 @@ function center(id){
 			});
 		}
 		});
-
+	*/
 
 });
 

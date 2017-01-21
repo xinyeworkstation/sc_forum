@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/index.css"></link>
+	<script type="text/javascript" src="__STATIC__/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/js/index.js"></script>
+</head>
+<body>
+<section id="main">
+	<div id="dialog">
+		<div class="login">
+			<div class="loginTab">
+				<ul>
+					<li class="tab-item "><a href="#" class="selected">注册</a></li>
+					<li><a href="#">登录</a></li>
+				</ul>
+			</div>
+
+			<!-- 注册 -->
+			<div class="loginForm1 TabForm" >
+				<form action="{:U('login/register')}" method="post" accept-charset="utf-8" id="form1">
+					<div class="name">
+						<input type="text" name="name" placeholder="用户名" id="user1">
+							<span class="star" id="star"> </span>
+					</div>
+					<div class="password">
+						<input type="text" name="password" placeholder="密码" id="pass">
+						<span class="star"> </span>
+					</div>
+					<div class="msgpassword">
+						<input type="text" name="msgpassword" placeholder="确认密码" id="msgpass">
+						<span class="star"> </span>
+					</div>
+					<div class="email">
+						<input type="text" name="email" placeholder="邮箱" id="email">
+						<span class="star"> </span>
+					</div>
+					<div class="QQ">
+						<input type="text" name="QQ" placeholder="QQ" id="QQ">
+						<span class="star"> </span>
+					</div>
+					
+					<div class="Invitation">
+						<input type="text" name="Invitation" placeholder="邀请码" id="Invitation">
+						<div class="InvitationBuy" >
+							<a href="#" title="">购买邀请码</a>
+						</div>
+					</div>
+					
+					<div class="Button">
+						<input type="submit" name="" value="注册" class="ButtonWrapper" id="Button1">
+					</div>
+				</form>
+			</div>
+
+			<!-- 登录 -->
+			<div class="loginForm2 TabForm" style="display: none;">
+				<form action="" method="" accept-charset="utf-8" id="form2">
+					<div class="name loginName">
+							<input type="text" name="name" placeholder="用户名" id="user2">
+							<span class="star" id="star1"> </span>
+					</div>
+					<div class="password loginPass">
+							<input type="text" name="password" placeholder="密码" id="pass2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+						<div class="Code-input">
+							<input type="text" name="Code" placeholder="验证码" id="Code">
+						</div>
+						<div class="Codepic">
+								<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"/></a>
+							</div>
+
+						<!--<span class="star"> </span>-->
+					</div>
+					<div class="Button1">
+						<input type="submit" name="" value="登录" class="ButtonWrapper1" id="Button2">
+					</div>
+					<div class="unable-login">
+						<a href="{:U('login/index')}" title="">忘记密码?点此找回</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- 找回密码 -->
+	<div class="FindPass">
+		<div class="FindPassDialog">
+			<form action="" method="" accept-charset="utf-8" id="form3">
+				<div class="text-center">
+					<a href="#" title="">通过邮箱找回密码</a>
+				</div>
+				<div class="reset-box">
+					<div class="email">
+							<input type="text" name="email" placeholder="邮箱" id="email2">
+							<span class="star"> </span>
+					</div>
+					<div class="Code loginCode">
+								<input type="text" name="Code" placeholder="验证码" id="Code">
+								<div class="Codepic">
+									<a href="javascript:void(0)" title=""><img class="verify" src="{:U('login/verify')}" alt="点击刷新"></a>
+								</div>
+					</div>
+					<span class="star" id="star2"></span>
+					<div class="Button2">
+							<input type="submit" name="" value="找回密码" class="ButtonWrapper2" id="Button3">
+					</div>
+					<div class="unable-login">
+							<a href="#" title="">转到登录页面吗?</a>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</section>
+
+<script>
+	$(function(){
+		$(".verify").click(function(){
+			var src = __APP__'/login/verify';
+			var random = Math.floor(Math.random()*(1000+1));
+			$(this).attr("src",src+"/random="+random);
+
+		});
+	})
+</script>
+</body>
+</html>
