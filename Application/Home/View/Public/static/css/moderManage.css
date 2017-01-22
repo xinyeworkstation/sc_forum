@@ -133,6 +133,15 @@ ul {
 .moderHandle ul li:nth-child(3) a{
 	background: url(../../../../../../Public/Images/block.jpg) no-repeat 2px 0px;
 }
+.moderHandle ul li:nth-child(1) a:hover{
+	background: url(../../../../../../Public/Images/heart-charge.jpg) no-repeat 0 3px;
+}
+.moderHandle ul li:nth-child(2) a:hover{
+	background: url(../../../../../../Public/Images/delete-charge.jpg) no-repeat 2px 2px;
+}
+.moderHandle ul li:nth-child(3) a:hover{
+	background: url(../../../../../../Public/Images/block-charge.jpg) no-repeat 2px 0px;
+}
 /*右边内容区-作品管理结束*/
 /*右边内容区-评论管理开始*/
 .moderManageComment li {
@@ -191,5 +200,14 @@ ul {
 }
 .moderManageHandle ul li:nth-child(3) a{
 	background: url(../../../../../../Public/Images/block.jpg) no-repeat 2px 0px;
+}
+.moderManageHandle ul li:nth-child(1) a:hover{
+	background: url(../../../../../../Public/Images/heart-charge.jpg) no-repeat 0 3px;
+}
+.moderManageHandle ul li:nth-child(2) a:hover{
+	background: url(../../../../../../Public/Images/delete-charge.jpg) no-repeat 2px 2px;
+}
+.moderManageHandle ul li:nth-child(3) a:hover{
+	background: url(../../../../../../Public/Images/block-charge.jpg) no-repeat 2px 0px;
 }
 /*右边内容区-评论管理结束*/
