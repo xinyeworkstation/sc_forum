@@ -1,0 +1,80 @@
+<include file="Public/header" title="发布素材" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发布素材</title>
+	<link rel="stylesheet" href="__STATIC__/css/Release-material.css">
+	<webuploadercss />
+	<webuploaderjs />
+</head>
+<body>
+	<header class="releaseMaterial">
+		<h2>PUBLISHED MATERIAL</h2>
+	</header>
+	<section class="mainRelease">
+		<figure class="mainReleaseFigure">
+			<img src="/{$_SESSION['headimg']}" alt="头像">
+			<figcaption>{$_SESSOIN['user_name']},您好!请输入您拥有该作品的版权，严禁盗用他人作品哦。</figcaption>
+		</figure>
+		<!-- 表单从作品名称到确定发布开始 -->
+		<form method="post" action="{:U('release/release')}" class="mainReleaseForm" enctype="multipart/form-data">
+			<div class="worksInfo">
+				<span class="worksName">作品名称 :</span>
+				<input class="worksNameInput" maxlength="50" type="text" placeholder="50字以内" name="workname" required>
+			</div>
+			<div class="worksInfo">
+				<span class="worksIntro">作品简介 :</span>
+				<textarea class="worksIntroInput" name="intro" placeholder="简要的作品说明，如设计思路、创作背景、作品特色等等，500字以内。" maxlength="500" required></textarea> 
+			</div>
+			<div class="worksInfo">
+				<span class="worksClassify">作品分类 :</span>
+				<select class="worksClassifyInput" name="cate_id" onchange="getwid(this.value)">
+					<foreach name="cate" item="v">
+					<option value="{$v.id}">{$v.catename}</option>
+					</foreach>
+				</select>
+			</div>
+			<div class="worksInfo">
+				<span class="worksPrice">售卖价格 :</span>
+				<input class="worksPriceInput" min="0" step="1" type="number" name="price" required pattern="^[0123456789]">
+				<span class="worksExplain">（1元=100金币，价格按金币计算）</span>
+			</div>
+			<div class="worksInfo">
+				<span class="worksUpload">上传素材 :</span>
+				<!--<div class="worksUploadFile">上传图片
+					<input name="picname[]" multiple="multiple" type="file" value="上传图片"
+					 required>
+				</div>-->
+   					<webuploader name="image" url="{:U('release/ajax_upload_img')}" word="或将照片拖到这里，单次最多可选100张(不超过10M)" wid="getwid()"/>
+					<!--<span class="worksExplain worksExplainFloat">（PGB模式，支持JPG/GIF/PNG格式，单张大小&lt;10M，支持批量上传，上传第一张图将作品首页展示的封面）</span>-->
+					<webuploader name="file" url="{:U('release/ajax_upload_file')}" word="或将压缩包拖到这里，单次最多可选100张(不超过10M)" />
+					<div class="worksUploadFile UploadFLASH">上传FLASH
+					<input type="file" name="flash" value="上传FLASH">
+				</div>
+			</div>
+			<!--<div class="worksInfo">
+				<div class="worksUploadFile UploadFLASH">上传FLASH
+					<input type="file" name="flash" value="上传FLASH">
+				</div>
+				<div class="worksUploadFile">上传压缩包
+					<webuploader name="file" url="{:U('release/ajax_upload_file')}" word="或将文件拖到这里，单次最多可选300张(不超过10M)" />
+				</div>
+				<span class="worksExplain worksExplainFloat">（文件大小超过10M请打包压缩后再上传）</span>
+			</div>-->
+			<div class="worksInfo">
+				<span class="worksAcc">作品授权 :</span>
+				<span class="worksExplain">严禁匿名转载：严禁违法私用。</span>
+			</div>
+			<input class="worksButton" type="submit" value="确定发布">
+		</form>
+		<!-- 表单从作品名称到确定发布结束 -->
+	</section>
+<script>
+	function getwid(wid){
+		return wid;
+	}
+</script>
+</body>
+</html>
+<include file="Public/footer" />

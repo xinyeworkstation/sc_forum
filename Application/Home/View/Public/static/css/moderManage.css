@@ -1,0 +1,213 @@
+@charset "utf-8"
+* {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style-type: none;
+}
+/*新增的侧边栏开始*/
+.sidebarColumnChangeHeight {
+	height: 200px;
+	border-bottom: 2px solid #d6d6d6;
+}
+.sidebarColumnFour {
+	height: 190px;
+	width: 100%;
+	padding: 34px 0 0 0;
+}
+.sidebarColumnFourFirstA {
+	background: url(../../../../../../Public/Images/personal-fiveicon.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnFourSecA {
+	background: url(../../../../../../Public/Images/personal-elevenicon.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnFourSecA:hover {
+	background: url(../../../../../../Public/Images/personal-elevencharge.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnFourFirstActive {
+	background: #ffffff url(../../../../../../Public/Images/personal-fivecharge.jpg) no-repeat 70px 8px;
+}
+.sidebarColumnFourSecActive {
+	background: #ffffff url(../../../../../../Public/Images/personal-elevencharge.jpg) no-repeat 70px 8px;
+}
+/*新增的侧边栏结束*/
+/*右边内容区-作品管理开始*/
+.moderManageMain {
+	margin: 16px 0 10px 40px;
+	width: 900px;
+	float: left;
+}
+.moderManageMain li {
+	float: left;
+	width: 280px;
+	font-size: 16px;
+	font-family: 微软雅黑;
+	text-align: center;
+}
+.moderManageCenter {
+	width: 940px;
+	float: left;
+	height: 800px;
+	overflow: auto;
+}
+.moderManageDetails {
+	width: 860px;
+	margin: 0 auto;
+	border-top: 1px solid #a8a8a8;
+	height: auto;
+	overflow: hidden;
+	font-family: 微软雅黑;
+}
+.moderManagePicture {
+	float: left;
+	position: relative;
+	margin: 20px 90px 20px 66px;
+}
+.moderManagePicture img {
+	width: 125px;
+	height: 149px;
+}
+.moderManagePicture a {
+	position: absolute;
+	top: 120px;
+	left: 0;
+	width: 125px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
+	color: #f0f0f0;
+	background-color: #000000;
+}
+.picInfo {
+	float: left;
+	width: 300px;
+	margin: 20px 0;
+	font-size: 15px;
+	overflow: hidden;
+}
+.picInfo ul {
+	overflow: hidden;
+}
+.picInfo li {
+	overflow: hidden;
+}
+.picInfoTitle {
+	float: left;
+}
+.picInfoAbs {
+	width: 224px;
+	display: block;
+	float: right;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.moderHandle {
+	float: left;
+	width: 100px;
+	font-size: 16px;
+	margin: 20px 0 0 80px;
+}
+.moderHandle ul {
+	overflow: hidden;
+}
+.moderHandle ul li {
+	height: 40px;
+}
+.moderHandle ul li a {
+	overflow: hidden;
+	float: left;
+	color: #000000;
+	padding: 0 0 0 28px;
+}
+.moderHandle ul li a:hover {
+	color: #ff6633;
+}
+.moderHandle ul li:nth-child(1) a{
+	background: url(../../../../../../Public/Images/heart.jpg) no-repeat 0 3px;
+}
+.moderHandle ul li:nth-child(2) a{
+	background: url(../../../../../../Public/Images/delete.jpg) no-repeat 2px 2px;
+}
+.moderHandle ul li:nth-child(3) a{
+	background: url(../../../../../../Public/Images/block.jpg) no-repeat 2px 0px;
+}
+.moderHandle ul li:nth-child(1) a:hover{
+	background: url(../../../../../../Public/Images/heart-charge.jpg) no-repeat 0 3px;
+}
+.moderHandle ul li:nth-child(2) a:hover{
+	background: url(../../../../../../Public/Images/delete-charge.jpg) no-repeat 2px 2px;
+}
+.moderHandle ul li:nth-child(3) a:hover{
+	background: url(../../../../../../Public/Images/block-charge.jpg) no-repeat 2px 0px;
+}
+/*右边内容区-作品管理结束*/
+/*右边内容区-评论管理开始*/
+.moderManageComment li {
+	width: 370px;
+	text-align: left;
+	margin: 0 0 0 140px;
+}
+.moderManageComment li:last-child {
+	width: 120px;
+}
+.moderComment {
+	float: left;
+	margin: 20px 80px 20px 50px;
+}
+.moderCommentIP {
+	padding: 0 0 0 16px;
+	display: inline-block;
+}
+.moderComment li {
+	overflow: hidden;
+}
+.moderComment li span {
+	color: #009900;
+}
+.comment {
+	float: left;
+}
+.commentDetails {
+	float: left;
+	width: 340px;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.moderManageHandle {
+	width: 340px;
+	float: left;
+	margin: 40px 0 0 0;
+}
+.moderManageHandle li {
+	float: left;
+	overflow: hidden;
+	width: 110px;
+}
+.moderManageHandle li a {
+	color: #000000;
+	padding: 0 0 0 24px;
+}
+.moderManageHandle li a:hover {
+	color: #ff6633;
+}
+.moderManageHandle ul li:nth-child(1) a{
+	background: url(../../../../../../Public/Images/heart.jpg) no-repeat 0 3px;
+}
+.moderManageHandle ul li:nth-child(2) a{
+	background: url(../../../../../../Public/Images/delete.jpg) no-repeat 2px 2px;
+}
+.moderManageHandle ul li:nth-child(3) a{
+	background: url(../../../../../../Public/Images/block.jpg) no-repeat 2px 0px;
+}
+.moderManageHandle ul li:nth-child(1) a:hover{
+	background: url(../../../../../../Public/Images/heart-charge.jpg) no-repeat 0 3px;
+}
+.moderManageHandle ul li:nth-child(2) a:hover{
+	background: url(../../../../../../Public/Images/delete-charge.jpg) no-repeat 2px 2px;
+}
+.moderManageHandle ul li:nth-child(3) a:hover{
+	background: url(../../../../../../Public/Images/block-charge.jpg) no-repeat 2px 0px;
+}
+/*右边内容区-评论管理结束*/

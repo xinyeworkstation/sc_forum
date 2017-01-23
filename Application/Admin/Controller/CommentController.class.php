@@ -31,7 +31,7 @@ class CommentController extends BaseController{
             ->field('c.id,u.username,c.content,c.time,c.status,c.parent_id,w.workname,ca.catename')
             ->join('user u on c.user_id=u.id')
             ->join('work w on c.work_id=w.id')
-            ->join('category ca on c.cate1_id=ca.id')
+            ->join('category ca on c.cate_id=ca.id')
             ->select();
         //var_dump($model);
         for($i = 0; $i < $count; $i++ ){
@@ -62,14 +62,14 @@ class CommentController extends BaseController{
        	$update['status']='0';
         $ban=$model->where($wh)->save($update);
         $count=count($arr);
-
+        //写到删除表中
         for($i=0;$i<$count;$i++){
             $whe['table']='comment';
             $whe['t_id']=$arr[$i];
             $whe['time']=time()+7*24*60*60; 
             $ban2=$del->add($whe);
         }
-        if($ban){
+        if($ban && $ban2){
             $this->success('禁用成功');
         }else{
             $this->error("禁用失败");
@@ -106,7 +106,7 @@ class CommentController extends BaseController{
 	    $whe['t_id']=array('in',$arr);
 	    $whe['table']='comment';
 	    $allow=$del->where($whe)->delete();
-	    if($pass){
+	    if($pass && $allow){
 	        $this->success('启用成功');
 	    }else{
 	        $this->error("启用失败");
@@ -123,9 +123,7 @@ class CommentController extends BaseController{
         $arr[]=$comment1['id'];//将当前评论的id给arr数组
         $res=$this->getComment($comment1['id']);
         $arr=$this->getCommentId($res,$arr);//得到所有评论的id
-        var_dump($arr);
-
-        $count=count($arr);
+        //var_dump($arr);
         $wh['id'] = array('in',$arr);
         $del=$model->where($wh)->delete();
         if($del){

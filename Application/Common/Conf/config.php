@@ -5,6 +5,7 @@ return array(
 	//我们用了入口版定 所以下面这行可以注释掉
 	//'DEFAULT_MODULE'    =>    'Home',  // 默认模块	
 	//'SHOW_PAGE_TRACE'   =>  true, 
+	'TAGLIB_BUILD_IN'        => 'Cx,Common\Tag\My',//加载自定义标签
 	'LOAD_EXT_CONFIG'   => 'db,wechat,oauth', 
 	'URL_CASE_INSENSITIVE'  =>  true,  //url不区分大小写
 	'URL_MODEL'   =>0,

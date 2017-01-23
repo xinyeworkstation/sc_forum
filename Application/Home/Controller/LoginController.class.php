@@ -94,27 +94,69 @@ class LoginController extends Controller
 
     public function email()
     {
-        if ($this->check_verify($_POST['Code'])) {
+        /*if ($this->check_verify($_POST['Code'])) {
             $fail = array(
                 'info' => '验证码错误！'
             );
             $this->ajaxReturn($fail);
-        }
+        }*/
         $email = $_POST['email'];
         //安全验证
         $id = $this->getRandOnlyId();
         //安全验证
         $id = $this->getRandOnlyId();
         //将随机数写入cookie进行安全验证！！
-        cookie('id', $id, 3600);
-        cookie('email', $email, 3600);
-        if (SendMail($_POST['email'], "您好，请点击链接修改密码！", "http://localhost/cnsecer-ThinkAdmin-master/cnsecer-ThinkAdmin-master/shopshop/index.php?m=&c=Login&a=alter&tg_id=$id&email=$email")) {
+        cookie('id',$id,3600);
+        cookie('email',$email,3600);
+        if (SendMail($_POST['email'], "您好，请点击链接修改密码！", "http://localhost/sc_forum/index.php/Login/alter?tg_id=$id&&email=$email")) {
             $success = array(
                 'info' => 'YES'
             );
             $this->ajaxReturn($success);//返回前端，用JS跳转
         }
 
+
+    }
+
+    public function  alter()
+    {
+
+        $value_id = cookie('id');
+        $id = $_GET['tg_id'];
+        $value_email = cookie('email');
+        $email = $_GET['email'];
+        if(!IS_POST){
+
+            if($value_id == $id && $value_email == $email) {
+
+                $this->display();
+            }else{
+                $this->error('非法请求！');
+            }
+        }
+
+
+        if (IS_POST) {
+            $model = M('user');
+            $data['password'] = md5(I('new_password'));
+            $code = I('verify', '', 'strtolower');
+            if (!($this->check_verify($code))) {
+                $this->error('验证码错误');
+            }
+
+            if ($model->where(" email='%s' ",$value_email)->save($data)) {
+                $success = array(
+                    'info' => 'YES'
+                );
+                $this->ajaxReturn($success);//返回前端，用JS跳转
+
+            }else {
+                $error = array(
+                    'info' => 'error'
+                );
+                $this->ajaxReturn($error);//返回前端，用JS跳转
+            }
+        }
 
     }
 
@@ -150,6 +192,18 @@ class LoginController extends Controller
         $all = $rand . $newtime;
         $onlyid = base_convert($all, 10, 8);//把10进制转为36进制的唯一ID
         return $onlyid;
+    }
+
+    public function _initialize(){
+        $uid = session('user_id');
+        //判断用户是否登陆
+        if(!isset($uid) ) {
+            $success = array(
+                'info' => 'YES'
+            );
+            //$this->success('你成功了！');
+            $this->ajaxReturn($success);//返回前端，用JS跳转
+        }
     }
 }
 

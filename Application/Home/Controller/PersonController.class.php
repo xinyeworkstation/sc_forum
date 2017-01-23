@@ -96,21 +96,19 @@ class PersonController extends Controller
                     ->select();
         $count=count($favor);           
         for($i=0;$i<$count;$i++){
+            $favor[$i]['username']=substr($favor[$i]['username'],0,7);
             $favor[$i]['headimg']='/'.$favor[$i]['headimg'];//处理头像
             $img=get_url($favor[$i]['works']);//处理图片
             $favor[$i]['works']='/'.$img[0];
             $arr=$this->compare($favor[$i]['cate_id']);
          }
-         var_dump($arr);
-         $arr2=$this->ww($arr);
-         $this->assign('arr',$arr);  
+         
+        $this->assign('arr',$arr);  
         $this->assign('work',$favor);
         $this->display();
 
     }
-    private function ww($arr2){
-    	var_dump($arr2);
-    }
+    
     private function compare($cate_id){
     	static $arr=array();
     		if(strcmp($cate_id, '1') == 0){
@@ -224,7 +222,6 @@ class PersonController extends Controller
        
         public function production()
         {
-            var_dump($_GET);
             //flag 0禁用 1通过 2待审核 3不通过,要将相应的地方的作品放到相应的地方
             $work = M('work');
             $id = 1;
@@ -269,18 +266,21 @@ class PersonController extends Controller
                 ->select();
             $count1 = count($work1);
             for ($x = 0; $x < $count1; $x++) {
-                $wor1k[$x]['headimg'] = '/' . $work1[$x]['headimg'];//处理头像
+                $work1[$x]['username']=substr($work1[$x]['username'],0,7);
+                $work1[$x]['headimg'] = '/' . $work1[$x]['headimg'];//处理头像
                 $img = get_url($work1[$x]['works']);//处理图片
                 $work1[$x]['works'] = '/' . $img[0];
             }
             $count2 = count($work2);
             for ($y = 0; $y < $count2; $y++) {
+                $work2[$x]['username']=substr($work2[$x]['username'],0,7);
                 $work2[$y]['headimg'] = '/' . $work2[$y]['headimg'];//处理头像
                 $img = get_url($work2[$y]['works']);//处理图片
                 $work2[$y]['works'] = '/' . $img[0];
             }
             $count3 = count($work3);
             for ($z = 0; $z < $count3; $z++) {
+                $work3[$x]['username']=substr($work3[$x]['username'],0,7);
                 $work3[$z]['headimg'] = '/' . $work3[$z]['headimg'];//处理头像
                 $img = get_url($work3[$z]['works']);//处理图片
                 $work3[$z]['works'] = '/' . $img[0];
